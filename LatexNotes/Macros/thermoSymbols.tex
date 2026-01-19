@@ -1,0 +1,198 @@
+% ====================================
+% THERMODYNAMIC STATE VARIABLES
+% ====================================
+
+% Extensive properties
+\newcommand{\Int}{U}           % Internal energy
+\newcommand{\Ent}{S}           % Entropy
+\newcommand{\Vol}{V}           % Volume
+\newcommand{\Enth}{H}          % Enthalpy H = U + PV
+\newcommand{\Helm}{A}          % Helmholtz free energy A = U - TS
+\newcommand{\Gibbs}{G}         % Gibbs free energy G = H - TS
+\newcommand{\GrandPot}{\Omega} % Grand potential
+
+% Intensive properties
+\newcommand{\Temp}{T}          % Temperature
+\newcommand{\Press}{P}         % Pressure
+\newcommand{\ChemPot}{\mu}     % Chemical potential
+\newcommand{\Mass}{m}          % Mass
+\newcommand{\Moles}{n}         % Number of moles
+
+% Specific properties (per unit mass)
+\newcommand{\sint}{u}          % Specific internal energy
+\newcommand{\sent}{s}          % Specific entropy
+\newcommand{\svol}{v}          % Specific volume
+\newcommand{\senth}{h}         % Specific enthalpy
+
+% Heat and work
+\newcommand{\Heat}{Q}          % Heat transfer
+\newcommand{\Work}{W}          % Work
+\newcommand{\dQ}{\delta Q}     % Inexact differential of heat
+\newcommand{\dW}{\delta W}     % Inexact differential of work
+
+% Thermodynamic processes
+\newcommand{\iso}{\text{iso}}
+\newcommand{\rev}{\text{rev}}
+\newcommand{\irrev}{\text{irrev}}
+
+% ====================================
+% MATHEMATICAL OPERATORS
+% ====================================
+
+\DeclareMathOperator{\grad}{grad}
+\DeclareMathOperator{\dive}{div}
+\DeclareMathOperator{\curl}{curl}
+\DeclareMathOperator{\Span}{span}
+\DeclareMathOperator{\rank}{rank}
+\DeclareMathOperator{\trace}{tr}
+\DeclareMathOperator{\sgn}{sgn}
+\DeclareMathOperator{\diam}{diam}
+
+% Partial derivatives
+\newcommand{\pder}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\pdertwo}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\pdermix}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+
+% Thermodynamic partial derivatives
+\newcommand{\pderT}[3]{\left(\frac{\partial #1}{\partial #2}\right)_{#3}}
+
+% Total derivatives
+\newcommand{\dder}[2]{\frac{d #1}{d #2}}
+\newcommand{\ddertwo}[2]{\frac{d^2 #1}{d #2^2}}
+
+% Differential operators
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\dif}{\mathrm{d}}
+
+% ====================================
+% VECTOR AND MATRIX NOTATION
+% ====================================
+
+% Bold vectors
+\newcommand{\bfv}[1]{\boldsymbol{#1}}
+\newcommand{\bfx}{\boldsymbol{x}}
+\newcommand{\bfy}{\boldsymbol{y}}
+\newcommand{\bfz}{\boldsymbol{z}}
+\newcommand{\bfu}{\boldsymbol{u}}
+\newcommand{\bfv}{\boldsymbol{v}}
+\newcommand{\bfw}{\boldsymbol{w}}
+\newcommand{\bff}{\boldsymbol{f}}
+\newcommand{\bfg}{\boldsymbol{g}}
+\newcommand{\bfF}{\boldsymbol{F}}
+\newcommand{\bfn}{\boldsymbol{n}}
+\newcommand{\bfe}{\boldsymbol{e}}
+\newcommand{\bfzero}{\boldsymbol{0}}
+
+% Matrix spaces
+\newcommand{\Rn}{\mathbb{R}^n}
+\newcommand{\Rm}{\mathbb{R}^m}
+\newcommand{\Rmn}{\mathbb{R}^{m \times n}}
+
+% ====================================
+% SETS AND SPACES
+% ====================================
+
+\newcommand{\R}{\mathbb{R}}    % Real numbers
+\newcommand{\C}{\mathbb{C}}    % Complex numbers
+\newcommand{\N}{\mathbb{N}}    % Natural numbers
+\newcommand{\Z}{\mathbb{Z}}    % Integers
+\newcommand{\Q}{\mathbb{Q}}    % Rationals
+
+% Function spaces
+\newcommand{\Lp}[1]{L^{#1}}
+\newcommand{\Hone}{H^1}
+\newcommand{\Ck}[1]{C^{#1}}
+
+% ====================================
+% SPECIAL SYMBOLS
+% ====================================
+
+% Indicator/characteristic function
+\newcommand{\ind}{\mathbbm{1}}
+
+% Inner product
+\newcommand{\inner}[2]{\langle #1, #2 \rangle}
+
+% Norm
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\abs}[1]{\left| #1 \right|}
+
+% Set notation
+\newcommand{\set}[1]{\left\{ #1 \right\}}
+\newcommand{\setdef}[2]{\left\{ #1 \,:\, #2 \right\}}
+
+% Ceiling and floor
+\newcommand{\ceil}[1]{\left\lceil #1 \right\rceil}
+\newcommand{\floor}[1]{\left\lfloor #1 \right\rfloor}
+
+% ====================================
+% MATHCAL AND MATHSF LETTERS
+% ====================================
+
+% Calligraphic letters for sets and spaces
+\newcommand{\calA}{\mathcal{A}}
+\newcommand{\calB}{\mathcal{B}}
+\newcommand{\calC}{\mathcal{C}}
+\newcommand{\calD}{\mathcal{D}}
+\newcommand{\calE}{\mathcal{E}}
+\newcommand{\calF}{\mathcal{F}}
+\newcommand{\calG}{\mathcal{G}}
+\newcommand{\calH}{\mathcal{H}}
+\newcommand{\calI}{\mathcal{I}}
+\newcommand{\calJ}{\mathcal{J}}
+\newcommand{\calK}{\mathcal{K}}
+\newcommand{\calL}{\mathcal{L}}
+\newcommand{\calM}{\mathcal{M}}
+\newcommand{\calN}{\mathcal{N}}
+\newcommand{\calO}{\mathcal{O}}
+\newcommand{\calP}{\mathcal{P}}
+\newcommand{\calQ}{\mathcal{Q}}
+\newcommand{\calR}{\mathcal{R}}
+\newcommand{\calS}{\mathcal{S}}
+\newcommand{\calT}{\mathcal{T}}
+\newcommand{\calU}{\mathcal{U}}
+\newcommand{\calV}{\mathcal{V}}
+\newcommand{\calW}{\mathcal{W}}
+\newcommand{\calX}{\mathcal{X}}
+\newcommand{\calY}{\mathcal{Y}}
+\newcommand{\calZ}{\mathcal{Z}}
+
+% Sans-serif letters for matrices and operators
+\newcommand{\msfA}{\mathsf{A}}
+\newcommand{\msfB}{\mathsf{B}}
+\newcommand{\msfC}{\mathsf{C}}
+\newcommand{\msfD}{\mathsf{D}}
+\newcommand{\msfE}{\mathsf{E}}
+\newcommand{\msfF}{\mathsf{F}}
+\newcommand{\msfG}{\mathsf{G}}
+\newcommand{\msfH}{\mathsf{H}}
+\newcommand{\msfI}{\mathsf{I}}
+\newcommand{\msfJ}{\mathsf{J}}
+\newcommand{\msfK}{\mathsf{K}}
+\newcommand{\msfL}{\mathsf{L}}
+\newcommand{\msfM}{\mathsf{M}}
+\newcommand{\msfN}{\mathsf{N}}
+\newcommand{\msfO}{\mathsf{O}}
+\newcommand{\msfP}{\mathsf{P}}
+\newcommand{\msfQ}{\mathsf{Q}}
+\newcommand{\msfR}{\mathsf{R}}
+\newcommand{\msfS}{\mathsf{S}}
+\newcommand{\msfT}{\mathsf{T}}
+\newcommand{\msfU}{\mathsf{U}}
+\newcommand{\msfV}{\mathsf{V}}
+\newcommand{\msfW}{\mathsf{W}}
+\newcommand{\msfX}{\mathsf{X}}
+\newcommand{\msfY}{\mathsf{Y}}
+\newcommand{\msfZ}{\mathsf{Z}}
+
+% ====================================
+% COMMON ABBREVIATIONS
+% ====================================
+
+\newcommand{\ie}{i.e.\ }
+\newcommand{\eg}{e.g.\ }
+\newcommand{\cf}{cf.\ }
+\newcommand{\etc}{etc.\ }
+\newcommand{\vs}{vs.\ }
+\newcommand{\resp}{resp.\ }
+\newcommand{\etal}{et al.\ }

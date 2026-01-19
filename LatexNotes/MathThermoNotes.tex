@@ -1,0 +1,75 @@
+\documentclass[11pt]{book}
+
+\input{./Macros/thermoHead}
+\input{./Macros/thermoSymbols}
+
+\usepackage[T1]{fontenc}
+
+\usepackage[nottoc]{tocbibind}
+\usepackage[totoc]{idxlayout}
+
+\usepackage{makeidx}
+\usepackage[refpage]{nomencl}
+
+\makeindex
+\makenomenclature
+	\renewcommand{\nomname}{Symbols}
+	\renewcommand{\nompreamble}{The next list describes symbols commonly used in thermodynamics and mathematical analysis.}
+
+\newif\iflistings
+	\listingsfalse
+	\listingstrue
+
+\newcommand{\LIST}[1]{\iflistings
+ #1
+\fi}
+\newcommand{\LISTREF}[2]{\iflistings
+ #1
+\else
+ #2
+\fi}
+
+
+\begin{document}
+
+\title{Mathematical Thermodynamics Course Notes:
+	\\
+	Theory and Applications
+}
+
+\author{Course Notes\footnote{Transcribed from handwritten lecture notes}
+}
+
+
+\frontmatter
+\maketitle
+\tableofcontents
+	\listoffigures
+	\listoftables
+	\LIST{
+		\lstlistoflistings
+		\addcontentsline{toc}{chapter}{List of Listings}
+	}
+	\printnomenclature
+	\addcontentsline{toc}{chapter}{List of Symbols}
+
+
+
+\mainmatter
+
+	% Chapters will be included here automatically
+	% Each lecture will be a separate chapter file
+
+	% Lecture 01: Non-Equilibrium Thermodynamics
+	\include{ThermoS26-01}
+
+\backmatter
+	\bibliographystyle{plain}
+	\bibliography{references.bib}
+	\printindex
+	
+	
+	\printnomenclature
+	\addcontentsline{toc}{chapter}{List of Symbols}
+
+\end{document}

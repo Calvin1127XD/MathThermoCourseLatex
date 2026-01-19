@@ -1,0 +1,93 @@
+Math Thermo
+Class 01
+01/20/2026
+
+Non-Equilibrium Thermodynamics
+
+Course Plan:
+1) Equilibrium Thermodynamics
+2) Statistical Mechanics
+3) Kinetic Theory of Gases
+4) Conservation Laws in Continuous Systems
+5) Entropy Production
+6) Onsager's Principle
+7) Applications
+
+Equilibrium Thermodynamics
+
+Def. (1.1): An isolated system is a collection of matter that shares no information with the outside world.
+
+Postulate I: There are particular states, called equilibrium states of an isolated system that, microscopically, are characterized by:
+- U, the internal energy of the system, U > 0,
+- V, the volume of the system, V ≫ 0,
+- N1, ..., Nr, the mole number of the r chemical components of the system, Ni > 0.
+
+[FIGURE: Isolated system with rigid walls]
+
+The rigid walls that isolate the system from the rest of the universe allow no change in volume nor exchange of matter, and no exchange of energy.
+
+Def. (1.2): A composite system is the union of two isolated systems (chemical components) that can exchange volume, matter (chemical components) and/or energy, however no volume, matter, or energy is exchanged with outside.
+
+[FIGURE: Composite system with diathermal wall]
+
+A diathermal wall in a composite system is one which separates two otherwise isolated systems and allows for the exchange of energy, but not matter or volume.
+
+Postulate II: There exists a function S for an isolated system called its entropy, defined for the system at equilibrium and depending on (U, V, N1, ..., Nr), ie.,
+
+S̃ = S̃(U, V, N1, ..., Nr)
+
+The entropy shifts for a composite system and the sum of the entropy functions, S̃α and S̃β, for the respective subsystems, ie.,
+
+S̃ = S̃α + S̃β = S̃α(U^α, V^α, Ñ^α) + S̃β(U^β, V^β, Ñ^β)
+
+The entropy of an isolated system is homogeneous of degree 1, meaning:
+
+S̃(λU, λV, λN1, ... λNr) = λ S̃(U, V, N1, ... Nr)
+
+for any λ > 0.
+
+Postulate III: The entropy of an isolated system is a concave, twice continuously differentiable, positive function over its (convex) domain:
+
+∑_U ⊆ [0, ∞)^r = [0, ∞) × [0, ∞) × [0, ∞) × ... × [0, ∞)
+   (U)   (V)   (N1)    (Nr)
+
+The entropy is a monotonically increasing function of U. In particular:
+
+(∂S̃/∂U)_{V,N1,...,Nr} > 0, ∀(U,V,N) ∈ ∑_U.
+
+Theorem (1.3): Suppose that Postulates I-III hold for an isolated system. Then, there is a function:
+
+Û = Û(S, V, N1, ..., Nr)
+
+and a convex domain of definition:
+
+∑_S ⊆ [0, ∞) = [0, ∞) × [0, ∞) × [0, ∞) × ... × [0, ∞)
+   (S)   (V)   (N1)    (Nr)
+
+that satisfies:
+- Û(S̃(U,V,N), V, N) = U, ∀(U,V,N) ∈ ∑_U
+- S̃(Û(S,V,N), V, N) = S, ∀(S,V,N) ∈ ∑_S
+
+Moreover, Û is a twice continuously differentiable convex function with the property:
+
+(∂Û/∂S)_{V,N1,...,Nr} > 0, ∀(S,V,N) ∈ ∑_S.
+
+Example (1.4): For a unary material (r=1), consider the function:
+
+S̃(U,V,N) = (NVU R^2 / v_0 θ)^(1/3), ∑_V = [0, ∞]^3
+
+With specific formulations for Û and constants:
+- R, v_0, θ > 0 are constants
+- Û(S,V,N) = (S^3 v_0 θ) / (NVR^2)
+- Specific details about ∑_S to be determined
+
+Def. (1.5): Temperature of an equilibrium isolated system is defined as:
+
+T_0(S,V,N1, ..., Nr) ≡ (∂S/∂U)_{V,N1,...,Nr}^{-1}
+
+Postulate IV: Equilibrium of a composite system is a state where subsystems are in equilibrium such that:
+
+S = S^α + S^β
+is at its maximum possible value.
+
+[Continued in subsequent pages with advanced thermodynamic proofs and mathematical derivations]
