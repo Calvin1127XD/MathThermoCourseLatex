@@ -32,6 +32,29 @@ Extract ALL text from `LectureNotes/{FILENAME}.pdf` with these requirements:
 **Task:**
 Convert `output/{FILENAME}-extracted.txt` to LaTeX:
 - Use template structure from `LatexNotes/MathThermoNotes.tex`
+- At the beginning of each .tex file, put this piece of code so that it can be compiled both as a separated .tex document or be included my the main .tex file.
+  \newif\ifthermosubfile
+  \ifdefined\THERMONOTESMAIN
+    \thermosubfilefalse
+  \else
+    \thermosubfiletrue
+  \fi
+
+  \providecommand{\THERMOEND}{} % safe in both modes
+
+  \ifthermosubfile
+    \documentclass[11pt]{book}
+    \input{./Macros/thermoHead}
+    \input{./Macros/thermoSymbols}
+    \graphicspath{{./Figures/}}
+    \begin{document}
+    \renewcommand{\THERMOEND}{\end{document}}
+  \fi
+
+  And at the very end, add this line:
+
+  \THERMOEND
+  
 - Include macros: `\input{../LatexNotes/Macros/thermoHead}` and `thermoSymbols`
 - Use predefined symbols: \Temp, \Press, \Vol, \Int, \Ent, \Enth, \Helm, \Gibbs
 - Set chapter title to the PDF filename (e.g., `\chapter{ThermoS26-02}`)
@@ -60,8 +83,8 @@ Generate TikZ code for ALL visual elements in extracted text:
 - Save to `output/figures/{FILENAME}-fig-1.tex`, `{FILENAME}-fig-2.tex`, etc.
 
 **Output:** 
-- Create all figure files in `output/figures/`
-- Update `LatexNotes/{FILENAME}.tex` with correct `\includegraphics` references pointing to `../output/figures/{FILENAME}-fig-*.pdf`
+- Create all figure files in `LatexNotes/Figures/`
+- Update `LatexNotes/{FILENAME}.tex` with correct `\includegraphics` references pointing to `../output/figures/{FILENAME}-fig-*`
 
 **Execute this step completely before proceeding.**
 

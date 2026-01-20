@@ -525,6 +525,9 @@ OUTPUT ThermoS26-02.out
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr17.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
+INPUT ./Figures/ThermoS26-02-fig-1.pdf
 INPUT ./Figures/ThermoS26-02-fig-1.pdf
 INPUT ./Figures/ThermoS26-02-fig-1.pdf
 INPUT ./Figures/ThermoS26-02-fig-1.pdf
@@ -561,13 +564,13 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrsl10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrsl8.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrsl8.tfm
 INPUT ThermoS26-02.aux
 INPUT ./ThermoS26-02.out
 INPUT ./ThermoS26-02.out
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb

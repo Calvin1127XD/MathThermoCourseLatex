@@ -51,10 +51,9 @@
 		\lstlistoflistings
 		\addcontentsline{toc}{chapter}{List of Listings}
 	}
-	\printnomenclature
 	\addcontentsline{toc}{chapter}{List of Symbols}
 
-
+\providecommand{\THERMOEND}{}
 
 \mainmatter
 
@@ -64,18 +63,17 @@
 \providecommand{\THERMOEND}{}
 	% Lecture 01 - Non-Equilibrium Thermodynamics
 	\input{./ThermoS26-01}
-	% Lecture 02 - Math Thermo
+
+	% Lecture 02 - Fundamental Relations and Path Integrals
 	\input{./ThermoS26-02}
-	% Lecture 03 - ThermoS26-03
+	
+	% Lecture 03 - Heat Flow
 	\input{./ThermoS26-03}
 
 \backmatter
 	\bibliographystyle{plain}
 	\bibliography{references.bib}
 	\printindex
-	
-	
-	\printnomenclature
 	\addcontentsline{toc}{chapter}{List of Symbols}
 
 \end{document}

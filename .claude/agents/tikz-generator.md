@@ -2,7 +2,7 @@
 name: tikz-generator
 description: TikZ specialist for diagrams, plots, and mathematical illustrations
 tools: Read, Write, Bash
-model: sonnet
+model: opus
 ---
 
 Convert hand-drawn visuals to professional TikZ/pgfplots code.
@@ -21,7 +21,6 @@ Use **pgfplots** to recreate function plots accurately:
 ```latex
 \documentclass[tikz,border=10pt]{standalone}
 \usepackage{pgfplots}
-\pgfplotsset{compat=1.18}
 
 \begin{document}
 \begin{tikzpicture}
@@ -54,5 +53,12 @@ Use **pgfplots** to recreate function plots accurately:
 1. Analyze figure structure
 2. Generate standalone TikZ
 3. **Compile standalone first to verify**
-4. Save to `output/figures/`
-5. Integrate into main document
+4. Save to `LatexNotes/Figures/`
+5. Integrate into main document, import the .tex instead of the PDF file. Here is an example:
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.7\textwidth]{Figures/ThermoS26-01-fig-4}
+\caption{Total entropy $\tilde{S}(U^\alpha) = \tilde{S}^\alpha(U^\alpha) + \tilde{S}^\beta(U_o - U^\alpha)$ vs $U^\alpha$. The concave function achieves its maximum at $U_*$.}
+\label{fig:total-entropy}
+\end{figure}
+

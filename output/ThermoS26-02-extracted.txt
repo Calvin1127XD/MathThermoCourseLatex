@@ -1,465 +1,297 @@
 Page 1:
+
 Math Thermo
-Class 02
+class 02
 01/22/2026
 
-[DIAGRAM: coordinate axes with arrows labeled $N$, $V$, and $S$]
+[DIAGRAM: Coordinate system with axes labeled N (vertical), V (horizontal right), and S (downward)]
 
-Example (2.1): Suppose that, for an isolated
-unary fluid
+Example (2.1): Suppose that, for an isolated unary fluid
 
-$$
-\tilde{U} = \left(\frac{v_0\,\theta}{R^2}\right) \frac{\tilde{S}^3}{N V},\quad \Sigma_s \subset [0,\infty)^3.
-$$
+$$\widetilde{U} = \left(\frac{v_0 e}{R^2}\right) \frac{S^3}{NV}, \quad \Sigma_s \subset [0,\infty)^3.$$
 
-A explicit expression of the form $\tilde{U} = \tilde{U}(S,V,N)$ is
-called a fundamental relation.
+A explicit expression of the form $\widetilde{U} = \widetilde{U}(S,V,N)$ is called a fundamental relation.
 
-Here $v_0$, $\theta$ and $R$ are positive constants.
+Here $v_0$, $e$, and $R$ are positive constants.
 
-The units of $U$ and $\tilde{U}$ are
+The units of $U$ and $\widetilde{U}$ are
 
-$$
-[U] = \text{Joules}.
-$$
+$$[U] = \text{Joules}.$$
 
-The units of entropy, $S$ and $\tilde{S}$, are
+The units of entropy, $S$ and $\widetilde{S}$, are
 
-$$
-[S] = \frac{\text{Joules}}{\text{degree Kelvin}} = \frac{J}{K}.
-$$
+$$[S] = \frac{\text{Joules}}{\text{degree Kelvin}} = \frac{J}{K}$$
 
 The units of volume, $V$, are
 
-$$
-[V] = \text{meters}^3.
-$$
+$$[V] = \text{meters}^3$$
 
 The units of $N$ are
 
-$$
-[N] = \text{moles}.
-$$
+$$[N] = \text{moles}$$
 
 Of course, it is easy to see that
 
-$$
-\tilde{S} = \left(\frac{N V U R^2}{v_0\,\theta}\right)^{1/3},\quad \Sigma_U = [0,\infty)^3.
-$$
+$$\widetilde{S} = \left(\frac{NVUR^2}{v_0 e}\right)^{1/3}, \quad \Sigma_U = [0,\infty)^3.$$
 
 Page 2:
+
 An explicit function of the form
 
-$$
-\tilde{S} = \tilde{S}(U,V,N)
-$$
+$$S = \widetilde{S}(U,V,N)$$
 
 is also called a fundamental relation.
 
 In any case, the temperature which has units
 
-$$
-[T] = \text{degrees Kelvin} = K,
-$$
+$$[T] = \text{degrees Kelvin} = K,$$
 
 is
 
-$$
-T_U(S,V,N) = \frac{\partial \tilde{U}}{\partial S} = \frac{3 v_0\,\theta}{R^2} \frac{S^2}{N V}.
-$$
+$$T_U(S,V,N) = \frac{\partial \widetilde{U}}{\partial S} = \frac{3v_0 e}{R^2} \frac{S^2}{NV}$$
 
 This expression is called an equation of state.
 
 Observe that
 
-$$
-T_U(\lambda S,\lambda V,\lambda N) = T_U(S,V,N),
-$$
+$$T_U(\lambda S, \lambda V, \lambda N) = T_U(S,V,N),$$
 
-that is $T_U$ is homogeneous of order $0$.
+that is $T_U$ is homogeneous of order 0.
 
 This property is true of every equation of state.
 
 Now,
 
-$$
-\left(\frac{\partial \tilde{S}}{\partial U}\right)^{-1} = \left[\frac{1}{3} \left(\frac{N V U R^2}{v_0\,\theta}\right)^{-2/3} \frac{N V R^2}{v_0\,\theta}\right]
-$$
+$$\left(\frac{\partial \widetilde{S}}{\partial U}\right)^{-1} = \left[\frac{1}{3}\left(\frac{NVUR^2}{v_0 e}\right)^{-2/3} \frac{NVR^2}{v_0 e}\right]^{-1}$$
 
-$$
-= \frac{3 v_0\,\theta}{N V R^2} \left(\frac{N V U R^2}{v_0\,\theta}\right)^{2/3}
-$$
+$$= \frac{3v_0 e}{NVR^2}\left(\frac{NVUR^2}{v_0 e}\right)^{2/3}$$
 
-$$
-= \frac{3 v_0\,\theta}{N V R^2} \tilde{S}(U,V,N)
-$$
+$$= \frac{3V_0 e}{NVR^2} \widetilde{S}(U,V,N)$$
 
 Page 3:
-$$
-= T_S(U,V,N),
-$$
+
+$$= T_S(U,V,N).$$
 
 Clearly
 
-$$
-T_U(\tilde{S}(U,V,N),V,N) = T_S(U,V,N),
-$$
+$$T_U\left(\widetilde{S}(U,V,N), V, N\right) = T_S(U,V,N),$$
 
 as claimed in Theorem (1.7).
 
 The pressure satisfies the equation of state
 
-$$
-P_S(S,V,N) = - \frac{v_0\,\theta}{R^2} \frac{S^3}{N} \frac{1}{V^2}
-$$
+$$P_U(S,V,N) = -\frac{v_0 e}{R^2} \frac{S^3}{N} \frac{1}{V^2}$$
 
-$$
-= \frac{v_0\,\theta}{R^2} \frac{S^3}{N V^2},
-$$
+$$= \frac{v_0 e}{R^2} \frac{S^3}{NV^2},$$
 
 which is also homogeneous of order zero.
 
 We leave it as an exercise for the reader to show that
 
-$$
-P_S(U,V,N) = P_S(\tilde{S}(U,V,N),V,N).
-$$
+$$P_S(U,V,N) = P_U\left(\widetilde{S}(U,V,N), V, N\right).$$
 
 Finally, the chemical potential is
 
-$$
-\mu_S(S,V,N) = - \frac{v_0\,\theta}{R^2} \frac{S^3}{V N^2},
-$$
+$$\mu_U(S,V,N) = -\frac{v_0 e}{R^2} \frac{S^3}{V N^2},$$
 
 which is clearly homogeneous of degree zero.
 
 The reader can show that
 
-$$
-\mu_S(U,V,N) = \mu_S(\tilde{S}(U,V,N),V,N).
-$$
+$$\mu_S(U,V,N) = \mu_U\left(\widetilde{S}(U,V,N), V, N\right).$$
 
 Page 4:
-Recall we have assumed with the Postulate II
-that $\tilde{S}$ is homogeneous of degree one. We also
-must have the following, as suggested by the example.
 
-Theorem (2.2): $\tilde{U}$ is homogeneous of degree one
-when written as
+Recall, we have assumed with Postulate II that $\widetilde{S}$ is homogeneous of degree one. We also must have the following, as suggested by the example.
 
-$$
-\tilde{U} = \tilde{U}(S,V,\vec{N}).
-$$
+Theorem (2.2): $\widetilde{U}$ is homogeneous of degree one when written as
 
-Further, $T_U(S,V,\vec{N})$, $P_U(S,V,\vec{N})$ and $\mu_{U_i}(S,V,\vec{N})$
-the equations of state, are homogeneous of
-degree zero. I mean:
+$$\widetilde{U} = \widetilde{U}(S,V,\vec{N}).$$
 
-$$
-T_U(\lambda S,\lambda V,\lambda \vec{N}) = T_U(S,V,\vec{N})
-$$
+Further, $T_U(S,V,\vec{N})$, $P_U(S,V,\vec{N})$, and $\mu_{U;i}(S,V,\vec{N})$, the equations of state, are homogeneous of degree zero, meaning
 
-for any $\lambda > 0$, and similarly for $P$ and $\mu_{U_i}$,
-$i=1,\ldots,r$.
+$$T_U(\lambda S, \lambda V, \lambda \vec{N}) = T_U(S,V,\vec{N})$$
 
-Likewise $T_S(U,V,\vec{N})$, $P_S(U,V,\vec{N})$, and $\mu_{S_i}(U,V,\vec{N})$ are
-homogeneous of degree zero.
+for any $\lambda > 0$, and similarly for $P_U$ and $\mu_{U;i}$; $i=1,\ldots,r$.
 
-Proof: Fix $V \in [0,\infty)$ and $\vec{N} \in [0,\infty)^r$. $\tilde{S}$ is
-a monotonically increasing function of $U \in [0,\infty)$.
-For each $S \in [0,\infty)$ there exists a unique $U \in [0,\infty)$
-such that
+Likewise $T_S(U,V,\vec{N})$, $P_S(U,V,\vec{N})$, and $\mu_{S;i}(U,V,\vec{N})$ are homogeneous of degree zero.
 
-$$
-S = \tilde{S}(U,V,\vec{N}),
-$$
+Proof: Fix $V \in [0,\infty)$ and $\vec{N} \in [0,\infty)^r$. $\widetilde{S}$ is a monotonically increasing function of $U \in [0,\infty)$. For each $S \in [0,\infty)$ there exists a unique $U \in [0,\infty)$ such that
 
-(2.1)
+(2.1)     $$S = \widetilde{S}(U,V,\vec{N}),$$
 
-where we assume, for simplicity, that $\Sigma_U = [0,\infty)^{r+2}$.
-Then,
+where we assume, for simplicity, that $\Sigma_U = [0,\infty)^{r+2}$. Then,
 
-$$
-\tilde{U}(S,V,\vec{N}) = \tilde{U}(\tilde{S}(U,V,\vec{N}),V,\vec{N}),\ \forall (S,V,\vec{N}) \in \Sigma_s.
-$$
-
-(2.2)
+(2.2)     $$\widetilde{U}(S,V,\vec{N}) = \widetilde{U}\left(\widetilde{S}(U,V,\vec{N}), V, \vec{N}\right), \forall (S,V,\vec{N}) \in \Sigma_S.$$
 
 Let $\lambda > 0$ be arbitrary; then (2.1) and (2.2) imply
 
-$$
-\tilde{U}(\lambda S,\lambda V,\lambda \vec{N}) = \tilde{U}(\lambda \tilde{S}(U,V,\vec{N}),\lambda V,\lambda \vec{N})
-$$
-
-(2.3)
+(2.3)     $$\widetilde{U}(\lambda S, \lambda V, \lambda \vec{N}) = \widetilde{U}\left(\lambda \widetilde{S}(U,V,\vec{N}), \lambda V, \lambda N\right)$$
 
 Page 5:
-Since $\tilde{S}$ is homogeneous of degree 1, it follows
-that
 
-$$
-\lambda \tilde{S}(U,V,\vec{N}) = \tilde{S}(\lambda U,\lambda V,\lambda \vec{N})
-$$
+Since $\widetilde{S}$ is homogeneous of degree 1, it follows that
 
-(2.4)
+(2.4)     $$\lambda \widetilde{S}(U,V,\vec{N}) = \widetilde{S}(\lambda U, \lambda V, \lambda \vec{N})$$
 
 Also, recall that, generically,
 
-$$
-\tilde{U}(\tilde{S}(U,V,\vec{N}),V,\vec{N}) = U
-$$
+(2.5)     $$\widetilde{U}\left(\widetilde{S}(U,\hat{V},\hat{N}), \hat{V}, \hat{N}\right) = \hat{U}$$
 
-(2.5)
+because of inverse relations. Combining (2.3) - (2.5) we have
 
-because of inverse relations. Combining (2.3) -
-(2.5) we have
+$$\widetilde{U}(\lambda S, \lambda V, \lambda \vec{N}) = \lambda U$$
 
-$$
-\tilde{U}(\lambda S,\lambda V,\lambda \vec{N}) = \lambda U
-$$
+$$= \lambda \widetilde{U}\left(\widetilde{S}(U,V,\vec{N}), V, \vec{N}\right)$$
 
-$$
-= \lambda \tilde{U}(\tilde{S}(U,V,\vec{N}),V,\vec{N})
-$$
-
-$$
-= \lambda \tilde{U}(S,V,\vec{N}).
-$$
+$$= \lambda \widetilde{U}(S,V,\vec{N}). \quad ///$$
 
 Path (Contour) Integrals
 
-Def. (2.4): Suppose that $D \subset \mathbb{R}^n$ is open.
-A function $\vec{\gamma}:[a,b] \to D$ is called a path
-(or contour) iff $\vec{\gamma}$ is continuous and
-piecewise smooth. The domain $D$ is called path-connected
-iff for any two distinct points $\vec{a},\vec{b} \in D$
-there is a path $\vec{\gamma}:[a,b] \to D$ such that
-$\vec{\gamma}(a) = \vec{a}$ and $\vec{\gamma}(b) = \vec{b}$.
+Def. (2.4): Suppose that $\mathcal{D} \subseteq \mathbb{R}^n$ is open. A function $\vec{Y}: [a,b] \to \mathcal{D}$ is called a path (or contour) iff $\vec{Y}$ is continuous and piecewise smooth. $\mathcal{D}$ is called path-connected iff for every two distinct points $\vec{a}, \vec{b} \in \mathcal{D}$ there is path $\vec{Y}: [0,1] \to \mathcal{D}$ such that
+
+$$\vec{Y}(a) = \vec{a} \quad \vec{Y}(b) = \vec{b}.$$
 
 Page 6:
-$D$ is called simply-connected iff it is
-(1) path-connected and (2) a path can
-be continuously deformed to a point, i.e.,
-there are no holes. $D$ is called convex iff
-for every pair $\vec{a},\vec{b} \in D$ the point
 
-$$
-\vec{x}(t) = \vec{a}(1-t) + \vec{b}\,t \in D
-$$
+$\mathcal{D}$ is called simply-connected iff it is (1) path connected and (2) paths can be continuously deformed to a point, i.e., there are no holes. $\mathcal{D}$ is called convex iff: for every pair $\vec{a}, \vec{b} \in \mathcal{D}$, the point
+
+$$\vec{x}(t) = \vec{a}(1-t) + \vec{b}t \in \mathcal{D}$$
 
 for all $t \in [0,1]$.
 
-Definition (2.5): Let $\vec{F}: D \to \mathbb{R}^n$ be a $C^1$
-function, i.e., $\vec{F} \in C^1(D;\mathbb{R}^n)$. Let
-$\vec{\gamma}:[a,b] \to D$ be a path in $D$ which is assumed to be simple-connected.
-Then the path integral $\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x}$
-is defined via
+Definition (2.5): Let $\vec{F}: \mathcal{D} \to \mathbb{R}^n$ be a $C^1$ function, i.e., $\vec{F} \in C^1(\mathcal{D}; \mathbb{R}^n)$. Let $\vec{Y}: [a,b] \to \mathcal{D}$ path in $\mathcal{D}$, which is assumed to be simply connected. Then the paths integral $\int_a^b \vec{F}(\vec{x}) \cdot d\vec{x}$ is defined via
 
-$$
-\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x} := \int_a^b \vec{F}(\vec{\gamma}(\tau)) \cdot \vec{\gamma}'(\tau)\, d\tau.
-$$
-
-(2.6)
+(2.6)     $$\int_{\vec{Y}} \vec{F}(\vec{x}) \cdot d\vec{x} := \int_a^b \vec{F}(\vec{Y}(x)) \cdot \vec{Y}'(x) dx.$$
 
 We will also use the notation
 
-$$
-\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x} = \int_{\vec{\gamma}} F_1(\vec{x})\,dx_1 + \cdots + F_n(\vec{x})\,dx_n
-$$
+$$\int_{\vec{Y}} \vec{F}(\vec{x}) \cdot d\vec{x} = \int_{\vec{Y}} F_1(\vec{x})dx_1 + \cdots + F_n(\vec{x})dx_n$$
 
-Defn. (2.6): Let $D \subset \mathbb{R}^n$ be a simply connected
-open set. A path $\vec{\gamma}:[a,b] \to D$ is called
-closed iff
+Defn. (2.6): Let $\mathcal{D} \subseteq \mathbb{R}^n$ be a simply connected open set. A path $\vec{Y}: [a,b] \to \mathcal{D}$ is called closed iff.
 
-$$
-\vec{\gamma}(a) = \vec{\gamma}(b).
-$$
+$$\vec{Y}(a) = \vec{Y}(b)$$
 
-A closed path is called simple iff it does
-not intersect itself except at $\tau=a$ and $\tau=b$,
-i.e., for every $c \in (a,b)$
+A closed path is called simple iff it does not intersect itself except at $t=a$ and $t=b$, i.e., for every $c \in (a,b)$
 
 Page 7:
-$$
-\vec{\gamma}(c) \ne \vec{\gamma}(\tau),\quad \tau \in [a,c) \cup (c,b]
-$$
 
-Theorem (2.7): Let $D \subset \mathbb{R}^n$ be an open, simply-
-connected set. Assume $\vec{\gamma}:[a,b] \to D$ is a simple
-path. If $\vec{x}:[c,d] \to D$ is a path in $D$,
-with the property that
+$$\vec{Y}(c) \neq \vec{Y}(x) \quad \forall c \in [a,c) \cup (c,b]$$
 
-$$
-\vec{x}(c) = \vec{\gamma}(a),\quad \vec{x}(d) = \vec{\gamma}(b),
-$$
+Theorem (2.7): Let $\mathcal{D} \subseteq \mathbb{R}^n$ be an open, simply-connected set. Assume $\vec{Y}: [a,b] \to \mathcal{D}$ is a path. If $\vec{Y}: [c,d] \to \mathcal{D}$ is a path in $\mathcal{D}$, with the property that
+
+$$\vec{x}(c) = \vec{Y}(a), \quad \vec{x}(d) = \vec{Y}(b),$$
 
 and
 
-$$
-\operatorname{Range}(\vec{x}) = \operatorname{Range}(\vec{\gamma}),
-$$
+$$\text{Range}(\vec{x}) = \text{Range}(\vec{Y}),$$
 
 then
 
-$$
-\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x} = \int_{\vec{x}} \vec{F}(\vec{x})\cdot d\vec{x}.
-$$
+$$\int_{\vec{Y}} \vec{F}(\vec{x}) \cdot d\vec{x} = \int_{\vec{x}} \vec{F}(\vec{x}) \cdot d\vec{x}.$$
 
-This result guarantees that the path integrals
-are parametrization independent.
+This result guarantees that the path integrals are parametrically independent.
 
-If $C = \operatorname{Range}(\vec{\gamma}) = \operatorname{Range}(\vec{x})$, then we write
+If $c = \text{Range}(\vec{Y}) = \text{Range}(\vec{x})$, then we write
 
-$$
-\int_C \vec{F}(\vec{x})\cdot d\vec{x} = \int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x}.
-$$
+$$\int_c \vec{F}(\vec{x}) \cdot d\vec{x} = \int_{\vec{Y}} \vec{F}(\vec{x}) \cdot d\vec{x}.$$
 
-Defn. (2.7): Let $D \subset \mathbb{R}^n$ be an open, simply
-connected set. Suppose that
+Dfn. (2.7): Let $\mathcal{D} \subseteq \mathbb{R}^n$ be an open, simply connected set. Suppose that
 
-$$
-\int_{\vec{\gamma}_1} \vec{F}(\vec{x})\cdot d\vec{x} = \int_{\vec{\gamma}_2} \vec{F}(\vec{x})\cdot d\vec{x}
-$$
+$$\int_{\vec{Y}_1} \vec{F}(\vec{x}) \cdot d\vec{x} = \int_{\vec{Y}_2} \vec{F}(\vec{x}) \cdot d\vec{x}$$
 
-for any two paths $\vec{\gamma}_1:[a,b] \to D$, $\vec{\gamma}_2:[c,d] \to D$ with
+for any two paths $\vec{Y}_1: [a,b] \to \mathcal{D}$, $\vec{Y}_2: [a,b] \to \mathcal{D}$ with
 
-$$
-\vec{\gamma}_1(a) = \vec{\gamma}_2(a) \quad \text{and} \quad \vec{\gamma}_1(b) = \vec{\gamma}_2(b).
-$$
+$$\vec{Y}_1(a) = \vec{Y}_2(a) \quad \text{and} \quad \vec{Y}_1(b) = \vec{Y}_2(b).$$
 
 Page 8:
-Then we say that the integral is path-
-independent. Note that we are not assuming
-that
 
-$$
-\operatorname{Range}(\vec{\gamma}_1) = \operatorname{Range}(\vec{\gamma}_2).
-$$
+Then we say that the integral is path independent. Note that we are not assuming that
 
-Defn. (2.8): Let $D$ be an open set and
-$\vec{F} \in C^1(D;\mathbb{R}^n)$. We say that $\vec{F}$ is conservative
-iff there is a function $f \in C^1(D;\mathbb{R})$ such
-that
+$$\text{Range}(\vec{Y}_1) = \text{Range}(\vec{Y}_2).$$
 
-$$
-\vec{F}(\vec{x}) = \nabla f(\vec{x}),\quad \forall \vec{x} \in D.
-$$
+Defn (2.8): Let $\mathcal{D}$ be an open set and $\vec{F} \in C^1(\mathcal{D}; \mathbb{R}^n)$. We say that $\vec{F}$ is conservative iff there is a function $f \in C^1(\mathcal{D}; \mathbb{R})$ such that
 
-Theorem (2.9): Let $D$ be an open simply
-connected set in $\mathbb{R}^n$. If
-$\vec{F} \in C^1(D;\mathbb{R}^n)$ is
-conservative, then the integral
+$$\vec{F}(\vec{x}) = \nabla f(x), \quad \forall \vec{x} \in \mathcal{D}.$$
 
-$$
-\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x}
-$$
+Theorem (2.9): Let $\mathcal{D}$ be an open simply connected-set in $\mathbb{R}^n$. If $\vec{F} \in C^1(\mathcal{D}; \mathbb{R}^n)$ is conservative, then the integral
+
+$$\int_{\vec{Y}} \vec{F}(\vec{x}) \cdot d\vec{x}$$
 
 is path-independent.
 
-Proof: let $\vec{\gamma}_1:[a_1,b_1] \to D$ and
-$\vec{\gamma}_2:[a_2,b_2] \to D$
-be paths in $D$ with the same end points, i.e.,
+Proof: Let $\vec{Y}_1: [a_1, b_1] \to \mathcal{D}$ and $\vec{Y}_2: [a_2, b_2] \to \mathcal{D}$ be paths in $\mathcal{D}$ with the same end points, i.e.,
 
-$$
-\vec{a} := \vec{\gamma}_1(a_1) = \vec{\gamma}_2(a_2),\quad \vec{b} := \vec{\gamma}_1(b_1) = \vec{\gamma}_2(b_2).
-$$
+$$\vec{a} := \vec{Y}_1(a_1) = \vec{Y}_2(a_2), \quad \vec{Y}_1(b_1) = \vec{Y}_2(b_2) =: \vec{b}$$
 
 By the chain rule, for $i=1,2$,
 
-$$
-\frac{d}{d\tau} f(\vec{\gamma}_i(\tau)) = \nabla f(\vec{\gamma}_i(\tau)) \cdot \vec{\gamma}_i'(\tau)
-$$
+$$\frac{d}{dx} f(\vec{Y}_i(x)) = \nabla f(\vec{Y}_i(x)) \cdot \vec{Y}_i'(x)$$
 
-$$
-= \vec{F}(\vec{\gamma}_i(\tau)) \cdot \vec{\gamma}_i'(\tau).
-$$
+$$= \vec{F}(\vec{Y}_i(x)) \cdot \vec{Y}_i'(x)$$
 
 Thus,
 
-$$
-\int_{\vec{\gamma}_i} \vec{F}(\vec{x})\cdot d\vec{x} = \int_{a_i}^{b_i} \vec{F}(\vec{\gamma}_i(\tau)) \cdot \vec{\gamma}_i'(\tau)\, d\tau
-$$
+$$\int_{\vec{Y}_1} \vec{F}(\vec{x}) \cdot d\vec{x} = \int_{a_1}^{b_1} \vec{F}(\vec{Y}_1(x)) \cdot \vec{Y}_1'(x) dx$$
 
 Page 9:
-$$
-= \int_{a_i}^{b_i} \frac{d}{d\tau} f(\vec{\gamma}_i(\tau))\, d\tau
-$$
 
-$$
-= f(\vec{b}) - f(\vec{a}),
-$$
+$$= \int_{a_1}^{b_1} \frac{d}{dx}\left[f(\vec{Y}_1(x))\right] dx$$
+
+$$\overset{FTC}{=} f(\vec{b}) - f(\vec{a}),$$
 
 for $i=1,2$.
 
 We have the following well-known results.
 
-Theorem (2.10): let $D \subset \mathbb{R}^n$ be a simply-
-connected set and suppose that $\vec{F} \in C^1(D;\mathbb{R}^n)$.
-The following are equivalent
+Theorem (2.10): Let $\mathcal{D} \subseteq \mathbb{R}^n$ be a simply-connected set and suppose that $\vec{F} \in C^1(\mathcal{D}; \mathbb{R}^n)$. The following are equivalent:
 
 1) $\vec{F}$ is conservative
 
-2) $\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x}$ is path independent
+2) $\int_{\vec{Y}} \vec{F}(\vec{x}) d\vec{x}$ is path independent
 
-3) $\oint_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x} = 0$ for any closed path.
+3) $\oint_{\vec{Y}} \vec{F}(\vec{x}) d\vec{x} = 0$ for any closed path.
 
-Recall, we write, as a shorthand
+Recall, we wrote, as a short hand
 
-$$
-d\tilde{U} = T_U\,dS - P_U\,dV + \sum_{i=1}^r \mu_{U_i}\,dN_i.
-$$
+$$d\widetilde{U} = T_U dS - P_U dV + \sum_{i=1}^r \mu_{U;i} dN_i$$
 
 This has the form
 
-$$
-F_1\,dx_1 + F_2\,dx_2 + \cdots + F_n\,dx_n = \vec{F}\cdot d\vec{x}
-$$
+$$F_1 dx_1 + F_2 dx_2 + \cdots + F_n dx_n = \vec{F} \cdot d\vec{x}$$
 
-where $F_1 = T_U$, $F_2 = -P_U$, $\ldots$
+where
 
-We say that $\vec{F}\cdot d\vec{x}$ is an exact differential
-if $\vec{F}$ is conservative.
+$$F_1 = T_U, \quad F_2 = -P_U, \quad \cdots$$
+
+We say that $\vec{F} \cdot d\vec{x}$ is an exact differential iff $\vec{F}$ is conservative.
 
 Page 10:
+
 Clearly
 
-$$
-d\tilde{U} = \nabla \tilde{U} \cdot d\vec{\sigma}\quad (\vec{\sigma} \in \Sigma_s)
-$$
+$$d\widetilde{U} = \nabla \widetilde{U} \cdot d\vec{r} \quad (\vec{r} \in \Sigma_S)$$
 
-is an exact differential, because $\nabla \tilde{U}$ is
-conservative, trivially. Thus, the integral
+is an exact differential, because $\nabla \widetilde{U}$ is conservative, trivially. Thus, the integral
 
-$$
-\int_{\vec{\gamma}} d\tilde{U} = \int_{\vec{\gamma}} \nabla \tilde{U} \cdot d\vec{\sigma}
-$$
+$$\int_{\vec{Y}} d\widetilde{U} = \int_{\vec{Y}} \nabla \widetilde{U} \cdot d\vec{r}$$
 
-is path independent. If $\vec{\gamma}:[a,b] \to \Sigma_s$
-is the path in question, with
+is path independent. If $\vec{Y}: [a,b] \to \Sigma_S$ is the path in question, with
 
-$$
-\vec{\gamma}(a) = \vec{\sigma}_a,\quad \vec{\gamma}(b) = \vec{\sigma}_b,
-$$
+$$\vec{Y}(a) = \vec{r}_a, \quad \vec{Y}(b) = \vec{r}_b,$$
 
 then
 
-$$
-\int_{\vec{\gamma}} d\tilde{U} = \int_{\vec{\gamma}} \nabla \tilde{U} \cdot d\vec{\sigma} = \tilde{U}(\vec{\sigma}_b) - \tilde{U}(\vec{\sigma}_a).
-$$
+$$\int_{\vec{Y}} d\widetilde{U} = \int_{\vec{Y}} \nabla \widetilde{U} \cdot d\vec{r} = \widetilde{U}(\vec{r}_b) - \widetilde{U}(\vec{r}_a).$$
 
-We can use any path we want in state
-space $\Sigma_s$.
+We can use any path we want in state space $\Sigma_S$.
 
 The same is true for
 
-$$
-d\tilde{S} = \frac{1}{T_s} dU + \frac{P_s}{T_s} dV - \sum_{i=1}^r \frac{\mu_{s_i}}{T_s} dN_i,
-$$
+$$d\widetilde{S} = \frac{1}{T_S} dU + \frac{P_U}{T_S} dV - \sum_{i=1}^r \frac{\mu_{S;i}}{T_S} dN_i,$$
 
 that is
 
-$$
-d\tilde{S} = \nabla \tilde{S}\cdot d\vec{\sigma}\quad (\vec{\sigma} \in \Sigma_U)
-$$
+$$d\widetilde{S} = \nabla \widetilde{S} \cdot d\vec{r} \quad (\vec{r} \in \Sigma_U)$$
 
 is an exact differential.

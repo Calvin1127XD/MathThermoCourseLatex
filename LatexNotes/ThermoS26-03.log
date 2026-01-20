@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.27)  19 JAN 2026 20:16
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.27)  19 JAN 2026 23:33
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1445,24 +1445,24 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 88.
 ) (./Macros/thermoSymbols.tex) (./ThermoS26-03.aux)
 \openout1 = `ThermoS26-03.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 10.
-LaTeX Font Info:    ... okay on input line 10.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
+LaTeX Font Info:    ... okay on input line 11.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -1486,11 +1486,11 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-Package pgfplots notification 'compat/show suggested version=true': document ha
-s been generated with the most recent feature set (\pgfplotsset{compat=1.18}).
+Package pgfplots notification 'compat/show suggested version=true': you might b
+enefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
 \c@lstlisting=\count401
-Package hyperref Info: Link coloring ON on input line 10.
+Package hyperref Info: Link coloring ON on input line 11.
 (./ThermoS26-03.out) (./ThermoS26-03.out)
 \@outlinefile=\write4
 \openout4 = `ThermoS26-03.out'.
@@ -1498,106 +1498,84 @@ Package hyperref Info: Link coloring ON on input line 10.
 
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <20.74> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 13.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 15.
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <24.88> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 13.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 15.
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 24.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 18.
 LaTeX Font Info:    Trying to load font information for OML+cmbrm on input line
- 28.
+ 20.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/omlcmbrm.fd
 File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
 )
 LaTeX Font Info:    Trying to load font information for OMS+cmbrs on input line
- 28.
+ 20.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/omscmbrs.fd
 File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 28
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 20
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<../output/figures/ThermoS26-03-fig-1.pdf, id=43, 367.52306pt x 198.19646pt>
-File: ../output/figures/ThermoS26-03-fig-1.pdf Graphic file (type pdf)
-<use ../output/figures/ThermoS26-03-fig-1.pdf>
-Package pdftex.def Info: ../output/figures/ThermoS26-03-fig-1.pdf  used on inpu
-t line 41.
-(pdftex.def)             Requested size: 288.0011pt x 155.32143pt.
+<Figures/ThermoS26-03-fig-1.pdf, id=55, 446.81229pt x 114.75673pt>
+File: Figures/ThermoS26-03-fig-1.pdf Graphic file (type pdf)
+<use Figures/ThermoS26-03-fig-1.pdf>
+Package pdftex.def Info: Figures/ThermoS26-03-fig-1.pdf  used on input line 28.
 
+(pdftex.def)             Requested size: 323.9978pt x 83.21837pt.
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+Overfull \hbox (103.59679pt too wide) detected at line 39
+\OML/cmbrm/m/it/10.95 S\OT1/cmbr/m/n/10.95 (0) = [] []\OML/cmbrm/m/it/10.95 U[]
+\OT1/cmbr/m/n/10.95 (0)\OML/cmbrm/m/it/10.95 ; V[]; N[][] \OT1/cmbr/m/n/10.95 +
+ [] []\OML/cmbrm/m/it/10.95 U[]\OT1/cmbr/m/n/10.95 (0)\OML/cmbrm/m/it/10.95 ; V
+[]; N[][] \OMS/cmbrs/m/n/10.95 ^^T [] []\OML/cmbrm/m/it/10.95 U[]\OT1/cmbr/m/n/
+10.95 (1)\OML/cmbrm/m/it/10.95 ; V[]; N[][] \OT1/cmbr/m/n/10.95 + [] []\OML/cmb
+rm/m/it/10.95 U[]\OT1/cmbr/m/n/10.95 (1)\OML/cmbrm/m/it/10.95 ; V[]; N[][] \OT1
+/cmbr/m/n/10.95 = \OML/cmbrm/m/it/10.95 S\OT1/cmbr/m/n/10.95 (1)\OML/cmbrm/m/it
+/10.95 :
+ []
 
 
 
 [1
 
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Figur
+es/ThermoS26-03-fig-1.pdf>]
+<Figures/ThermoS26-03-fig-2.pdf, id=95, 393.36763pt x 170.7178pt>
+File: Figures/ThermoS26-03-fig-2.pdf Graphic file (type pdf)
+<use Figures/ThermoS26-03-fig-2.pdf>
+Package pdftex.def Info: Figures/ThermoS26-03-fig-2.pdf  used on input line 95.
 
-[2 <../output/figures/ThermoS26-03-fig-1.pdf>]
-<../output/figures/ThermoS26-03-fig-2.pdf, id=84, 258.68544pt x 152.88718pt>
-File: ../output/figures/ThermoS26-03-fig-2.pdf Graphic file (type pdf)
-<use ../output/figures/ThermoS26-03-fig-2.pdf>
-Package pdftex.def Info: ../output/figures/ThermoS26-03-fig-2.pdf  used on inpu
-t line 126.
-(pdftex.def)             Requested size: 251.9989pt x 148.94191pt.
-
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.138 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.138 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.138 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.138 \begin{equation}
-                      
-
-[3 <../output/figures/ThermoS26-03-fig-2.pdf>]
-<../output/figures/ThermoS26-03-fig-3.pdf, id=130, 162.66371pt x 198.19646pt>
-File: ../output/figures/ThermoS26-03-fig-3.pdf Graphic file (type pdf)
-<use ../output/figures/ThermoS26-03-fig-3.pdf>
-Package pdftex.def Info: ../output/figures/ThermoS26-03-fig-3.pdf  used on inpu
-t line 182.
-(pdftex.def)             Requested size: 288.0011pt x 350.92563pt.
+(pdftex.def)             Requested size: 270.0pt x 117.18324pt.
 
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
-LaTeX Font Warning: Font shape `OT1/cmbr/bx/n' in size <8> not available
-(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 196.
+
+[2]
+<Figures/ThermoS26-03-fig-3.pdf, id=108, 329.38055pt x 115.48145pt>
+File: Figures/ThermoS26-03-fig-3.pdf Graphic file (type pdf)
+<use Figures/ThermoS26-03-fig-3.pdf>
+Package pdftex.def Info: Figures/ThermoS26-03-fig-3.pdf  used on input line 132
+.
+(pdftex.def)             Requested size: 323.9978pt x 113.5957pt.
 
 
-LaTeX Font Warning: Font shape `OT1/cmbr/bx/n' in size <6> not available
-(Font)              Font shape `OT1/cmbr/m/n' tried instead on input line 196.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
+
+
+[3 <./Figures/ThermoS26-03-fig-2.pdf>]
 LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 205.
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 157.
 
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 206.
-
-
-LaTeX Font Warning: Font shape `OT1/cmbr/b/it' undefined
-(Font)              using `OT1/cmbr/b/n' instead on input line 206.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 158.
 
 
 
@@ -1606,237 +1584,104 @@ pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
 1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   \__shipout_drop_firstpage_...
-l.231 \end{proof}
-                 ]
+l.193 \]
+         <./Figures/ThermoS26-03-fig-3.pdf>]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.209 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.209 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.209 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.209 \begin{equation}
+                      
 
-[5 <../output/figures/ThermoS26-03-fig-3.pdf>]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.253 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.253 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.253 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.253 \begin{equation}
-                      
-LaTeX Font Info:    Font shape `OT1/cmbr/b/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 263.
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.265 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.265 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.265 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.265 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.282 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.282 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.282 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.282 \begin{equation}
-                      
+[5]
 
 [6]
 
 [7]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
+Overfull \hbox (90.61105pt too wide) detected at line 374
+[]
+ []
+
+
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.5.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.403 \begin{equation}
+l.376 \begin{equation}
                       
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.5.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.403 \begin{equation}
+l.376 \begin{equation}
                       
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.5.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.403 \begin{equation}
+l.376 \begin{equation}
                       
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.5.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.403 \begin{equation}
+l.376 \begin{equation}
                       
 
-[8]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.447 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.447 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.447 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.447 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.472 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.472 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.472 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.472 \begin{equation}
-                      
-
-[9]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.497 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.497 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.497 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.2.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.497 \begin{equation}
-                      
-
-[10]
-
-[11] 
+[8] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./ThermoS26-03.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-
-
-LaTeX Font Warning: Some font shapes were not available, defaults substituted.
-
 Package rerunfilecheck Info: File `ThermoS26-03.out' has not changed.
-(rerunfilecheck)             Checksum: 496862CAA39E49EACC4FECFEA086DD35;355.
+(rerunfilecheck)             Checksum: E89CD247FF02EBD45D2BF8FD4D3D9DF0;977.
  ) 
 Here is how much of TeX's memory you used:
- 42477 strings out of 473190
- 986329 string characters out of 5715800
- 1518414 words of memory out of 5000000
- 64864 multiletter control sequences out of 15000+600000
- 567825 words of font info for 72 fonts, out of 8000000 for 9000
+ 42468 strings out of 473190
+ 985925 string characters out of 5715800
+ 1520249 words of memory out of 5000000
+ 64854 multiletter control sequences out of 15000+600000
+ 566183 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,12n,108p,767b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,13n,108p,769b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi5.pfb></
-usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/
-local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></usr/lo
-cal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/loca
-l/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
-exlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/local/texl
-ive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/local/texlive/2
-025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/local/texlive/2025/t
-exmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texlive/2025/tex
-mf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/texlive/2025/texmf
--dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texlive/2025/texmf-di
-st/fonts/type1/public/hfbright/hfbrsl10.pfb></usr/local/texlive/2025/texmf-dist
-/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2025/texmf-dist/f
-onts/type1/public/hfbright/hfbrsy8.pfb>
-Output written on ThermoS26-03.pdf (11 pages, 212760 bytes).
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><
+/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/
+local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/loc
+al/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local
+/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/local/tex
+live/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/local/texlive/
+2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texlive/20
+25/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/texlive/2025
+/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texlive/2025/te
+xmf-dist/fonts/type1/public/hfbright/hfbrsl10.pfb></usr/local/texlive/2025/texm
+f-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2025/texmf-
+dist/fonts/type1/public/hfbright/hfbrsy8.pfb>
+Output written on ThermoS26-03.pdf (8 pages, 188723 bytes).
 PDF statistics:
- 264 PDF objects out of 1000 (max. 8388607)
- 191 compressed objects within 2 object streams
- 38 named destinations out of 1000 (max. 500000)
- 148 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 263 PDF objects out of 1000 (max. 8388607)
+ 198 compressed objects within 2 object streams
+ 40 named destinations out of 1000 (max. 500000)
+ 172 words of extra memory for PDF output out of 10000 (max. 10000000)
 

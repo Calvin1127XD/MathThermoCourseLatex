@@ -24,6 +24,24 @@ Convert extracted text to professional LaTeX while preserving ALL content exactl
   - State variables: \Temp, \Press, \Vol, \Int, \Ent
   - Free energies: \Enth, \Helm, \Gibbs
   - Derivatives: \pderT{\Ent}{\Temp}{\Vol}
+- At the beginning of each .tex file, put this piece of code so that it can be compiled both as a separated .tex document or be included my the main .tex file.
+  \newif\ifthermosubfile
+  \ifdefined\THERMONOTESMAIN
+    \thermosubfilefalse
+  \else
+    \thermosubfiletrue
+  \fi
+
+  \providecommand{\THERMOEND}{} % safe in both modes
+
+  \ifthermosubfile
+    \documentclass[11pt]{book}
+    \input{./Macros/thermoHead}
+    \input{./Macros/thermoSymbols}
+    \graphicspath{{./Figures/}}
+    \begin{document}
+    \renewcommand{\THERMOEND}{\end{document}}
+  \fi
 
 ## Document Structure
 

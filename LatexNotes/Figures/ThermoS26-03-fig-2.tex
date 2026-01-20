@@ -1,0 +1,66 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.pathmorphing, arrows.meta, positioning, calc}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        % --- Axis Setup ---
+        axis lines = center,
+        xlabel = {$\tau$},
+        ylabel = {},
+        xlabel style = {below right, font=\Large},
+        ylabel style = {above left},
+        axis line style = {-Stealth, thick},
+        % Domain and Range
+        xmin = -0.1, xmax = 1.4,
+        ymin = -2.5, ymax = 1.8,
+        % Hide standard ticks
+        ticks = none,
+        clip = false,
+        width = 12cm,
+        height = 7cm
+    ]
+
+        % Coordinates
+        \coordinate (start) at (axis cs:0, -2);
+        \coordinate (end) at (axis cs:1, 0);
+        % Intersection point (approximate based on curve controls)
+        \coordinate (cross) at (axis cs:0.18, 0); 
+
+        % --- 1. The Curves ---
+
+        % Black Curve: Sagging approach
+        \draw[thick, black] (start) 
+            .. controls (axis cs:0.4, -1.5) and (axis cs:0.8, -0.8) .. (end);
+
+        % Red Curve: Custom Bezier Path
+        % Adjusted slightly to ensure it crosses exactly at the tick mark (0.18)
+        \draw[thick, red] (start) 
+            .. controls (axis cs:0.1, -0.5) and (axis cs:0.12, 1.2) .. (axis cs:0.4, 1.2)
+            .. controls (axis cs:0.65, 1.2) and (axis cs:0.8, 0.1) .. (end);
+
+        % --- 2. Ticks and Labels ---
+
+        % tau* tick mark
+        % Drawn explicitly thick and black
+        \draw[very thick, black] ($(cross)+(-6,10)$) -- ($(cross)+(-6,-10)$);
+        
+        % Label closer to the tick mark
+        \node[above=2pt, font=\large] at ($(cross)+(-5,-60)$) {$\tau^*$};
+
+        % tau = 1 point
+        \node[circle, fill=black, inner sep=2pt] at (end) {};
+        \node[above=5pt, font=\large] at (end) {$\tau=1$};
+
+        % Start point
+        \node[circle, fill=red, draw=black, inner sep=2pt] at (start) {};
+
+        % --- 3. Equation ---
+        \node[anchor=north west, font=\Large] at (axis cs: 0.35, -1.5) {
+            $R(\tau) = \frac{1}{\tilde{T}^\alpha(\tau)} - \frac{1}{\tilde{T}^\beta(\tau)}$
+        };
+
+    \end{axis}
+\end{tikzpicture}
+\end{document}
