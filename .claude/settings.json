@@ -1,0 +1,15 @@
+{
+  "autoUpdate": true,
+  "telemetry": {
+    "enabled": false
+  },
+  "git": {
+    "enabled": true,
+    "autoCommit": false,
+    "includeCoAuthor": true
+  },
+  "editor": {
+    "lineNumbers": true,
+    "minimap": true
+  }
+}

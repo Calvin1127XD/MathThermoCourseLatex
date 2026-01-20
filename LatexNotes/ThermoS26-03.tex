@@ -1,0 +1,532 @@
+\ifdefined\THERMONOTESMAIN
+    \providecommand{\THERMOEND}{}
+\else
+\documentclass[11pt]{book}
+
+\input{./Macros/thermoHead}
+\input{./Macros/thermoSymbols}
+
+    \providecommand{\THERMOEND}{\end{document}}
+    \begin{document}
+\fi
+
+\chapter{ThermoS26-03}
+\label{chap:thermo-s26-03}
+
+\begin{center}
+Math Thermo\\
+class 03\\
+01/27/2025
+\end{center}
+
+\graphicspath{{../output/figures/}}
+
+\section{Heat Flow}
+
+Let us examine the approach to thermal equilibrium
+using a diathermal wall. Suppose the substance
+is binary $r=1$. It must be that the
+variables
+\[
+V^{\alpha}, V^{\beta}, N^{\alpha}, N^{\beta}
+\]
+are fixed. But energy can be exchanged in
+the process.
+
+Suppose the variable $\gamma$ parameterizes the process
+$\gamma=0$ \hspace{3em} $\gamma=1$
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ThermoS26-03-fig-1.pdf}
+    \caption{Subsystems $\alpha$ and $\beta$ separated by a diathermal wall, with hot and cold initial states and equilibrium at $\gamma=1$.}
+\end{figure}
+
+initial state
+\[
+\tilde{S}(0)=\tilde{S}^{\alpha}(U^{\alpha}(0),V^{\alpha},N^{\alpha})+\tilde{S}^{\beta}(U^{\beta}(0),V^{\beta},N^{\beta})
+\]
+\[
+\le \tilde{S}^{\alpha}(U^{\alpha}(1),V^{\alpha},N^{\alpha})+\tilde{S}^{\beta}(U^{\beta}(1),V^{\beta},N^{\beta})=\tilde{S}(1)
+\]
+
+equilibrium state
+
+We require that
+\[
+U^{\alpha}(\gamma)+U^{\beta}(\gamma)=U_0.
+\]
+
+The entropy is at a max at equilibrium.
+
+Suppose that, as indicated by the figure above,
+\[
+T^{\alpha}(U^{\alpha}(0),V^{\alpha},N^{\alpha})>T^{\beta}(U^{\beta}(0),V^{\beta},N^{\beta})
+\]
+
+We know that when equilibrium is attained
+\[
+T^{\alpha}(U^{\alpha}(1),V^{\alpha},N^{\alpha})=T^{\beta}(U^{\beta}(1),V^{\beta},N^{\beta})
+\]
+
+We will show that
+\[
+U^{\alpha}(0) > U^{\alpha}(1) \hspace{1em} \text{(energy is lost in $\alpha$)}
+\]
+
+and
+\[
+U^{\beta}(0) < U^{\beta}(1) \hspace{1em} \text{(energy is gained in $\beta$)}
+\]
+
+To see this compute
+\begin{equation}
+\begin{aligned}
+\frac{d\tilde{S}}{d\gamma}={}&\frac{\partial \tilde{S}^{\alpha}}{\partial U^{\alpha}}\frac{\partial U^{\alpha}}{\partial \gamma}+\frac{\partial \tilde{S}^{\beta}}{\partial U^{\beta}}\frac{\partial U^{\beta}}{\partial \gamma}\\
+={}&\frac{1}{\tilde{T}_s^{\alpha}}\frac{\partial U^{\alpha}}{\partial \gamma}+\frac{1}{\tilde{T}_s^{\beta}}\frac{\partial U^{\beta}}{\partial \gamma}\\
+={}&\left(\frac{1}{\tilde{T}_s^{\alpha}(\gamma)}-\frac{1}{\tilde{T}_s^{\beta}(\gamma)}\right)\frac{\partial U^{\alpha}}{\partial \gamma}
+\end{aligned}
+\tag{3.1}
+\label{eq:thermo-s26-03-3-1}
+\end{equation}
+where
+\[
+\tilde{T}_s^q(\gamma):=T_s^q(U^q(\gamma)), \quad q=\alpha,\beta.
+\]
+
+We know that
+\[
+\tilde{S}(0)\le \tilde{S}(1).
+\]
+
+We know that
+\[
+\tilde{T}_s^{\alpha}(0)>\tilde{T}_s^{\beta}(0)
+\]
+
+and
+\[
+\tilde{T}_s^{\alpha}(1)=\tilde{T}_s^{\beta}(0)
+\]
+
+Set
+\[
+R(\gamma):=\frac{1}{\tilde{T}_s^{\alpha}(\gamma)}-\frac{1}{\tilde{T}_s^{\beta}(\gamma)} \hspace{1em} 0\le \gamma\le 1
+\]
+
+We know that
+\[
+R(0)<0 \quad \text{and} \quad R(1)=0
+\]
+
+Thus
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.7\textwidth]{ThermoS26-03-fig-2.pdf}
+    \caption{$R(\gamma)$ versus $\gamma$, with the invalid red curve crossed out.}
+\end{figure}
+
+The red curve is not possible; if it were
+equilibrium would be reached earlier at $\gamma=\gamma^*$.
+Thus
+\[
+R(\gamma)<0 \hspace{1em} \forall\ \gamma\in(0,1).
+\]
+
+Integrating equation (3.1), we get
+\begin{equation}
+0\le \tilde{S}(1)-\tilde{S}(0)=\int_0^1 R(\gamma)\frac{dU^{\alpha}}{d\gamma}\, d\gamma
+\tag{3.2}
+\label{eq:thermo-s26-03-3-2}
+\end{equation}
+
+For $U^{\alpha}(\gamma)$ we have two options
+
+Case (1) \hspace{1em} $U^{\alpha}(0) > U^{\alpha}(1)$
+
+or Case (2) \hspace{1em} $U^{\alpha}(0) \le U^{\alpha}(1)$.
+
+We are free to pick a parameterization however
+we want. Let us take a simple linear path
+\[
+\frac{dU^{\alpha}}{d\gamma}=\frac{U^{\alpha}(1)-U^{\alpha}(0)}{1-0}=:C^{\alpha}
+\]
+
+Then
+
+Case (1) $\Rightarrow C^{\alpha}<0$
+
+Case (2) $\Rightarrow C^{\alpha}\ge 0$
+
+The integral in (3.2) is
+\[
+0\le \tilde{S}(1)-\tilde{S}(2)=C^{\alpha}\int_0^1 R(\gamma)\, d\gamma
+\]
+\hspace{6em} $<0$
+
+Therefore, the only possible choice is Case (1).
+Thus
+\[
+U^{\alpha}(0)>U^{\alpha}(1) \hspace{1em} (U^{\beta}(0)<U^{\beta}(1))
+\]
+
+This is consistent with our intuition about
+temperature. If $T^{\alpha}(0)>T^{\beta}(0)$ net energy flows
+from subsystem $\alpha$ to subsystem $\beta$.
+
+$\gamma=0$ \hspace{5em} $\gamma=1$
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ThermoS26-03-fig-3.pdf}
+    \caption{Heat energy flow from subsystem $\alpha$ to subsystem $\beta$.}
+\end{figure}
+
+Heat Transfer Principle: heat energy always flows
+from hotter to colder systems. This is equivalent
+to the second law of thermodynamics.
+
+\section{The Euler Equation}
+
+Recall that internal energy and the entropy are
+homogeneous of degree one.
+
+\begin{equation}
+\tilde{U}(\lambda S,\lambda V,\lambda \tilde{\mathbf{N}})=\lambda \tilde{U}(S,V,\tilde{\mathbf{N}}), \quad \lambda>0,
+\tag{3.3}
+\label{eq:thermo-s26-03-3-3}
+\end{equation}
+where
+\[
+\tilde{\mathbf{N}}=\begin{bmatrix}N_1\\N_2\\\vdots\\N_r\end{bmatrix}.
+\]
+
+\begin{theorem}
+\textbf{(3.1)}\label{thm:thermo-s26-03-3-1} Let $\tilde{U}$ be the internal energy of an
+isolated system. Then
+\begin{equation}
+\tilde{U}=TS-PV+\mu_1 N_1+\cdots+\mu_r N_r
+\tag{3.4}
+\label{eq:thermo-s26-03-3-4}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Since $\tilde{U}$ is homogeneous of degree one
+differentiating equation (3.1) with respect to $\lambda$
+we obtain
+\[
+T(\lambda S,\lambda V,\lambda \tilde{\mathbf{N}})S-P(\lambda S,\lambda V,\lambda \tilde{\mathbf{N}})V
++\sum_{j=1}^r \mu_j(\lambda S,\lambda V,\lambda \tilde{\mathbf{N}})N_j=\tilde{U}(S,V,\tilde{\mathbf{N}})
+\]
+
+Taking $\lambda=1$, we get
+\[
+\tilde{U}(S,V,\tilde{\mathbf{N}})=T(S,V,\tilde{\mathbf{N}})S-P(S,V,\tilde{\mathbf{N}})V
++\sum_{j=1}^r \mu_j(S,V,\tilde{\mathbf{N}})N_j,
+\]
+
+as desired. ///
+\end{proof}
+
+Remark: Equation (3.4) is known as Euler's
+Equation.
+
+\begin{definition}
+\textbf{(3.2)}\label{def:thermo-s26-03-3-2} A process path in state space $\Sigma_S$,
+\[
+\Sigma_S\subset [0,\infty)\times[0,\infty)\times[0,\infty)\times\cdots\times[0,\infty)
+\]
+\hspace{4em} $(S) \hspace{2em} (V) \hspace{2em} (N_1)\ \cdots\ (N_r)$
+
+is a continuous, piecewise differentiable function
+$\vec{\xi}:[0,1]\to \Sigma_S$, defined by
+\[
+\vec{\xi}(\gamma)=\begin{bmatrix}S(\gamma)\\V(\gamma)\\N_1(\gamma)\\\vdots\\N_r(\gamma)\end{bmatrix}.
+\]
+
+A process path in $\Sigma_U$ is defined similarly.
+\end{definition}
+
+Thus, we have, using the chain rule,
+\begin{equation}
+\frac{d}{d\gamma}\tilde{U}(\vec{\xi}(\gamma))=T(\vec{\xi}(\gamma))S'(\gamma)-P(\vec{\xi}(\gamma))V'(\gamma)
++\sum_{j=1}^r \mu_j(\vec{\xi}(\gamma))N_j'(\gamma)
+\tag{3.5}
+\label{eq:thermo-s26-03-3-5}
+\end{equation}
+
+for a valid process path in state space.
+
+\begin{theorem}
+\textbf{(3.3)}\label{thm:thermo-s26-03-3-3} Suppose that $\vec{\xi}:[0,1]\to \Sigma_S$ is a
+process path in state space $\Sigma_S$. Then
+\begin{equation}
+\begin{aligned}
+0={}&S(\gamma)\frac{dT}{d\gamma}(\vec{\xi}(\gamma))
+-V(\gamma)\frac{dP}{d\gamma}(\vec{\xi}(\gamma))\\
+&+\sum_{j=1}^r N_j(\gamma)\frac{d\mu_j}{d\gamma}(\vec{\xi}(\gamma)).
+\end{aligned}
+\tag{3.6}
+\label{eq:thermo-s26-03-3-6}
+\end{equation}
+\end{theorem}
+
+This equation is called the Gibbs-Duhem
+relation.
+
+\begin{proof}
+Begin with the Euler equation and differentiate
+with respect to the process parameter $\gamma$:
+\begin{equation}
+\begin{aligned}
+\frac{d\tilde{U}}{d\gamma}(\vec{\xi}(\gamma))={}&\frac{dT}{d\gamma}(\vec{\xi}(\gamma))S(\gamma)+T(\vec{\xi}(\gamma))S'(\gamma)\\
+&-\frac{dP}{d\gamma}(\vec{\xi}(\gamma))V(\gamma)-P(\vec{\xi}(\gamma))V'(\gamma)\\
+&+\sum_{j=1}^r\left\{\frac{d\mu_j}{d\gamma}(\vec{\xi}(\gamma))N_j(\gamma)+\mu_j(\vec{\xi}(\gamma))N_j'(\gamma)\right\}
+\end{aligned}
+\tag{3.7}
+\label{eq:thermo-s26-03-3-7}
+\end{equation}
+
+Subtracting (3.5) from (3.7), we get (3.6). ///
+\end{proof}
+
+\begin{example}
+\textbf{(3.4)}\label{ex:thermo-s26-03-3-4} Suppose that the fundamental
+relation for a material is given by
+\[
+\tilde{S}=4A U^{1/4} V^{1/2} N^{1/4}+BN, \quad \Sigma_U=[0,\infty)^3
+\]
+
+where $A,B>0$ are constants. This function
+must be homogeneous of degree one. Let us
+check that. Suppose $\lambda>0$. Then
+\[
+\tilde{S}(\lambda U,\lambda V,\lambda N)=4A\lambda U^{1/4}\lambda^{1/2}V^{1/2}\lambda^{1/4}N^{1/4}+B\lambda N
+\]
+\[
+=\lambda \tilde{S}(U,V,N) ///
+\]
+
+Recall that
+\[
+T=\frac{1}{\partial \tilde{S}/\partial U}=\left(AU^{-3/4}V^{1/2}N^{1/4}\right)^{-1}
+\]
+\[
+=\frac{U^{3/4}}{A V^{1/2} N^{1/4}}
+\]
+
+which is homogeneous degree zero.
+
+\[
+\frac{P}{T}=\frac{\partial \tilde{S}}{\partial V}
+\]
+
+so
+\[
+P=T\frac{\partial \tilde{S}}{\partial V}
+\]
+\[
+=\frac{U^{3/4}}{A V^{1/2} N^{1/4}}\left(\frac{2AU^{1/4}N^{1/4}}{V^{1/2}}\right)
+\]
+\[
+=\frac{2U}{V}
+\]
+\end{example}
+
+Finally,
+\[
+\mu=-T\frac{\partial \tilde{S}}{\partial N}
+\]
+\[
+=-\frac{U^{3/4}}{A V^{1/2} N^{1/4}}\left(\frac{AU^{1/4}V^{1/2}}{N^{3/4}}+B\right)
+\]
+\[
+=-\frac{U}{N}-\frac{B U^{3/4}}{A V^{1/2} N^{1/4}}. ///
+\]
+
+\begin{example}
+\textbf{(3.5)}\label{ex:thermo-s26-03-3-5} Suppose that the fundamental
+relation is
+\[
+\tilde{U}=\left(\frac{S-BN}{4A V^{1/2} N^{1/4}}\right)^4
+\]
+
+Recall that
+\[
+T=\frac{\partial \tilde{U}}{\partial S}
+\]
+\[
+=4\left(\frac{S-BN}{4A V^{1/2} N^{1/4}}\right)^3\frac{1}{4A V^{1/2} N^{1/4}}
+\]
+\[
+=\frac{\tilde{U}^{3/4}}{A V^{1/2} N^{1/4}}.
+\]
+
+The same as above.
+
+\[
+P=-\frac{\partial \tilde{U}}{\partial V}
+\]
+\[
+=-4\left(\frac{S-BN}{4A V^{1/2} N^{1/4}}\right)^3\left(\frac{S-BN}{4A N^{1/4}}\right)\left(\frac{1}{2}V^{-3/2}\right)
+\]
+\[
+=2\left(\frac{S-BN}{4A V^{1/2} N^{1/4}}\right)^4\frac{1}{V}
+\]
+\[
+=\frac{2\tilde{U}}{V}.
+\]
+
+Finally,
+\[
+\mu=\frac{\partial \tilde{U}}{\partial N}
+\]
+\[
+=4\left(\frac{S-BN}{4A V^{1/2} N^{1/4}}\right)^3\frac{1}{4A V^{1/2}}\frac{N^{1/4}(-B)-(S-BN)\frac{1}{4}N^{-3/4}}{N^{1/2}}
+\]
+\[
+=4\tilde{U}^{3/4}\cdot \frac{N^{1/4}}{4A V^{1/2}}\left(-B-\frac{S-BN}{4N}\right)
+\]
+\[
+=-\frac{B\tilde{U}^{3/4}}{A V^{1/2} N^{1/4}}-\frac{\tilde{U}}{N}. ///
+\]
+\end{example}
+
+Let us establish the Euler Equation with respect
+to entropy.
+
+\begin{theorem}
+\textbf{(3.5)}\label{thm:thermo-s26-03-3-5} Let $\tilde{S}$ be the internal energy of an
+isolated system. Then
+\begin{equation}
+\tilde{S}=\frac{1}{T_s}U+\frac{P_s}{T_s}V-\sum_{j=1}^r \frac{\mu_{s,j}}{T_s}N_j,
+\tag{3.8}
+\label{eq:thermo-s26-03-3-8}
+\end{equation}
+
+where
+\[
+T_s=T_s(U,V,\tilde{\mathbf{N}}),
+\]
+\[
+P_s=P_s(U,V,\tilde{\mathbf{N}}),
+\]
+\[
+\mu_{s,j}=\mu_{s,j}(U,V,\tilde{\mathbf{N}}),
+\]
+
+and
+\[
+\frac{1}{T_s}=\frac{\partial \tilde{S}}{\partial U}, \quad \frac{P_s}{T_s}=\frac{\partial \tilde{S}}{\partial V}, \quad \frac{\mu_{s,j}}{T_s}=\frac{\partial \tilde{S}}{\partial N_j}.
+\]
+\end{theorem}
+
+\begin{proof}
+We again use the fact that $\tilde{S}$ is
+homogeneous of degree one. For any $\lambda>0$,
+\[
+\tilde{S}(\lambda U,\lambda V,\lambda \tilde{\mathbf{N}})=\lambda \tilde{S}(U,V,\tilde{\mathbf{N}})
+\]
+
+Taking the derivative with respect to $\lambda$, we have
+\[
+\frac{1}{T_s(\lambda U,\lambda V,\lambda \tilde{\mathbf{N}})}U+\frac{P_s(\lambda U,\lambda V,\lambda \tilde{\mathbf{N}})}{T_s(\lambda U,\lambda V,\lambda \tilde{\mathbf{N}})}V
++\sum_{j=1}^r \frac{\mu_{s,j}(\lambda U,\lambda V,\lambda \tilde{\mathbf{N}})}{T_s(\lambda U,\lambda V,\lambda \tilde{\mathbf{N}})}N_j=\tilde{S}(U,V,\tilde{\mathbf{N}})
+\]
+
+setting $\lambda=1$ gives the desired result. ///
+\end{proof}
+
+The Gibbs-Duhem equation is similarly derived.
+
+\begin{theorem}
+\textbf{(3.6)}\label{thm:thermo-s26-03-3-6} Suppose that $\vec{\xi}:[0,1]\to \Sigma_U$ is
+a process path. Then
+\begin{equation}
+\begin{aligned}
+0={}&\frac{dT_s}{d\gamma}(\vec{\xi}(\gamma))\tilde{S}(\vec{\xi}(\gamma))
+-\frac{dP_s}{d\gamma}(\vec{\xi}(\gamma))V(\gamma)\\
+&-\sum_{j=1}^r \frac{d\mu_{s,j}}{d\gamma}(\vec{\xi}(\gamma))N_j(\gamma).
+\end{aligned}
+\tag{3.9}
+\label{eq:thermo-s26-03-3-9}
+\end{equation}
+\end{theorem}
+
+This equation is called the Gibbs-Duhem
+relation in the entropy form.
+
+\begin{proof}
+Using (3.8), we have
+\[
+\begin{aligned}
+T_s(\vec{\xi}(\gamma))\tilde{S}(\vec{\xi}(\gamma))={}&U(\gamma)+P_s(\vec{\xi}(\gamma))V(\gamma)\\
+&-\sum_{j=1}^r \mu_{s,j}(\vec{\xi}(\gamma))N_j(\gamma).
+\end{aligned}
+\]
+
+Taking the $\gamma$-derivative of the last equation we
+have
+\begin{equation}
+\begin{aligned}
+\frac{dT_s}{d\gamma}(\vec{\xi}(\gamma))\tilde{S}(\vec{\xi}(\gamma))
+T_s(\vec{\xi}(\gamma))\frac{d\tilde{S}}{d\gamma}(\vec{\xi}(\gamma))\\
+={}&U'(\gamma)\\
+&+\frac{dP_s}{d\gamma}(\vec{\xi}(\gamma))V(\gamma)+P_s(\vec{\xi}(\gamma))V'(\gamma)\\
+&-\sum_{j=1}^r\Bigl\{\frac{d\mu_{s,j}}{d\gamma}(\vec{\xi}(\gamma))N_j(\gamma)\\
+&\qquad\qquad\qquad\qquad\quad +\mu_{s,j}(\vec{\xi}(\gamma))\\
+&\qquad\qquad\qquad\qquad\quad N_j'(\gamma)\Bigr\}
+\end{aligned}
+\tag{3.10}
+\label{eq:thermo-s26-03-3-10}
+\end{equation}
+
+Taking the $\gamma$-derivative of $\tilde{S}(\vec{\xi}(\gamma))$ we have
+\[
+\begin{aligned}
+\frac{d\tilde{S}}{d\gamma}(\vec{\xi}(\gamma))={}&\frac{1}{T_s(\vec{\xi}(\gamma))}U'(\gamma)\\
+&+\frac{P_s(\vec{\xi}(\gamma))}{T_s(\vec{\xi}(\gamma))}V'(\gamma)\\
+&-\sum_{j=1}^r \frac{\mu_{s,j}(\vec{\xi}(\gamma))}{T_s(\vec{\xi}(\gamma))}N_j'(\gamma).
+\end{aligned}
+\]
+\end{proof}
+
+Equivalently,
+\begin{equation}
+\begin{aligned}
+T_s(\vec{\xi}(\gamma))\frac{d\tilde{S}}{d\gamma}(\vec{\xi}(\gamma))={}&U'(\gamma)+P_s(\vec{\xi}(\gamma))V'(\gamma)\\
+&-\sum_{j=1}^r \mu_{s,j}(\vec{\xi}(\gamma))N_j'(\gamma)
+\end{aligned}
+\tag{3.11}
+\label{eq:thermo-s26-03-3-11}
+\end{equation}
+
+Subtracting (3.11) from (3.10) we get
+\[
+\begin{aligned}
+\frac{dT_s}{d\gamma}(\vec{\xi}(\gamma))\tilde{S}(\vec{\xi}(\gamma))={}&\frac{dP_s}{d\gamma}(\vec{\xi}(\gamma))V(\gamma)\\
+&-\sum_{j=1}^r \frac{d\mu_{s,j}}{d\gamma}(\vec{\xi}(\gamma))N_j(\gamma).
+\end{aligned}
+\]
+
+which is the desired result. ///
+
+Remark: Compare (3.6) and (3.9):
+
+(3.6)
+\[
+0=S(\gamma)\frac{dT}{d\gamma}(\vec{\xi}(\gamma))-V(\gamma)\frac{dP}{d\gamma}(\vec{\xi}(\gamma))
++\sum_{j=1}^r N_j(\gamma)\frac{d\mu_j}{d\gamma}(\vec{\xi}(\gamma)),
+\]
+
+(3.9)
+\[
+0=\frac{dT_s}{d\gamma}(\vec{\xi}(\gamma))\tilde{S}(\vec{\xi}(\gamma))-\frac{dP_s}{d\gamma}(\vec{\xi}(\gamma))V(\gamma)
+-\sum_{j=1}^r \frac{d\mu_{s,j}}{d\gamma}(\vec{\xi}(\gamma))N_j(\gamma),
+\]
+
+These are essentially the same expressions!
+
+\THERMOEND

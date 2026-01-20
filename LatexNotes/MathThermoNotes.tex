@@ -2,6 +2,7 @@
 
 \input{./Macros/thermoHead}
 \input{./Macros/thermoSymbols}
+\graphicspath{{./Figures/}}
 
 \usepackage[T1]{fontenc}
 
@@ -59,9 +60,14 @@
 
 	% Chapters will be included here automatically
 	% Each lecture will be a separate chapter file
-
-	% Lecture 01: Non-Equilibrium Thermodynamics
-	\include{ThermoS26-01}
+\def\THERMONOTESMAIN{1}
+\providecommand{\THERMOEND}{}
+	% Lecture 01 - Non-Equilibrium Thermodynamics
+	\input{./ThermoS26-01}
+	% Lecture 02 - Math Thermo
+	\input{./ThermoS26-02}
+	% Lecture 03 - ThermoS26-03
+	\input{./ThermoS26-03}
 
 \backmatter
 	\bibliographystyle{plain}

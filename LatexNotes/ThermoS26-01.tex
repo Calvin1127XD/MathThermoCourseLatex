@@ -1,175 +1,656 @@
+\ifdefined\THERMONOTESMAIN
+    \providecommand{\THERMOEND}{}
+\else
+\documentclass[11pt]{book}
+
+\input{./Macros/thermoHead}
+\input{./Macros/thermoSymbols}
+
+    \providecommand{\THERMOEND}{\end{document}}
+    \begin{document}
+\fi
+
 \chapter{Non-Equilibrium Thermodynamics}
 \label{chap:thermo-s26-01}
 
+\begin{center}
+Math-Thermo\\
+Chap 01\\
+01/20/2026
+\end{center}
+
+\graphicspath{{Figures/}}
+
 \section{Course Plan}
-
-This course covers the following topics:
-
 \begin{enumerate}
-\item Equilibrium Thermodynamics
-\item Statistical Mechanics
-\item Kinetic Theory of Gases
-\item Conservation Laws in Continuous Systems
-\item Entropy Production
-\item Onsager's Principle
-\item Applications
+    \item Equilibrium Thermodynamics
+    \item Statistical Mechanics
+    \item Kinetic Theory of Gases
+    \item Conservation Laws in Continuous Systems
+    \item Entropy Production
+    \item Onsager's Principle
+    \item Applications
 \end{enumerate}
 
 \section{Equilibrium Thermodynamics}
 
-\subsection{Isolated Systems and Equilibrium States}
-
-\begin{definition}[Isolated System]
-\label{def:isolated-system}
-An \textbf{isolated system} is a collection of matter that shares no information with the outside world.
+\begin{definition}
+\textbf{(1.1)} An isolated system is a collection of
+matter that shares no information with the outside world.
 \end{definition}
+
+\paragraph{Postulate I.}
+There are particular states, called equilibrium states,
+of an isolated system that, macroscopically, are characterized by
+
+\begin{align*}
+U, &\quad \text{the internal energy of the system,} \quad U > 0,\\
+V, &\quad \text{the volume of the system,} \quad V > 0,\\
+N_1,\ldots,N_r, &\quad \text{the mole numbers of the $r$ chemical components of the system,} \quad N_i \ge 0.
+\end{align*}
 
 \begin{figure}[h]
-\centering
-\includegraphics[width=0.6\textwidth]{../output/figures/ThermoS26-01-fig-1.pdf}
-\caption{Isolated system with rigid, adiabatic walls. The system boundary prevents exchange of energy, matter, and volume with the surroundings.}
-\label{fig:isolated-system}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ThermoS26-01-fig-1.pdf}
+    \caption{Isolated system with rigid walls.}
 \end{figure}
 
-\begin{remark}
-The rigid walls that isolate the system from the rest of the universe allow no change in volume nor exchange of matter, and no exchange of energy.
-\end{remark}
+The rigid walls that isolate the system from the rest of the universe allow no change in
+volume, no exchange of matter, and no exchange of energy.
 
-\begin{postulate}[Equilibrium States]
-\label{post:equilibrium-states}
-There are particular states, called \textbf{equilibrium states} of an isolated system that, macroscopically, are characterized by:
-\begin{itemize}
-\item $\Int$, the internal energy of the system, $\Int > 0$,
-\item $\Vol$, the volume of the system, $\Vol \gg 0$,
-\item $N_1, \ldots, N_r$, the mole numbers of the $r$ chemical components of the system, $N_i > 0$.
-\end{itemize}
-\end{postulate}
-
-\subsection{Composite Systems}
-
-\begin{definition}[Composite System]
-\label{def:composite-system}
-A \textbf{composite system} is the union of two isolated systems (chemical components) that can exchange volume, matter (chemical components) and/or energy, however no volume, matter, or energy is exchanged with the outside.
+\begin{definition}
+\textbf{(1.2)} A composite system is the union
+of two isolated systems that can exchange volume,
+matter (chemical components), and/or energy; however
+no volume, matter, or energy is exchanged with outside.
 \end{definition}
+
+A diathermal wall in a composite system is one
+which separates two otherwise isolated systems
+and allows for the exchange of energy, but not
+matter or volume.
 
 \begin{figure}[h]
-\centering
-\includegraphics[width=0.8\textwidth]{../output/figures/ThermoS26-01-fig-2.pdf}
-\caption{Composite system with diathermal wall separating subsystems $\alpha$ and $\beta$. The diathermal wall allows energy exchange but prevents matter and volume exchange between subsystems.}
-\label{fig:composite-system}
+    \centering
+    \includegraphics[width=0.8\textwidth]{ThermoS26-01-fig-2.pdf}
+    \caption{Composite system with a diathermal wall.}
 \end{figure}
 
-\begin{definition}[Diathermal Wall]
-\label{def:diathermal-wall}
-A \textbf{diathermal wall} in a composite system is one which separates two otherwise isolated systems and allows for the exchange of energy, but not matter or volume.
-\end{definition}
+A diathermal partition in a composite system is one
+which separates two otherwise isolated systems
+and allows for the exchange of energy and volume
+but not matter.
 
-\subsection{The Entropy Postulates}
+\paragraph{Postulate II.}
+There exists a function $\tilde{S}$ for an
+isolated system called its entropy, defined
+for the system at equilibrium and dependent on
+$U, V, N_1, \ldots, N_r$, i.e.,
 
-\begin{postulate}[Existence of Entropy]
-\label{post:entropy-existence}
-There exists a function $\Ent$ for an isolated system called its \textbf{entropy}, defined for the system at equilibrium and depending on $(\Int, \Vol, N_1, \ldots, N_r)$, \ie
 \[
-\widetilde{\Ent} = \widetilde{\Ent}(\Int, \Vol, N_1, \ldots, N_r).
+\tilde{S} = \tilde{S}(U, V, N_1, \ldots, N_r).
 \]
 
-The entropy for a composite system is the sum of the entropy functions, $\widetilde{\Ent}^{\alpha}$ and $\widetilde{\Ent}^{\beta}$, for the respective subsystems, \ie
+The entropy states for a composite system and
+is the sum of the entropy functions, $\tilde{S}^\alpha$ and
+$\tilde{S}^\beta$, for the respective subsystems, i.e.,
+
+\begin{equation}
+\tag{1.1}
+\tilde{S} = \tilde{S}^\alpha + \tilde{S}^\beta = \tilde{S}^\alpha(U^\alpha, V^\alpha, N_1^\alpha, \ldots, N_r^\alpha)
++ \tilde{S}^\beta(U^\beta, V^\beta, N_1^\beta, \ldots, N_r^\beta)
+\end{equation}
+
+The entropy of an isolated system is homogeneous
+of degree 1, meaning
+
 \[
-\widetilde{\Ent} = \widetilde{\Ent}^{\alpha} + \widetilde{\Ent}^{\beta} = \widetilde{\Ent}^{\alpha}(\Int^{\alpha}, \Vol^{\alpha}, \widetilde{N}^{\alpha}) + \widetilde{\Ent}^{\beta}(\Int^{\beta}, \Vol^{\beta}, \widetilde{N}^{\beta}).
+\tilde{S}(\lambda U, \lambda V, \lambda N_1, \ldots, \lambda N_r) = \lambda \tilde{S}(U, V, N_1, \ldots, N_r)
 \]
 
-The entropy of an isolated system is \textbf{homogeneous of degree 1}, meaning:
-\[
-\widetilde{\Ent}(\lambda \Int, \lambda \Vol, \lambda N_1, \ldots, \lambda N_r) = \lambda \widetilde{\Ent}(\Int, \Vol, N_1, \ldots, N_r)
-\]
 for any $\lambda > 0$.
-\end{postulate}
 
-\begin{postulate}[Properties of Entropy]
-\label{post:entropy-properties}
-The entropy of an isolated system is a \textbf{concave}, \textbf{twice continuously differentiable}, \textbf{positive function} over its (convex) domain:
+\paragraph{Postulate III.}
+The entropy of an isolated
+system is a concave, twice continuously differentiable,
+positive function over its (convex) domain,
+
 \[
-\Sigma_{\Int} \subseteq \underbrace{[0, \infty)}_{(\Int)} \times \underbrace{[0, \infty)}_{(\Vol)} \times \underbrace{[0, \infty)}_{(N_1)} \times \cdots \times \underbrace{[0, \infty)}_{(N_r)}.
+\Sigma_0 \subseteq [0,\infty)^{r+2} = [0,\infty) \times [0,\infty) \times [0,\infty) \times \cdots \times [0,\infty)
+\]
+\[
+(U) \quad (V) \quad (N_1) \quad \cdots \quad (N_r)
 \]
 
-The entropy is a \textbf{monotonically increasing function} of $\Int$. In particular:
-\[
-\pderT{\widetilde{\Ent}}{\Int}{\Vol, N_1, \ldots, N_r} > 0, \quad \forall (\Int, \Vol, N) \in \Sigma_{\Int}.
-\]
-\end{postulate}
+The entropy is a monotonically increasing
+function of $U$. In particular,
 
-\subsection{Fundamental Relation in the Energy Representation}
-
-\begin{theorem}[Energy Representation]
-\label{thm:energy-representation}
-Suppose that Postulates \ref{post:equilibrium-states}--\ref{post:entropy-properties} hold for an isolated system. Then, there is a function:
 \[
-\widetilde{\Int} = \widetilde{\Int}(\Ent, \Vol, N_1, \ldots, N_r)
+\left(\frac{\partial \tilde{S}}{\partial U}\right)_{V,N_1,\ldots,N_r} > 0, \quad \forall (U,V,\vec{N}) \in \Sigma_0.
 \]
-and a convex domain of definition:
-\[
-\Sigma_{\Ent} \subseteq \underbrace{[0, \infty)}_{(\Ent)} \times \underbrace{[0, \infty)}_{(\Vol)} \times \underbrace{[0, \infty)}_{(N_1)} \times \cdots \times \underbrace{[0, \infty)}_{(N_r)}
-\]
-that satisfies:
-\begin{enumerate}[(i)]
-\item $\widetilde{\Int}\bigl(\widetilde{\Ent}(\Int, \Vol, N), \Vol, N\bigr) = \Int$, $\forall (\Int, \Vol, N) \in \Sigma_{\Int}$
-\item $\widetilde{\Ent}\bigl(\widetilde{\Int}(\Ent, \Vol, N), \Vol, N\bigr) = \Ent$, $\forall (\Ent, \Vol, N) \in \Sigma_{\Ent}$
-\end{enumerate}
 
-Moreover, $\widetilde{\Int}$ is a \textbf{twice continuously differentiable convex function} with the property:
+\begin{theorem}
+\textbf{(1.3)} Suppose that Postulates I--III hold
+for an isolated system. Then, there is a
+function
+
 \[
-\pderT{\widetilde{\Int}}{\Ent}{\Vol, N_1, \ldots, N_r} > 0, \quad \forall (\Ent, \Vol, N) \in \Sigma_{\Ent}.
+\tilde{U} = \tilde{U}(S, V, N_1, \ldots, N_r)
+\]
+
+and a convex domain of definition
+
+\[
+\Sigma_s \subseteq [0,\infty)^{r+2} = [0,\infty) \times [0,\infty) \times [0,\infty) \times \cdots \times [0,\infty)
+\]
+\[
+(S) \quad (V) \quad (N_1) \quad \cdots \quad (N_r)
+\]
+
+that satisfies
+
+\[
+\tilde{U}(\tilde{S}(U,V,\vec{N}), V, \vec{N}) = U, \quad \forall (U,V,\vec{N}) \in \Sigma_0
+\]
+
+and
+
+\[
+\tilde{S}(\tilde{U}(S,V,\vec{N}), V, \vec{N}) = S, \quad \forall (S,V,\vec{N}) \in \Sigma_s.
+\]
+
+Moreover, $\tilde{U}$ is a twice continuously differentiable convex
+function with the property
+
+\[
+\left(\frac{\partial \tilde{U}}{\partial S}\right)_{V,N_1,\ldots,N_r} > 0, \quad \forall (S,V,\vec{N}) \in \Sigma_s.
 \]
 \end{theorem}
 
-\begin{example}[Unary Material]
-\label{ex:unary-material}
-For a unary material ($r = 1$), consider the function:
-\[
-\widetilde{\Ent}(\Int, \Vol, N) = \left(\frac{N\Vol\Int R^2}{v_0 \theta}\right)^{1/3}, \quad \Sigma_{\Vol} = [0, \infty]^3
-\]
-where $R$, $v_0$, $\theta > 0$ are constants.
+\begin{example}
+\textbf{(1.4)} Suppose that for a unary material ($r=1$),
 
-The corresponding energy representation is:
 \[
-\widetilde{\Int}(\Ent, \Vol, N) = \frac{\Ent^3 v_0 \theta}{N\Vol R^2}.
+\tilde{S}(U,V,N) = \left(\frac{N V U R^2}{\nu_0 \Theta}\right)^{1/3}, \quad \Sigma_0 = [0,\infty)^3,
+\]
+
+where $R$, $\nu_0$, $\Theta > 0$ are constants. Consider
+the function,
+
+\[
+\tilde{U}(S,V,N) = \frac{S^3 \nu_0 \Theta}{N V R^2}, \quad \Sigma_s = ?
+\]
+
+Then
+
+\[
+\tilde{S}(\tilde{U}(S,V,N), V, N) = S, \quad \forall (S,V,N) \in \Sigma_s
+\]
+
+and
+
+\[
+\tilde{U}(\tilde{S}(U,V,N), V, N) = U, \quad \forall (U,V,N) \in \Sigma_0.
 \]
 \end{example}
 
-\subsection{Temperature}
+\begin{definition}
+\textbf{(1.5)} Suppose that Postulates I--III hold. Then
+the temperature of an equilibrium isolated system is
+defined as
 
-\begin{definition}[Temperature]
-\label{def:temperature}
-The \textbf{temperature} of an equilibrium isolated system is defined as:
-\[
-\Temp_0(\Ent, \Vol, N_1, \ldots, N_r) \equiv \pderT{\widetilde{\Int}}{\Ent}{\Vol, N_1, \ldots, N_r} = \left(\pderT{\widetilde{\Ent}}{\Int}{\Vol, N_1, \ldots, N_r}\right)^{-1}.
-\]
+\begin{equation}
+\tag{1.2}
+T(U,S,N_1,\ldots,N_r) \equiv \left(\frac{\partial \tilde{U}}{\partial S}\right)_{V,N_1,\ldots,N_r}.
+\end{equation}
 \end{definition}
 
-\subsection{Equilibrium Condition}
+\paragraph{Postulate IV.}
+Equilibrium of a composite system
+is that state $(U^\alpha, V^\alpha, \vec{N}^\alpha), (U^\beta, V^\beta, \vec{N}^\beta) \in \Sigma_s^\alpha \times \Sigma_s^\beta$
+such that
 
-\begin{postulate}[Maximum Entropy Principle]
-\label{post:maximum-entropy}
-Equilibrium of a composite system is a state where subsystems are in equilibrium such that:
 \[
-\Ent = \Ent^{\alpha} + \Ent^{\beta}
+S = S^\alpha + S^\beta
 \]
+
 is at its maximum possible value.
-\end{postulate}
+
+\begin{definition}
+\textbf{(1.6)} The functions
+
+\begin{equation}
+\tag{1.3}
+P_0(S,V,N_1,\ldots,N_r) := -\left(\frac{\partial \tilde{U}}{\partial V}\right)_{S,N_1,\ldots,N_r}
+\end{equation}
+
+is called the pressure of a system. The function
+
+\begin{equation}
+\tag{1.4}
+\mu_{0,i}(S,V,N_1,\ldots,N_r) := \left(\frac{\partial \tilde{U}}{\partial N_i}\right)_{S,V,N_j, j\ne i}
+\end{equation}
+
+is called the $i^{\text{th}}$ chemical potential.
+\end{definition}
+
+\begin{theorem}
+\textbf{(1.7)} Let $\tilde{S}$ and $\tilde{U}$ be the entropy and
+internal energy functions of an isolated system.
+Then,
+
+\[
+\frac{\partial \tilde{S}}{\partial U} = \frac{1}{T_s(U,V,\vec{N})},
+\]
+
+where
+
+\[
+T_0(S,V,\vec{N}) = T_s(\tilde{U}(S,V,\vec{N}), V, \vec{N})
+\]
+
+and
+
+\[
+T_s(U,V,\vec{N}) = T_0(\tilde{S}(U,V,\vec{N}), V, \vec{N}).
+\]
+
+Furthermore,
+
+\[
+\frac{\partial \tilde{S}}{\partial V} = \frac{P_s(U,V,\vec{N})}{T_s(U,V,\vec{N})},
+\]
+
+where
+
+\[
+P_0(S,V,\vec{N}) = P_s(\tilde{U}(S,V,\vec{N}), V, \vec{N}),
+\]
+
+and
+
+\[
+P_s(U,V,\vec{N}) = P_0(\tilde{S}(U,V,\vec{N}), V, \vec{N}).
+\]
+
+And finally,
+
+\[
+\frac{\partial \tilde{S}}{\partial N_i} = -\frac{\mu_{s,i}(U,V,\vec{N})}{T_s(U,V,\vec{N})}.
+\]
+
+where
+
+\[
+\mu_{0,i}(S,V,\vec{N}) = \mu_{s,i}(\tilde{U}(S,V,\vec{N}), V, \vec{N})
+\]
+
+and
+
+\[
+\mu_{s,i}(U,V,\vec{N}) = \mu_{0,i}(\tilde{S}(U,V,\vec{N}), V, \vec{N}).
+\]
+\end{theorem}
+
+\begin{proof}
+Exercise !!!
+\end{proof}
 
 \begin{remark}
-This postulate forms the basis for deriving equilibrium conditions in composite systems. Further mathematical derivations and proofs will follow in subsequent lectures.
+We will usually abuse notation
+and just write
+
+\[
+T_0 = T_s, \quad P_0 = P_s, \quad \mu_{0,i} = \mu_{s,i},
+\]
+
+when the usage may inferred from the context.
 \end{remark}
 
-\section{Notes for Future Lectures}
+\paragraph{Postulate V.}
+The entropy of an isolated system
+is zero when the temperature is zero; that is,
 
-The material presented here establishes the foundational postulates of equilibrium thermodynamics. Future lectures will explore:
+\[
+T_s(U,V,N_1,\ldots,N_r) = 0 \Longrightarrow \tilde{S}(U,V,N_1,\ldots,N_r) = 0.
+\]
 
-\begin{itemize}
-\item Derivation of equilibrium conditions from the maximum entropy principle
-\item Thermodynamic potentials and Legendre transforms
-\item Maxwell relations and thermodynamic identities
-\item Connection to statistical mechanics
-\item Applications to specific systems
-\end{itemize}
+\begin{example}
+\textbf{(1.8)} Consider a unary ($r=1$) isolated
+system in equilibrium with the fundamental
+relation
 
+\[
+\tilde{S}(U,V,N) = \left(\frac{N V U R^2}{\nu_0 \Theta}\right)^{1/3}.
+\]
+
+We can set
+
+\[
+\Sigma_0 = [0,\infty)^3.
+\]
+
+$\tilde{S} = 0$ for all $(U,V,N) \in \partial \Sigma_0$, where
+
+\[
+\partial \Sigma_0 = \{(U,V,N) \in \Sigma_0 : U=0, \text{ or } V=0, \text{ or } N=0\}
+\]
+
+Recall,
+
+\[
+T_s(U,V,N) = \frac{3 \nu_0 \Theta}{N V R^2} \tilde{S}(U,V,N)
+\]
+
+\[
+= \frac{3 \nu_0 \Theta}{N V R^2} \left(\frac{N V U R^2}{\nu_0 \Theta}\right)^{1/3}.
+\]
+
+$T_s$ is not defined for all of $\Sigma_0$! It is
+defined for all
+
+\[
+(U,V,N) \in \mathrm{dom}(T_s) \subset \Sigma_0
+\]
+
+Define
+
+\[
+AZ := \{(U,V,N) \in \mathrm{dom}(T_s) \mid T_s(U,V,N) = 0\}.
+\]
+
+Then
+
+\[
+AZ \subset \partial \Sigma_0.
+\]
+
+(Postulate V)
+
+I leave it as a homework exercise to determine
+$\mathrm{dom}(T_s)$ and $AZ$.
+\end{example}
+
+\begin{remark}
+From this point forward, we will assume
+that all postulates hold.
+\end{remark}
+
+\begin{theorem}
+\textbf{(1.9)} Suppose that in a composite system
+$\alpha$ and $\beta$ are separated by a diathermal wall.
+Then, the equilibrium of the composite system
+may be characterized by
+
+\begin{equation}
+\tag{1.5}
+U^\alpha + U^\beta = U_0
+\end{equation}
+
+and
+
+\begin{equation}
+\tag{1.6}
+T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) = T^\beta(U^\beta, V^\beta, \vec{N}^\beta).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Internal energy may be exchanged between
+systems $\alpha$ and $\beta$ but cannot be exchanged with
+the outside world. Thus (1.5) must hold because
+of energy conservation. At equilibrium we must have
+
+\[
+S(U^\alpha) = S^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) + S^\beta(U_0 - U^\alpha, V^\beta, \vec{N}^\beta)
+\]
+
+and
+
+\[
+\frac{\partial S}{\partial U^\alpha} = 0.
+\]
+
+Note, all other variables besides $U^\alpha$ are fixed.
+
+\[
+0 = \frac{\partial S^\alpha}{\partial U^\alpha} + \frac{\partial S^\beta}{\partial U^\beta}\frac{\partial}{\partial U^\alpha}(U_0 - U^\alpha)
+\]
+
+\[
+= \left[T^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha)\right]^{-1} + \left[T^\beta(U_0 - U^\alpha, V^\beta, \vec{N}^\beta)\right]^{-1}(-1)
+\]
+
+Thus,
+
+\[
+T^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) = T^\beta(U^\beta,V^\beta,\vec{N}^\beta)
+\]
+
+with
+
+\[
+U^\beta = U_0 - U^\alpha.
+\]
+
+How do we know that solutions exist and
+are unique?
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{ThermoS26-01-fig-3.pdf}
+    \caption{Concave entropy curves $\tilde{S}^\alpha(U^\alpha)$ and $\tilde{S}^\beta(U_0-U^\alpha)$.}
+\end{figure}
+
+This proof can also be carried out by using
+Lagrange multipliers. Set
+
+\[
+J := S^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) + S^\beta(U^\beta,V^\beta,\vec{N}^\beta)
++ \lambda(U^\alpha + U^\beta - U_0)
+\]
+
+Then, equilibrium is characterized by
+
+\[
+0 = \frac{\partial J}{\partial U^\alpha} = \left[T^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha)\right]^{-1} + \lambda,
+\]
+
+\[
+0 = \frac{\partial J}{\partial U^\beta} = \left[T^\beta(U^\beta,V^\beta,\vec{N}^\beta)\right]^{-1} + \lambda,
+\]
+
+\[
+0 = \frac{\partial J}{\partial \lambda} = U^\alpha + U^\beta - U_0,
+\]
+
+which yields the same result. ///
+\end{proof}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ThermoS26-01-fig-4.pdf}
+    \caption{Graph of $\tilde{S}(U) = \tilde{S}^\alpha(U) + \tilde{S}^\beta(U_0-U)$ with maximum at $U_*$.}
+\end{figure}
+
+The Lagrange Multiplier techniques can be
+visualized as follows:
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.75\textwidth]{ThermoS26-01-fig-5.pdf}
+    \caption{Contour lines of $\tilde{S}$ and the constraint line $U^\alpha+U^\beta=U_0$.}
+\end{figure}
+
+\begin{theorem}
+\textbf{(1.9)} Suppose that in a composite system
+$\alpha$ and $\beta$ are separated by a diathermal partition.
+Then, the equilibrium of the composite system
+may be characterized by
+
+\begin{equation}
+\tag{1.7}
+U^\alpha + U^\beta = U_0,
+\end{equation}
+
+\begin{equation}
+\tag{1.8}
+V^\alpha + V^\beta = V_0,
+\end{equation}
+
+and
+
+\begin{equation}
+\tag{1.9}
+T^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) = T^\beta(U^\beta,V^\beta,\vec{N}^\beta), \quad \text{(thermal equil.)}
+\end{equation}
+
+\begin{equation}
+\tag{1.10}
+P^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) = P^\beta(U^\beta,V^\beta,\vec{N}^\beta). \quad \text{(mechanical equil.)}
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+For this, we use the method of Lagrange
+multipliers. Note that $\vec{N}^\alpha$ and $\vec{N}^\beta$ are fixed. Define
+
+\[
+J := S^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) + S^\beta(U^\beta,V^\beta,\vec{N}^\beta)
++ \lambda_u(U^\alpha + U^\beta - U_0)
++ \lambda_v(V^\alpha + V^\beta - V_0).
+\]
+
+The conditions for equilibrium are
+
+\[
+0 = \frac{\partial J}{\partial U^\alpha} = \left[T^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha)\right]^{-1} + \lambda_u,
+\]
+
+\[
+0 = \frac{\partial J}{\partial U^\beta} = \left[T^\beta(U^\beta,V^\beta,\vec{N}^\beta)\right]^{-1} + \lambda_u,
+\]
+
+\[
+0 = \frac{\partial J}{\partial V^\alpha} = -\frac{P^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha)}{T^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha)} + \lambda_v,
+\]
+
+\[
+0 = \frac{\partial J}{\partial V^\beta} = -\frac{P^\beta(U^\beta,V^\beta,\vec{N}^\beta)}{T^\beta(U^\beta,V^\beta,\vec{N}^\beta)} + \lambda_v.
+\]
+
+and
+
+\[
+0 = \frac{\partial J}{\partial \lambda_u} = U^\alpha + U^\beta - U_0,
+\]
+
+\[
+0 = \frac{\partial J}{\partial \lambda_v} = V^\alpha + V^\beta - V_0.
+\]
+
+The result is clear. ///
+\end{proof}
+
+Here, we have used the fact that
+
+\[
+\frac{\partial S^\alpha}{\partial U^\alpha} = \frac{1}{T^\alpha}
+\]
+
+\[
+\frac{\partial S^\alpha}{\partial V^\alpha} = \frac{P^\alpha}{T^\alpha}
+\]
+
+and
+
+\[
+\frac{\partial S^\alpha}{\partial N_i^\alpha} = -\frac{\mu_i^\alpha}{T^\alpha}.
+\]
+
+As a short hand, we will write
+
+\[
+\mathrm{d}U^\alpha = T^\alpha \,\mathrm{d}S^\alpha - P^\alpha \,\mathrm{d}V^\alpha + \sum_{i=1}^r \mu_i^\alpha \,\mathrm{d}N_i^\alpha
+\]
+
+and
+
+\[
+\mathrm{d}S^\alpha = \frac{1}{T^\alpha} \,\mathrm{d}U^\alpha + \frac{P^\alpha}{T^\alpha} \,\mathrm{d}V^\alpha - \sum_{i=1}^r \frac{\mu_i^\alpha}{T^\alpha} \,\mathrm{d}N_i^\alpha.
+\]
+
+Using our abusive notation, we have
+
+\[
+\mathrm{d}S^\alpha = \frac{1}{T^\alpha} \,\mathrm{d}U^\alpha + \frac{P^\alpha}{T^\alpha} \,\mathrm{d}V^\alpha - \sum_{i=1}^r \frac{\mu_i^\alpha}{T^\alpha} \,\mathrm{d}N_i^\alpha,
+\]
+
+for example.
+
+\begin{theorem}
+\textbf{(1.10)} Suppose that a composite system
+is comprised of two otherwise isolated systems
+with no barrier between the systems. Suppose
+that
+
+\[
+S^\alpha = S^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha)
+\]
+
+and
+
+\[
+S^\beta = S^\beta(U^\beta,V^\beta,\vec{N}^\beta)
+\]
+
+are the fundamental entropy relations for
+two systems. Then the equilibrium state is
+defined by the relations
+
+\begin{equation}
+\tag{1.11}
+U^\alpha + U^\beta = U_0,
+\end{equation}
+
+\begin{equation}
+\tag{1.12}
+V^\alpha + V^\beta = V_0,
+\end{equation}
+
+and
+
+\begin{equation}
+\tag{1.13}
+N_i^\alpha + N_i^\beta = N_{0,i}
+\end{equation}
+
+where $U_0, V_0, N_{0,i} > 0$, and
+
+\begin{equation}
+\tag{1.14}
+T^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) = T^\beta(U^\beta,V^\beta,\vec{N}^\beta), \quad \text{(thermal equil.)}
+\end{equation}
+
+\begin{equation}
+\tag{1.15}
+P^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) = P^\beta(U^\beta,V^\beta,\vec{N}^\beta), \quad \text{(mech. equil.)}
+\end{equation}
+
+\begin{equation}
+\tag{1.16}
+\mu_i^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) = \mu_i^\beta(U^\beta,V^\beta,\vec{N}^\beta), \quad \text{(chem. equil.)}
+\end{equation}
+
+Proof: The procedure is the same. One can
+use the method of Lagrange multipliers to do the
+calculations. In particular, define
+
+\[
+J := S^\alpha(U^\alpha,V^\alpha,\vec{N}^\alpha) + S^\beta(U^\beta,V^\beta,\vec{N}^\beta) + \lambda_u(U^\alpha + U^\beta - U_0)
++ \lambda_v(V^\alpha + V^\beta - V_0) + \sum_{i=1}^r \lambda_i (N_i^\alpha + N_i^\beta - N_{0,i}).
+\]
+///
+\end{theorem}
+
+\THERMOEND

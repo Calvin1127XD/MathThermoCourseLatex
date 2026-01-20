@@ -1,0 +1,400 @@
+\ifdefined\THERMONOTESMAIN
+    \providecommand{\THERMOEND}{}
+\else
+\documentclass[11pt]{book}
+
+\input{./Macros/thermoHead}
+\input{./Macros/thermoSymbols}
+
+    \providecommand{\THERMOEND}{\end{document}}
+    \begin{document}
+\fi
+
+\chapter{Math Thermo}
+\label{chap:thermo-s26-02}
+
+\begin{center}
+Math Thermo\\
+Class 02\\
+01/22/2026
+\end{center}
+
+\graphicspath{{Figures/}}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.5\textwidth]{ThermoS26-02-fig-1.pdf}
+    \caption{Coordinate axes labeled $N$, $V$, and $S$.}
+\end{figure}
+
+\begin{example}
+\textbf{(2.1)}\label{ex:thermo-s26-02-2-1} Suppose that, for an isolated unary fluid
+\[
+\tilde{U} = \left(\frac{v_0 \theta}{R^2}\right) \frac{\tilde{S}^3}{N V}, \quad \Sigma_s \subset [0,\infty)^3.
+\]
+A explicit expression of the form $\tilde{U} = \tilde{U}(S,V,N)$ is called a fundamental relation.
+Here $v_0$, $\theta$ and $R$ are positive constants.
+The units of $U$ and $\tilde{U}$ are
+\[
+[U] = \text{Joules}.
+\]
+The units of entropy, $S$ and $\tilde{S}$, are
+\[
+[S] = \frac{\text{Joules}}{\text{degree Kelvin}} = \frac{J}{K}.
+\]
+The units of volume, $V$, are
+\[
+[V] = \text{meters}^3.
+\]
+The units of $N$ are
+\[
+[N] = \text{moles}.
+\]
+Of course, it is easy to see that
+\[
+\tilde{S} = \left(\frac{N V U R^2}{v_0 \theta}\right)^{1/3}, \quad \Sigma_U = [0,\infty)^3.
+\]
+\end{example}
+
+An explicit function of the form
+\[
+\tilde{S} = \tilde{S}(U,V,N)
+\]
+is also called a fundamental relation.
+
+In any case, the temperature which has units
+\[
+[T] = \text{degrees Kelvin} = K,
+\]
+is
+\[
+T_U(S,V,N) = \frac{\partial \tilde{U}}{\partial S} = \frac{3 v_0 \theta}{R^2} \frac{S^2}{N V}.
+\]
+
+This expression is called an equation of state.
+
+Observe that
+\[
+T_U(\lambda S,\lambda V,\lambda N) = T_U(S,V,N),
+\]
+that is $T_U$ is homogeneous of order $0$.
+This property is true of every equation of state.
+
+Now,
+\[
+\left(\frac{\partial \tilde{S}}{\partial U}\right)^{-1} =
+\left[\frac{1}{3} \left(\frac{N V U R^2}{v_0 \theta}\right)^{-2/3} \frac{N V R^2}{v_0 \theta}\right]
+\]
+\[
+= \frac{3 v_0 \theta}{N V R^2} \left(\frac{N V U R^2}{v_0 \theta}\right)^{2/3}
+\]
+\[
+= \frac{3 v_0 \theta}{N V R^2} \tilde{S}(U,V,N)
+\]
+\[
+= T_S(U,V,N),
+\]
+Clearly
+\[
+T_U(\tilde{S}(U,V,N),V,N) = T_S(U,V,N),
+\]
+as claimed in Theorem (1.7).
+
+The pressure satisfies the equation of state
+\[
+P_S(S,V,N) = - \frac{v_0 \theta}{R^2} \frac{S^3}{N} \frac{1}{V^2}
+\]
+\[
+= \frac{v_0 \theta}{R^2} \frac{S^3}{N V^2},
+\]
+which is also homogeneous of order zero.
+We leave it as an exercise for the reader to show that
+\[
+P_S(U,V,N) = P_S(\tilde{S}(U,V,N),V,N).
+\]
+Finally, the chemical potential is
+\[
+\mu_S(S,V,N) = - \frac{v_0 \theta}{R^2} \frac{S^3}{V N^2},
+\]
+which is clearly homogeneous of degree zero.
+The reader can show that
+\[
+\mu_S(U,V,N) = \mu_S(\tilde{S}(U,V,N),V,N).
+\]
+
+Recall we have assumed with the Postulate II that $\tilde{S}$ is homogeneous of degree one. We also
+must have the following, as suggested by the example.
+
+\begin{theorem}
+\textbf{(2.2)}\label{thm:thermo-s26-02-2-2} $\tilde{U}$ is homogeneous of degree one when written as
+\[
+\tilde{U} = \tilde{U}(S,V,\vec{N}).
+\]
+Further, $T_U(S,V,\vec{N})$, $P_U(S,V,\vec{N})$ and $\mu_{U_i}(S,V,\vec{N})$
+the equations of state, are homogeneous of degree zero. I mean:
+\[
+T_U(\lambda S,\lambda V,\lambda \vec{N}) = T_U(S,V,\vec{N})
+\]
+for any $\lambda > 0$, and similarly for $P$ and $\mu_{U_i}$, $i=1,\ldots,r$.
+Likewise $T_S(U,V,\vec{N})$, $P_S(U,V,\vec{N})$, and $\mu_{S_i}(U,V,\vec{N})$ are
+homogeneous of degree zero.
+\end{theorem}
+
+\begin{proof}
+Fix $V \in [0,\infty)$ and $\vec{N} \in [0,\infty)^r$. $\tilde{S}$ is
+a monotonically increasing function of $U \in [0,\infty)$.
+For each $S \in [0,\infty)$ there exists a unique $U \in [0,\infty)$
+such that
+\begin{equation}
+S = \tilde{S}(U,V,\vec{N}),
+\tag{2.1}
+\label{eq:thermo-s26-02-2-1}
+\end{equation}
+where we assume, for simplicity, that $\Sigma_U = [0,\infty)^{r+2}$.
+Then,
+\begin{equation}
+\tilde{U}(S,V,\vec{N}) = \tilde{U}(\tilde{S}(U,V,\vec{N}),V,\vec{N}), \quad \forall (S,V,\vec{N}) \in \Sigma_s.
+\tag{2.2}
+\label{eq:thermo-s26-02-2-2}
+\end{equation}
+Let $\lambda > 0$ be arbitrary; then (2.1) and (2.2) imply
+\begin{equation}
+\tilde{U}(\lambda S,\lambda V,\lambda \vec{N}) =
+\tilde{U}(\lambda \tilde{S}(U,V,\vec{N}),\lambda V,\lambda \vec{N})
+\tag{2.3}
+\label{eq:thermo-s26-02-2-3}
+\end{equation}
+Since $\tilde{S}$ is homogeneous of degree $1$, it follows that
+\begin{equation}
+\lambda \tilde{S}(U,V,\vec{N}) = \tilde{S}(\lambda U,\lambda V,\lambda \vec{N})
+\tag{2.4}
+\label{eq:thermo-s26-02-2-4}
+\end{equation}
+Also, recall that, generically,
+\begin{equation}
+\tilde{U}(\tilde{S}(U,V,\vec{N}),V,\vec{N}) = U
+\tag{2.5}
+\label{eq:thermo-s26-02-2-5}
+\end{equation}
+because of inverse relations. Combining (2.3) -- (2.5) we have
+\[
+\tilde{U}(\lambda S,\lambda V,\lambda \vec{N}) = \lambda U
+\]
+\[
+= \lambda \tilde{U}(\tilde{S}(U,V,\vec{N}),V,\vec{N})
+\]
+\[
+= \lambda \tilde{U}(S,V,\vec{N}).
+\]
+\end{proof}
+
+\section{Path (Contour) Integrals}
+
+\begin{definition}
+\textbf{(2.4)}\label{def:thermo-s26-02-2-4} Suppose that $D \subset \mathbb{R}^n$ is open.
+A function $\vec{\gamma}:[a,b] \to D$ is called a path
+(or contour) iff $\vec{\gamma}$ is continuous and
+piecewise smooth. The domain $D$ is called path-connected
+iff for any two distinct points $\vec{a},\vec{b} \in D$
+there is a path $\vec{\gamma}:[a,b] \to D$ such that
+$\vec{\gamma}(a) = \vec{a}$ and $\vec{\gamma}(b) = \vec{b}$.
+\end{definition}
+
+$D$ is called simply-connected iff it is
+(1) path-connected and (2) a path can
+be continuously deformed to a point, i.e.,
+there are no holes. $D$ is called convex iff
+for every pair $\vec{a},\vec{b} \in D$ the point
+\[
+\vec{x}(t) = \vec{a}(1-t) + \vec{b} t \in D
+\]
+for all $t \in [0,1]$.
+
+\begin{definition}
+\textbf{(2.5)}\label{def:thermo-s26-02-2-5} Let $\vec{F}: D \to \mathbb{R}^n$ be a $C^1$
+function, i.e., $\vec{F} \in C^1(D;\mathbb{R}^n)$. Let
+$\vec{\gamma}:[a,b] \to D$ be a path in $D$ which is assumed to be simple-connected.
+Then the path integral $\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x}$
+is defined via
+\begin{equation}
+\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x} :=
+\int_a^b \vec{F}(\vec{\gamma}(\tau)) \cdot \vec{\gamma}'(\tau)\, d\tau.
+\tag{2.6}
+\label{eq:thermo-s26-02-2-6}
+\end{equation}
+We will also use the notation
+\[
+\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x} =
+\int_{\vec{\gamma}} F_1(\vec{x})\,dx_1 + \cdots + F_n(\vec{x})\,dx_n
+\]
+\end{definition}
+
+\begin{definition}
+\textbf{(2.6)}\label{def:thermo-s26-02-2-6} Let $D \subset \mathbb{R}^n$ be a simply connected
+open set. A path $\vec{\gamma}:[a,b] \to D$ is called
+closed iff
+\[
+\vec{\gamma}(a) = \vec{\gamma}(b).
+\]
+A closed path is called simple iff it does
+not intersect itself except at $\tau=a$ and $\tau=b$,
+i.e., for every $c \in (a,b)$
+\[
+\vec{\gamma}(c) \ne \vec{\gamma}(\tau), \quad \tau \in [a,c) \cup (c,b]
+\]
+\end{definition}
+
+\begin{theorem}
+\textbf{(2.7)}\label{thm:thermo-s26-02-2-7} Let $D \subset \mathbb{R}^n$ be an open, simply-
+connected set. Assume $\vec{\gamma}:[a,b] \to D$ is a simple
+path. If $\vec{x}:[c,d] \to D$ is a path in $D$,
+with the property that
+\[
+\vec{x}(c) = \vec{\gamma}(a),\quad \vec{x}(d) = \vec{\gamma}(b),
+\]
+and
+\[
+\operatorname{Range}(\vec{x}) = \operatorname{Range}(\vec{\gamma}),
+\]
+then
+\[
+\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x} =
+\int_{\vec{x}} \vec{F}(\vec{x})\cdot d\vec{x}.
+\]
+This result guarantees that the path integrals
+are parametrization independent.
+If $C = \operatorname{Range}(\vec{\gamma}) = \operatorname{Range}(\vec{x})$, then we write
+\[
+\int_C \vec{F}(\vec{x})\cdot d\vec{x} =
+\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x}.
+\]
+\end{theorem}
+
+\begin{definition}
+\textbf{(2.7)}\label{def:thermo-s26-02-2-7} Let $D \subset \mathbb{R}^n$ be an open, simply
+connected set. Suppose that
+\[
+\int_{\vec{\gamma}_1} \vec{F}(\vec{x})\cdot d\vec{x} =
+\int_{\vec{\gamma}_2} \vec{F}(\vec{x})\cdot d\vec{x}
+\]
+for any two paths $\vec{\gamma}_1:[a,b] \to D$, $\vec{\gamma}_2:[c,d] \to D$ with
+\[
+\vec{\gamma}_1(a) = \vec{\gamma}_2(a) \quad \text{and} \quad
+\vec{\gamma}_1(b) = \vec{\gamma}_2(b).
+\]
+Then we say that the integral is path-
+independent. Note that we are not assuming that
+\[
+\operatorname{Range}(\vec{\gamma}_1) = \operatorname{Range}(\vec{\gamma}_2).
+\]
+\end{definition}
+
+\begin{definition}
+\textbf{(2.8)}\label{def:thermo-s26-02-2-8} Let $D$ be an open set and
+$\vec{F} \in C^1(D;\mathbb{R}^n)$. We say that $\vec{F}$ is conservative
+iff there is a function $f \in C^1(D;\mathbb{R})$ such
+that
+\[
+\vec{F}(\vec{x}) = \nabla f(\vec{x}), \quad \forall \vec{x} \in D.
+\]
+\end{definition}
+
+\begin{theorem}
+\textbf{(2.9)}\label{thm:thermo-s26-02-2-9} Let $D$ be an open simply
+connected set in $\mathbb{R}^n$. If
+$\vec{F} \in C^1(D;\mathbb{R}^n)$ is
+conservative, then the integral
+\[
+\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x}
+\]
+is path-independent.
+\end{theorem}
+
+\begin{proof}
+let $\vec{\gamma}_1:[a_1,b_1] \to D$ and
+$\vec{\gamma}_2:[a_2,b_2] \to D$
+be paths in $D$ with the same end points, i.e.,
+\[
+\vec{a} := \vec{\gamma}_1(a_1) = \vec{\gamma}_2(a_2), \quad
+\vec{b} := \vec{\gamma}_1(b_1) = \vec{\gamma}_2(b_2).
+\]
+By the chain rule, for $i=1,2$,
+\[
+\frac{d}{d\tau} f(\vec{\gamma}_i(\tau)) =
+\nabla f(\vec{\gamma}_i(\tau)) \cdot \vec{\gamma}_i'(\tau)
+\]
+\[
+= \vec{F}(\vec{\gamma}_i(\tau)) \cdot \vec{\gamma}_i'(\tau).
+\]
+Thus,
+\[
+\int_{\vec{\gamma}_i} \vec{F}(\vec{x})\cdot d\vec{x} =
+\int_{a_i}^{b_i} \vec{F}(\vec{\gamma}_i(\tau)) \cdot \vec{\gamma}_i'(\tau)\, d\tau
+\]
+\[
+= \int_{a_i}^{b_i} \frac{d}{d\tau} f(\vec{\gamma}_i(\tau))\, d\tau
+\]
+\[
+= f(\vec{b}) - f(\vec{a}),
+\]
+for $i=1,2$.
+\end{proof}
+
+We have the following well-known results.
+
+\begin{theorem}
+\textbf{(2.10)}\label{thm:thermo-s26-02-2-10} Let $D \subset \mathbb{R}^n$ be a simply-
+connected set and suppose that $\vec{F} \in C^1(D;\mathbb{R}^n)$.
+The following are equivalent
+\begin{enumerate}
+    \item $\vec{F}$ is conservative
+    \item $\int_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x}$ is path independent
+    \item $\oint_{\vec{\gamma}} \vec{F}(\vec{x})\cdot d\vec{x} = 0$ for any closed path.
+\end{enumerate}
+\end{theorem}
+
+Recall, we write, as a shorthand
+\[
+d\tilde{U} = T_U\,dS - P_U\,dV + \sum_{i=1}^r \mu_{U_i}\,dN_i.
+\]
+This has the form
+\[
+F_1\,dx_1 + F_2\,dx_2 + \cdots + F_n\,dx_n = \vec{F}\cdot d\vec{x}
+\]
+where $F_1 = T_U$, $F_2 = -P_U$, $\ldots$
+We say that $\vec{F}\cdot d\vec{x}$ is an exact differential
+if $\vec{F}$ is conservative.
+
+Clearly
+\[
+d\tilde{U} = \nabla \tilde{U} \cdot d\vec{\sigma} \quad (\vec{\sigma} \in \Sigma_s)
+\]
+is an exact differential, because $\nabla \tilde{U}$ is
+conservative, trivially. Thus, the integral
+\[
+\int_{\vec{\gamma}} d\tilde{U} = \int_{\vec{\gamma}} \nabla \tilde{U} \cdot d\vec{\sigma}
+\]
+is path independent. If $\vec{\gamma}:[a,b] \to \Sigma_s$
+is the path in question, with
+\[
+\vec{\gamma}(a) = \vec{\sigma}_a, \quad \vec{\gamma}(b) = \vec{\sigma}_b,
+\]
+then
+\[
+\int_{\vec{\gamma}} d\tilde{U} = \int_{\vec{\gamma}} \nabla \tilde{U} \cdot d\vec{\sigma} =
+\tilde{U}(\vec{\sigma}_b) - \tilde{U}(\vec{\sigma}_a).
+\]
+We can use any path we want in state
+space $\Sigma_s$.
+
+The same is true for
+\[
+d\tilde{S} = \frac{1}{T_s} dU + \frac{P_s}{T_s} dV - \sum_{i=1}^r \frac{\mu_{s_i}}{T_s} dN_i,
+\]
+that is
+\[
+d\tilde{S} = \nabla \tilde{S}\cdot d\vec{\sigma} \quad (\vec{\sigma} \in \Sigma_U)
+\]
+is an exact differential.
+
+\THERMOEND

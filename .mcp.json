@@ -1,0 +1,14 @@
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/Users/mingheiwong/Desktop/MathThermoCourseLatex/LectureNotes",
+        "/Users/mingheiwong/Desktop/MathThermoCourseLatex/output",
+        "/Users/mingheiwong/Desktop/MathThermoCourseLatex/LatexNotes"
+      ]
+    }
+  }
+}
