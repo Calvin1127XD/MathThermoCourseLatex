@@ -1,0 +1,254 @@
+Page 1:
+Math Thermo
+Class \#06
+02/05/2026
+
+Maxwell's Common Tangent Construction
+
+Here we will review a situation for which
+the Helmholtz potential is important.
+
+Consider a unary material, two phase
+system, for example liquid and solid iron.
+
+We will assume the $\beta$ phase is the high-
+density phase (a solid perhaps) and the $\alpha$
+phase is the low-density phase (a liquid
+perhaps).
+
+Both phases are in contact with a heat bath
+at temperature $T_0$.
+
+[DIAGRAM: Rectangular container with hatched outer walls. A horizontal bar separates a top region labeled "Heat Bath" with $T^B=T_0$ from a bottom region split into two phases: left labeled $T_0, V^\alpha, \rho^\alpha$ and right labeled $T_0, V^\beta, \rho^\beta$. A vertical interface between phases at position $z_I$; total length labeled $L$.]
+
+Here the densities $\rho^\alpha$ and $\rho^\beta$ play the roles of
+the numbers of moles, $N^\alpha$ and $N^\beta$.
+
+We will assume, for simplicity, that parameters
+vary in only one spatial dimension, $z$.
+
+Page 2:
+Suppose the cross-section area of the
+container is $A$. Then
+\[
+V^\alpha = A z_I
+\]
+\[
+V^\beta = A (L-z_I)
+\]
+\[
+V^\alpha + V^\beta = A\cdot L = V_0\qquad \text{(total volume constant)}
+\]
+
+Now,
+\[
+N^\alpha = V^\alpha \rho^\alpha
+\]
+\[
+N^\beta = V^\beta \rho^\beta
+\]
+
+Here
+\[
+[\rho^\ast]=\text{moles/unit vol}
+\]
+
+\[
+N_0 = N^\alpha + N^\beta \qquad \text{(total mole number const)}
+\]
+\[
+= V^\alpha \rho^\alpha + V^\beta \rho^\beta
+\]
+\[
+= A z_I \rho^\alpha + A(L-z_I)\rho^\beta
+\]
+
+It will be convenient to introduce
+\[
+\rho_0=\frac{N_0}{V_0}=\frac{N_0}{L\cdot A}.
+\]
+
+Hence,
+\begin{equation}
+\rho_0\cdot L = z_I \rho^\alpha + (L-z_I)\rho^\beta
+\tag{5.1}\label{eq:mass-constraint}
+\end{equation}
+
+Page 3:
+We will assume that the total free energy
+can be expressed as
+\[
+F_{\alpha+\beta}(V^\alpha,V^\beta,\rho^\alpha,\rho^\beta)
+=V^\alpha f^\alpha(\rho^\alpha)+V^\beta f^\beta(\rho^\beta)
+\]
+
+The variables $f^\alpha$ and $f^\beta$ are called free
+energy densities. We can eliminate the volume
+variable using constraint:
+\[
+F_{\alpha+\beta}(V^\alpha,V^\beta,\rho^\alpha,\rho^\beta)
+=V^\alpha f^\alpha(\rho^\alpha)+V^\beta f^\beta(\rho^\beta)
+\]
+\[
+=A z_I f^\alpha(\rho^\alpha)+A(L-z_I)f^\beta(\rho^\beta)
+\]
+
+Using the mass constraint (5.1), we have
+\[
+z_I=\frac{L(\rho_0-\rho^\beta)}{\rho^\alpha-\rho^\beta}
+\]
+or, equivalently,
+\begin{equation}
+z_I=\frac{L(\rho^\beta-\rho_0)}{\rho^\beta-\rho^\alpha}.
+\tag{5.2}\label{eq:zi}
+\end{equation}
+
+Similarly, we have
+\begin{equation}
+L-z_I=\frac{L(\rho_0-\rho^\alpha)}{\rho^\beta-\rho^\alpha}.
+\tag{5.3}\label{eq:lminuszi}
+\end{equation}
+
+Thus,
+\[
+F_{\alpha+\beta}(V^\alpha,V^\beta,\rho^\alpha,\rho^\beta)
+=L\cdot A\cdot \tilde{F}(\rho^\alpha,\rho^\beta),
+\]
+
+Page 4:
+where
+\[
+\tilde{F}(\rho^\alpha,\rho^\beta)
+=\frac{\rho^\beta-\rho_0}{\rho^\beta-\rho^\alpha}f^\alpha(\rho^\alpha)
++\frac{\rho_0-\rho^\alpha}{\rho^\beta-\rho^\alpha}f^\beta(\rho^\beta).
+\]
+
+Recall the setting is isothermal $T^\alpha=T^\beta=T_0$.
+So equilibrium is characterized by a minimum
+in the free energy. Thus, we seek a
+minimizing of $\tilde{F}$.
+
+The setting is as follows:
+
+[PLOT: $f^\alpha(\rho)$ and $f^\beta(\rho)$ vs. $\rho$ with two convex curves; $\rho$ axis horizontal, vertical axis unlabeled; a point labeled $\rho_0$ on the $\rho$ axis between the curves.]
+
+We want $\rho^\alpha$ and $\rho^\beta$ that minimize $\tilde{F}$.
+\[
+0=\frac{\partial \tilde{F}}{\partial \rho^\alpha}(\rho^\alpha,\rho^\beta)
+\]
+\[
+0=\frac{\partial \tilde{F}}{\partial \rho^\beta}(\rho^\alpha,\rho^\beta)
+\]
+
+Now,
+\[
+\frac{\partial \tilde{F}}{\partial \rho^\alpha}
+=\frac{\rho^\beta-\rho_0}{(\rho^\beta-\rho^\alpha)^2}f^\alpha(\rho^\alpha)
++\frac{\rho^\beta-\rho_0}{\rho^\beta-\rho^\alpha}f^{\alpha'}(\rho^\alpha)
+\]
+
+Page 5:
+\[
++\frac{\rho_0-\rho^\beta}{(\rho^\beta-\rho^\alpha)^2}f^\beta(\rho^\beta)
+\]
+\[
+=\frac{\rho^\beta-\rho_0}{\rho^\beta-\rho^\alpha}
+\left\{\frac{f^\alpha(\rho^\alpha)-f^\beta(\rho^\beta)}{\rho^\beta-\rho^\alpha}
++f^{\alpha'}(\rho^\alpha)\right\}
+\]
+
+and
+\[
+\frac{\partial \tilde{F}}{\partial \rho^\beta}
+=\frac{\rho_0-\rho^\alpha}{(\rho^\beta-\rho^\alpha)^2}f^\alpha(\rho^\alpha)
+-\frac{\rho_0-\rho^\alpha}{(\rho^\beta-\rho^\alpha)^2}f^\beta(\rho^\beta)
++\frac{\rho_0-\rho^\alpha}{\rho^\beta-\rho^\alpha}f^{\beta'}(\rho^\beta)
+\]
+\[
+=\frac{\rho_0-\rho^\alpha}{\rho^\beta-\rho^\alpha}
+\left\{\frac{f^\alpha(\rho^\alpha)-f^\beta(\rho^\beta)}{\rho^\beta-\rho^\alpha}
++f^{\beta'}(\rho^\beta)\right\}
+\]
+
+Thus, the minimizers must satisfy
+\begin{equation}
+\frac{f^\beta(\rho^\beta)-f^\alpha(\rho^\alpha)}{\rho^\beta-\rho^\alpha}
+=f^{\alpha'}(\rho^\alpha)
+\tag{5.4}\label{eq:common-tangent-alpha}
+\end{equation}
+
+and
+\begin{equation}
+\frac{f^\beta(\rho^\beta)-f^\alpha(\rho^\alpha)}{\rho^\beta-\rho^\alpha}
+=f^{\beta'}(\rho^\beta)
+\tag{5.5}\label{eq:common-tangent-beta}
+\end{equation}
+
+Graphically, these solutions represent the
+following scenario:
+
+Page 6:
+[PLOT: $f^\alpha(\rho)$ and $f^\beta(\rho)$ vs. $\rho$ with a common tangent line; points labeled $\rho^\alpha$, $\rho^\beta$, and $\rho_0$ on the $\rho$ axis; annotation "Common-tangent Construction" along the line.]
+
+For everything to make sense, we require that
+average density
+\[
+\rho^\alpha < \rho_0 < \rho^\beta
+\]
+(low density phase) \hspace{1em} (high density phase)
+
+What happens if, say,
+\[
+\rho^\alpha < \rho^\beta < \rho_0,
+\]
+that is, the average is higher than the density
+of the high-density phase, $\rho^\beta$?
+
+Recall,
+\[
+z_I=\frac{L(\rho^\beta-\rho_0)}{\rho^\beta-\rho^\alpha}.
+\]
+
+Page 7:
+If $\rho^\alpha < \rho^\beta < \rho_0$, it follows that
+\[
+z_I < 0,
+\]
+which is unphysical.
+
+On the other hand if $\rho_0 < \rho^\alpha < \rho^\beta$ then
+\[
+z_I > L,
+\]
+which is unphysical.
+
+But if
+\[
+\rho^\alpha < \rho_0 < \rho^\beta
+\]
+it follows that $z_I$ is fully determined and
+\[
+0<z_I<L,
+\]
+as desired.
+
+By the way we can redefine the chemical
+potential such that
+\[
+\mu^\alpha=\frac{\partial f^\alpha}{\partial \rho^\alpha}
+\]
+\[
+\mu^\beta=\frac{\partial f^\beta}{\partial \rho^\beta}
+\]
+So that equilibrium occurs when
+\[
+\mu^\alpha=\mu^\beta.
+\]
+
+Page 8:
+Unary Isothermal Phase Diagrams
+(at constant volume)
+
+let us consider the following phase diagram
+
+[PLOT: Top panel with vertical axis $T$ and horizontal axis $\rho_0$, showing a dome-shaped coexistence curve. Left region labeled $\alpha$, right region labeled $\beta$, and interior labeled $\alpha+\beta$. Horizontal lines labeled $T_1$ and $T_2$ intersect the dome at $\rho^{\alpha 1}, \rho^{\beta 1}$ and $\rho^{\alpha 2}, \rho^{\beta 2}$ respectively; vertical dashed lines drop to the bottom panel. Bottom panel shows two free-energy curves vs. $\rho$ with labels $f^\beta(T,\rho)$ (upper) and $f^\alpha(T,\rho)$ (lower) and common tangent lines labeled $T=T^1$ and $T=T^2$.]

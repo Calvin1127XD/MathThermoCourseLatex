@@ -55,7 +55,7 @@ An isolated system is a collection of matter that shares no information with the
 \item $N_1, \ldots, N_r$, the mole numbers of the $r$ chemical components of the system, $N_i \geq 0$.
 \end{itemize}
 
-The rigid walls that isolate the system from the rest of the universe allow no change in volume, no efflux of matter, and no exchange of energy.
+The rigid walls that isolate the system from the rest of the universe allow no change in volume, no exchange of matter, and no exchange of energy.
 
 \begin{definition}[Composite System]
 \label{defn:composite-system}
@@ -92,7 +92,7 @@ The entropy of an isolated system is homogeneous of degree 1, meaning
 \end{equation}
 for any $\lambda > 0$.
 
-\noindent\textbf{Postulate III:} The entropy of an isolated system is a concave, twice continuously differentiable, positive function over its (convex) domain
+\noindent\textbf{Postulate III:} The entropy of an isolated system is a concave, twice continuously differentiable, non-negative function over its (convex) domain
 \begin{equation}
 \label{eq:domain-sigma-u}
 \Sigma_u \subseteq [0,\infty)^{r+2} = \underbrace{[0, \infty)}_{(U)} \times \underbrace{[0, \infty)}_{(V)} \times \underbrace{[0, \infty)}_{(N_1)} \times \cdots \times \underbrace{[0, \infty)}_{(N_r)}.
@@ -101,8 +101,9 @@ for any $\lambda > 0$.
 The entropy is a monotonically increasing function of $U$. In particular,
 \begin{equation}
 \label{eq:entropy-monotone}
-\pderT{\tilde{S}}{U}{V, N_1, \ldots, N_r} > 0, \quad \forall (U, V, \vec{N}) \in \Sigma_u^o.
+\pderT{\tilde{S}}{U}{V, N_1, \ldots, N_r} > 0, \quad \forall (U, V, \vec{N}) \in \Sigma_u^o,
 \end{equation}
+where $\Sigma_u^o$ is the interior of the set $\Sigma_u$.
 
 \begin{theorem}
 \label{thm:energy-representation}
@@ -144,7 +145,7 @@ Suppose that, for a unary material ($r=1$),
 where $R$, $v_o$, $\Theta > 0$ are constants. Consider the function
 \begin{equation}
 \label{eq:example-energy}
-\tilde{U}(S, V, N) = \frac{S^3 v_o \Theta}{NVR^2}, \quad \Sigma_s = ?
+\tilde{U}(S, V, N) = \frac{S^3 v_o \Theta}{NVR^2}, \quad \Sigma_s = \underbrace{[0, \infty)}_{(S)} \times \underbrace{(0, \infty)}_{(V)} \times \underbrace{(0, \infty)}_{(N)}.
 \end{equation}
 
 Then
@@ -168,7 +169,7 @@ T_u(S, V, N_1, \ldots, N_r) \equiv \pderT{U}{S}{V, N_1, \ldots, N_r}.
 \end{equation}
 \end{definition}
 
-\noindent\textbf{Postulate IV:} Equilibrium of a composite system is that state $((U^\alpha, V^\alpha, \vec{N}^\alpha), (U^\beta, V^\beta, \vec{N}^\beta)) \in \Sigma^{\alpha} \times \Sigma^{\beta}$ such that
+\noindent\textbf{Postulate IV:} Equilibrium of a composite system is that state\\ $((U^\alpha, V^\alpha, \vec{N}^\alpha), (U^\beta, V^\beta, \vec{N}^\beta)) \in \Sigma^{\alpha} \times \Sigma^{\beta}$ such that
 \begin{equation}
 \label{eq:entropy-maximum}
 S = S^\alpha + S^\beta
@@ -404,8 +405,8 @@ V^\alpha + V^\beta = V_o,
 \end{equation}
 and
 \begin{align}
-T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= T^\beta(U^\beta, V^\beta, \vec{N}^\beta), \quad (\text{thermal equil.}) \label{eq:thermal-equil-piston} \\
-P^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= P^\beta(U^\beta, V^\beta, \vec{N}^\beta). \quad (\text{mechanical equil.}) \label{eq:mechanical-equil}
+T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= T^\beta(U^\beta, V^\beta, \vec{N}^\beta), \quad (\text{thermal equilibrium}) \label{eq:thermal-equil-piston} \\
+P^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= P^\beta(U^\beta, V^\beta, \vec{N}^\beta). \quad (\text{mechanical equilibrium}) \label{eq:mechanical-equil}
 \end{align}
 \end{theorem}
 

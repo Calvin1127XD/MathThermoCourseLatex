@@ -1,0 +1,619 @@
+\newif\ifthermosubfile
+\ifdefined\THERMONOTESMAIN
+  \thermosubfilefalse
+\else
+  \thermosubfiletrue
+\fi
+
+\providecommand{\THERMOEND}{} % safe in both modes
+
+\ifthermosubfile
+  \documentclass[11pt]{book}
+  \input{./Macros/thermoHead}
+  \input{./Macros/thermoSymbols}
+  \graphicspath{{./Figures/}}
+  \begin{document}
+  \renewcommand{\THERMOEND}{\end{document}}
+\fi
+
+
+\chapter{ThermoS26-05}
+\label{chap:ThermoS26-05}
+
+\noindent Math Thermo\\
+Class \#05\\
+02/03/2026
+
+\section{Legendre Transforms and Thermodynamic Potentials}
+
+\begin{definition}
+\label{def:legendre}
+\textup{(5.1)} Suppose that $f:[a,b]\to\mathbb{R}$ is
+continuous. For every $p\in[c,d]$, define
+\begin{equation}
+f^\ast(p):=\sup_{x\in[a,b]}\{xp-f(x)\}
+\tag{5.1}\label{eq:legendre-def}
+\end{equation}
+The function $f^\ast:[c,d]\to\mathbb{R}$ is called the
+Legendre transform of $f$.
+\end{definition}
+
+\begin{theorem}
+\label{thm:legendre-form}
+\textup{(5.2)} Suppose that $f\in C^2([0,\infty);\mathbb{R})$
+with
+\[
+f''(x)>0,\qquad\forall x\in[0,\infty).
+\]
+Then, for all $p\in\mathrm{Range}(f')$,
+\begin{equation}
+f^\ast(p)=x_p\,p-f(x_p),
+\tag{5.2}\label{eq:legendre-form}
+\end{equation}
+where $x_p\in[0,\infty)$ is the unique solution to
+\[
+f'(x_p)=p.
+\]
+\end{theorem}
+
+\begin{proof}
+let $p\in\mathrm{Range}(f')$.
+\[
+f':[0,\infty)\to\mathrm{Range}(f')
+\]
+For every $p\in\mathrm{Range}(f')\ \exists!\ x_p\in[0,\infty)$ and that,
+\[
+f'(x_p)=p.
+\]
+
+Since $f':[0,\infty)$ is strictly increasing,
+
+Fix $p\in\mathrm{Range}(f')$. By Taylor's Theorem,
+\[
+f(x)=f(x_p)+p(x-x_p)+\frac{1}{2}f''(\xi_p)(x-x_p)^2
+\]
+for some $\xi_p$ between $x$ and $x_p$.
+
+\[
+\sup_{0\le x<\infty}\{x\cdot p-f(x)\}
+=\sup_{0\le x<\infty}\{x_p\cdot p-f(x_p)-\tfrac{1}{2}f''(\xi_p)(x-x_p)^2\}
+\]
+\[
+= x_p\cdot p-f(x_p). ///
+\]
+\end{proof}
+
+\begin{theorem}
+\label{thm:legendre-derivs}
+\textup{(5.3)} Suppose that $f\in C^2([0,\infty);\mathbb{R})$
+with
+\[
+f''(x)>0,\qquad\forall x\in[0,\infty).
+\]
+Then,
+\[
+[f^\ast]'(p)=[f']^{-1}(p),\qquad [f^\ast]''(p)>0,
+\]
+for all $p\in\mathrm{Range}(f')$.
+\end{theorem}
+
+\begin{proof}
+Recall
+\[
+f':[0,\infty)\to\mathrm{Range}(f')
+\]
+
+Then
+\[
+f'\big([f']^{-1}(p)\big)=p,\qquad\forall\ p\in\mathrm{Range}(f').
+\]
+
+Also, observe that $\frac{d}{dp}[f']^{-1}\in C(\mathrm{Range}(f');\mathbb{R}).$
+
+Now,
+\begin{align*}
+\frac{d}{dp}[f^\ast(p)]&=\frac{d}{dp}\{x_p\cdot p-f(x_p)\}
+=\frac{d}{dp}\{[f']^{-1}(p)\cdot p-f([f']^{-1}(p))\}\\
+&=p\cdot\frac{d}{dp}[f']^{-1}(p)+[f']^{-1}(p)
+-\frac{df}{dx}([f']^{-1}(p))\cdot\frac{d}{dp}[f']^{-1}(p)\\
+&=[f']^{-1}(p).
+\end{align*}
+
+Now that this is established, we have
+\[
+\frac{d^2}{dp^2}[f^\ast(p)]=\frac{d}{dp}[f']^{-1}(p)
+\]
+
+for all $p\in\mathrm{Range}(f')$. Since $f''\in C([0,\infty))$ and
+$f''(x)>0,\ \forall x\in[0,\infty)$,
+\[
+\frac{d}{dp}[f']^{-1}(p)>0,\qquad\forall p\in\mathrm{Range}(f'). ///
+\]
+\end{proof}
+
+Finally, we observe the following:
+
+\begin{theorem}
+\label{thm:legendre-involution}
+\textup{(5.4)} Suppose that $f\in C^2([0,\infty);\mathbb{R})$
+with
+\[
+f''(x)>0,\qquad\forall x\in[0,\infty).
+\]
+
+Then $f^\ast\in C^2(\mathrm{Range}(f');\mathbb{R})$ with
+\[
+[f^\ast]''(p)>0,\qquad\forall p\in\mathrm{Range}(f')
+\]
+
+Furthermore
+\begin{equation}
+[f^\ast]^\ast(x)=f(x),\qquad\forall x\in[0,\infty).
+\tag{5.3}\label{eq:legendre-involution}
+\end{equation}
+
+In other words, the Legendre transform is involutive
+and in fact an isomorphism.
+\end{theorem}
+
+\begin{proof}
+It follows that, for all $x\in[0,\infty)$,
+\[
+[f^\ast]^\ast(x)=x\,p_x-f^\ast(p_x),
+\]
+
+where $p_x\in\mathrm{Range}(f')$ is the unique solution to
+\[
+f^\ast{}'(p_x)=x.
+\]
+
+Recall
+\[
+f^\ast(p_x)=p_x\cdot x_{p_x}-f(x_{p_x}),
+\]
+
+where $x_{p_x}\in[0,\infty)$ is the unique solution to
+\[
+f'(x_{p_x})=p_x.
+\]
+
+Of course, by uniqueness,
+\[
+x_{p_x}=x.
+\]
+
+So,
+\[
+[f^\ast]^\ast(x)=x\cdot p_x-\{p_x\cdot x_{p_x}-f(x_{p_x})\}
+=f(x). ///
+\]
+\end{proof}
+
+Why is the Legendre transform useful in
+Thermodynamics?
+
+This transform allows us to introduce new
+thermodynamics coordinates/variables.
+
+Recall
+\[
+\tilde{U}=\tilde{U}(S,V,N)
+\]
+
+or
+\[
+ d\tilde{U}=T\,dS-p\,dV+\mu\,dN
+\]
+
+The latter means
+\[
+T=\frac{\partial \tilde{U}}{\partial S}\quad p=-\frac{\partial \tilde{U}}{\partial V}\quad \mu=\frac{\partial \tilde{U}}{\partial N}
+\]
+
+in short hand
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+Extensive Quantity & Conjugate Variable & Variable \\
+\midrule
+$\tilde{U}$ & $T,\,-p,\,\mu$ & $S,\,V,\,N$ \\
+$\tilde{S}$ & $\frac{1}{T},\,\frac{p}{T},\,-\frac{\mu}{T}$ & $U,\,V,\,N$ \\
+\bottomrule
+\end{tabular}
+\caption{Conjugate variables for $\tilde{U}$ and $\tilde{S}$.}
+\label{tab:thermos26-05-conjugate-us}
+\end{table}
+
+\begin{definition}
+\label{def:helmholtz}
+\textup{(5.5)} Suppose that all of the
+Thermodynamic Postulates hold. Assume that
+the material in question is unary ($r=1$). Define
+\begin{equation}
+\tilde{F}(T,V,N)=\tilde{U}(S_T,V,N)-TS_T
+\tag{5.4}\label{eq:helmholtz-def}
+\end{equation}
+where $S_T=S_T(V,N)$ is the unique solution of the
+equation
+\begin{equation}
+T_U(S_T(V,N),V,N)=T
+\tag{5.5}\label{eq:helmholtz-st}
+\end{equation}
+for fixed values of $N$ and $V$.
+
+$\tilde{F}$ is called the Helmholtz free energy.
+
+Formally, we have
+\begin{align*}
+ d\tilde{F}&=d\tilde{U}-S\,dT-T\,dS\\
+&=T\,dS-p\,dV+\mu\,dN-S\,dT-T\,dS\\
+&=-S\,dT-p\,dV+\mu\,dN.
+\end{align*}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{lll}
+\toprule
+Extensive Quantity & Conjugate Variable & Variable \\
+\midrule
+$\tilde{U}$ & $T,\,-p,\,\mu$ & $S,\,V,\,N$ \\
+$\tilde{F}$ & $-S,\,-p,\,\mu$ & $T,\,V,\,N$ \\
+\bottomrule
+\end{tabular}
+\caption{Conjugate variables for $\tilde{U}$ and $\tilde{F}$.}
+\label{tab:thermos26-05-conjugate-uf}
+\end{table}
+\end{definition}
+
+\begin{example}
+\label{ex:helmholtz-example}
+\textup{(5.6)} Suppose that
+\[
+\tilde{S}(U,V,N)=\left(\frac{NVUR^2}{v_0\theta}\right)^{1/3}.
+\]
+
+It follows that
+\[
+\tilde{U}(S,V,N)=\frac{S^3 v_0\theta}{NVR^2}.
+\]
+
+The temperature function is
+\[
+T_U(S,V,N)=\frac{3S^2 v_0\theta}{NVR^2}.
+\]
+
+Or
+\[
+\frac{1}{T_S(U,V,N)}=\frac{1}{3}\left(\frac{NVUR^2}{v_0\theta}\right)^{-2/3}\frac{NV R^2}{v_0\theta}
+=\frac{1}{3}\left(\frac{NV R^2}{v_0\theta}\right)^{1/3}U^{-2/3}.
+\]
+
+Thus
+\[
+T_S(U,V,N)=3\left(\frac{v_0\theta}{NVR^2}\right)^{1/3}U^{2/3}.
+\]
+
+Recall that
+\[
+T_U(S,V,\vec{N})=T_S(\tilde{U}(S,V,\vec{N}),V,\vec{N})
+\]
+
+\[
+T_S(U,V,\vec{N})=T_U(\tilde{S}(U,V,\vec{N}),V,\vec{N}).
+\]
+
+By definition
+\[
+\tilde{F}(T,V,N)=\tilde{U}(S_T,V,N)-TS_T
+\]
+
+where
+
+\[
+T_U(S_T(V,N),V,N)=T.
+\]
+
+For our example,
+\[
+T_U(S,V,N)=\frac{3S^2 v_0\theta}{NVR^2}.
+\]
+
+Hence,
+\[
+S_T=\sqrt{\frac{TNV R^2}{3v_0\theta}}.
+\]
+
+Thus,
+\begin{align*}
+\tilde{F}(T,V,N)&=\tilde{U}\left(\sqrt{\frac{TNV R^2}{3v_0\theta}},V,N\right)
+-T\sqrt{\frac{TNV R^2}{3v_0\theta}}\\
+&=\left(\frac{TNV R^2}{3v_0\theta}\right)^{3/2}\frac{v_0\theta}{NVR^2}
+-T\sqrt{\frac{TNV R^2}{3v_0\theta}}.
+\end{align*}
+
+But
+\[
+\tilde{U}(S_T,V,N)=\frac{S_T^3 v_0\theta}{NVR^2}
+=\left(\frac{TNV R^2}{3v_0\theta}\right)^{3/2}\frac{v_0\theta}{NVR^2}
+\]
+
+so that
+\[
+\tilde{F}(T,N,V)=\frac{1}{3}T^{3/2}\frac{1}{\sqrt{3}}\sqrt{\frac{NV R^2}{v_0\theta}}
+-\frac{T^{3/2}}{\sqrt{3}}\sqrt{\frac{NV R^2}{v_0\theta}}.
+\]
+\end{example}
+
+Finally,
+\begin{equation}
+\tilde{F}(T,N,V)=-\frac{2T^{3/2}}{3}\sqrt{\frac{NV R^2}{3v_0\theta}}.
+\tag{5.6}\label{eq:helmholtz-final}
+\end{equation}
+
+Now,
+\[
+\frac{\partial \tilde{F}}{\partial T}=-\frac{2}{3}\frac{3}{2}\sqrt{T}\,\sqrt{\frac{NV R^2}{3v_0\theta}}.
+\]
+
+But
+\[
+T_U(S,V,N)=\frac{3S^2 v_0\theta}{NVR^2}
+\]
+
+Thus,
+\[
+\sqrt{T}=\sqrt{\frac{3v_0\theta}{NVR^2}}\,S_T
+\]
+
+and
+\begin{equation}
+\frac{\partial \tilde{F}}{\partial T}=-S_T.
+\tag{5.7}\label{eq:helmholtz-deriv}
+\end{equation}
+
+\begin{theorem}
+\label{thm:helmholtz-proc}
+\textup{(5.7)} Suppose that all of the
+Thermodynamic Postulates hold. Assume that
+the material in question is unary ($r=1$). The
+following procedure is equivalent means for finding
+the Helmholtz free energy:
+\begin{equation}
+\tilde{F}(T,V,N)=U_T-T\tilde{S}(U_T,V,N)
+\tag{5.8}\label{eq:helmholtz-proc}
+\end{equation}
+\end{theorem}
+
+where $U_T=U_T(V,N)$ is the unique solution of the
+equation
+\[
+T_S(U_T(V,N),V,N)=T
+\]
+
+for fixed values of $N$ and $V$.
+
+Proof: Exercise ///
+
+\begin{example}
+\label{ex:ideal-gas-helmholtz}
+\textup{(5.8)} Let us use the second version
+to calculate the free energy for the monatomic
+ideal gas. Recall,
+\[
+\tilde{S}(U,V,N)=Ns_0+NR\ln\left(\left(\frac{U}{U_0}\right)^{3/2}\left(\frac{V}{V_0}\right)\left(\frac{N}{N_0}\right)^{-5/2}\right),
+\]
+where $s_0,R,U_0,V_0,N_0$ are positive
+constants.
+
+Then
+\[
+\frac{\partial \tilde{S}}{\partial U}
+=\frac{NR}{\left(\frac{U}{U_0}\right)^{3/2}}\cdot \frac{3}{2}\left(\frac{U}{U_0}\right)^{1/2}\frac{1}{U_0}
+\]
+
+\[
+=\frac{3NR}{2U_0}\cdot \frac{U_0}{U}
+=\frac{3NR}{2U}
+\]
+
+Thus
+\[
+T_S(U,V,N)=\frac{2}{3}\frac{U}{NR}
+\]
+
+and
+\[
+U_T=\frac{3NRT}{2}
+\]
+
+Therefore,
+\begin{align*}
+\tilde{F}(T,V,N)&=\frac{3NRT}{2}-TN s_0\\
+&\phantom{=} -NR T\ln\left(\left(\frac{3NRT}{2U_0}\right)^{3/2}\left(\frac{V}{V_0}\right)\left(\frac{N}{N_0}\right)^{-5/2}\right)
+\end{align*}
+
+Define
+\[
+T_0:=\frac{2U_0}{3N_0R}.
+\]
+
+Then,
+\begin{equation}
+\tilde{F}(T,V,N)=\frac{3NRT}{2}-TN s_0
+-NRT\ln\left(\left(\frac{T}{T_0}\right)^{3/2}\left(\frac{V}{V_0}\right)\left(\frac{N}{N_0}\right)^{-1}\right)
+\tag{5.9}\label{eq:ideal-helmholtz}
+\end{equation}
+\end{example}
+
+\section{Equilibrium with a heat Bath}
+
+Consider two isolated systems that are
+initially isolated from each other.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{Figures/ThermoS26-05-fig-3.pdf}
+\caption{Two isolated systems initially separated by insulating walls.}
+\label{fig:thermos26-05-isolated-systems}
+\end{figure}
+
+Now, let us remove the isolating walls so
+that energy, volume, and mass may be
+exchanged.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.85\textwidth]{Figures/ThermoS26-05-fig-4.pdf}
+\caption{Isolating wall removed so energy, volume, and mass can be exchanged.}
+\label{fig:thermos26-05-wall-removed}
+\end{figure}
+
+The entropy will attain its maximum at equilibrium and
+\[
+T^\alpha=T^\beta
+\]
+\[
+P^\alpha=P^\beta
+\]
+\[
+\mu_i^\alpha=\mu_i^\beta,\qquad i=1,\ldots,r.
+\]
+
+How can we characterize equilibrium?
+
+Now, suppose that instead of isolating from
+the universe, our composite system is put
+into contact with a heat bath.
+
+\begin{definition}
+\label{def:heat-bath}
+\textup{(5.9)} A heat bath is an otherwise-
+isolated thermodynamic system that is so large
+that, when it exchanges a finite amount of
+energy with an otherwise-isolated,
+composite system, its temperature, pressure, and
+chemical potential changes are so small as to be
+negligible.
+\end{definition}
+
+Similarly, we have
+
+heat-pressure bath: finite exchanges of energy and volume
+lead to negligible changes in $T$, $P$, and $\mu$ in baths.
+
+A heat-pressure-chemical bath is defined analogously.
+
+Let us consider a picture for the case of the
+heat bath.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{Figures/ThermoS26-05-fig-5.pdf}
+\caption{Composite system in contact with a heat bath.}
+\label{fig:thermos26-05-heat-bath}
+\end{figure}
+
+Let us recall the "integrated form" of the
+entropy function.
+\[
+\tilde{S}^B=\tilde{S}^B(U^B,V^B,N^B)
+=\frac{1}{T^0}U^B+\frac{P^0}{T^0}V^B-\frac{\mu^0}{T^0}\cdot N^B
+\]
+
+where
+\[
+T^0=T^0(U^0,V^0,N^0)
+\]
+
+et cetera. We will write
+\[
+S^{tot}=\tilde{S}^B+\tilde{S}^\alpha+\tilde{S}^\beta
+\]
+\[
+=\tilde{S}^B+\tilde{S}^{\alpha+\beta}
+\]
+
+Now, our system will not exchange volume or
+mass with the bath, only energy, because
+we will replace the horizontal isolations
+wall with a diathermal wall.
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.9\textwidth]{Figures/ThermoS26-05-fig-6.pdf}
+\caption{Diathermal wall configuration: only energy exchange with the bath.}
+\label{fig:thermos26-05-diathermal-wall}
+\end{figure}
+
+We know that, at equilibrium
+\[
+T^\alpha=T^\beta=T^B=T_0.
+\]
+
+Recall the deviations of $T^B$ from $T_0$ at equilibrium
+is assumed negligible.
+
+System $\alpha$ and $\beta$ can exchange energy.
+System $\alpha$ and $\beta$ can exchange volume and mass
+with each other but not with the bath.
+
+Thus,
+\[
+S^{tot,eq}=\max_{C}\{\tilde{S}^B+\tilde{S}^{\alpha+\beta}\}
+\]
+
+Now
+\[
+\tilde{S}^B=\frac{1}{T_0}U^B+\frac{P_0}{T_0}V^B-\frac{\mu_0}{T_0}\cdot N^B
+\]
+
+The changes in $T^B$, $P^B$, $\mu^B$ from $T_0$, $P_0$, $\mu_0$ is
+negligible because the bath is so large.
+
+Writing
+\[
+U^B=U_0-U^\alpha-U^\beta
+\]
+
+\[
+\tilde{S}^B=-\frac{U^\alpha}{T_0}-\frac{U^\beta}{T_0}+\frac{U_0}{T_0}+C_1
+\]
+
+\[
+=-\frac{U^\alpha}{T_0}-\frac{U^\beta}{T_0}+C_2
+\]
+
+Thus,
+\begin{align*}
+S^{tot,eq}&=\max_{C}\left\{-\frac{U^\alpha}{T_0}-\frac{U^\beta}{T_0}+C_2+\tilde{S}^{\alpha+\beta}\right\}\\
+&=C_2+\max_{C}\left\{-\frac{U^\alpha+U^\beta}{T_0}+\tilde{S}^\alpha+\tilde{S}^\beta\right\}\\
+&=C_2+\max_{C}\left\{-\frac{F^\alpha+F^\beta}{T_0}\right\}\\
+&=C_2-\frac{1}{T_0}\min_{C}\left\{F^\alpha(T_0,V^\alpha,N^\alpha)+F^\beta(T_0,V^\beta,N^\beta)\right\}
+\end{align*}
+
+Postulate VI: Consider a compound, otherwise-
+isolated thermodynamic system in contact with
+an otherwise-isolated heat bath at temperature
+$T_0$. Equilibrium of the compound system is the
+state satisfying the isothermal condition
+\[
+T^\alpha=T^\beta=T_0
+\]
+
+which minimizes
+\[
+F^\alpha(T_0,V^\alpha,N^\alpha)+F^\beta(T_0,V^\beta,N^\beta)
+\]
+
+subject to the constraints
+\[
+V^\alpha+V^\beta=V_0,\qquad\text{(volume conservation)}
+\]
+\[
+N_i^\alpha+N_i^\beta=N_{i,0},\qquad\text{(mass conservation)}
+\]
+
+Remark: Since the system $\alpha+\beta$ exchanges
+energy with the heat bath, energy is not
+conserved in $\alpha+\beta$.
+
+Energy is conserved in the system $B+\alpha+\beta$.
+
+\THERMOEND
