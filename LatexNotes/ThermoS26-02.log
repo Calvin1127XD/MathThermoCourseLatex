@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.27)  19 JAN 2026 23:33
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.27)  26 JAN 2026 10:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1292,12 +1292,7 @@ Package: longtable 2024-10-27 v4.22 Multi-page Table package (DPC)
 \c@LT@chunks=\count380
 \LT@p@ftn=\toks59
 )
-(/usr/local/texlive/2025/texmf-dist/tex/latex/aligned-overset/aligned-overset.s
-ty
-Package: aligned-overset 2018/04/04 v0.1.0 aligned overset and underset
-\l__alignedsets_clap_box=\box109
-\l__alignedsets_full_box=\box110
-) (/usr/local/texlive/2025/texmf-dist/tex/latex/lastpage/lastpage.sty
+(/usr/local/texlive/2025/texmf-dist/tex/latex/lastpage/lastpage.sty
 Package: lastpage 2025/01/27 v2.1e lastpage: 2.09 or 2e? (HMM)
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/lastpage/lastpage2e.sty
@@ -1445,30 +1440,30 @@ Package hyperref Info: Option `colorlinks' set `true' on input line 88.
 ) (./Macros/thermoSymbols.tex) (./ThermoS26-02.aux)
 \openout1 = `ThermoS26-02.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 11.
-LaTeX Font Info:    ... okay on input line 11.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 15.
+LaTeX Font Info:    ... okay on input line 15.
 
 (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count395
 \scratchdimen=\dimen332
-\scratchbox=\box111
+\scratchbox=\box109
 \nofMPsegments=\count396
 \nofMParguments=\count397
 \everyMPshowfont=\toks61
@@ -1490,7 +1485,7 @@ Package pgfplots notification 'compat/show suggested version=true': you might b
 enefit from \pgfplotsset{compat=1.18} (current compat level: 1.15).
 
 \c@lstlisting=\count401
-Package hyperref Info: Link coloring ON on input line 11.
+Package hyperref Info: Link coloring ON on input line 15.
 (./ThermoS26-02.out) (./ThermoS26-02.out)
 \@outlinefile=\write4
 \openout4 = `ThermoS26-02.out'.
@@ -1498,50 +1493,91 @@ Package hyperref Info: Link coloring ON on input line 11.
 
 Chapter 1.
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <20.74> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 15.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 20.
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <24.88> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 15.
-LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 18.
-<Figures/ThermoS26-02-fig-1.pdf, id=51, 212.26pt x 242.18982pt>
-File: Figures/ThermoS26-02-fig-1.pdf Graphic file (type pdf)
-<use Figures/ThermoS26-02-fig-1.pdf>
-Package pdftex.def Info: Figures/ThermoS26-02-fig-1.pdf  used on input line 22.
-
-(pdftex.def)             Requested size: 143.9978pt x 164.30626pt.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 20.
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 24.
+LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 27.
 LaTeX Font Info:    Trying to load font information for OML+cmbrm on input line
- 23.
+ 29.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/omlcmbrm.fd
 File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
 )
 LaTeX Font Info:    Trying to load font information for OMS+cmbrs on input line
- 23.
+ 29.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/omscmbrs.fd
 File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 23
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 29
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10.95> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 28.
+<Figures/ThermoS26-01-fig-3.pdf, id=48, 468.87712pt x 215.9788pt>
+File: Figures/ThermoS26-01-fig-3.pdf Graphic file (type pdf)
+<use Figures/ThermoS26-01-fig-3.pdf>
+Package pdftex.def Info: Figures/ThermoS26-01-fig-3.pdf  used on input line 73.
+
+(pdftex.def)             Requested size: 360.0pt x 165.82632pt.
 
 
 [1
 
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./Figur
-es/ThermoS26-02-fig-1.pdf>]
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+<Figures/ThermoS26-01-fig-4.pdf, id=70, 348.54245pt x 222.54301pt>
+File: Figures/ThermoS26-01-fig-4.pdf Graphic file (type pdf)
+<use Figures/ThermoS26-01-fig-4.pdf>
+Package pdftex.def Info: Figures/ThermoS26-01-fig-4.pdf  used on input line 80.
 
-[2]
-LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <10.95> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 146.
+(pdftex.def)             Requested size: 288.0011pt x 183.89226pt.
 
 
-Overfull \hbox (1.84091pt too wide) in paragraph at lines 154--155
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+<Figures/ThermoS26-01-fig-5.pdf, id=71, 287.22728pt x 281.11996pt>
+File: Figures/ThermoS26-01-fig-5.pdf Graphic file (type pdf)
+<use Figures/ThermoS26-01-fig-5.pdf>
+Package pdftex.def Info: Figures/ThermoS26-01-fig-5.pdf  used on input line 104
+.
+(pdftex.def)             Requested size: 288.0011pt x 281.8828pt.
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <8> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 124.
+
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <6> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 124.
+
+
+
+[2 <./Figures/ThermoS26-01-fig-3.pdf>]
+
+[3 <./Figures/ThermoS26-01-fig-4.pdf>]
+
+[4 <./Figures/ThermoS26-01-fig-5.pdf>]
+LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <14.4> not available
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 208.
+
+<Figures/ThermoS26-02-fig-1.pdf, id=219, 212.2598pt x 242.19011pt>
+File: Figures/ThermoS26-02-fig-1.pdf Graphic file (type pdf)
+<use Figures/ThermoS26-02-fig-1.pdf>
+Package pdftex.def Info: Figures/ThermoS26-02-fig-1.pdf  used on input line 212
+.
+(pdftex.def)             Requested size: 143.9978pt x 164.30644pt.
+
+
+[5]
+
+[6 <./Figures/ThermoS26-02-fig-1.pdf>]
+
+[7]
+Overfull \hbox (1.84091pt too wide) in paragraph at lines 344--345
 []\OT1/cmbr/m/sl/10.95 Further, $\OML/cmbrm/m/it/10.95 T[]\OT1/cmbr/m/n/10.95 (
 \OML/cmbrm/m/it/10.95 S; V; []\OT1/cmbr/m/n/10.95 )$\OT1/cmbr/m/sl/10.95 , $\OM
 L/cmbrm/m/it/10.95 P[]\OT1/cmbr/m/n/10.95 (\OML/cmbrm/m/it/10.95 S; V; []\OT1/c
@@ -1552,24 +1588,15 @@ r/m/n/10.95 (\OML/cmbrm/m/it/10.95 S; V; []\OT1/cmbr/m/n/10.95 )$\OT1/cmbr/m/sl
 
 
 
-[3]
+[8]
 
-[4]
-LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <8> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 262.
+[9]
 
-LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <6> not available
-(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 262.
+[10]
 
+[11]
 
-
-[5]
-
-[6]
-
-[7]
-
-[8] 
+[12] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./ThermoS26-02.aux)
  ***********
@@ -1577,31 +1604,30 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `ThermoS26-02.out' has not changed.
-(rerunfilecheck)             Checksum: 8728750F6C2643329E9F04D3A6D33A54;1092.
+(rerunfilecheck)             Checksum: F54BBCBCAB9367A0AC279FF9A9F49A13;844.
  ) 
 Here is how much of TeX's memory you used:
- 42539 strings out of 473190
- 987015 string characters out of 5715800
- 1519747 words of memory out of 5000000
- 64885 multiletter control sequences out of 15000+600000
+ 42616 strings out of 473190
+ 988781 string characters out of 5715800
+ 1523201 words of memory out of 5000000
+ 64928 multiletter control sequences out of 15000+600000
  566887 words of font info for 67 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 104i,12n,108p,769b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 104i,12n,108p,769b,678s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/loc
-al/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/local
-/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/t
-exlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/tex
-live/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsl10.pfb></usr/local/texlive/
-2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb>
-Output written on ThermoS26-02.pdf (8 pages, 143302 bytes).
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texli
+ve/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsl10.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2
+025/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb>
+Output written on ThermoS26-02.pdf (12 pages, 203490 bytes).
 PDF statistics:
- 244 PDF objects out of 1000 (max. 8388607)
- 193 compressed objects within 2 object streams
- 79 named destinations out of 1000 (max. 500000)
- 154 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 419 PDF objects out of 1000 (max. 8388607)
+ 314 compressed objects within 4 object streams
+ 117 named destinations out of 1000 (max. 500000)
+ 161 words of extra memory for PDF output out of 10000 (max. 10000000)
 

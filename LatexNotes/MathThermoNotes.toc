@@ -5,25 +5,26 @@
 \contentsline {chapter}{\numberline {1}ThermoS26-01}{1}{chapter.1}%
 \contentsline {section}{Non-Equilibrium Thermodynamics}{1}{section*.5}%
 \contentsline {section}{\numberline {1.1}Equilibrium Thermodynamics}{1}{section.1.1}%
-\contentsline {chapter}{\numberline {2}ThermoS26-02}{13}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Fundamental Relations and Equations of State}{13}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Homogeneity of the Fundamental Relations}{15}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Path (Contour) Integrals}{16}{section.2.3}%
-\contentsline {section}{\numberline {2.4}Exact Differentials in Thermodynamics}{19}{section.2.4}%
+\contentsline {chapter}{\numberline {2}ThermoS26-02}{9}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Fundamental Relations and Equations of State}{14}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Homogeneity of the Fundamental Relations}{16}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Path (Contour) Integrals}{17}{section.2.3}%
 \contentsline {chapter}{\numberline {3}ThermoS26-03}{21}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Heat Flow}{21}{section.3.1}%
-\contentsline {section}{\numberline {3.2}The Euler Equation}{24}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Examples}{26}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Euler Equation with Respect to Entropy}{27}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Gibbs-Duhem Relation in the Entropy Form}{28}{section.3.5}%
-\contentsline {chapter}{\numberline {4}ThermoS26-04}{29}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Molar Euler and Gibbs--Duhem Equation}{31}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Examples}{32}{section.4.2}%
-\contentsline {chapter}{\numberline {5}ThermoS26-05}{37}{chapter.5}%
-\contentsline {section}{\numberline {5.1}Legendre Transforms and Thermodynamic Potentials}{37}{section.5.1}%
-\contentsline {section}{\numberline {5.2}Equilibrium with a heat Bath}{44}{section.5.2}%
-\contentsline {chapter}{\numberline {6}ThermoS26-06}{49}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Maxwell's Common Tangent Construction}{49}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Unary Isothermal Phase Diagrams (at constant volume)}{53}{section.6.2}%
-\contentsline {chapter}{Bibliography}{55}{chapter*.44}%
-\contentsline {chapter}{List of Symbols}{55}{chapter*.44}%
+\contentsline {section}{\numberline {3.1}Exact Differentials in Thermodynamics}{21}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Heat Flow}{22}{section.3.2}%
+\contentsline {chapter}{\numberline {4}ThermoS26-04}{27}{chapter.4}%
+\contentsline {section}{\numberline {4.1}The Euler Equation}{27}{section.4.1}%
+\contentsline {chapter}{\numberline {5}ThermoS26-05}{29}{chapter.5}%
+\contentsline {section}{\numberline {5.1}Examples}{29}{section.5.1}%
+\contentsline {section}{\numberline {5.2}Euler Equation with Respect to Entropy}{30}{section.5.2}%
+\contentsline {section}{\numberline {5.3}Gibbs-Duhem Relation in the Entropy Form}{31}{section.5.3}%
+\contentsline {section}{\numberline {5.4}Molar Euler and Gibbs--Duhem Equation}{33}{section.5.4}%
+\contentsline {section}{\numberline {5.5}Examples}{35}{section.5.5}%
+\contentsline {chapter}{\numberline {6}ThermoS26-06}{39}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Legendre Transforms and Thermodynamic Potentials}{39}{section.6.1}%
+\contentsline {chapter}{\numberline {7}ThermoS26-07}{47}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Equilibrium with a heat Bath}{47}{section.7.1}%
+\contentsline {chapter}{\numberline {8}ThermoS26-08}{53}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Maxwell's Common Tangent Construction}{53}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Unary Isothermal Phase Diagrams (at constant volume)}{58}{section.8.2}%
+\contentsline {chapter}{Bibliography}{59}{chapter*.44}%

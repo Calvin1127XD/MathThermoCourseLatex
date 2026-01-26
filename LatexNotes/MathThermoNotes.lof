@@ -1,23 +1,25 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Isolated system with rigid walls. The system is characterized by internal energy $U$, volume $V$, and mole numbers $N_1, \ldots , N_r$.}}{2}{figure.1.1}%
 \contentsline {figure}{\numberline {1.2}{\ignorespaces Composite system with diathermal wall separating subsystems $\alpha $ and $\beta $.}}{3}{figure.1.2}%
-\contentsline {figure}{\numberline {1.3}{\ignorespaces Entropy functions vs $U^\alpha $ for subsystems $\alpha $ and $\beta $. The curves show $\tilde {S}^\alpha (U^\alpha )$ (convex, increasing) and $\tilde {S}^\beta (U_o - U^\alpha )$ (decreasing). The temperature conditions at the boundaries are indicated.}}{8}{figure.1.3}%
-\contentsline {figure}{\numberline {1.4}{\ignorespaces Total entropy $\tilde {S}(U^\alpha ) = \tilde {S}^\alpha (U^\alpha ) + \tilde {S}^\beta (U_o - U^\alpha )$ vs $U^\alpha $. The concave function achieves its maximum at $U_*$.}}{9}{figure.1.4}%
-\contentsline {figure}{\numberline {1.5}{\ignorespaces Lagrange multiplier visualization: finding the maximum in $\tilde {S}$ along the constraint $U^\alpha + U^\beta = U_o$ (red line). The contours show increasing $\tilde {S}$.}}{10}{figure.1.5}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Coordinate system for state space with axes $N$ (vertical), $V$ (horizontal right), and $S$ (downward).}}{13}{figure.2.1}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Entropy functions vs $U^\alpha $ for subsystems $\alpha $ and $\beta $. The curves show $\tilde {S}^\alpha (U^\alpha )$ (convex, increasing) and $\tilde {S}^\beta (U_o - U^\alpha )$ (decreasing). The temperature conditions at the boundaries are indicated.}}{10}{figure.2.1}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Total entropy $\tilde {S}(U^\alpha ) = \tilde {S}^\alpha (U^\alpha ) + \tilde {S}^\beta (U_o - U^\alpha )$ vs $U^\alpha $. The concave function achieves its maximum at $U_*$.}}{11}{figure.2.2}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Lagrange multiplier visualization: finding the maximum in $\tilde {S}$ along the constraint $U^\alpha + U^\beta = U_o$ (red line). The contours show increasing $\tilde {S}$.}}{12}{figure.2.3}%
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Coordinate system for state space with axes $N$ (vertical), $V$ (horizontal right), and $S$ (downward).}}{14}{figure.2.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Initial and equilibrium configurations for $\gamma =0$ and $\gamma =1$. At $\gamma =0$ the insulating wall is replaced with a diathermal wall; left hot subsystem has $U^\alpha (0)$, $V^\alpha $, $N^\alpha $ and right cold subsystem has $U^\beta (0)$, $V^\beta $, $N^\beta $. At $\gamma =1$ a diathermal wall separates subsystems with $U^\alpha (1)$, $V^\alpha $, $N^\alpha $ and $U^\beta (1)$, $V^\beta $, $N^\beta $ in equilibrium.}}{21}{figure.3.1}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Plot of $R(\gamma )$ on $[0,1]$. The red curve is impossible; if it occurred, equilibrium would be reached earlier at $\gamma =\gamma ^\ast $. The valid curve remains negative with $R(1)=0$.}}{23}{figure.3.2}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Energy transfer for $\gamma =0$ (hot to cold through replaced wall) and $\gamma =1$ (equilibrium with diathermal wall) showing flow from subsystem $\alpha $ to subsystem $\beta $.}}{24}{figure.3.3}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Initial and equilibrium configurations for $\gamma =0$ and $\gamma =1$. At $\gamma =0$ the insulating wall is replaced with a diathermal wall; left hot subsystem has $U^\alpha (0)$, $V^\alpha $, $N^\alpha $ and right cold subsystem has $U^\beta (0)$, $V^\beta $, $N^\beta $. At $\gamma =1$ a diathermal wall separates subsystems with $U^\alpha (1)$, $V^\alpha $, $N^\alpha $ and $U^\beta (1)$, $V^\beta $, $N^\beta $ in equilibrium.}}{22}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Plot of $R(\gamma )$ on $[0,1]$. The red curve is impossible; if it occurred, equilibrium would be reached earlier at $\gamma =\gamma ^\ast $. The valid curve remains negative with $R(1)=0$.}}{24}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Energy transfer for $\gamma =0$ (hot to cold through replaced wall) and $\gamma =1$ (equilibrium with diathermal wall) showing flow from subsystem $\alpha $ to subsystem $\beta $.}}{25}{figure.3.3}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Two isolated systems initially separated by insulating walls.}}{44}{figure.5.1}%
-\contentsline {figure}{\numberline {5.2}{\ignorespaces Isolating wall removed so energy, volume, and mass can be exchanged.}}{45}{figure.5.2}%
-\contentsline {figure}{\numberline {5.3}{\ignorespaces Composite system in contact with a heat bath.}}{46}{figure.5.3}%
-\contentsline {figure}{\numberline {5.4}{\ignorespaces Diathermal wall configuration: only energy exchange with the bath.}}{47}{figure.5.4}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Two-phase system in contact with a heat bath, with interface at $z_I$.}}{50}{figure.6.1}%
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Free energy densities $f^\alpha (\rho )$ and $f^\beta (\rho )$ versus $\rho $.}}{51}{figure.6.2}%
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Common tangent construction for $f^\alpha $ and $f^\beta $.}}{53}{figure.6.3}%
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Unary isothermal phase diagram and corresponding free-energy curves.}}{54}{figure.6.4}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {7.1}{\ignorespaces Two isolated systems initially separated by insulating walls.}}{47}{figure.7.1}%
+\contentsline {figure}{\numberline {7.2}{\ignorespaces Isolating wall removed so energy, volume, and mass can be exchanged.}}{48}{figure.7.2}%
+\contentsline {figure}{\numberline {7.3}{\ignorespaces Composite system in contact with a heat bath.}}{49}{figure.7.3}%
+\contentsline {figure}{\numberline {7.4}{\ignorespaces Diathermal wall configuration: only energy exchange with the bath.}}{50}{figure.7.4}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {8.1}{\ignorespaces Two-phase system in contact with a heat bath, with interface at $z_I$.}}{54}{figure.8.1}%
+\contentsline {figure}{\numberline {8.2}{\ignorespaces Free energy densities $f^\alpha (\rho )$ and $f^\beta (\rho )$ versus $\rho $.}}{56}{figure.8.2}%
+\contentsline {figure}{\numberline {8.3}{\ignorespaces Common tangent construction for $f^\alpha $ and $f^\beta $.}}{57}{figure.8.3}%
+\contentsline {figure}{\numberline {8.4}{\ignorespaces Unary isothermal phase diagram and corresponding free-energy curves.}}{58}{figure.8.4}%

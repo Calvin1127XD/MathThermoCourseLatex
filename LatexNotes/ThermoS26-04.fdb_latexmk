@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1768911113.43035 "ThermoS26-04.tex" "ThermoS26-04.pdf" "ThermoS26-04" 1768911115.57251 0
+["pdflatex"] 1769440595.73924 "ThermoS26-04.tex" "ThermoS26-04.pdf" "ThermoS26-04" 1769440596.58367 0
   "/usr/local/texlive/2025/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -15,6 +15,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm" 1136768653 1276 96fc4f0f3a7e6743ff42c061c2134734 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrmi10.tfm" 1136768653 1544 20b33e3c0f9b0012adb04ac9d418afaa ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrmi8.tfm" 1136768653 1536 e5dc1fc92eaa02a077dfd8f5bb78f6ce ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrsl10.tfm" 1136768653 1504 ddfb912c594fbc2fb3c85d6fe11e64ed ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrsy10.tfm" 1136768653 1124 00df9b89c9eb5dfe10f722aab27b3560 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrsy8.tfm" 1136768653 1120 90e1ff57236ed6769cdb8e6d58469358 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm" 1136768653 520 82a3d37183f34b6eb363a161dfc002c2 ""
@@ -26,6 +27,7 @@
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb" 1136849748 26264 a52e03c805d428a50490261d87706e8d ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb" 1136849748 34889 a5ba8b20a45b3437534c87396d980b48 ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb" 1136849748 34876 8d4b38ed6a8c31221cdb5873a0ca9f5c ""
+  "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsl10.pfb" 1136849748 31940 2dffcb910be0e3f90e841577f7e3bf6f ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb" 1136849748 41093 104c39afc438ce3e69f72093c24579bd ""
   "/usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb" 1136849748 41671 840970fb437fbd0481bc0a18eff9ce7a ""
   "/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii" 1461363279 71627 94eb9990bed73c364d7f53f960cc8c5b ""
@@ -306,9 +308,9 @@
   "/usr/local/texlive/2025/texmf.cnf" 1741450484 577 418a7058ec8e006d8704f60ecd22c938 ""
   "Macros/thermoHead.tex" 1768883936.97415 2454 d55dbf4f74a55b1d5777cb9891e7c935 ""
   "Macros/thermoSymbols.tex" 1768868754.69333 5997 113b6e9eb3a04ae34f5fc297129281c9 ""
-  "ThermoS26-04.aux" 1768911115.44937 1663 0c2cef94fb08a9be487d56722d0c1b0d "pdflatex"
-  "ThermoS26-04.out" 1768911115.45349 446 a9bb431d05a1ff18cd3862f71c24fbc6 "pdflatex"
-  "ThermoS26-04.tex" 1768911100.40264 9587 428af3b511a84169e9ea57878b7b3b3e ""
+  "ThermoS26-04.aux" 1769440596.49287 1180 843d91949263aa3e7684c2a209358187 "pdflatex"
+  "ThermoS26-04.out" 1769440596.49552 253 a52132b0b40ac6b013cfe3c66db09031 "pdflatex"
+  "ThermoS26-04.tex" 1769439992.02293 3420 8930c0687d6e4e768e5cf5de3023a4d8 ""
   (generated)
   "ThermoS26-04.aux"
   "ThermoS26-04.log"

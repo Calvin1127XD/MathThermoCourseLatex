@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.27)  20 JAN 2026 12:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.3.27)  26 JAN 2026 10:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1497,176 +1497,224 @@ LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <20.74> not available
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <24.88> not available
 (Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 20.
 LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <14.4> not available
-(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 27.
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 23.
+LaTeX Font Info:    Font shape `OT1/cmbr/b/n' in size <10.95> not available
+(Font)              Font shape `OT1/cmbr/bx/n' tried instead on input line 26.
 LaTeX Font Info:    Trying to load font information for OML+cmbrm on input line
- 35.
+ 27.
 (/usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/omlcmbrm.fd
 File: omlcmbrm.fd 2005/04/13 v8.1 (WaS)
 )
 LaTeX Font Info:    Trying to load font information for OMS+cmbrs on input line
- 35.
+ 27.
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/omscmbrs.fd
 File: omscmbrs.fd 2005/04/13 v8.1 (WaS)
 )
-LaTeX Font Info:    Trying to load font information for U+lasy on input line 35
+LaTeX Font Info:    Trying to load font information for U+lasy on input line 27
 .
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
 File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 )
-<Figures/ThermoS26-06-fig-1.pdf, id=43, 361.8328pt x 244.61287pt>
-File: Figures/ThermoS26-06-fig-1.pdf Graphic file (type pdf)
-<use Figures/ThermoS26-06-fig-1.pdf>
-Package pdftex.def Info: Figures/ThermoS26-06-fig-1.pdf  used on input line 44.
-
-(pdftex.def)             Requested size: 288.0011pt x 194.70891pt.
-
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
+LaTeX Font Info:    Font shape `OT1/cmbr/m/it' in size <10.95> not available
+(Font)              Font shape `OT1/cmbr/m/sl' tried instead on input line 37.
 
 
 [1
 
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  \__shipout_drop_firstpage_...
+l.73 \[
+       ]
 
-[2 <./Figures/ThermoS26-06-fig-1.pdf>]
+[2]
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.124 \begin{equation}
+l.146 \begin{equation}
                       
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.124 \begin{equation}
+l.146 \begin{equation}
                       
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.124 \begin{equation}
+l.146 \begin{equation}
                       
 pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
 1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.124 \begin{equation}
+l.146 \begin{equation}
                       
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.130 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.130 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.130 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.130 \begin{equation}
-                      
-<Figures/ThermoS26-06-fig-2.pdf, id=92, 260.32658pt x 161.36687pt>
-File: Figures/ThermoS26-06-fig-2.pdf Graphic file (type pdf)
-<use Figures/ThermoS26-06-fig-2.pdf>
-Package pdftex.def Info: Figures/ThermoS26-06-fig-2.pdf  used on input line 156
-.
-(pdftex.def)             Requested size: 216.0022pt x 133.89752pt.
-
-
-[3 <./Figures/ThermoS26-06-fig-2.pdf>]
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.192 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.192 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.192 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.192 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.199 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.199 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.199 \begin{equation}
-                      
-pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
-1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.199 \begin{equation}
-                      
-<Figures/ThermoS26-06-fig-3.pdf, id=118, 260.32658pt x 163.41753pt>
-File: Figures/ThermoS26-06-fig-3.pdf Graphic file (type pdf)
-<use Figures/ThermoS26-06-fig-3.pdf>
-Package pdftex.def Info: Figures/ThermoS26-06-fig-3.pdf  used on input line 209
-.
-(pdftex.def)             Requested size: 251.9989pt x 158.19562pt.
-
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
 
+
+[3]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.229 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.229 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.229 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.229 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.235 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.235 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.235 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.235 \begin{equation}
+                      
 
 [4]
-<Figures/ThermoS26-06-fig-4.pdf, id=127, 332.46208pt x 329.76097pt>
-File: Figures/ThermoS26-06-fig-4.pdf Graphic file (type pdf)
-<use Figures/ThermoS26-06-fig-4.pdf>
-Package pdftex.def Info: Figures/ThermoS26-06-fig-4.pdf  used on input line 273
-.
-(pdftex.def)             Requested size: 323.9978pt x 321.38734pt.
 
+[5]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.345 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.345 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.345 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.345 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.366 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.366 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.366 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.366 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.378 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.378 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.378 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.378 \begin{equation}
+                      
 
-LaTeX Warning: `h' float specifier changed to `ht'.
+[6]
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.438 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.438 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.438 \begin{equation}
+                      
+pdfTeX warning (ext4): destination with the same identifier (name{equation.1.1.
+1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.438 \begin{equation}
+                      
 
-
-
-[5 <./Figures/ThermoS26-06-fig-3.pdf>]
-
-[6 <./Figures/ThermoS26-06-fig-4.pdf>]
-
+[7] 
 enddocument/afterlastpage (AED): lastpage setting LastPage.
 (./ThermoS26-06.aux)
  ***********
@@ -1674,32 +1722,30 @@ LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `ThermoS26-06.out' has not changed.
-(rerunfilecheck)             Checksum: 5C9B793A38F8C34A0BEB9CB4206993DB;689.
+(rerunfilecheck)             Checksum: 2335ADCEF29F0119A8DC82DB3EB97530;409.
  ) 
 Here is how much of TeX's memory you used:
- 42386 strings out of 473190
- 983905 string characters out of 5715800
- 1514231 words of memory out of 5000000
- 64797 multiletter control sequences out of 15000+600000
- 565536 words of font info for 63 fonts, out of 8000000 for 9000
+ 42401 strings out of 473190
+ 983770 string characters out of 5715800
+ 1514269 words of memory out of 5000000
+ 64801 multiletter control sequences out of 15000+600000
+ 566183 words of font info for 65 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  104i,12n,108p,769b,609s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></
-usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/l
-ocal/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></usr/local
-/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/local/texl
-ive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/texliv
-e/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/texlive/
-2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texlive/202
-5/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2025/
-texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb>
-Output written on ThermoS26-06.pdf (6 pages, 152442 bytes).
+></usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr10.pfb></u
+sr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb></usr/lo
+cal/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbs10.pfb></usr/loca
+l/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb></usr/local/
+texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb></usr/local/te
+xlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb></usr/local/texli
+ve/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsl10.pfb></usr/local/texlive
+/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb></usr/local/texlive/2
+025/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb>
+Output written on ThermoS26-06.pdf (7 pages, 126212 bytes).
 PDF statistics:
- 219 PDF objects out of 1000 (max. 8388607)
- 152 compressed objects within 2 object streams
- 20 named destinations out of 1000 (max. 500000)
- 153 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 157 PDF objects out of 1000 (max. 8388607)
+ 110 compressed objects within 2 object streams
+ 30 named destinations out of 1000 (max. 500000)
+ 125 words of extra memory for PDF output out of 10000 (max. 10000000)
 

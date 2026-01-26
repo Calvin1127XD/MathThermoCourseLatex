@@ -20,6 +20,62 @@
 \chapter{ThermoS26-03}
 \label{chap:ThermoS26-03}
 
+\section{Exact Differentials in Thermodynamics}
+
+Recall, we wrote, as a shorthand,
+\begin{equation}
+\label{eq:du-shorthand}
+d\tilde{U} = T_U dS - P_U dV + \sum_{i=1}^r \mu_{U;i} dN_i.
+\end{equation}
+
+This has the form
+\begin{equation}
+\label{eq:differential-form}
+F_1 dx_1 + F_2 dx_2 + \cdots + F_n dx_n = \vec{F} \cdot d\vec{x},
+\end{equation}
+where
+\begin{equation}
+\label{eq:components}
+F_1 = T_U, \quad F_2 = -P_U, \quad \ldots
+\end{equation}
+
+We say that $\vec{F} \cdot d\vec{x}$ is an \textbf{exact differential} iff $\vec{F}$ is conservative.
+
+Clearly
+\begin{equation}
+\label{eq:du-exact}
+d\tilde{U} = \nabla \tilde{U} \cdot d\vec{r} \quad (\vec{r} \in \Sigma_S)
+\end{equation}
+is an exact differential, because $\nabla \tilde{U}$ is conservative, trivially. Thus, the integral
+\begin{equation}
+\label{eq:du-integral}
+\int_{\vec{Y}} d\tilde{U} = \int_{\vec{Y}} \nabla \tilde{U} \cdot d\vec{r}
+\end{equation}
+is path independent. If $\vec{Y}: [a,b] \to \Sigma_S$ is the path in question, with
+\begin{equation}
+\label{eq:path-endpoints-sigma}
+\vec{Y}(a) = \vec{r}_a, \quad \vec{Y}(b) = \vec{r}_b,
+\end{equation}
+then
+\begin{equation}
+\label{eq:du-integral-value}
+\int_{\vec{Y}} d\tilde{U} = \int_{\vec{Y}} \nabla \tilde{U} \cdot d\vec{r} = \tilde{U}(\vec{r}_b) - \tilde{U}(\vec{r}_a).
+\end{equation}
+
+We can use any path we want in state space $\Sigma_S$.
+
+The same is true for
+\begin{equation}
+\label{eq:ds-exact}
+d\tilde{S} = \frac{1}{T_S} dU + \frac{P_S}{T_S} dV - \sum_{i=1}^r \frac{\mu_{S;i}}{T_S} dN_i,
+\end{equation}
+that is
+\begin{equation}
+\label{eq:ds-gradient}
+d\tilde{S} = \nabla \tilde{S} \cdot d\vec{r} \quad (\vec{r} \in \Sigma_U)
+\end{equation}
+is an exact differential.
+
 \section{Heat Flow}
 
 We examine the approach to thermal equilibrium using a diathermal wall. Suppose the substance is unary, $r=1$. It must be that the variables
@@ -142,263 +198,5 @@ This is consistent with our intuition about temperature. If $\tilde{T}^\alpha(0)
 \end{figure}
 
 Heat Transfer Principle: Heat energy always flows from hotter to colder system. This is equivalent to the second law of thermodynamics.
-
-\section{The Euler Equation}
-
-Recall that internal energy and the entropy are homogenous of degree one:
-\begin{equation}
-\tilde{U}(\lambda S,\lambda V,\lambda\vec{N})=\lambda\tilde{U}(S,V,\vec{N}),\qquad \lambda>0,
-\tag{3.3}\label{eq:euler-homogeneous}
-\end{equation}
-where
-\[
-\vec{N}=
-\begin{bmatrix}
-N_1\\
-N_2\\
-\vdots\\
-N_r
-\end{bmatrix}.
-\]
-
-\begin{theorem}
-\label{thm:euler-internal-energy}
-\textup{(3.1)} Let $\tilde{U}$ be the internal energy of an isolated system. Then
-\begin{equation}
-\tilde{U}=T S-P V+\mu_1 N_1+\cdots+\mu_r N_r.
-\tag{3.4}\label{eq:euler-equation}
-\end{equation}
-\end{theorem}
-
-\begin{proof}
-Since $\tilde{U}$ is homogenous of degree one, differentiating \eqref{eq:euler-homogeneous} with respect to $\lambda$ we obtain
-\[
-T(\lambda S,\lambda V,\lambda\vec{N})\,S-P(\lambda S,\lambda V,\lambda\vec{N})\,V
-+\sum_{i=1}^r\mu_i(\lambda S,\lambda V,\lambda\vec{N})\,N_i=\tilde{U}(S,V,\vec{N}).
-\]
-Taking $\lambda=1$ gives \eqref{eq:euler-equation}, as desired. ///
-\end{proof}
-
-Remark: Equation \eqref{eq:euler-equation} is known as Euler's Equation.
-
-\begin{definition}
-\label{def:process-path}
-\textup{(3.2)} A process path in state space $\Sigma_S$,
-\[
-\Sigma_S\subseteq [0,\infty)\times[0,\infty)\times[0,\infty)\times\cdots\times[0,\infty),
-\]
-is a continuous, piecewise differentiable function $\vec{Y}:[0,1]\to\Sigma_S$, defined by
-\[
-\vec{Y}(\gamma)=
-\begin{bmatrix}
-S(\gamma)\\
-V(\gamma)\\
-N_1(\gamma)\\
-\vdots\\
-N_r(\gamma)
-\end{bmatrix}.
-\]
-A process path in $\Sigma_U$ is defined similarly.
-\end{definition}
-
-Thus, using the chain rule, we have
-\begin{align}
-\frac{d}{d\gamma}\tilde{U}\big(\vec{Y}(\gamma)\big)
-&=T\big(\vec{Y}(\gamma)\big)S'(\gamma)-P\big(\vec{Y}(\gamma)\big)V'(\gamma)
-+\sum_{i=1}^r\mu_i\big(\vec{Y}(\gamma)\big)N_i'(\gamma)
-\tag{3.5}\label{eq:chain-rule-u}
-\end{align}
-for a valid process path in state space.
-
-\begin{theorem}
-\label{thm:gibbs-duhem}
-\textup{(3.3)} Suppose that $\vec{Y}:[0,1]\to\Sigma_S$ is a process path in state space $\Sigma_S$. Then
-\begin{equation}
-0=S(\gamma)\frac{dT_S(\vec{Y}(\gamma))}{d\gamma}-V(\gamma)\frac{dP_S(\vec{Y}(\gamma))}{d\gamma}
-+\sum_{i=1}^r N_i(\gamma)\frac{d\mu_S^i(\vec{Y}(\gamma))}{d\gamma}.
-\tag{3.6}\label{eq:gibbs-duhem}
-\end{equation}
-This equation is called the Gibbs-Duhem relation.
-\end{theorem}
-
-\begin{proof}
-Begin with the Euler equation and differentiate with respect to the process parameter $\gamma$:
-\begin{align}
-\frac{d\tilde{U}}{d\gamma}\big(\vec{Y}(\gamma)\big)
-&=\frac{dT}{d\gamma}\big(\vec{Y}(\gamma)\big)S(\gamma)+T\big(\vec{Y}(\gamma)\big)S'(\gamma) \notag \\
-&\quad -\frac{dP}{d\gamma}\big(\vec{Y}(\gamma)\big)V(\gamma)-P\big(\vec{Y}(\gamma)\big)V'(\gamma) \notag \\
-&\quad +\sum_{i=1}^r\left\{\frac{d\mu_i}{d\gamma}\big(\vec{Y}(\gamma)\big)N_i(\gamma)
-+\mu_i\big(\vec{Y}(\gamma)\big)N_i'(\gamma)\right\}.
-\tag{3.7}\label{eq:euler-derivative}
-\end{align}
-Substituting \eqref{eq:chain-rule-u} into \eqref{eq:euler-derivative} yields \eqref{eq:gibbs-duhem}. ///
-\end{proof}
-
-\section{Examples}
-
-\begin{example}
-\label{ex:fundamental-relation-homogeneous}
-\textup{(3.4)} Suppose that the fundamental relation for a material is given by
-\[
-\tilde{S}=4 A\, U^{1/4} V^{1/2} N^{1/4}+B N,\qquad \Sigma_U=[0,\infty)^3,
-\]
-where $A,B>0$ are constants. This function must be homogenous of degree one. Suppose $\lambda>0$. Then
-\[
-\tilde{S}(\lambda U,\lambda V,\lambda N)=4A\,\lambda U^{1/4}\lambda V^{1/2}\lambda N^{1/4}+B\lambda N
-=\lambda\tilde{S}(U,V,N). ///
-\]
-
-Recall that
-\[
-T=\frac{1}{\frac{\partial \tilde{S}}{\partial U}}
-=\Big(A\,U^{-3/4}V^{1/2}N^{1/4}\Big)^{-1}
-=\frac{U^{3/4}}{A V^{1/2}N^{1/4}},
-\]
-which is homogenous degree zero.
-\[
-\frac{P}{T}=\frac{\partial \tilde{S}}{\partial V}
-\]
-so
-\[
-P=T\,\frac{\partial \tilde{S}}{\partial V}
-=\frac{U^{3/4}}{A V^{1/2} N^{1/4}}\left(\frac{2A\,U^{1/4}N^{1/4}}{V^{1/2}}\right)
-=\frac{2U}{V}.
-\]
-\end{example}
-
-Finally,
-\[
-\mu=-T\,\frac{\partial \tilde{S}}{\partial N}
-=-\frac{U^{3/4}}{A V^{1/2}N^{1/4}}\left(\frac{A\,U^{1/4}V^{1/2}}{N^{3/4}}+B\right)
-=-\frac{U}{N}-\frac{B U^{3/4}}{A V^{1/2}N^{1/4}}. ///
-\]
-
-\begin{example}
-\label{ex:fundamental-relation-u}
-\textup{(3.5)} Suppose that the fundamental relation is
-\[
-\tilde{U}=\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^4.
-\]
-Recall that
-\[
-T=\frac{\partial \tilde{U}}{\partial S}
-=4\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^3\frac{1}{4A V^{1/2}N^{1/4}}
-=\frac{\tilde{U}^{3/4}}{A V^{1/2}N^{1/4}},
-\]
-the same as above.
-\[
-P=-\frac{\partial \tilde{U}}{\partial V}
-=-4\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^3\left(\frac{S-BN}{4A N^{1/4}}\right)\left(-\frac{1}{2}\right)\frac{1}{V^{3/2}}
-\]
-so
-\[
-=2\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^4\frac{1}{V}
-=\frac{2\tilde{U}}{V}.
-\]
-Finally,
-\[
-\mu=\frac{\partial \tilde{U}}{\partial N}
-=4\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^3\frac{1}{4A V^{1/2}}\frac{N^{1/4}(-B)-(S-BN)\frac{1}{4}N^{-3/4}}{N^{1/2}}
-\]
-\[
-=4\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^3\frac{1}{4A V^{1/2}}\frac{N^{1/4}(-B)-(S-BN)\frac{1}{4}N^{-3/4}}{N^{1/2}}
-\]
-\[
-=4\tilde{U}^{3/4}\frac{N^{1/4}}{4A V^{1/2}N^{1/2}}\cdot\left(-B-\frac{S-BN}{4N}\right)
-\]
-\[
-=-\frac{B\tilde{U}^{3/4}}{A V^{1/2}N^{1/4}}-\frac{\tilde{U}^{3/4}}{A V^{1/2}N^{1/4}}\frac{(S-BN)}{4N}
-=-\frac{B\tilde{U}^{3/4}}{A V^{1/2}N^{1/4}}-\frac{\tilde{U}}{N}. ///
-\]
-\end{example}
-
-\section{Euler Equation with Respect to Entropy}
-
-\begin{theorem}
-\label{thm:euler-entropy}
-\textup{(3.5)} Let $\tilde{S}$ be the internal energy of an isolated system. Then
-\begin{equation}
-\tilde{S}=\frac{1}{T_S}U+\frac{P_S}{T_S}V-\sum_{i=1}^r\frac{\mu_{S,i}}{T_S}N_i,
-\tag{3.8}\label{eq:euler-entropy}
-\end{equation}
-where
-\[
-T_S=T_S(U,V,\vec{N}),\qquad
-P_S=P_S(U,V,\vec{N}),\qquad
-\mu_{S,i}=\mu_{S,i}(U,V,\vec{N}),
-\]
-and
-\[
-\frac{1}{T_S}=\frac{\partial \tilde{S}}{\partial U},\qquad \frac{P_S}{T_S}=\frac{\partial \tilde{S}}{\partial V},\qquad \frac{\mu_{S,i}}{T_S}=\frac{\partial \tilde{S}}{\partial N_i}.
-\]
-\end{theorem}
-
-\begin{proof}
-We again use the fact that $\tilde{S}$ is homogenous of degree one. For any $\lambda>0$,
-\[
-\tilde{S}(\lambda U,\lambda V,\lambda\vec{N})=\lambda\tilde{S}(U,V,\vec{N}).
-\]
-Taking the derivative with respect to $\lambda$, we have
-\[
-\frac{U}{T_S(\lambda U,\lambda V,\lambda\vec{N})}
-+\frac{P_S(\lambda U,\lambda V,\lambda\vec{N})}{T_S(\lambda U,\lambda V,\lambda\vec{N})}V
-+\sum_{j=1}^r\frac{\mu_{S,j}(\lambda U,\lambda V,\lambda\vec{N})}{T_S(\lambda U,\lambda V,\lambda\vec{N})}N_j
-=\tilde{S}(U,V,\vec{N}),
-\]
-and setting $\lambda=1$ gives the desired result. ///
-\end{proof}
-
-\section{Gibbs-Duhem Relation in the Entropy Form}
-
-The Gibbs-Duhem equation is similarly derived.
-
-\begin{theorem}
-\label{thm:gibbs-duhem-entropy}
-\textup{(3.6)} Suppose that $\vec{Y}:[0,1]\to\Sigma_U$ is a process path. Then
-\begin{equation}
-0=\frac{dT_S}{d\gamma}\big(\vec{Y}(\gamma)\big)\,\tilde{S}\big(\vec{Y}(\gamma)\big)
--\frac{dP_S}{d\gamma}\big(\vec{Y}(\gamma)\big)V(\gamma)
-+\sum_{j=1}^r\frac{d\mu_S^j}{d\gamma}\big(\vec{Y}(\gamma)\big)N_j(\gamma).
-\tag{3.9}\label{eq:gibbs-duhem-entropy}
-\end{equation}
-This equation is called the Gibbs-Duhem relation in the entropy form.
-\end{theorem}
-
-\begin{proof}
-Using \eqref{eq:euler-entropy}, we have
-\[
-T_S\big(\vec{Y}(\gamma)\big)\,\tilde{S}\big(\vec{Y}(\gamma)\big)
-=U(\gamma)+P_S\big(\vec{Y}(\gamma)\big)V(\gamma)
--\sum_{j=1}^r \mu_{S,j}\big(\vec{Y}(\gamma)\big)N_j(\gamma).
-\]
-Taking the $\gamma$-derivative of the last equation, we have
-\begin{align}
-\frac{dT_S}{d\gamma}\big(\vec{Y}(\gamma)\big)\,\tilde{S}\big(\vec{Y}(\gamma)\big)
-+T_S\big(\vec{Y}(\gamma)\big)\frac{d\tilde{S}}{d\gamma}\big(\vec{Y}(\gamma)\big)
-&=U'(\gamma)+\frac{dP_S}{d\gamma}\big(\vec{Y}(\gamma)\big)V(\gamma)+P_S\big(\vec{Y}(\gamma)\big)V'(\gamma) \notag \\
-&\quad -\sum_{j=1}^r\left\{\frac{d\mu_{S,j}}{d\gamma}\big(\vec{Y}(\gamma)\big)N_j(\gamma)+\mu_{S,j}\big(\vec{Y}(\gamma)\big)N_j'(\gamma)\right\}.
-\tag{3.10}\label{eq:gibbs-duhem-entropy-derivative}
-\end{align}
-Taking the $\gamma$-derivative of $\tilde{S}\big(\vec{Y}(\gamma)\big)$ we have
-\begin{equation}
-\frac{d\tilde{S}}{d\gamma}\big(\vec{Y}(\gamma)\big)
-=\frac{1}{T_S(\vec{Y}(\gamma))}U'(\gamma)+\frac{P_S(\vec{Y}(\gamma))}{T_S(\vec{Y}(\gamma))}V'(\gamma)
--\sum_{j=1}^r\frac{\mu_{S,j}(\vec{Y}(\gamma))}{T_S(\vec{Y}(\gamma))}N_j'(\gamma).
-\tag{3.11}\label{eq:entropy-derivative}
-\end{equation}
-Substituting \eqref{eq:entropy-derivative} into \eqref{eq:gibbs-duhem-entropy-derivative} yields \eqref{eq:gibbs-duhem-entropy}. ///
-\end{proof}
-
-Remark: Compare \eqref{eq:gibbs-duhem} and \eqref{eq:gibbs-duhem-entropy}:
-\[
-0=S(\gamma)\frac{dT_S(\vec{Y}(\gamma))}{d\gamma}-V(\gamma)\frac{dP_S(\vec{Y}(\gamma))}{d\gamma}
-+\sum_{i=1}^r N_i(\gamma)\frac{d\mu_S^i(\vec{Y}(\gamma))}{d\gamma},
-\]
-\[
-0=\frac{dT_S}{d\gamma}\big(\vec{Y}(\gamma)\big)\,\tilde{S}\big(\vec{Y}(\gamma)\big)
--\frac{dP_S}{d\gamma}\big(\vec{Y}(\gamma)\big)V(\gamma)
-+\sum_{j=1}^r\frac{d\mu_S^j}{d\gamma}\big(\vec{Y}(\gamma)\big)N_j(\gamma),
-\]
-These are essentially the same expression!
 
 \THERMOEND

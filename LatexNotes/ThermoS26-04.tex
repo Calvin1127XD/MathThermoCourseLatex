@@ -20,351 +20,95 @@
 \chapter{ThermoS26-04}
 \label{chap:ThermoS26-04}
 
-\noindent Math Thermo\\
-Class \#04\\
-01/29/2026
+\section{The Euler Equation}
 
-Suppose that $\tilde{S}$ is the fundamental entropy relation
-for an isolated system containing a unary ($r=1$)
-material.
-\[
-\tilde{S}=\tilde{S}(U,V,N).
-\]
-
-Suppose that $N>0$ is fixed. Define
-\[
- u:=\frac{U}{N},\qquad\text{the molar energy,}
-\]
-\[
- v:=\frac{V}{N},\qquad\text{the molar volume.}
-\]
-
-Then, since, for any $\lambda>0$,
-\[
-\lambda \tilde{S}(U,V,N)=\tilde{S}(\lambda U,\lambda V,\lambda N),
-\]
-
-it follows that
-\[
-\frac{1}{N}\tilde{S}(U,V,N)=\tilde{S}\left(\frac{U}{N},\frac{V}{N},\frac{N}{N}\right)
-=\tilde{S}(u,v,1).
-\]
-
-Now, define the molar entropy relation
-\[
-\tilde{s}=\tilde{s}(u,v):=\tilde{S}(u,v,1).
-\]
-
-It then follows that
-\[
-\tilde{S}(U,V,N)=N\tilde{s}(u,v).
-\]
-
-Likewise, if we define
-\[
- s=\frac{S}{N}\qquad v=\frac{V}{N}
-\]
-
-and
-\[
-\tilde{u}=\tilde{u}(s,v):=\tilde{U}(s,v,1),
-\]
-
-then it follows that
-\[
-\tilde{U}(S,V,N)=N\tilde{u}(s,v).
-\]
-
-\begin{example}
-\label{ex:molar-entropy-example}
-\textup{(4.1)} Suppose that
-\[
-\tilde{S}(U,V,N)=\left(\frac{NVUR^2}{v_0\theta}\right)^{1/3},
-\]
-where $R,v_0,\theta>0$ are constants. Then,
-\[
-\tilde{s}(u,v)=\tilde{S}(u,v,1)
-=\left(\frac{vuR^2}{v_0\theta}\right)^{1/3}.
-\]
-
-\[
-N\tilde{s}(u,v)=\left(\frac{N^3vuR^2}{v_0\theta}\right)^{1/3}
-=\left(\frac{NVUR^2}{v_0\theta}\right)^{1/3}
-=\tilde{S}(U,V,N).
-\]
-\end{example}
-
-$\tilde{U}$ and $\tilde{S}$ are homogeneous of degree one (also
-called extensive variables).
-
-$T,P,\mu$ on the other hand are homogeneous of
-degree zero (also called intensive variables).
-
-Recall that, for all $\lambda>0$,
-\[
-T_U(S,V,N)=T_U(\lambda S,\lambda V,\lambda N).
-\]
-
-Thus,
-\[
-T_U(S,V,N)=T_U(s,v,1).
-\]
-
-We could, of course, give a new symbol for
-$T_U(s,v,1)$, for example
-\[
- t_U(s,v):=T_U(s,v,1)\ldots
-\]
-
-\section{Molar Euler and Gibbs--Duhem Equation}
-
-For a unary material ($r=1$), recall
-\[
-\tilde{U}(S,V,N)=T_U(S,V,N)S-P_U(S,V,N)V+\mu_U(S,V,N)N
-\]
-
-Suppose $N>0$ is fixed. Then,
-\[
-\frac{1}{N}\tilde{U}(S,V,N)=T_U(S,V,N)\frac{S}{N}-P_U(S,V,N)\frac{V}{N}+\mu_U(S,V,N)
-\]
-
-or, equivalently,
+Recall that internal energy and the entropy are homogenous of degree one:
 \begin{equation}
-\tilde{u}(s,v)=T_U(s,v)s-P_U(s,v)v+\mu_U(s,v).
-\tag{4.1}\label{eq:molar-euler}
+\tilde{U}(\lambda S,\lambda V,\lambda\vec{N})=\lambda\tilde{U}(S,V,\vec{N}),\qquad \lambda>0,
+\tag{3.3}\label{eq:euler-homogeneous}
 \end{equation}
-
-This is the molar version of Euler's equation.
-How do we get the Gibbs--Duhem equation?
-
-Let $\vec{z}(\gamma)=(s(\gamma),v(\gamma))$ be a path in molar
-state space. Then
+where
 \[
-\frac{d}{d\gamma}\tilde{u}(\vec{z}(\gamma))=
-\frac{\partial \tilde{u}}{\partial s}(\vec{z}(\gamma))\,s'(\gamma)+
-\frac{\partial \tilde{u}}{\partial v}(\vec{z}(\gamma))\,v'(\gamma).
+\vec{N}=
+\begin{bmatrix}
+N_1\\
+N_2\\
+\vdots\\
+N_r
+\end{bmatrix}.
 \]
 
-But
-
-exercise
-\[
-\frac{\partial \tilde{u}}{\partial s}(\vec{z}(\gamma))=T_U(s(\gamma),v(\gamma))
-\]
-
-and
-\[
-\frac{\partial \tilde{u}}{\partial v}(\vec{z}(\gamma))=-P_U(s(\gamma),v(\gamma)).
-\]
-
-Thus, the combined First and Second laws are
+\begin{theorem}
+\label{thm:euler-internal-energy}
+\textup{(3.1)} Let $\tilde{U}$ be the internal energy of an isolated system. Then
 \begin{equation}
-\frac{d}{d\gamma}\tilde{u}(\vec{z}(\gamma))=T_U(\vec{z}(\gamma))s'(\gamma)-P_U(\vec{z}(\gamma))v'(\gamma).
-\tag{4.2}\label{eq:combined-laws}
+\tilde{U}=T S-P V+\mu_1 N_1+\cdots+\mu_r N_r.
+\tag{3.4}\label{eq:euler-equation}
 \end{equation}
+\end{theorem}
 
-On the other hand, differentiate the molar Euler
-relation (4.1), we have
+\begin{proof}
+Since $\tilde{U}$ is homogenous of degree one, differentiating \eqref{eq:euler-homogeneous} with respect to $\lambda$ we obtain
+\[
+T(\lambda S,\lambda V,\lambda\vec{N})\,S-P(\lambda S,\lambda V,\lambda\vec{N})\,V
++\sum_{i=1}^r\mu_i(\lambda S,\lambda V,\lambda\vec{N})\,N_i=\tilde{U}(S,V,\vec{N}).
+\]
+Taking $\lambda=1$ gives \eqref{eq:euler-equation}, as desired. ///
+\end{proof}
+
+Remark: Equation \eqref{eq:euler-equation} is known as Euler's Equation.
+
+\begin{definition}
+\label{def:process-path}
+\textup{(3.2)} A process path in state space $\Sigma_S$,
+\[
+\Sigma_S\subseteq [0,\infty)\times[0,\infty)\times[0,\infty)\times\cdots\times[0,\infty),
+\]
+is a continuous, piecewise differentiable function $\vec{Y}:[0,1]\to\Sigma_S$, defined by
+\[
+\vec{Y}(\gamma)=
+\begin{bmatrix}
+S(\gamma)\\
+V(\gamma)\\
+N_1(\gamma)\\
+\vdots\\
+N_r(\gamma)
+\end{bmatrix}.
+\]
+A process path in $\Sigma_U$ is defined similarly.
+\end{definition}
+
+Thus, using the chain rule, we have
 \begin{align}
-\frac{d}{d\gamma}\tilde{u}(\vec{z}(\gamma))&=\frac{d}{d\gamma}T_U(\vec{z}(\gamma))s(\gamma)+T_U(\vec{z}(\gamma))s'(\gamma)\\
-&\quad-\frac{d}{d\gamma}P_U(\vec{z}(\gamma))v(\gamma)-P_U(\vec{z}(\gamma))v'(\gamma)\\
-&\quad+\frac{d}{d\gamma}\mu_U(\vec{z}(\gamma)).
-\tag{4.3}\label{eq:diff-molar-euler}
+\frac{d}{d\gamma}\tilde{U}\big(\vec{Y}(\gamma)\big)
+&=T\big(\vec{Y}(\gamma)\big)S'(\gamma)-P\big(\vec{Y}(\gamma)\big)V'(\gamma)
++\sum_{i=1}^r\mu_i\big(\vec{Y}(\gamma)\big)N_i'(\gamma)
+\tag{3.5}\label{eq:chain-rule-u}
 \end{align}
+for a valid process path in state space.
 
-Therefore, the molar Gibbs--Duhem equation is
+\begin{theorem}
+\label{thm:gibbs-duhem}
+\textup{(3.3)} Suppose that $\vec{Y}:[0,1]\to\Sigma_S$ is a process path in state space $\Sigma_S$. Then
 \begin{equation}
-0=\frac{d}{d\gamma}T_U(\vec{z}(\gamma))s(\gamma)-\frac{d}{d\gamma}P_U(\vec{z}(\gamma))v(\gamma)+\frac{d}{d\gamma}\mu_U(\vec{z}(\gamma)).
-\tag{4.4}\label{eq:molar-gd}
+0=S(\gamma)\frac{dT_S(\vec{Y}(\gamma))}{d\gamma}-V(\gamma)\frac{dP_S(\vec{Y}(\gamma))}{d\gamma}
++\sum_{i=1}^r N_i(\gamma)\frac{d\mu_S^i(\vec{Y}(\gamma))}{d\gamma}.
+\tag{3.6}\label{eq:gibbs-duhem}
 \end{equation}
+This equation is called the Gibbs-Duhem relation.
+\end{theorem}
 
-The molar entropy form of the Euler and Gibbs--
-Duhem equations are (as one would expect)
-\begin{equation}
-\tilde{s}(u,v)=\frac{1}{T_S(u,v)}\,u+\frac{P_S(u,v)}{T_S(u,v)}\,v-\frac{\mu_S(u,v)}{T_S(u,v)}.
-\tag{4.6}\label{eq:molar-entropy-euler}
-\end{equation}
-
-and
-\begin{equation}
-0=\frac{d}{d\gamma}\left(\frac{1}{T_S(\vec{z}(\gamma))}\right)u(\gamma)+
-\frac{d}{d\gamma}\left(\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)v(\gamma)
--\frac{d}{d\gamma}\left(\frac{\mu_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right).
-\tag{4.7}\label{eq:molar-entropy-gd}
-\end{equation}
-
-The molar representation of the First and
-Second laws is
-\begin{equation}
-\frac{d}{d\gamma}\tilde{s}(\vec{z}(\gamma))=\frac{1}{T_S(\vec{z}(\gamma))}u'(\gamma)+
-\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}v'(\gamma).
-\tag{4.8}\label{eq:molar-first-second}
-\end{equation}
-
-where $\vec{z}(\gamma)=(u(\gamma),v(\gamma))$ is a process path in
-molar state space.
-
-\section{Examples}
-
-Let's look at a couple of examples.
-
-\begin{example}
-\label{ex:two-eos}
-\textup{(4.2)} Suppose that
-\[
-P=\frac{2U}{V}
-\]
-\[
-T=\left(\frac{A U^{3/2}}{V N^{1/2}}\right)^{1/2}
-\]
-
-(homog.\ deg.\ zero)
-
-We should be able to recover the fundamental
-relation using these two equations of state.
-Observe that
-\[
-\frac{1}{T_S}=A^{-1/2}u^{-3/4}v^{1/2}
-\]
-\[
-\frac{P_S}{T_S}=2A^{-1/2}u^{1/4}v^{-1/2}
-\]
-
-Using the molar 1st and 2nd laws (4.8)
-\begin{align*}
-\frac{d}{d\gamma}\tilde{s}(\vec{z}(\gamma))&=\frac{1}{T_S(\vec{z}(\gamma))}u'(\gamma)+\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}v'(\gamma)\\
-&=A^{-1/2}\left(u(\gamma)^{-3/4}v(\gamma)^{1/2}u'(\gamma)
-+2u(\gamma)^{1/4}v(\gamma)^{-1/2}v'(\gamma)\right)\\
-&=4A^{-1/2}\frac{d}{d\gamma}\left((u(\gamma))^{1/4}(v(\gamma))^{1/2}\right).
-\end{align*}
-
-Therefore,
-\[
-\tilde{s}(\gamma)=4A^{-1/2}(u(\gamma))^{1/4}(v(\gamma))^{1/2}+s_0.
-\]
-
-Equivalently,
-\[
-\tilde{S}(\gamma)=4A^{-1/2}U^{1/4}V^{1/2}N^{1/4}+Ns_0.
-\]
-
-here $s_0$ is a positive constant. ///
-
-Let's try an alternative method.
-\end{example}
-
-\begin{example}
-\label{ex:gibbs-duhem-start}
-\textup{(4.3)} Same problem as above. This
-time we will use the Gibbs--Duhem equation
-(4.7) as the starting point:
-
-\begin{align*}
-\frac{d}{d\gamma}\left(\frac{\mu_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)
-&=\frac{d}{d\gamma}\left(\frac{1}{T_S(\vec{z}(\gamma))}\right)u(\gamma)
-+\frac{d}{d\gamma}\left(\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)v(\gamma)\\
-&=A^{-1/2}\frac{d}{d\gamma}\left((u(\gamma))^{-3/4}(v(\gamma))^{1/2}\right)u(\gamma)\\
-&\quad+A^{-1/2}\frac{d}{d\gamma}\left(2(u(\gamma))^{1/4}(v(\gamma))^{-1/2}\right)\\
-&\quad\phantom{+A^{-1/2}\frac{d}{d\gamma}}v(\gamma)\\
-&=A^{-1/2}\left(-\frac{3}{4}(u(\gamma))^{-3/4}(v(\gamma))^{1/2}u'(\gamma)\right.\\
-&\quad\left.+(u(\gamma))^{1/4}\frac{1}{2}(v(\gamma))^{-1/2}v'(\gamma)\right)\\
-&\quad+A^{-1/2}\left(\frac{1}{2}(u(\gamma))^{-3/4}(v(\gamma))^{1/2}u'(\gamma)\right.\\
-&\quad\left.-2(u(\gamma))^{1/4}\frac{1}{2}(v(\gamma))^{-1/2}v'(\gamma)\right)\\
-&=A^{-1/2}\left(-\frac{1}{4}(u(\gamma))^{-3/4}(v(\gamma))^{1/2}u'(\gamma)\right.\\
-&\quad\left.-\frac{1}{2}(u(\gamma))^{1/4}(v(\gamma))^{-1/2}v'(\gamma)\right)\\
-&=-A^{-1/2}\frac{d}{d\gamma}\left((u(\gamma))^{1/4}(v(\gamma))^{1/2}\right).
-\end{align*}
-
-Thus,
-\[
-\frac{\mu_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}=-A^{-1/2}(u(\gamma))^{1/4}(v(\gamma))^{1/2}-s_0.
-\]
-
-or
-\[
-\frac{\mu_S(u,v)}{T_S(u,v)}=-A^{-1/2}u^{1/4}v^{1/2}-s_0.
-\]
-
-Using Euler's equation (4.6), we have
-\begin{align*}
-\tilde{s}(u,v)&=\frac{1}{T_S(u,v)}u+\frac{P_S(u,v)}{T_S(u,v)}v-\frac{\mu_S(u,v)}{T_S(u,v)}\\
-&=A^{-1/2}u^{1/4}v^{1/2}+2A^{-1/2}u^{1/4}v^{1/2}
-+ A^{-1/2}u^{1/4}v^{1/2}+s_0\\
-&=4A^{-1/2}u^{1/4}v^{1/2}+s_0,
-\end{align*}
-
-which is the same as before.
-
-Using 2 equations of state, we can recover the
-3rd and then utilizing Euler's equation we
-get the fundamental relation. ///
-\end{example}
-
-\begin{example}
-\label{ex:ideal-gas}
-\textup{(4.4)} Ideal Gas law
-
-\[
-PV=NRT
-\]
-\[
-U=\frac{3}{2}NRT
-\]
-
-With these two equations of state we can find the
-fundamental relations.
-
-Observe that
-\[
-\frac{1}{T_S}=\frac{3R}{2u}\qquad\frac{P_S}{T_S}=\frac{R}{v}.
-\]
-
-This suggests that we again use the entropy
-equation (in molar form). The Gibbs--Duhem equation is
-\begin{align*}
-\frac{d}{d\gamma}\left(\frac{\mu_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)
-&=\frac{d}{d\gamma}\left(\frac{1}{T_S(\vec{z}(\gamma))}\right)u(\gamma)
-+\frac{d}{d\gamma}\left(\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)v(\gamma)\\
-&=\frac{3R}{2}\frac{d}{d\gamma}\left(\frac{1}{u(\gamma)}\right)u(\gamma)
-+R\frac{d}{d\gamma}\left(\frac{1}{v(\gamma)}\right)v(\gamma)\\
-&=-\frac{3R}{2}\frac{u'(\gamma)}{u(\gamma)}-R\frac{v'(\gamma)}{v(\gamma)}.
-\end{align*}
-
-Integrating, we have
-\[
-\frac{\mu_S(u(\gamma),v(\gamma))}{T_S(u(\gamma),v(\gamma))}-\frac{\mu_0}{T_0}=-\frac{3R}{2}\ln\left(\frac{u(\gamma)}{u_0}\right)
--R\ln\left(\frac{v(\gamma)}{v_0}\right),
-\]
-
-where
-\[
-\frac{\mu_0}{T_0}:=\frac{\mu_S(u_0,v_0)}{T_S(u_0,v_0)}.
-\]
-
-Using the molar Euler equation, we have
-\begin{align*}
-\tilde{s}(u,v)&=\frac{1}{T_S(u,v)}u+\frac{P_S(u,v)}{T_S(u,v)}v-\frac{\mu_S(u,v)}{T_S(u,v)}\\
-&=\frac{3R}{2}+R+\frac{3R}{2}\ln\left(\frac{u}{u_0}\right)+R\ln\left(\frac{v}{v_0}\right)-\frac{\mu_0}{T_0}\\
-&=s_0+R\ln\left(\left(\frac{u}{u_0}\right)^{3/2}\left(\frac{v}{v_0}\right)\right).
-\end{align*}
-
-Thus,
-\[
-\tilde{S}(U,V,N)=Ns_0+NR\ln\left(\left(\frac{U}{U_0}\right)^{3/2}\left(\frac{V}{V_0}\right)\left(\frac{N}{N_0}\right)^{-5/2}\right),
-\]
-
-where
-\[
-U=uN,\ V=vN,
-\]
-\[
-U_0=u_0N_0,\ V_0=v_0N_0,
-\]
-
-and
-\[
- s_0=\frac{5}{2}R-\frac{\mu_0}{T_0}. ///
-\]
-\end{example}
+\begin{proof}
+Begin with the Euler equation and differentiate with respect to the process parameter $\gamma$:
+\begin{align}
+\frac{d\tilde{U}}{d\gamma}\big(\vec{Y}(\gamma)\big)
+&=\frac{dT}{d\gamma}\big(\vec{Y}(\gamma)\big)S(\gamma)+T\big(\vec{Y}(\gamma)\big)S'(\gamma) \notag \\
+&\quad -\frac{dP}{d\gamma}\big(\vec{Y}(\gamma)\big)V(\gamma)-P\big(\vec{Y}(\gamma)\big)V'(\gamma) \notag \\
+&\quad +\sum_{i=1}^r\left\{\frac{d\mu_i}{d\gamma}\big(\vec{Y}(\gamma)\big)N_i(\gamma)
++\mu_i\big(\vec{Y}(\gamma)\big)N_i'(\gamma)\right\}.
+\tag{3.7}\label{eq:euler-derivative}
+\end{align}
+Substituting \eqref{eq:chain-rule-u} into \eqref{eq:euler-derivative} yields \eqref{eq:gibbs-duhem}. ///
+\end{proof}
 
 \THERMOEND

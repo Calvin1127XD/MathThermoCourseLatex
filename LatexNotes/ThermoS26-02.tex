@@ -20,6 +20,191 @@
 \chapter{ThermoS26-02}
 \label{chap:ThermoS26-02}
 
+\begin{remark}
+From this point forward, we will assume that all postulates hold.
+\end{remark}
+
+\begin{theorem}[Thermal Equilibrium]
+\label{thm:thermal-equilibrium}
+Suppose that in a composite system $\alpha$ and $\beta$ are separated by a diathermal wall. Then, the equilibrium of the composite system may be characterized by
+\begin{equation}
+\label{eq:energy-conservation}
+U^\alpha + U^\beta = U_o
+\end{equation}
+and
+\begin{equation}
+\label{eq:thermal-equilibrium}
+T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) = T^\beta(U^\beta, V^\beta, \vec{N}^\beta).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+Internal energy may be exchanged between systems $\alpha$ and $\beta$ but cannot be exchanged with the outside world. Thus \eqref{eq:energy-conservation} must hold because of energy conservation. At equilibrium we must have
+\begin{equation}
+\label{eq:total-entropy-diathermal}
+S(U^\alpha) = \tilde{S}^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) + \tilde{S}^\beta(U_o - U^\alpha, V^\beta, \vec{N}^\beta)
+\end{equation}
+and
+\begin{equation}
+\label{eq:entropy-extremum}
+\frac{\partial S}{\partial U^\alpha} = 0.
+\end{equation}
+
+Note, all other variables besides $U^\alpha$ are fixed.
+\begin{align}
+\label{eq:entropy-derivative-diathermal}
+0 &= \frac{\partial S}{\partial U^\alpha} = \frac{\partial S^\alpha}{\partial U^\alpha} + \frac{\partial S^\beta}{\partial U^\beta} \frac{\partial}{\partial U^\alpha}(U_o - U^\alpha) \notag \\
+&= [T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha)]^{-1} + [T^\beta(U_o - U^\alpha, V^\beta, \vec{N}^\beta)]^{-1}(-1).
+\end{align}
+
+Thus,
+\begin{equation}
+T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) = T^\beta(U^\beta, V^\beta, \vec{N}^\beta)
+\end{equation}
+with
+\begin{equation}
+U^\beta = U_o - U^\alpha.
+\end{equation}
+
+How do we know that solutions exist and are unique?
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=\textwidth]{Figures/ThermoS26-01-fig-3}
+\caption{Entropy functions vs $U^\alpha$ for subsystems $\alpha$ and $\beta$. The curves show $\tilde{S}^\alpha(U^\alpha)$ (convex, increasing) and $\tilde{S}^\beta(U_o - U^\alpha)$ (decreasing). The temperature conditions at the boundaries are indicated.}
+\label{fig:entropy-vs-energy}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/ThermoS26-01-fig-4}
+\caption{Total entropy $\tilde{S}(U^\alpha) = \tilde{S}^\alpha(U^\alpha) + \tilde{S}^\beta(U_o - U^\alpha)$ vs $U^\alpha$. The concave function achieves its maximum at $U_*$.}
+\label{fig:total-entropy}
+\end{figure}
+
+This proof can also be carried out by using Lagrange multipliers. Set
+\begin{equation}
+\label{eq:lagrangian-diathermal}
+J := S^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) + S^\beta(U^\beta, V^\beta, \vec{N}^\beta) + \lambda(U^\alpha + U^\beta - U_o).
+\end{equation}
+
+Then, equilibrium is characterized by
+\begin{align}
+0 &= \frac{\partial J}{\partial U^\alpha} = [T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha)]^{-1} + \lambda, \label{eq:lagrange-condition-1} \\
+0 &= \frac{\partial J}{\partial U^\beta} = [T^\beta(U^\beta, V^\beta, \vec{N}^\beta)]^{-1} + \lambda, \label{eq:lagrange-condition-2} \\
+0 &= \frac{\partial J}{\partial \lambda} = U^\alpha + U^\beta - U_o, \label{eq:lagrange-condition-3}
+\end{align}
+which yields the same result.
+\end{proof}
+
+The Lagrange Multiplier technique can be visualized as follows:
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=0.8\textwidth]{Figures/ThermoS26-01-fig-5}
+\caption{Lagrange multiplier visualization: finding the maximum in $\tilde{S}$ along the constraint $U^\alpha + U^\beta = U_o$ (red line). The contours show increasing $\tilde{S}$.}
+\label{fig:lagrange-visualization}
+\end{figure}
+
+\begin{theorem}[Thermal and Mechanical Equilibrium]
+\label{thm:thermal-mechanical-equilibrium}
+Suppose that in a composite system $\alpha$ and $\beta$ are separated by a diathermal piston. Then, the equilibrium of the composite system may be characterized by
+\begin{equation}
+\label{eq:energy-conservation-piston}
+U^\alpha + U^\beta = U_o,
+\end{equation}
+\begin{equation}
+\label{eq:volume-conservation}
+V^\alpha + V^\beta = V_o,
+\end{equation}
+and
+\begin{align}
+T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= T^\beta(U^\beta, V^\beta, \vec{N}^\beta), \quad (\text{thermal equilibrium}) \label{eq:thermal-equil-piston} \\
+P^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= P^\beta(U^\beta, V^\beta, \vec{N}^\beta). \quad (\text{mechanical equilibrium}) \label{eq:mechanical-equil}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+For this let us use the method of Lagrange multipliers. Note that $\vec{N}^\alpha$ and $\vec{N}^\beta$ are fixed. Define
+\begin{equation}
+\label{eq:lagrangian-piston}
+J := S^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) + S^\beta(U^\beta, V^\beta, \vec{N}^\beta) + \lambda_u(U^\alpha + U^\beta - U_o) + \lambda_v(V^\alpha + V^\beta - V_o).
+\end{equation}
+
+The conditions for equilibrium are
+\begin{align}
+0 &= \frac{\partial J}{\partial U^\alpha} = [T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha)]^{-1} + \lambda_u, \label{eq:piston-condition-1} \\
+0 &= \frac{\partial J}{\partial U^\beta} = [T^\beta(U^\beta, V^\beta, \vec{N}^\beta)]^{-1} + \lambda_u, \label{eq:piston-condition-2} \\
+0 &= \frac{\partial J}{\partial V^\alpha} = \frac{P^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha)}{T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha)} + \lambda_v, \label{eq:piston-condition-3} \\
+0 &= \frac{\partial J}{\partial V^\beta} = \frac{P^\beta(U^\beta, V^\beta, \vec{N}^\beta)}{T^\beta(U^\beta, V^\beta, \vec{N}^\beta)} + \lambda_v, \label{eq:piston-condition-4}
+\end{align}
+and
+\begin{align}
+0 &= \frac{\partial J}{\partial \lambda_u} = U^\alpha + U^\beta - U_o, \label{eq:piston-condition-5} \\
+0 &= \frac{\partial J}{\partial \lambda_v} = V^\alpha + V^\beta - V_o. \label{eq:piston-condition-6}
+\end{align}
+
+The result is clear.
+\end{proof}
+
+Here, we have used the fact that
+\begin{align}
+\pder{\tilde{S}^\alpha}{U^\alpha} &= \frac{1}{T^\alpha}, \label{eq:entropy-partial-identity-1} \\
+\pder{S^\alpha}{V^\alpha} &= \frac{P^\alpha}{T^\alpha}, \label{eq:entropy-partial-identity-2} \\
+\pder{S^\alpha}{N_i^\alpha} &= -\frac{\mu_i^\alpha}{T^\alpha}. \label{eq:entropy-partial-identity-3}
+\end{align}
+
+As a short hand, we will write
+\begin{equation}
+\label{eq:energy-differential}
+d\tilde{U}^\alpha = T_u^\alpha dS^\alpha - P_u^\alpha dV^\alpha + \sum_{i=1}^r \mu_{u,i}^\alpha dN_i^\alpha
+\end{equation}
+and
+\begin{equation}
+\label{eq:entropy-differential}
+d\tilde{S}^\alpha = \frac{1}{T_s^\alpha}dU^\alpha + \frac{P_s^\alpha}{T_s^\alpha} dV^\alpha - \sum_{i=1}^r \frac{\mu_{s,i}^\alpha}{T_s^\alpha} dN_i^\alpha.
+\end{equation}
+
+Using our abusive notations, we have
+\begin{equation}
+\label{eq:entropy-differential-abusive}
+d\tilde{S}^\alpha = \frac{1}{T^\alpha}dU^\alpha + \frac{P^\alpha}{T^\alpha} dV^\alpha - \sum_{i=1}^r \frac{\mu_i^\alpha}{T^\alpha} dN_i^\alpha,
+\end{equation}
+for example.
+
+\begin{theorem}[Full Equilibrium]
+\label{thm:full-equilibrium}
+Suppose that a composite system is comprised of two otherwise isolated systems with no barrier between the systems. Suppose that
+\begin{equation}
+S^\alpha = S^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha)
+\end{equation}
+and
+\begin{equation}
+S^\beta = S^\beta(U^\beta, V^\beta, \vec{N}^\beta)
+\end{equation}
+are the fundamental entropy relations for the two systems. Then the equilibrium state is defined by the relations
+\begin{align}
+U^\alpha + U^\beta &= U_o, \label{eq:full-equil-energy} \\
+V^\alpha + V^\beta &= V_o, \label{eq:full-equil-volume} \\
+N_i^\alpha + N_i^\beta &= N_{o,i}, \label{eq:full-equil-moles}
+\end{align}
+where $U_o, V_o, N_{o,i} > 0$, and
+\begin{align}
+T^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= T^\beta(U^\beta, V^\beta, \vec{N}^\beta), \quad (\text{thermal equil.}) \label{eq:full-thermal} \\
+P^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= P^\beta(U^\beta, V^\beta, \vec{N}^\beta), \quad (\text{mech. equil.}) \label{eq:full-mechanical} \\
+\mu_i^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) &= \mu_i^\beta(U^\beta, V^\beta, \vec{N}^\beta). \quad (\text{chem. equil.}) \label{eq:full-chemical}
+\end{align}
+\end{theorem}
+
+\begin{proof}
+The procedure is the same. One can use the method of Lagrange multipliers to do the calculation. In particular, define
+\begin{multline}
+\label{eq:lagrangian-full}
+J := S^\alpha(U^\alpha, V^\alpha, \vec{N}^\alpha) + S^\beta(U^\beta, V^\beta, \vec{N}^\beta) + \lambda_u(U^\alpha + U^\beta - U_o) \\
++ \lambda_v(V^\alpha + V^\beta - V_o) + \sum_{i=1}^r \lambda_i(N_i^\alpha + N_i^\beta - N_{o,i}).
+\end{multline}
+\end{proof}
+
 \section{Fundamental Relations and Equations of State}
 
 \begin{figure}[h]
@@ -355,61 +540,5 @@ Let $\mathcal{D} \subseteq \mathbb{R}^n$ be a simply-connected set and suppose t
 \item $\oint_{\vec{Y}} \vec{F}(\vec{x}) \, d\vec{x} = 0$ for any closed path.
 \end{enumerate}
 \end{theorem}
-
-\section{Exact Differentials in Thermodynamics}
-
-Recall, we wrote, as a shorthand,
-\begin{equation}
-\label{eq:du-shorthand}
-d\tilde{U} = T_U dS - P_U dV + \sum_{i=1}^r \mu_{U;i} dN_i.
-\end{equation}
-
-This has the form
-\begin{equation}
-\label{eq:differential-form}
-F_1 dx_1 + F_2 dx_2 + \cdots + F_n dx_n = \vec{F} \cdot d\vec{x},
-\end{equation}
-where
-\begin{equation}
-\label{eq:components}
-F_1 = T_U, \quad F_2 = -P_U, \quad \ldots
-\end{equation}
-
-We say that $\vec{F} \cdot d\vec{x}$ is an \textbf{exact differential} iff $\vec{F}$ is conservative.
-
-Clearly
-\begin{equation}
-\label{eq:du-exact}
-d\tilde{U} = \nabla \tilde{U} \cdot d\vec{r} \quad (\vec{r} \in \Sigma_S)
-\end{equation}
-is an exact differential, because $\nabla \tilde{U}$ is conservative, trivially. Thus, the integral
-\begin{equation}
-\label{eq:du-integral}
-\int_{\vec{Y}} d\tilde{U} = \int_{\vec{Y}} \nabla \tilde{U} \cdot d\vec{r}
-\end{equation}
-is path independent. If $\vec{Y}: [a,b] \to \Sigma_S$ is the path in question, with
-\begin{equation}
-\label{eq:path-endpoints-sigma}
-\vec{Y}(a) = \vec{r}_a, \quad \vec{Y}(b) = \vec{r}_b,
-\end{equation}
-then
-\begin{equation}
-\label{eq:du-integral-value}
-\int_{\vec{Y}} d\tilde{U} = \int_{\vec{Y}} \nabla \tilde{U} \cdot d\vec{r} = \tilde{U}(\vec{r}_b) - \tilde{U}(\vec{r}_a).
-\end{equation}
-
-We can use any path we want in state space $\Sigma_S$.
-
-The same is true for
-\begin{equation}
-\label{eq:ds-exact}
-d\tilde{S} = \frac{1}{T_S} dU + \frac{P_S}{T_S} dV - \sum_{i=1}^r \frac{\mu_{S;i}}{T_S} dN_i,
-\end{equation}
-that is
-\begin{equation}
-\label{eq:ds-gradient}
-d\tilde{S} = \nabla \tilde{S} \cdot d\vec{r} \quad (\vec{r} \in \Sigma_U)
-\end{equation}
-is an exact differential.
 
 \THERMOEND

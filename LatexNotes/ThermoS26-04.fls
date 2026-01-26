@@ -523,6 +523,8 @@ OUTPUT ThermoS26-04.out
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr17.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/cmbright/omlcmbrm.fd
@@ -552,10 +554,9 @@ INPUT /usr/local/texlive/2025/texmf-dist/tex/latex/base/ulasy.fd
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy10.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy8.tfm
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/latex-fonts/lasy6.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrsl10.tfm
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
 INPUT /usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbr10.tfm
-INPUT /usr/local/texlive/2025/texmf-dist/fonts/tfm/public/cmbright/cmbrbx10.tfm
 INPUT ThermoS26-04.aux
 INPUT ./ThermoS26-04.out
 INPUT ./ThermoS26-04.out
@@ -565,5 +566,6 @@ INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbr8.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrbx10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrmi8.pfb
+INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsl10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy10.pfb
 INPUT /usr/local/texlive/2025/texmf-dist/fonts/type1/public/hfbright/hfbrsy8.pfb

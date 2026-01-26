@@ -20,600 +20,518 @@
 \chapter{ThermoS26-05}
 \label{chap:ThermoS26-05}
 
-\noindent Math Thermo\\
-Class \#05\\
-02/03/2026
-
-\section{Legendre Transforms and Thermodynamic Potentials}
-
-\begin{definition}
-\label{def:legendre}
-\textup{(5.1)} Suppose that $f:[a,b]\to\mathbb{R}$ is
-continuous. For every $p\in[c,d]$, define
-\begin{equation}
-f^\ast(p):=\sup_{x\in[a,b]}\{xp-f(x)\}
-\tag{5.1}\label{eq:legendre-def}
-\end{equation}
-The function $f^\ast:[c,d]\to\mathbb{R}$ is called the
-Legendre transform of $f$.
-\end{definition}
-
-\begin{theorem}
-\label{thm:legendre-form}
-\textup{(5.2)} Suppose that $f\in C^2([0,\infty);\mathbb{R})$
-with
-\[
-f''(x)>0,\qquad\forall x\in[0,\infty).
-\]
-Then, for all $p\in\mathrm{Range}(f')$,
-\begin{equation}
-f^\ast(p)=x_p\,p-f(x_p),
-\tag{5.2}\label{eq:legendre-form}
-\end{equation}
-where $x_p\in[0,\infty)$ is the unique solution to
-\[
-f'(x_p)=p.
-\]
-\end{theorem}
-
-\begin{proof}
-let $p\in\mathrm{Range}(f')$.
-\[
-f':[0,\infty)\to\mathrm{Range}(f')
-\]
-For every $p\in\mathrm{Range}(f')\ \exists!\ x_p\in[0,\infty)$ and that,
-\[
-f'(x_p)=p.
-\]
-
-Since $f':[0,\infty)$ is strictly increasing,
-
-Fix $p\in\mathrm{Range}(f')$. By Taylor's Theorem,
-\[
-f(x)=f(x_p)+p(x-x_p)+\frac{1}{2}f''(\xi_p)(x-x_p)^2
-\]
-for some $\xi_p$ between $x$ and $x_p$.
-
-\[
-\sup_{0\le x<\infty}\{x\cdot p-f(x)\}
-=\sup_{0\le x<\infty}\{x_p\cdot p-f(x_p)-\tfrac{1}{2}f''(\xi_p)(x-x_p)^2\}
-\]
-\[
-= x_p\cdot p-f(x_p). ///
-\]
-\end{proof}
-
-\begin{theorem}
-\label{thm:legendre-derivs}
-\textup{(5.3)} Suppose that $f\in C^2([0,\infty);\mathbb{R})$
-with
-\[
-f''(x)>0,\qquad\forall x\in[0,\infty).
-\]
-Then,
-\[
-[f^\ast]'(p)=[f']^{-1}(p),\qquad [f^\ast]''(p)>0,
-\]
-for all $p\in\mathrm{Range}(f')$.
-\end{theorem}
-
-\begin{proof}
-Recall
-\[
-f':[0,\infty)\to\mathrm{Range}(f')
-\]
-
-Then
-\[
-f'\big([f']^{-1}(p)\big)=p,\qquad\forall\ p\in\mathrm{Range}(f').
-\]
-
-Also, observe that $\frac{d}{dp}[f']^{-1}\in C(\mathrm{Range}(f');\mathbb{R}).$
-
-Now,
-\begin{align*}
-\frac{d}{dp}[f^\ast(p)]&=\frac{d}{dp}\{x_p\cdot p-f(x_p)\}
-=\frac{d}{dp}\{[f']^{-1}(p)\cdot p-f([f']^{-1}(p))\}\\
-&=p\cdot\frac{d}{dp}[f']^{-1}(p)+[f']^{-1}(p)
--\frac{df}{dx}([f']^{-1}(p))\cdot\frac{d}{dp}[f']^{-1}(p)\\
-&=[f']^{-1}(p).
-\end{align*}
-
-Now that this is established, we have
-\[
-\frac{d^2}{dp^2}[f^\ast(p)]=\frac{d}{dp}[f']^{-1}(p)
-\]
-
-for all $p\in\mathrm{Range}(f')$. Since $f''\in C([0,\infty))$ and
-$f''(x)>0,\ \forall x\in[0,\infty)$,
-\[
-\frac{d}{dp}[f']^{-1}(p)>0,\qquad\forall p\in\mathrm{Range}(f'). ///
-\]
-\end{proof}
-
-Finally, we observe the following:
-
-\begin{theorem}
-\label{thm:legendre-involution}
-\textup{(5.4)} Suppose that $f\in C^2([0,\infty);\mathbb{R})$
-with
-\[
-f''(x)>0,\qquad\forall x\in[0,\infty).
-\]
-
-Then $f^\ast\in C^2(\mathrm{Range}(f');\mathbb{R})$ with
-\[
-[f^\ast]''(p)>0,\qquad\forall p\in\mathrm{Range}(f')
-\]
-
-Furthermore
-\begin{equation}
-[f^\ast]^\ast(x)=f(x),\qquad\forall x\in[0,\infty).
-\tag{5.3}\label{eq:legendre-involution}
-\end{equation}
-
-In other words, the Legendre transform is involutive
-and in fact an isomorphism.
-\end{theorem}
-
-\begin{proof}
-It follows that, for all $x\in[0,\infty)$,
-\[
-[f^\ast]^\ast(x)=x\,p_x-f^\ast(p_x),
-\]
-
-where $p_x\in\mathrm{Range}(f')$ is the unique solution to
-\[
-f^\ast{}'(p_x)=x.
-\]
-
-Recall
-\[
-f^\ast(p_x)=p_x\cdot x_{p_x}-f(x_{p_x}),
-\]
-
-where $x_{p_x}\in[0,\infty)$ is the unique solution to
-\[
-f'(x_{p_x})=p_x.
-\]
-
-Of course, by uniqueness,
-\[
-x_{p_x}=x.
-\]
-
-So,
-\[
-[f^\ast]^\ast(x)=x\cdot p_x-\{p_x\cdot x_{p_x}-f(x_{p_x})\}
-=f(x). ///
-\]
-\end{proof}
-
-Why is the Legendre transform useful in
-Thermodynamics?
-
-This transform allows us to introduce new
-thermodynamics coordinates/variables.
-
-Recall
-\[
-\tilde{U}=\tilde{U}(S,V,N)
-\]
-
-or
-\[
- d\tilde{U}=T\,dS-p\,dV+\mu\,dN
-\]
-
-The latter means
-\[
-T=\frac{\partial \tilde{U}}{\partial S}\quad p=-\frac{\partial \tilde{U}}{\partial V}\quad \mu=\frac{\partial \tilde{U}}{\partial N}
-\]
-
-in short hand
-\begin{table}[h]
-\centering
-\begin{tabular}{lll}
-\toprule
-Extensive Quantity & Conjugate Variable & Variable \\
-\midrule
-$\tilde{U}$ & $T,\,-p,\,\mu$ & $S,\,V,\,N$ \\
-$\tilde{S}$ & $\frac{1}{T},\,\frac{p}{T},\,-\frac{\mu}{T}$ & $U,\,V,\,N$ \\
-\bottomrule
-\end{tabular}
-\caption{Conjugate variables for $\tilde{U}$ and $\tilde{S}$.}
-\label{tab:thermos26-05-conjugate-us}
-\end{table}
-
-\begin{definition}
-\label{def:helmholtz}
-\textup{(5.5)} Suppose that all of the
-Thermodynamic Postulates hold. Assume that
-the material in question is unary ($r=1$). Define
-\begin{equation}
-\tilde{F}(T,V,N)=\tilde{U}(S_T,V,N)-TS_T
-\tag{5.4}\label{eq:helmholtz-def}
-\end{equation}
-where $S_T=S_T(V,N)$ is the unique solution of the
-equation
-\begin{equation}
-T_U(S_T(V,N),V,N)=T
-\tag{5.5}\label{eq:helmholtz-st}
-\end{equation}
-for fixed values of $N$ and $V$.
-
-$\tilde{F}$ is called the Helmholtz free energy.
-
-Formally, we have
-\begin{align*}
- d\tilde{F}&=d\tilde{U}-S\,dT-T\,dS\\
-&=T\,dS-p\,dV+\mu\,dN-S\,dT-T\,dS\\
-&=-S\,dT-p\,dV+\mu\,dN.
-\end{align*}
-
-\begin{table}[h]
-\centering
-\begin{tabular}{lll}
-\toprule
-Extensive Quantity & Conjugate Variable & Variable \\
-\midrule
-$\tilde{U}$ & $T,\,-p,\,\mu$ & $S,\,V,\,N$ \\
-$\tilde{F}$ & $-S,\,-p,\,\mu$ & $T,\,V,\,N$ \\
-\bottomrule
-\end{tabular}
-\caption{Conjugate variables for $\tilde{U}$ and $\tilde{F}$.}
-\label{tab:thermos26-05-conjugate-uf}
-\end{table}
-\end{definition}
+\section{Examples}
 
 \begin{example}
-\label{ex:helmholtz-example}
-\textup{(5.6)} Suppose that
+\label{ex:fundamental-relation-homogeneous}
+\textup{(3.4)} Suppose that the fundamental relation for a material is given by
 \[
-\tilde{S}(U,V,N)=\left(\frac{NVUR^2}{v_0\theta}\right)^{1/3}.
+\tilde{S}=4 A\, U^{1/4} V^{1/2} N^{1/4}+B N,\qquad \Sigma_U=[0,\infty)^3,
 \]
-
-It follows that
+where $A,B>0$ are constants. This function must be homogenous of degree one. Suppose $\lambda>0$. Then
 \[
-\tilde{U}(S,V,N)=\frac{S^3 v_0\theta}{NVR^2}.
-\]
-
-The temperature function is
-\[
-T_U(S,V,N)=\frac{3S^2 v_0\theta}{NVR^2}.
-\]
-
-Or
-\[
-\frac{1}{T_S(U,V,N)}=\frac{1}{3}\left(\frac{NVUR^2}{v_0\theta}\right)^{-2/3}\frac{NV R^2}{v_0\theta}
-=\frac{1}{3}\left(\frac{NV R^2}{v_0\theta}\right)^{1/3}U^{-2/3}.
-\]
-
-Thus
-\[
-T_S(U,V,N)=3\left(\frac{v_0\theta}{NVR^2}\right)^{1/3}U^{2/3}.
+\tilde{S}(\lambda U,\lambda V,\lambda N)=4A\,\lambda U^{1/4}\lambda V^{1/2}\lambda N^{1/4}+B\lambda N
+=\lambda\tilde{S}(U,V,N). ///
 \]
 
 Recall that
 \[
-T_U(S,V,\vec{N})=T_S(\tilde{U}(S,V,\vec{N}),V,\vec{N})
+T=\frac{1}{\frac{\partial \tilde{S}}{\partial U}}
+=\Big(A\,U^{-3/4}V^{1/2}N^{1/4}\Big)^{-1}
+=\frac{U^{3/4}}{A V^{1/2}N^{1/4}},
 \]
-
+which is homogenous degree zero.
 \[
-T_S(U,V,\vec{N})=T_U(\tilde{S}(U,V,\vec{N}),V,\vec{N}).
+\frac{P}{T}=\frac{\partial \tilde{S}}{\partial V}
 \]
-
-By definition
+so
 \[
-\tilde{F}(T,V,N)=\tilde{U}(S_T,V,N)-TS_T
-\]
-
-where
-
-\[
-T_U(S_T(V,N),V,N)=T.
-\]
-
-For our example,
-\[
-T_U(S,V,N)=\frac{3S^2 v_0\theta}{NVR^2}.
-\]
-
-Hence,
-\[
-S_T=\sqrt{\frac{TNV R^2}{3v_0\theta}}.
-\]
-
-Thus,
-\begin{align*}
-\tilde{F}(T,V,N)&=\tilde{U}\left(\sqrt{\frac{TNV R^2}{3v_0\theta}},V,N\right)
--T\sqrt{\frac{TNV R^2}{3v_0\theta}}\\
-&=\left(\frac{TNV R^2}{3v_0\theta}\right)^{3/2}\frac{v_0\theta}{NVR^2}
--T\sqrt{\frac{TNV R^2}{3v_0\theta}}.
-\end{align*}
-
-But
-\[
-\tilde{U}(S_T,V,N)=\frac{S_T^3 v_0\theta}{NVR^2}
-=\left(\frac{TNV R^2}{3v_0\theta}\right)^{3/2}\frac{v_0\theta}{NVR^2}
-\]
-
-so that
-\[
-\tilde{F}(T,N,V)=\frac{1}{3}T^{3/2}\frac{1}{\sqrt{3}}\sqrt{\frac{NV R^2}{v_0\theta}}
--\frac{T^{3/2}}{\sqrt{3}}\sqrt{\frac{NV R^2}{v_0\theta}}.
+P=T\,\frac{\partial \tilde{S}}{\partial V}
+=\frac{U^{3/4}}{A V^{1/2} N^{1/4}}\left(\frac{2A\,U^{1/4}N^{1/4}}{V^{1/2}}\right)
+=\frac{2U}{V}.
 \]
 \end{example}
 
 Finally,
-\begin{equation}
-\tilde{F}(T,N,V)=-\frac{2T^{3/2}}{3}\sqrt{\frac{NV R^2}{3v_0\theta}}.
-\tag{5.6}\label{eq:helmholtz-final}
-\end{equation}
-
-Now,
 \[
-\frac{\partial \tilde{F}}{\partial T}=-\frac{2}{3}\frac{3}{2}\sqrt{T}\,\sqrt{\frac{NV R^2}{3v_0\theta}}.
+\mu=-T\,\frac{\partial \tilde{S}}{\partial N}
+=-\frac{U^{3/4}}{A V^{1/2}N^{1/4}}\left(\frac{A\,U^{1/4}V^{1/2}}{N^{3/4}}+B\right)
+=-\frac{U}{N}-\frac{B U^{3/4}}{A V^{1/2}N^{1/4}}. ///
 \]
 
-But
+\begin{example}
+\label{ex:fundamental-relation-u}
+\textup{(3.5)} Suppose that the fundamental relation is
 \[
-T_U(S,V,N)=\frac{3S^2 v_0\theta}{NVR^2}
+\tilde{U}=\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^4.
+\]
+Recall that
+\[
+T=\frac{\partial \tilde{U}}{\partial S}
+=4\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^3\frac{1}{4A V^{1/2}N^{1/4}}
+=\frac{\tilde{U}^{3/4}}{A V^{1/2}N^{1/4}},
+\]
+the same as above.
+\[
+P=-\frac{\partial \tilde{U}}{\partial V}
+=-4\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^3\left(\frac{S-BN}{4A N^{1/4}}\right)\left(-\frac{1}{2}\right)\frac{1}{V^{3/2}}
+\]
+so
+\[
+=2\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^4\frac{1}{V}
+=\frac{2\tilde{U}}{V}.
+\]
+Finally,
+\[
+\mu=\frac{\partial \tilde{U}}{\partial N}
+=4\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^3\frac{1}{4A V^{1/2}}\frac{N^{1/4}(-B)-(S-BN)\frac{1}{4}N^{-3/4}}{N^{1/2}}
+\]
+\[
+=4\left(\frac{S-BN}{4A V^{1/2}N^{1/4}}\right)^3\frac{1}{4A V^{1/2}}\frac{N^{1/4}(-B)-(S-BN)\frac{1}{4}N^{-3/4}}{N^{1/2}}
+\]
+\[
+=4\tilde{U}^{3/4}\frac{N^{1/4}}{4A V^{1/2}N^{1/2}}\cdot\left(-B-\frac{S-BN}{4N}\right)
+\]
+\[
+=-\frac{B\tilde{U}^{3/4}}{A V^{1/2}N^{1/4}}-\frac{\tilde{U}^{3/4}}{A V^{1/2}N^{1/4}}\frac{(S-BN)}{4N}
+=-\frac{B\tilde{U}^{3/4}}{A V^{1/2}N^{1/4}}-\frac{\tilde{U}}{N}. ///
+\]
+\end{example}
+
+\section{Euler Equation with Respect to Entropy}
+
+\begin{theorem}
+\label{thm:euler-entropy}
+\textup{(3.5)} Let $\tilde{S}$ be the internal energy of an isolated system. Then
+\begin{equation}
+\tilde{S}=\frac{1}{T_S}U+\frac{P_S}{T_S}V-\sum_{i=1}^r\frac{\mu_{S,i}}{T_S}N_i,
+\tag{3.8}\label{eq:euler-entropy}
+\end{equation}
+where
+\[
+T_S=T_S(U,V,\vec{N}),\qquad
+P_S=P_S(U,V,\vec{N}),\qquad
+\mu_{S,i}=\mu_{S,i}(U,V,\vec{N}),
+\]
+and
+\[
+\frac{1}{T_S}=\frac{\partial \tilde{S}}{\partial U},\qquad \frac{P_S}{T_S}=\frac{\partial \tilde{S}}{\partial V},\qquad \frac{\mu_{S,i}}{T_S}=\frac{\partial \tilde{S}}{\partial N_i}.
+\]
+\end{theorem}
+
+\begin{proof}
+We again use the fact that $\tilde{S}$ is homogenous of degree one. For any $\lambda>0$,
+\[
+\tilde{S}(\lambda U,\lambda V,\lambda\vec{N})=\lambda\tilde{S}(U,V,\vec{N}).
+\]
+Taking the derivative with respect to $\lambda$, we have
+\[
+\frac{U}{T_S(\lambda U,\lambda V,\lambda\vec{N})}
++\frac{P_S(\lambda U,\lambda V,\lambda\vec{N})}{T_S(\lambda U,\lambda V,\lambda\vec{N})}V
++\sum_{j=1}^r\frac{\mu_{S,j}(\lambda U,\lambda V,\lambda\vec{N})}{T_S(\lambda U,\lambda V,\lambda\vec{N})}N_j
+=\tilde{S}(U,V,\vec{N}),
+\]
+and setting $\lambda=1$ gives the desired result. ///
+\end{proof}
+
+\section{Gibbs-Duhem Relation in the Entropy Form}
+
+The Gibbs-Duhem equation is similarly derived.
+
+\begin{theorem}
+\label{thm:gibbs-duhem-entropy}
+\textup{(3.6)} Suppose that $\vec{Y}:[0,1]\to\Sigma_U$ is a process path. Then
+\begin{equation}
+0=\frac{dT_S}{d\gamma}\big(\vec{Y}(\gamma)\big)\,\tilde{S}\big(\vec{Y}(\gamma)\big)
+-\frac{dP_S}{d\gamma}\big(\vec{Y}(\gamma)\big)V(\gamma)
++\sum_{j=1}^r\frac{d\mu_S^j}{d\gamma}\big(\vec{Y}(\gamma)\big)N_j(\gamma).
+\tag{3.9}\label{eq:gibbs-duhem-entropy}
+\end{equation}
+This equation is called the Gibbs-Duhem relation in the entropy form.
+\end{theorem}
+
+\begin{proof}
+Using \eqref{eq:euler-entropy}, we have
+\[
+T_S\big(\vec{Y}(\gamma)\big)\,\tilde{S}\big(\vec{Y}(\gamma)\big)
+=U(\gamma)+P_S\big(\vec{Y}(\gamma)\big)V(\gamma)
+-\sum_{j=1}^r \mu_{S,j}\big(\vec{Y}(\gamma)\big)N_j(\gamma).
+\]
+Taking the $\gamma$-derivative of the last equation, we have
+\begin{align}
+\frac{dT_S}{d\gamma}\big(\vec{Y}(\gamma)\big)\,\tilde{S}\big(\vec{Y}(\gamma)\big)
++T_S\big(\vec{Y}(\gamma)\big)\frac{d\tilde{S}}{d\gamma}\big(\vec{Y}(\gamma)\big)
+&=U'(\gamma)+\frac{dP_S}{d\gamma}\big(\vec{Y}(\gamma)\big)V(\gamma)+P_S\big(\vec{Y}(\gamma)\big)V'(\gamma) \notag \\
+&\quad -\sum_{j=1}^r\left\{\frac{d\mu_{S,j}}{d\gamma}\big(\vec{Y}(\gamma)\big)N_j(\gamma)+\mu_{S,j}\big(\vec{Y}(\gamma)\big)N_j'(\gamma)\right\}.
+\tag{3.10}\label{eq:gibbs-duhem-entropy-derivative}
+\end{align}
+Taking the $\gamma$-derivative of $\tilde{S}\big(\vec{Y}(\gamma)\big)$ we have
+\begin{equation}
+\frac{d\tilde{S}}{d\gamma}\big(\vec{Y}(\gamma)\big)
+=\frac{1}{T_S(\vec{Y}(\gamma))}U'(\gamma)+\frac{P_S(\vec{Y}(\gamma))}{T_S(\vec{Y}(\gamma))}V'(\gamma)
+-\sum_{j=1}^r\frac{\mu_{S,j}(\vec{Y}(\gamma))}{T_S(\vec{Y}(\gamma))}N_j'(\gamma).
+\tag{3.11}\label{eq:entropy-derivative}
+\end{equation}
+Substituting \eqref{eq:entropy-derivative} into \eqref{eq:gibbs-duhem-entropy-derivative} yields \eqref{eq:gibbs-duhem-entropy}. ///
+\end{proof}
+
+Remark: Compare \eqref{eq:gibbs-duhem} and \eqref{eq:gibbs-duhem-entropy}:
+\[
+0=S(\gamma)\frac{dT_S(\vec{Y}(\gamma))}{d\gamma}-V(\gamma)\frac{dP_S(\vec{Y}(\gamma))}{d\gamma}
++\sum_{i=1}^r N_i(\gamma)\frac{d\mu_S^i(\vec{Y}(\gamma))}{d\gamma},
+\]
+\[
+0=\frac{dT_S}{d\gamma}\big(\vec{Y}(\gamma)\big)\,\tilde{S}\big(\vec{Y}(\gamma)\big)
+-\frac{dP_S}{d\gamma}\big(\vec{Y}(\gamma)\big)V(\gamma)
++\sum_{j=1}^r\frac{d\mu_S^j}{d\gamma}\big(\vec{Y}(\gamma)\big)N_j(\gamma),
+\]
+These are essentially the same expression!
+
+\noindent Math Thermo\\
+Class \#04\\
+01/29/2026
+
+Suppose that $\tilde{S}$ is the fundamental entropy relation
+for an isolated system containing a unary ($r=1$)
+material.
+\[
+\tilde{S}=\tilde{S}(U,V,N).
+\]
+
+Suppose that $N>0$ is fixed. Define
+\[
+ u:=\frac{U}{N},\qquad\text{the molar energy,}
+\]
+\[
+ v:=\frac{V}{N},\qquad\text{the molar volume.}
+\]
+
+Then, since, for any $\lambda>0$,
+\[
+\lambda \tilde{S}(U,V,N)=\tilde{S}(\lambda U,\lambda V,\lambda N),
+\]
+
+it follows that
+\[
+\frac{1}{N}\tilde{S}(U,V,N)=\tilde{S}\left(\frac{U}{N},\frac{V}{N},\frac{N}{N}\right)
+=\tilde{S}(u,v,1).
+\]
+
+Now, define the molar entropy relation
+\[
+\tilde{s}=\tilde{s}(u,v):=\tilde{S}(u,v,1).
+\]
+
+It then follows that
+\[
+\tilde{S}(U,V,N)=N\tilde{s}(u,v).
+\]
+
+Likewise, if we define
+\[
+ s=\frac{S}{N}\qquad v=\frac{V}{N}
+\]
+
+and
+\[
+\tilde{u}=\tilde{u}(s,v):=\tilde{U}(s,v,1),
+\]
+
+then it follows that
+\[
+\tilde{U}(S,V,N)=N\tilde{u}(s,v).
+\]
+
+\begin{example}
+\label{ex:molar-entropy-example}
+\textup{(4.1)} Suppose that
+\[
+\tilde{S}(U,V,N)=\left(\frac{NVUR^2}{v_0\theta}\right)^{1/3},
+\]
+where $R,v_0,\theta>0$ are constants. Then,
+\[
+\tilde{s}(u,v)=\tilde{S}(u,v,1)
+=\left(\frac{vuR^2}{v_0\theta}\right)^{1/3}.
+\]
+
+\[
+N\tilde{s}(u,v)=\left(\frac{N^3vuR^2}{v_0\theta}\right)^{1/3}
+=\left(\frac{NVUR^2}{v_0\theta}\right)^{1/3}
+=\tilde{S}(U,V,N).
+\]
+\end{example}
+
+$\tilde{U}$ and $\tilde{S}$ are homogeneous of degree one (also
+called extensive variables).
+
+$T,P,\mu$ on the other hand are homogeneous of
+degree zero (also called intensive variables).
+
+Recall that, for all $\lambda>0$,
+\[
+T_U(S,V,N)=T_U(\lambda S,\lambda V,\lambda N).
 \]
 
 Thus,
 \[
-\sqrt{T}=\sqrt{\frac{3v_0\theta}{NVR^2}}\,S_T
+T_U(S,V,N)=T_U(s,v,1).
+\]
+
+We could, of course, give a new symbol for
+$T_U(s,v,1)$, for example
+\[
+ t_U(s,v):=T_U(s,v,1)\ldots
+\]
+
+\section{Molar Euler and Gibbs--Duhem Equation}
+
+For a unary material ($r=1$), recall
+\[
+\tilde{U}(S,V,N)=T_U(S,V,N)S-P_U(S,V,N)V+\mu_U(S,V,N)N
+\]
+
+Suppose $N>0$ is fixed. Then,
+\[
+\frac{1}{N}\tilde{U}(S,V,N)=T_U(S,V,N)\frac{S}{N}-P_U(S,V,N)\frac{V}{N}+\mu_U(S,V,N)
+\]
+
+or, equivalently,
+\begin{equation}
+\tilde{u}(s,v)=T_U(s,v)s-P_U(s,v)v+\mu_U(s,v).
+\tag{4.1}\label{eq:molar-euler}
+\end{equation}
+
+This is the molar version of Euler's equation.
+How do we get the Gibbs--Duhem equation?
+
+Let $\vec{z}(\gamma)=(s(\gamma),v(\gamma))$ be a path in molar
+state space. Then
+\[
+\frac{d}{d\gamma}\tilde{u}(\vec{z}(\gamma))=
+\frac{\partial \tilde{u}}{\partial s}(\vec{z}(\gamma))\,s'(\gamma)+
+\frac{\partial \tilde{u}}{\partial v}(\vec{z}(\gamma))\,v'(\gamma).
+\]
+
+But
+
+exercise
+\[
+\frac{\partial \tilde{u}}{\partial s}(\vec{z}(\gamma))=T_U(s(\gamma),v(\gamma))
 \]
 
 and
-\begin{equation}
-\frac{\partial \tilde{F}}{\partial T}=-S_T.
-\tag{5.7}\label{eq:helmholtz-deriv}
-\end{equation}
-
-\begin{theorem}
-\label{thm:helmholtz-proc}
-\textup{(5.7)} Suppose that all of the
-Thermodynamic Postulates hold. Assume that
-the material in question is unary ($r=1$). The
-following procedure is equivalent means for finding
-the Helmholtz free energy:
-\begin{equation}
-\tilde{F}(T,V,N)=U_T-T\tilde{S}(U_T,V,N)
-\tag{5.8}\label{eq:helmholtz-proc}
-\end{equation}
-\end{theorem}
-
-where $U_T=U_T(V,N)$ is the unique solution of the
-equation
 \[
-T_S(U_T(V,N),V,N)=T
+\frac{\partial \tilde{u}}{\partial v}(\vec{z}(\gamma))=-P_U(s(\gamma),v(\gamma)).
 \]
 
-for fixed values of $N$ and $V$.
+Thus, the combined First and Second laws are
+\begin{equation}
+\frac{d}{d\gamma}\tilde{u}(\vec{z}(\gamma))=T_U(\vec{z}(\gamma))s'(\gamma)-P_U(\vec{z}(\gamma))v'(\gamma).
+\tag{4.2}\label{eq:combined-laws}
+\end{equation}
 
-Proof: Exercise ///
+On the other hand, differentiate the molar Euler
+relation (4.1), we have
+\begin{align}
+\frac{d}{d\gamma}\tilde{u}(\vec{z}(\gamma))&=\frac{d}{d\gamma}T_U(\vec{z}(\gamma))s(\gamma)+T_U(\vec{z}(\gamma))s'(\gamma)\\
+&\quad-\frac{d}{d\gamma}P_U(\vec{z}(\gamma))v(\gamma)-P_U(\vec{z}(\gamma))v'(\gamma)\\
+&\quad+\frac{d}{d\gamma}\mu_U(\vec{z}(\gamma)).
+\tag{4.3}\label{eq:diff-molar-euler}
+\end{align}
+
+Therefore, the molar Gibbs--Duhem equation is
+\begin{equation}
+0=\frac{d}{d\gamma}T_U(\vec{z}(\gamma))s(\gamma)-\frac{d}{d\gamma}P_U(\vec{z}(\gamma))v(\gamma)+\frac{d}{d\gamma}\mu_U(\vec{z}(\gamma)).
+\tag{4.4}\label{eq:molar-gd}
+\end{equation}
+
+The molar entropy form of the Euler and Gibbs--
+Duhem equations are (as one would expect)
+\begin{equation}
+\tilde{s}(u,v)=\frac{1}{T_S(u,v)}\,u+\frac{P_S(u,v)}{T_S(u,v)}\,v-\frac{\mu_S(u,v)}{T_S(u,v)}.
+\tag{4.6}\label{eq:molar-entropy-euler}
+\end{equation}
+
+and
+\begin{equation}
+0=\frac{d}{d\gamma}\left(\frac{1}{T_S(\vec{z}(\gamma))}\right)u(\gamma)+
+\frac{d}{d\gamma}\left(\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)v(\gamma)
+-\frac{d}{d\gamma}\left(\frac{\mu_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right).
+\tag{4.7}\label{eq:molar-entropy-gd}
+\end{equation}
+
+The molar representation of the First and
+Second laws is
+\begin{equation}
+\frac{d}{d\gamma}\tilde{s}(\vec{z}(\gamma))=\frac{1}{T_S(\vec{z}(\gamma))}u'(\gamma)+
+\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}v'(\gamma).
+\tag{4.8}\label{eq:molar-first-second}
+\end{equation}
+
+where $\vec{z}(\gamma)=(u(\gamma),v(\gamma))$ is a process path in
+molar state space.
+
+\section{Examples}
+
+Let's look at a couple of examples.
 
 \begin{example}
-\label{ex:ideal-gas-helmholtz}
-\textup{(5.8)} Let us use the second version
-to calculate the free energy for the monatomic
-ideal gas. Recall,
+\label{ex:two-eos}
+\textup{(4.2)} Suppose that
 \[
-\tilde{S}(U,V,N)=Ns_0+NR\ln\left(\left(\frac{U}{U_0}\right)^{3/2}\left(\frac{V}{V_0}\right)\left(\frac{N}{N_0}\right)^{-5/2}\right),
+P=\frac{2U}{V}
 \]
-where $s_0,R,U_0,V_0,N_0$ are positive
-constants.
-
-Then
 \[
-\frac{\partial \tilde{S}}{\partial U}
-=\frac{NR}{\left(\frac{U}{U_0}\right)^{3/2}}\cdot \frac{3}{2}\left(\frac{U}{U_0}\right)^{1/2}\frac{1}{U_0}
+T=\left(\frac{A U^{3/2}}{V N^{1/2}}\right)^{1/2}
 \]
 
+(homog.\ deg.\ zero)
+
+We should be able to recover the fundamental
+relation using these two equations of state.
+Observe that
 \[
-=\frac{3NR}{2U_0}\cdot \frac{U_0}{U}
-=\frac{3NR}{2U}
+\frac{1}{T_S}=A^{-1/2}u^{-3/4}v^{1/2}
+\]
+\[
+\frac{P_S}{T_S}=2A^{-1/2}u^{1/4}v^{-1/2}
 \]
 
-Thus
-\[
-T_S(U,V,N)=\frac{2}{3}\frac{U}{NR}
-\]
-
-and
-\[
-U_T=\frac{3NRT}{2}
-\]
-
-Therefore,
+Using the molar 1st and 2nd laws (4.8)
 \begin{align*}
-\tilde{F}(T,V,N)&=\frac{3NRT}{2}-TN s_0\\
-&\phantom{=} -NR T\ln\left(\left(\frac{3NRT}{2U_0}\right)^{3/2}\left(\frac{V}{V_0}\right)\left(\frac{N}{N_0}\right)^{-5/2}\right)
+\frac{d}{d\gamma}\tilde{s}(\vec{z}(\gamma))&=\frac{1}{T_S(\vec{z}(\gamma))}u'(\gamma)+\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}v'(\gamma)\\
+&=A^{-1/2}\left(u(\gamma)^{-3/4}v(\gamma)^{1/2}u'(\gamma)
++2u(\gamma)^{1/4}v(\gamma)^{-1/2}v'(\gamma)\right)\\
+&=4A^{-1/2}\frac{d}{d\gamma}\left((u(\gamma))^{1/4}(v(\gamma))^{1/2}\right).
 \end{align*}
 
-Define
+Therefore,
 \[
-T_0:=\frac{2U_0}{3N_0R}.
+\tilde{s}(\gamma)=4A^{-1/2}(u(\gamma))^{1/4}(v(\gamma))^{1/2}+s_0.
 \]
 
-Then,
-\begin{equation}
-\tilde{F}(T,V,N)=\frac{3NRT}{2}-TN s_0
--NRT\ln\left(\left(\frac{T}{T_0}\right)^{3/2}\left(\frac{V}{V_0}\right)\left(\frac{N}{N_0}\right)^{-1}\right)
-\tag{5.9}\label{eq:ideal-helmholtz}
-\end{equation}
+Equivalently,
+\[
+\tilde{S}(\gamma)=4A^{-1/2}U^{1/4}V^{1/2}N^{1/4}+Ns_0.
+\]
+
+here $s_0$ is a positive constant. ///
+
+Let's try an alternative method.
 \end{example}
 
-\section{Equilibrium with a heat Bath}
+\begin{example}
+\label{ex:gibbs-duhem-start}
+\textup{(4.3)} Same problem as above. This
+time we will use the Gibbs--Duhem equation
+(4.7) as the starting point:
 
-Consider two isolated systems that are
-initially isolated from each other.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{Figures/ThermoS26-05-fig-3.pdf}
-\caption{Two isolated systems initially separated by insulating walls.}
-\label{fig:thermos26-05-isolated-systems}
-\end{figure}
+\begin{align*}
+\frac{d}{d\gamma}\left(\frac{\mu_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)
+&=\frac{d}{d\gamma}\left(\frac{1}{T_S(\vec{z}(\gamma))}\right)u(\gamma)
++\frac{d}{d\gamma}\left(\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)v(\gamma)\\
+&=A^{-1/2}\frac{d}{d\gamma}\left((u(\gamma))^{-3/4}(v(\gamma))^{1/2}\right)u(\gamma)\\
+&\quad+A^{-1/2}\frac{d}{d\gamma}\left(2(u(\gamma))^{1/4}(v(\gamma))^{-1/2}\right)\\
+&\quad\phantom{+A^{-1/2}\frac{d}{d\gamma}}v(\gamma)\\
+&=A^{-1/2}\left(-\frac{3}{4}(u(\gamma))^{-3/4}(v(\gamma))^{1/2}u'(\gamma)\right.\\
+&\quad\left.+(u(\gamma))^{1/4}\frac{1}{2}(v(\gamma))^{-1/2}v'(\gamma)\right)\\
+&\quad+A^{-1/2}\left(\frac{1}{2}(u(\gamma))^{-3/4}(v(\gamma))^{1/2}u'(\gamma)\right.\\
+&\quad\left.-2(u(\gamma))^{1/4}\frac{1}{2}(v(\gamma))^{-1/2}v'(\gamma)\right)\\
+&=A^{-1/2}\left(-\frac{1}{4}(u(\gamma))^{-3/4}(v(\gamma))^{1/2}u'(\gamma)\right.\\
+&\quad\left.-\frac{1}{2}(u(\gamma))^{1/4}(v(\gamma))^{-1/2}v'(\gamma)\right)\\
+&=-A^{-1/2}\frac{d}{d\gamma}\left((u(\gamma))^{1/4}(v(\gamma))^{1/2}\right).
+\end{align*}
 
-Now, let us remove the isolating walls so
-that energy, volume, and mass may be
-exchanged.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.85\textwidth]{Figures/ThermoS26-05-fig-4.pdf}
-\caption{Isolating wall removed so energy, volume, and mass can be exchanged.}
-\label{fig:thermos26-05-wall-removed}
-\end{figure}
-
-The entropy will attain its maximum at equilibrium and
+Thus,
 \[
-T^\alpha=T^\beta
-\]
-\[
-P^\alpha=P^\beta
-\]
-\[
-\mu_i^\alpha=\mu_i^\beta,\qquad i=1,\ldots,r.
+\frac{\mu_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}=-A^{-1/2}(u(\gamma))^{1/4}(v(\gamma))^{1/2}-s_0.
 \]
 
-How can we characterize equilibrium?
-
-Now, suppose that instead of isolating from
-the universe, our composite system is put
-into contact with a heat bath.
-
-\begin{definition}
-\label{def:heat-bath}
-\textup{(5.9)} A heat bath is an otherwise-
-isolated thermodynamic system that is so large
-that, when it exchanges a finite amount of
-energy with an otherwise-isolated,
-composite system, its temperature, pressure, and
-chemical potential changes are so small as to be
-negligible.
-\end{definition}
-
-Similarly, we have
-
-heat-pressure bath: finite exchanges of energy and volume
-lead to negligible changes in $T$, $P$, and $\mu$ in baths.
-
-A heat-pressure-chemical bath is defined analogously.
-
-Let us consider a picture for the case of the
-heat bath.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.9\textwidth]{Figures/ThermoS26-05-fig-5.pdf}
-\caption{Composite system in contact with a heat bath.}
-\label{fig:thermos26-05-heat-bath}
-\end{figure}
-
-Let us recall the "integrated form" of the
-entropy function.
+or
 \[
-\tilde{S}^B=\tilde{S}^B(U^B,V^B,N^B)
-=\frac{1}{T^0}U^B+\frac{P^0}{T^0}V^B-\frac{\mu^0}{T^0}\cdot N^B
+\frac{\mu_S(u,v)}{T_S(u,v)}=-A^{-1/2}u^{1/4}v^{1/2}-s_0.
+\]
+
+Using Euler's equation (4.6), we have
+\begin{align*}
+\tilde{s}(u,v)&=\frac{1}{T_S(u,v)}u+\frac{P_S(u,v)}{T_S(u,v)}v-\frac{\mu_S(u,v)}{T_S(u,v)}\\
+&=A^{-1/2}u^{1/4}v^{1/2}+2A^{-1/2}u^{1/4}v^{1/2}
++ A^{-1/2}u^{1/4}v^{1/2}+s_0\\
+&=4A^{-1/2}u^{1/4}v^{1/2}+s_0,
+\end{align*}
+
+which is the same as before.
+
+Using 2 equations of state, we can recover the
+3rd and then utilizing Euler's equation we
+get the fundamental relation. ///
+\end{example}
+
+\begin{example}
+\label{ex:ideal-gas}
+\textup{(4.4)} Ideal Gas law
+
+\[
+PV=NRT
+\]
+\[
+U=\frac{3}{2}NRT
+\]
+
+With these two equations of state we can find the
+fundamental relations.
+
+Observe that
+\[
+\frac{1}{T_S}=\frac{3R}{2u}\qquad\frac{P_S}{T_S}=\frac{R}{v}.
+\]
+
+This suggests that we again use the entropy
+equation (in molar form). The Gibbs--Duhem equation is
+\begin{align*}
+\frac{d}{d\gamma}\left(\frac{\mu_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)
+&=\frac{d}{d\gamma}\left(\frac{1}{T_S(\vec{z}(\gamma))}\right)u(\gamma)
++\frac{d}{d\gamma}\left(\frac{P_S(\vec{z}(\gamma))}{T_S(\vec{z}(\gamma))}\right)v(\gamma)\\
+&=\frac{3R}{2}\frac{d}{d\gamma}\left(\frac{1}{u(\gamma)}\right)u(\gamma)
++R\frac{d}{d\gamma}\left(\frac{1}{v(\gamma)}\right)v(\gamma)\\
+&=-\frac{3R}{2}\frac{u'(\gamma)}{u(\gamma)}-R\frac{v'(\gamma)}{v(\gamma)}.
+\end{align*}
+
+Integrating, we have
+\[
+\frac{\mu_S(u(\gamma),v(\gamma))}{T_S(u(\gamma),v(\gamma))}-\frac{\mu_0}{T_0}=-\frac{3R}{2}\ln\left(\frac{u(\gamma)}{u_0}\right)
+-R\ln\left(\frac{v(\gamma)}{v_0}\right),
 \]
 
 where
 \[
-T^0=T^0(U^0,V^0,N^0)
+\frac{\mu_0}{T_0}:=\frac{\mu_S(u_0,v_0)}{T_S(u_0,v_0)}.
 \]
 
-et cetera. We will write
-\[
-S^{tot}=\tilde{S}^B+\tilde{S}^\alpha+\tilde{S}^\beta
-\]
-\[
-=\tilde{S}^B+\tilde{S}^{\alpha+\beta}
-\]
-
-Now, our system will not exchange volume or
-mass with the bath, only energy, because
-we will replace the horizontal isolations
-wall with a diathermal wall.
-\begin{figure}[h]
-\centering
-\includegraphics[width=0.9\textwidth]{Figures/ThermoS26-05-fig-6.pdf}
-\caption{Diathermal wall configuration: only energy exchange with the bath.}
-\label{fig:thermos26-05-diathermal-wall}
-\end{figure}
-
-We know that, at equilibrium
-\[
-T^\alpha=T^\beta=T^B=T_0.
-\]
-
-Recall the deviations of $T^B$ from $T_0$ at equilibrium
-is assumed negligible.
-
-System $\alpha$ and $\beta$ can exchange energy.
-System $\alpha$ and $\beta$ can exchange volume and mass
-with each other but not with the bath.
-
-Thus,
-\[
-S^{tot,eq}=\max_{C}\{\tilde{S}^B+\tilde{S}^{\alpha+\beta}\}
-\]
-
-Now
-\[
-\tilde{S}^B=\frac{1}{T_0}U^B+\frac{P_0}{T_0}V^B-\frac{\mu_0}{T_0}\cdot N^B
-\]
-
-The changes in $T^B$, $P^B$, $\mu^B$ from $T_0$, $P_0$, $\mu_0$ is
-negligible because the bath is so large.
-
-Writing
-\[
-U^B=U_0-U^\alpha-U^\beta
-\]
-
-\[
-\tilde{S}^B=-\frac{U^\alpha}{T_0}-\frac{U^\beta}{T_0}+\frac{U_0}{T_0}+C_1
-\]
-
-\[
-=-\frac{U^\alpha}{T_0}-\frac{U^\beta}{T_0}+C_2
-\]
-
-Thus,
+Using the molar Euler equation, we have
 \begin{align*}
-S^{tot,eq}&=\max_{C}\left\{-\frac{U^\alpha}{T_0}-\frac{U^\beta}{T_0}+C_2+\tilde{S}^{\alpha+\beta}\right\}\\
-&=C_2+\max_{C}\left\{-\frac{U^\alpha+U^\beta}{T_0}+\tilde{S}^\alpha+\tilde{S}^\beta\right\}\\
-&=C_2+\max_{C}\left\{-\frac{F^\alpha+F^\beta}{T_0}\right\}\\
-&=C_2-\frac{1}{T_0}\min_{C}\left\{F^\alpha(T_0,V^\alpha,N^\alpha)+F^\beta(T_0,V^\beta,N^\beta)\right\}
+\tilde{s}(u,v)&=\frac{1}{T_S(u,v)}u+\frac{P_S(u,v)}{T_S(u,v)}v-\frac{\mu_S(u,v)}{T_S(u,v)}\\
+&=\frac{3R}{2}+R+\frac{3R}{2}\ln\left(\frac{u}{u_0}\right)+R\ln\left(\frac{v}{v_0}\right)-\frac{\mu_0}{T_0}\\
+&=s_0+R\ln\left(\left(\frac{u}{u_0}\right)^{3/2}\left(\frac{v}{v_0}\right)\right).
 \end{align*}
 
-Postulate VI: Consider a compound, otherwise-
-isolated thermodynamic system in contact with
-an otherwise-isolated heat bath at temperature
-$T_0$. Equilibrium of the compound system is the
-state satisfying the isothermal condition
+Thus,
 \[
-T^\alpha=T^\beta=T_0
+\tilde{S}(U,V,N)=Ns_0+NR\ln\left(\left(\frac{U}{U_0}\right)^{3/2}\left(\frac{V}{V_0}\right)\left(\frac{N}{N_0}\right)^{-5/2}\right),
 \]
 
-which minimizes
+where
 \[
-F^\alpha(T_0,V^\alpha,N^\alpha)+F^\beta(T_0,V^\beta,N^\beta)
-\]
-
-subject to the constraints
-\[
-V^\alpha+V^\beta=V_0,\qquad\text{(volume conservation)}
+U=uN,\ V=vN,
 \]
 \[
-N_i^\alpha+N_i^\beta=N_{i,0},\qquad\text{(mass conservation)}
+U_0=u_0N_0,\ V_0=v_0N_0,
 \]
 
-Remark: Since the system $\alpha+\beta$ exchanges
-energy with the heat bath, energy is not
-conserved in $\alpha+\beta$.
-
-Energy is conserved in the system $B+\alpha+\beta$.
+and
+\[
+ s_0=\frac{5}{2}R-\frac{\mu_0}{T_0}. ///
+\]
+\end{example}
 
 \THERMOEND
