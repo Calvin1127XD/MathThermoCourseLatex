@@ -1,0 +1,24 @@
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    xlabel={$x$}, ylabel={$y$},
+    domain=-0.5:4.5, samples=100,
+    xmin=-0.5, xmax=4.5,
+    ymin=-0.5, ymax=2.5,
+    width=10cm, height=7cm,
+    xtick={0,1,2,3,4},
+    ytick={0,1,2},
+    legend pos=north east
+]
+% Fill under curve
+\addplot[name path=f, blue, thick, domain=0:4] {sqrt(4-x)};
+\addplot[name path=axis, draw=none, domain=0:4] {0};
+\addplot[fill=blue!20, opacity=0.5] fill between[of=f and axis, soft clip={domain=0:4}];
+
+% Bounding line x=0
+\addplot[gray, dotted, thick] coordinates {(0,-0.5) (0,2.5)};
+
+% Labels
+\addlegendentry{$y=\sqrt{4-x}$}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,250 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    domain=-3:11,
+    samples=300,
+    xmin=-4, xmax=11.5,
+    ymin=-2, ymax=6,
+    width=16cm, height=10cm,
+    xtick=\empty,
+    ytick=\empty,
+    axis line style={very thick, -{Stealth[length=5mm]}},
+    clip=false,
+]
+
+% ============================================================
+% REDESIGNED FUNCTIONS for v4
+%
+% Key observations from original:
+% 1. h(x) starts VERY high on left (near y-axis top ~4.5), curves
+%    down significantly to ~2 at x=c. Clearly concave up (bowl shape
+%    for a decreasing function).
+% 2. g(x) has a deep U-shape: starts high left (~4), dips to ~0.5,
+%    rises to ~2 on right. Very pronounced dip.
+% 3. f(x) starts low left (~0.5), gently S-curves up to ~4 on right.
+%    Crosses g at x=a (both ~1.5), crosses h at x=b (both ~2.5).
+% 4. The shaded region is prominent -- big gap between curves.
+%
+% Let me use wider-range values:
+%   f(a=2) = g(2) = 1.5
+%   f(b=5) = h(5) = 3.0
+%   g(c=8) = h(8) = 2.0
+%
+% f(x): gentle cubic for S-curve shape
+%   f(x) = A*x^3 + B*x^2 + C*x + D
+%   Constraints: f(2)=1.5, f(5)=3.0
+%   Keep it simple with just cubic+constant:
+%   f(x) = p*x^3 + q*x + r  (odd powers + const for S-shape)
+%   f(2) = 8p + 2q + r = 1.5
+%   f(5) = 125p + 5q + r = 3.0
+%   => 117p + 3q = 1.5 => 39p + q = 0.5
+%   Want f(-3) ~ 0.3 (low on left): -27p - 3q + r ~ 0.3
+%   Want f(10) ~ 5.0 (high on right): 1000p + 10q + r ~ 5.0
+%   From 1000p + 10q + r = 5.0 and 8p + 2q + r = 1.5:
+%   992p + 8q = 3.5
+%   From 39p + q = 0.5: q = 0.5 - 39p
+%   992p + 8(0.5-39p) = 3.5
+%   992p + 4 - 312p = 3.5
+%   680p = -0.5
+%   p = -0.000735  (very small cubic term)
+%   q = 0.5 + 0.0287 = 0.5287
+%   r = 1.5 - 8(-0.000735) - 2(0.5287) = 1.5 + 0.00588 - 1.0574 = 0.4485
+%   f(x) = -0.000735*x^3 + 0.5287*x + 0.4485
+%   f(2) = -0.00588 + 1.0574 + 0.4485 = 1.5 YES
+%   f(5) = -0.0919 + 2.6435 + 0.4485 = 3.0 YES
+%   f(8) = -0.376 + 4.23 + 0.4485 = 4.3
+%   f(10) = -0.735 + 5.287 + 0.4485 = 5.0 YES
+%   f(-3) = 0.0198 - 1.586 + 0.4485 = -1.12  TOO LOW
+%   The cubic creates negative values on left. Not good.
+%
+%   Let me just use a simple quadratic that works well:
+%   f(x) = 0.04*x^2 + 0.12*x + 0.82
+%   f(2) = 0.16+0.24+0.82 = 1.22
+%   f(5) = 1.0+0.6+0.82 = 2.42
+%   f(8) = 2.56+0.96+0.82 = 4.34
+%   f(-3) = 0.36-0.36+0.82 = 0.82
+%   Adjust to hit targets f(2)=1.5, f(5)=3.0:
+%   4a+2b+c=1.5, 25a+5b+c=3.0 => 21a+3b=1.5 => 7a+b=0.5
+%   a=0.04: b=0.5-0.28=0.22, c=1.5-0.16-0.44=0.9
+%   f(x) = 0.04*x^2 + 0.22*x + 0.9
+%   f(2) = 0.16+0.44+0.9 = 1.5 YES
+%   f(5) = 1.0+1.1+0.9 = 3.0 YES
+%   f(8) = 2.56+1.76+0.9 = 5.22
+%   f(10) = 4.0+2.2+0.9 = 7.1  too high
+%   f(-3) = 0.36-0.66+0.9 = 0.6
+%   f(-4) = 0.64-0.88+0.9 = 0.66
+%   Good shape! Just need to limit the right domain.
+%
+% g(x): deep U-shape, g(2)=1.5, g(8)=2.0
+%   g(x) = Ax^2 + Bx + C
+%   4A+2B+C=1.5, 64A+8B+C=2.0
+%   60A+6B=0.5 => 10A+B=1/12
+%   Minimum at x=4.5: -B/(2A)=4.5 => B=-9A
+%   10A-9A=1/12 => A=1/12=0.0833
+%   B=-9/12=-0.75
+%   C=1.5-4/12+1.5 = 1.5-0.333+1.5 = 2.667
+%   g(x) = (1/12)*x^2 - 0.75*x + 2.667
+%   g(2) = 0.333-1.5+2.667 = 1.5 YES
+%   g(5) = 2.083-3.75+2.667 = 1.0
+%   g(4.5) = 1.6875-3.375+2.667 = 0.98 (minimum)
+%   g(8) = 5.333-6.0+2.667 = 2.0 YES
+%   g(10) = 8.333-7.5+2.667 = 3.5
+%   g(0) = 2.667
+%   g(-2) = 0.333+1.5+2.667 = 4.5
+%   g(-3) = 0.75+2.25+2.667 = 5.667
+%   PERFECT! Deep U-shape with minimum ~1.0 at x=4.5
+%
+% h(x): starts high left, decreases with concave-up curvature
+%   h(5)=3.0, h(8)=2.0
+%   For concave-up decreasing: h''(x)>0 and h'(x)<0
+%   Try: h(x) = A/(x+B) + C  or  h(x) = A*exp(-kx) + C
+%   Or just quadratic with vertex far left:
+%   h(x) = a*x^2 + b*x + c (a>0 for concave up, vertex far left)
+%   h(5) = 25a+5b+c = 3.0
+%   h(8) = 64a+8b+c = 2.0
+%   39a+3b = -1.0 => 13a+b = -1/3
+%   Vertex at x = -b/(2a). Want vertex far left, say x=-10:
+%   -b/(2a)=-10 => b=20a
+%   13a+20a=-1/3 => 33a=-1/3 => a=-1/99=-0.0101
+%   But a<0 means concave DOWN, not up!
+%
+%   For h to be concave UP (a>0) and DECREASING, vertex must be to RIGHT
+%   of the domain. The function decreases on the left side of parabola.
+%   vertex at x=V, for x<V the parabola decreases.
+%   Need V > 10 (right of visible domain).
+%   b = -2aV. With a>0: b<0.
+%   13a + b = -1/3
+%   13a - 2aV = -1/3
+%   a(13-2V) = -1/3
+%   With V=15: a(13-30)=-1/3 => -17a=-1/3 => a=1/51=0.0196
+%   b=-2*0.0196*15=-0.588
+%   c=3.0-25*0.0196-5*(-0.588) = 3.0-0.49+2.94 = 5.45
+%   h(x) = 0.0196*x^2 - 0.588*x + 5.45
+%   h(5) = 0.49-2.94+5.45 = 3.0 YES
+%   h(8) = 1.254-4.706+5.45 = 2.0 YES (close)
+%   h(0) = 5.45
+%   h(-2) = 0.0784+1.176+5.45 = 6.7  too high
+%   h(-3) = 0.176+1.765+5.45 = 7.39  way too high
+%   h(2) = 0.0784-1.176+5.45 = 4.35
+%   h(10) = 1.96-5.88+5.45 = 1.53
+%
+%   OK h goes too high on left. Try V=12:
+%   a(13-24)=-1/3 => -11a=-1/3 => a=1/33=0.0303
+%   b=-2*0.0303*12=-0.727
+%   c=3.0-25*0.0303+5*0.727 = 3.0-0.758+3.636 = 5.878
+%   h(0)=5.878
+%   h(-2) = 0.121+1.455+5.878 = 7.45  Still too high.
+%
+%   The problem is that concave-up parabolas with vertex to the right
+%   curve up steeply on the left side.
+%
+%   Let me reconsider. Maybe h should just be nearly linear with
+%   very slight curvature. In the original, h's curvature is subtle.
+%   h(x) = -0.15*x + 3.75  (linear)
+%   h(5)=-0.75+3.75=3.0 YES, h(8)=-1.2+3.75=2.55 (want 2.0, off)
+%
+%   h(x) = -0.333*x + 4.667
+%   h(5)=-1.667+4.667=3.0, h(8)=-2.667+4.667=2.0 YES
+%   h(0)=4.667, h(-2)=0.667+4.667=5.33, h(-3)=1.0+4.667=5.667
+%   h(10)=-3.33+4.667=1.33
+%   Range: 5.33 to 1.33. Good spread!
+%
+%   Now add slight concave-up curvature using a gentle exponential
+%   feel. Actually, let me use a very mild quadratic:
+%   h(x) = 0.005*x^2 - 0.383*x + 4.79
+%   h(5) = 0.125-1.917+4.79 = 3.0 (check: 0.125-1.915+4.79=3.0)
+%   Let me solve exactly:
+%   0.005*25 + 5b + c = 3.0 => 5b+c = 2.875
+%   0.005*64 + 8b + c = 2.0 => 8b+c = 1.68
+%   3b = -1.195 => b = -0.398
+%   c = 2.875+1.992 = 4.867
+%   h(x) = 0.005*x^2 - 0.398*x + 4.867
+%   h(0) = 4.867
+%   h(-2) = 0.02+0.797+4.867 = 5.68
+%   h(-3) = 0.045+1.195+4.867 = 6.11  a bit high but ok
+%   h(10) = 0.5-3.983+4.867 = 1.38
+%   h(2) = 0.02-0.797+4.867 = 4.09
+%   vertex at x=0.398/0.01=39.8 (far right, good - decreasing in domain)
+%   Curvature is very gentle (a=0.005), looks nearly linear with
+%   slight concave-up bend. GOOD.
+%
+% ============================================================
+
+% --- Shaded region FIRST (behind curves) ---
+
+% From x=2 to x=5: upper = f(x), lower = g(x)
+\addplot[name path=f_shade, draw=none, domain=2:5, samples=100]
+  {0.04*x^2 + 0.22*x + 0.9};
+\addplot[name path=g_shade_left, draw=none, domain=2:5, samples=100]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+\addplot[gray!30] fill between[of=f_shade and g_shade_left];
+
+% From x=5 to x=8: upper = h(x), lower = g(x)
+\addplot[name path=h_shade, draw=none, domain=5:8, samples=100]
+  {0.005*x^2 - 0.398*x + 4.867};
+\addplot[name path=g_shade_right, draw=none, domain=5:8, samples=100]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+\addplot[gray!30] fill between[of=h_shade and g_shade_right];
+
+% --- Curves with arrow tips ---
+
+% f(x) blue: increasing quadratic
+\addplot[blue, very thick, domain=-3.5:9, samples=200]
+  {0.04*x^2 + 0.22*x + 0.9};
+% Arrow at right end of f
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, blue, very thick]
+  (axis cs:8.8,{0.04*8.8^2+0.22*8.8+0.9})
+  -- (axis cs:9.5,{0.04*9.5^2+0.22*9.5+0.9});
+% Arrow at left end of f
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, blue, very thick]
+  (axis cs:-3,{0.04*9-0.66+0.9})
+  -- (axis cs:-3.5,{0.04*12.25-0.77+0.9});
+
+% g(x) dark green: U-shaped quadratic
+\addplot[green!50!black, very thick, domain=-1.5:9.5, samples=200]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+% Arrow at left end of g (going upper-left)
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, green!50!black, very thick]
+  (axis cs:-1,{(1/12)*1+0.75+2.667})
+  -- (axis cs:-1.5,{(1/12)*2.25+1.125+2.667});
+% Arrow at right end of g
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, green!50!black, very thick]
+  (axis cs:9.2,{(1/12)*9.2^2-0.75*9.2+2.667})
+  -- (axis cs:9.8,{(1/12)*9.8^2-0.75*9.8+2.667});
+
+% h(x) red: gently decreasing with slight concave-up curvature
+\addplot[red, very thick, domain=-1.5:10.5, samples=200]
+  {0.005*x^2 - 0.398*x + 4.867};
+% Arrow at left end of h (going upper-left)
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, red, very thick]
+  (axis cs:-1,{0.005*1+0.398+4.867})
+  -- (axis cs:-1.5,{0.005*2.25+0.598+4.867});
+% Arrow at right end of h
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, red, very thick]
+  (axis cs:10,{0.005*100-3.983+4.867})
+  -- (axis cs:10.5,{0.005*110.25-0.398*10.5+4.867});
+
+% --- Vertical lines at x=a, x=b, x=c ---
+\draw[gray, thin] (axis cs:2,0) -- (axis cs:2,1.5);
+\draw[gray, thin] (axis cs:5,0) -- (axis cs:5,3.0);
+\draw[gray, thin] (axis cs:8,0) -- (axis cs:8,2.0);
+
+% --- x-axis labels ---
+\node[below, font=\large] at (axis cs:2,-0.15) {$x\!=\!a$};
+\node[below, font=\large] at (axis cs:5,-0.15) {$x\!=\!b$};
+\node[below, font=\large] at (axis cs:8,-0.15) {$x\!=\!c$};
+
+% --- Function labels (positioned like original: right side, stacked) ---
+\node[blue, font=\Large\bfseries, anchor=west] at (axis cs:9.8,5.5) {$f(x)$};
+\node[green!50!black, font=\Large\bfseries, anchor=west] at (axis cs:9.8,3.8) {$g(x)$};
+\node[red, font=\Large\bfseries, anchor=west] at (axis cs:9.8,2.2) {$h(x)$};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

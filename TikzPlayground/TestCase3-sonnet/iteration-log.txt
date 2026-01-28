@@ -1,0 +1,38 @@
+Iteration Log for TestCase3
+
+v1: Initial attempt
+- Curve shapes: GOOD - f(x) blue increasing concave up, h(x) red decreasing concave down, g(x) green parabola
+- Vertical lines: GOOD - at x=a, b, c
+- Shaded region: GOOD - gray area between curves from a to c
+- Labels: ISSUE - f(x) label missing (only h(x) and g(x) visible)
+- Label positions: ISSUE - g(x) and h(x) labels overlapping in same area
+- Arrows on axes: GOOD - present and correct
+
+Issues to fix:
+1. Add f(x) label (currently missing from plot)
+2. Adjust label positions to match original (f(x) upper right, h(x) lower right, g(x) mid right)
+3. Labels should be outside the plot area, not overlapping
+
+Status: Need v2 to fix label positioning
+
+---
+
+v2: Fixed label positioning
+- Curve shapes: EXCELLENT - all three curves match original perfectly
+- Vertical lines: EXCELLENT - at x=a, b, c with proper labels
+- Shaded region: EXCELLENT - gray area between curves from a to c
+- Labels: EXCELLENT - all three function labels (f(x), h(x), g(x)) now visible and positioned correctly
+- Label positions: EXCELLENT - f(x) upper right, h(x) lower right, g(x) middle right
+- Arrows on axes: EXCELLENT - present and correct
+- Overall topology: MATCHES ORIGINAL
+
+Verification against original TestCase3.png:
+✓ Three colored functions: f(x) blue, h(x) red, g(x) green
+✓ Correct curve shapes and positions
+✓ Vertical lines at x=a, b, c
+✓ Gray shaded area between curves
+✓ All function labels visible and positioned correctly
+✓ Axes with arrows
+✓ Topologically equivalent
+
+Status: ACCEPTED - All acceptance criteria met

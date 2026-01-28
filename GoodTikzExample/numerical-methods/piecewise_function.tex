@@ -1,0 +1,71 @@
+\begin{figure}
+  \begin{center}
+    \begin{tikzpicture}
+      % Axes
+      \draw[->] (-2,0) -- (10,0) node[right] {$x$};
+      \draw[->] (0,-0.5) -- (0,6);
+
+      % Vertical dashed lines
+      \draw[dashed] (2,0) -- (2,2);
+      \draw[dashed] (4,0) -- (4,5);
+      \draw[dashed] (6,0) -- (6,5);
+      \draw[dashed] (8,0) -- (8,0.5);
+
+      % Horizontal lines with points and open circles
+      \draw[thick, blue] (0,1.5) -- (2,1.5);  % Start from y-axis
+        \filldraw[blue] (2,1.5) circle (2pt);
+      \draw[thick, blue] (2,2) -- (4,2);
+        \filldraw[blue] (4,2) circle (2pt); 
+      \draw[thick, blue] (4,5) -- (6,5);
+        \filldraw[blue] (6,5) circle (2pt); 
+      \draw[thick, blue] (6,0.5) -- (8,0.5);
+        \filldraw[blue] (8,0.5) circle (2pt);
+
+      % Function Value
+      \node[above, blue] at (-1,-1.5) {\small $v_{\ell,0}$};
+      \node[above, blue] at (1,1.5) {\small $v_{\ell,1}$};
+      \node[above, blue] at (3,2) {\small $v_{\ell,2}$};
+      \node[above, blue] at (5,5) {\small $v_{\ell,3}$};
+      \node[above, blue] at (7,0.5) {\small $v_{\ell,4}$};
+      \node[above, blue] at (9,-0.5) {\small $v_{\ell,5}$};
+
+
+
+      % Open circles
+      \draw[blue] (0,1.5) circle (2pt);
+      \draw[blue] (2,2) circle (2pt);
+      \draw[blue] (4,5) circle (2pt);
+      \draw[blue] (6,0.5) circle (2pt);
+
+      % X-axis labels for integer points
+      \node[red,below] at (1,0) {\small $x_{\ell,1}$};
+      \node[red,below] at (3,0) {\small $x_{\ell,2}$};
+      \node[red,below] at (5,0) {\small $x_{\ell,3}$};
+      \node[red,below] at (7,0) {\small $x_{\ell,4}$};
+
+      \foreach  \x  in {-1,1,3,5,7,9}{
+        \node[mark size=2pt,color=red] at (\x,0) {\pgfuseplotmark{*}};
+      } 
+
+      \node[mark size=2pt,color=blue] at (-1,-1.5) {\pgfuseplotmark{*}}; 
+      \node[mark size=2pt,color=blue] at (1,1.5) {\pgfuseplotmark{*}}; 
+      \node[mark size=2pt,color=blue] at (3,2) {\pgfuseplotmark{*}}; 
+      \node[mark size=2pt,color=blue] at (5,5) {\pgfuseplotmark{*}}; 
+      \node[mark size=2pt,color=blue] at (7,0.5) {\pgfuseplotmark{*}}; 
+      \node[mark size=2pt,color=blue] at (9,-0.5) {\pgfuseplotmark{*}}; 
+
+      % X-axis labels for fractional points (below the x-axis line)
+      \node[below=0.4cm] at (0,0) {\small $x_{\ell,1/2}$};
+      \node[below=0.4cm] at (2,0) {\small $x_{\ell,3/2}$};
+      \node[below=0.4cm] at (4,0) {\small $x_{\ell,5/2}$};
+      \node[below=0.4cm] at (6,0) {\small $x_{\ell,7/2}$};
+      \node[below=0.4cm] at (8,0) {\small $x_{\ell,9/2}$};
+
+      % Arrow for Y-axis
+      \draw[->] (0,0) -- (0,6);
+
+    \end{tikzpicture}
+  \end{center}
+  \caption[A piecewise constant function $\vsel \in \Vsel$.]{A piecewise constant function $\vsel \in \Vsel$. We use the same symbol for the corresponding grid function $\vsel\in \mathcal{C}_{\ell,0}$, which has values only at the cell-centered points and has homogeneous Dirichlet boundary values.}
+\label{fig:1dPiecewiseConstantFunction}
+\end{figure}

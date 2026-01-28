@@ -1,0 +1,92 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    domain=-3:11,
+    samples=300,
+    xmin=-4, xmax=11.5,
+    ymin=-2, ymax=5.5,
+    width=16cm, height=10cm,
+    xtick=\empty,
+    ytick=\empty,
+    axis line style={very thick, -{Stealth[length=5mm]}},
+    clip=false,
+]
+
+% Three functions with intersection points at x=a=2, x=b=5, x=c=8:
+%   f(a) = g(a) = 1.5
+%   f(b) = h(b) = 3.0
+%   g(c) = h(c) = 2.0
+%
+% f(x) = 0.04x^2 + 0.22x + 0.9       (blue, increasing quadratic)
+% g(x) = (1/12)x^2 - 0.75x + 2.667   (green, U-shaped quadratic)
+% h(x) = 6.36*exp(-0.1x) - 0.857     (red, decreasing exponential)
+
+% --- Gray shaded region (drawn first, behind curves) ---
+% From x=a to x=b: bounded above by f(x), below by g(x)
+\addplot[name path=f_shade, draw=none, domain=2:5, samples=100]
+  {0.04*x^2 + 0.22*x + 0.9};
+\addplot[name path=g_shade_left, draw=none, domain=2:5, samples=100]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+\addplot[gray!30] fill between[of=f_shade and g_shade_left];
+
+% From x=b to x=c: bounded above by h(x), below by g(x)
+\addplot[name path=h_shade, draw=none, domain=5:8, samples=100]
+  {6.36*exp(-0.1*x) - 0.857};
+\addplot[name path=g_shade_right, draw=none, domain=5:8, samples=100]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+\addplot[gray!30] fill between[of=h_shade and g_shade_right];
+
+% --- f(x): blue, increasing quadratic ---
+\addplot[blue, very thick, domain=-3.5:9.2, samples=200]
+  {0.04*x^2 + 0.22*x + 0.9};
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, blue, very thick]
+  (axis cs:9.0,{0.04*81+0.22*9+0.9})
+  -- (axis cs:9.6,{0.04*92.16+0.22*9.6+0.9});
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, blue, very thick]
+  (axis cs:-3,{0.04*9-0.66+0.9})
+  -- (axis cs:-3.5,{0.04*12.25-0.77+0.9});
+
+% --- g(x): dark green, U-shaped quadratic ---
+\addplot[green!50!black, very thick, domain=-1.2:9.5, samples=200]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, green!50!black, very thick]
+  (axis cs:-0.8,{(1/12)*0.64+0.6+2.667})
+  -- (axis cs:-1.2,{(1/12)*1.44+0.9+2.667});
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, green!50!black, very thick]
+  (axis cs:9.2,{(1/12)*84.64-0.75*9.2+2.667})
+  -- (axis cs:9.8,{(1/12)*96.04-0.75*9.8+2.667});
+
+% --- h(x): red, decreasing exponential ---
+\addplot[red, very thick, domain=-1.2:10.5, samples=200]
+  {6.36*exp(-0.1*x) - 0.857};
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, red, very thick]
+  (axis cs:-0.8,{6.36*exp(0.08)-0.857})
+  -- (axis cs:-1.2,{6.36*exp(0.12)-0.857});
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, red, very thick]
+  (axis cs:10.0,{6.36*exp(-1.0)-0.857})
+  -- (axis cs:10.5,{6.36*exp(-1.05)-0.857});
+
+% --- Vertical lines at x=a, x=b, x=c ---
+\draw[gray, thin] (axis cs:2,0) -- (axis cs:2,1.5);
+\draw[gray, thin] (axis cs:5,0) -- (axis cs:5,3.0);
+\draw[gray, thin] (axis cs:8,0) -- (axis cs:8,2.0);
+
+% --- x-axis labels ---
+\node[below, font=\large] at (axis cs:2,-0.15) {$x\!=\!a$};
+\node[below, font=\large] at (axis cs:5,-0.15) {$x\!=\!b$};
+\node[below, font=\large] at (axis cs:8,-0.15) {$x\!=\!c$};
+
+% --- Function labels ---
+\node[blue, font=\Large\bfseries, anchor=west] at (axis cs:10,5.0) {$f(x)$};
+\node[green!50!black, font=\Large\bfseries, anchor=west] at (axis cs:10,3.6) {$g(x)$};
+\node[red, font=\Large\bfseries, anchor=west] at (axis cs:10,2.0) {$h(x)$};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

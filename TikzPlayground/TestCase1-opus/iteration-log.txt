@@ -1,0 +1,21 @@
+TestCase1 Phase Diagram - Iteration Log
+========================================
+
+Target: Two-phase system diagram with phi=1 (Phase 1) and phi=-1 (Phase 2),
+separated by a wavy boundary with gray interface band of width epsilon.
+
+v1: Initial attempt using f(x) = 1.5 + 0.25x + 1.2*sin(0.9x - 0.5) + 0.6*exp(-((x-6.5)^2)/0.5)
+    - Good overall structure
+    - Curve shape close to original
+    - Gray band slightly narrow
+    - Labels positioned correctly
+    - Epsilon arrow positioned correctly
+
+v2: Refined curve with adjusted parameters:
+    f(x) = 1.3 + 0.20x + 1.3*sin(0.9x - 0.5) + 0.6*exp(-((x-6.5)^2)/0.5)
+    - Used pgfmathdeclarefunction for cleaner code
+    - Wider gray band (EpsHalf: 0.45 -> 0.50)
+    - Slightly lower baseline, stronger wave amplitude
+    - ACCEPTED: Topologically equivalent, labels match,
+      curve shape matches the S-wave with bump pattern,
+      gray interface band clearly visible, epsilon annotation correct.

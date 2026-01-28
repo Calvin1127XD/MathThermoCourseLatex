@@ -1,0 +1,177 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{matrix,positioning,backgrounds,fit,calc}
+
+\begin{document}
+\begin{tikzpicture}[
+    cell/.style={minimum size=8mm, draw, outer sep=0pt, inner sep=0pt, font=\normalsize},
+    redhighlight/.style={fill=red!30},
+    greenhighlight/.style={fill=green!40},
+    kernelcell/.style={minimum size=8mm, draw, outer sep=0pt, inner sep=0pt, fill=gray!15, font=\normalsize},
+]
+
+% Cell size
+\pgfmathsetmacro{\cs}{0.8}
+
+% === Input Matrix I (7x7) ===
+% Row 0
+\node[cell] (I00) at (0*\cs, 0) {0};
+\node[cell] (I01) at (1*\cs, 0) {1};
+\node[cell] (I02) at (2*\cs, 0) {1};
+\node[cell, redhighlight] (I03) at (3*\cs, 0) {1};
+\node[cell, redhighlight] (I04) at (4*\cs, 0) {0};
+\node[cell, redhighlight] (I05) at (5*\cs, 0) {0};
+\node[cell] (I06) at (6*\cs, 0) {0};
+
+% Row 1
+\node[cell] at (0*\cs, -1*\cs) {0};
+\node[cell] at (1*\cs, -1*\cs) {0};
+\node[cell] at (2*\cs, -1*\cs) {1};
+\node[cell, redhighlight] at (3*\cs, -1*\cs) {1};
+\node[cell, redhighlight] at (4*\cs, -1*\cs) {1};
+\node[cell, redhighlight] at (5*\cs, -1*\cs) {0};
+\node[cell] at (6*\cs, -1*\cs) {0};
+
+% Row 2
+\node[cell] at (0*\cs, -2*\cs) {0};
+\node[cell] at (1*\cs, -2*\cs) {0};
+\node[cell] at (2*\cs, -2*\cs) {0};
+\node[cell, redhighlight] at (3*\cs, -2*\cs) {1};
+\node[cell, redhighlight] at (4*\cs, -2*\cs) {1};
+\node[cell, redhighlight] at (5*\cs, -2*\cs) {1};
+\node[cell] at (6*\cs, -2*\cs) {0};
+
+% Row 3
+\node[cell] at (0*\cs, -3*\cs) {0};
+\node[cell] at (1*\cs, -3*\cs) {0};
+\node[cell] at (2*\cs, -3*\cs) {0};
+\node[cell] at (3*\cs, -3*\cs) {1};
+\node[cell] at (4*\cs, -3*\cs) {1};
+\node[cell] at (5*\cs, -3*\cs) {0};
+\node[cell] at (6*\cs, -3*\cs) {0};
+
+% Row 4
+\node[cell] at (0*\cs, -4*\cs) {0};
+\node[cell] at (1*\cs, -4*\cs) {0};
+\node[cell] at (2*\cs, -4*\cs) {1};
+\node[cell] at (3*\cs, -4*\cs) {1};
+\node[cell] at (4*\cs, -4*\cs) {0};
+\node[cell] at (5*\cs, -4*\cs) {0};
+\node[cell] at (6*\cs, -4*\cs) {0};
+
+% Row 5
+\node[cell] at (0*\cs, -5*\cs) {0};
+\node[cell] at (1*\cs, -5*\cs) {1};
+\node[cell] at (2*\cs, -5*\cs) {1};
+\node[cell] at (3*\cs, -5*\cs) {0};
+\node[cell] at (4*\cs, -5*\cs) {0};
+\node[cell] at (5*\cs, -5*\cs) {0};
+\node[cell] at (6*\cs, -5*\cs) {0};
+
+% Row 6
+\node[cell] at (0*\cs, -6*\cs) {1};
+\node[cell] at (1*\cs, -6*\cs) {1};
+\node[cell] at (2*\cs, -6*\cs) {0};
+\node[cell] at (3*\cs, -6*\cs) {0};
+\node[cell] at (4*\cs, -6*\cs) {0};
+\node[cell] at (5*\cs, -6*\cs) {0};
+\node[cell] at (6*\cs, -6*\cs) {0};
+
+% Red border around 3x3 region (cols 3-5, rows 0-2)
+\draw[red, very thick] (3*\cs-0.4, 0.4) rectangle (5*\cs+0.4, -2*\cs-0.4);
+
+% Small subscript annotations in red region (kernel weights)
+\node[font=\tiny, blue] at (3*\cs+0.22, -0.22) {$\times 1$};
+\node[font=\tiny, blue] at (4*\cs+0.22, -0.22) {$\times 0$};
+\node[font=\tiny, blue] at (5*\cs+0.22, -0.22) {$\times 1$};
+\node[font=\tiny, blue] at (3*\cs+0.22, -1*\cs-0.22) {$\times 0$};
+\node[font=\tiny, blue] at (4*\cs+0.22, -1*\cs-0.22) {$\times 1$};
+\node[font=\tiny, blue] at (5*\cs+0.22, -1*\cs-0.22) {$\times 0$};
+\node[font=\tiny, blue] at (3*\cs+0.22, -2*\cs-0.22) {$\times 1$};
+\node[font=\tiny, blue] at (4*\cs+0.22, -2*\cs-0.22) {$\times 0$};
+\node[font=\tiny, blue] at (5*\cs+0.22, -2*\cs-0.22) {$\times 1$};
+
+% Label for I
+\node at (3*\cs, -6*\cs-0.8) {\Large $\mathbf{I}$};
+
+% === Convolution operator ===
+\pgfmathsetmacro{\convx}{7.8*\cs}
+\node at (\convx, -3*\cs) {\Large $*$};
+
+% === Kernel K (3x3) ===
+\pgfmathsetmacro{\kx}{9.5*\cs}
+\node[kernelcell] at (\kx+0*\cs, -1*\cs) {1};
+\node[kernelcell] at (\kx+1*\cs, -1*\cs) {0};
+\node[kernelcell] at (\kx+2*\cs, -1*\cs) {1};
+\node[kernelcell] at (\kx+0*\cs, -2*\cs) {0};
+\node[kernelcell] at (\kx+1*\cs, -2*\cs) {1};
+\node[kernelcell] at (\kx+2*\cs, -2*\cs) {0};
+\node[kernelcell] at (\kx+0*\cs, -3*\cs) {1};
+\node[kernelcell] at (\kx+1*\cs, -3*\cs) {0};
+\node[kernelcell] at (\kx+2*\cs, -3*\cs) {1};
+
+% Blue border around kernel
+\draw[blue, very thick] (\kx-0.4, -1*\cs+0.4) rectangle (\kx+2*\cs+0.4, -3*\cs-0.4);
+
+% Label for K
+\node at (\kx+1*\cs, -4.3*\cs) {\Large $\mathbf{K}$};
+
+% === Equals sign ===
+\pgfmathsetmacro{\eqx}{13.5*\cs}
+\node at (\eqx, -3*\cs) {\Large $=$};
+
+% === Output Matrix I*K (5x5) ===
+\pgfmathsetmacro{\ox}{15*\cs}
+
+% Row 0
+\node[cell] at (\ox+0*\cs, 0) {1};
+\node[cell] at (\ox+1*\cs, 0) {4};
+\node[cell] at (\ox+2*\cs, 0) {3};
+\node[cell, greenhighlight] at (\ox+3*\cs, 0) {4};
+\node[cell] at (\ox+4*\cs, 0) {1};
+
+% Row 1
+\node[cell] at (\ox+0*\cs, -1*\cs) {1};
+\node[cell] at (\ox+1*\cs, -1*\cs) {2};
+\node[cell] at (\ox+2*\cs, -1*\cs) {4};
+\node[cell] at (\ox+3*\cs, -1*\cs) {3};
+\node[cell] at (\ox+4*\cs, -1*\cs) {3};
+
+% Row 2
+\node[cell] at (\ox+0*\cs, -2*\cs) {1};
+\node[cell] at (\ox+1*\cs, -2*\cs) {2};
+\node[cell] at (\ox+2*\cs, -2*\cs) {3};
+\node[cell] at (\ox+3*\cs, -2*\cs) {4};
+\node[cell] at (\ox+4*\cs, -2*\cs) {1};
+
+% Row 3
+\node[cell] at (\ox+0*\cs, -3*\cs) {1};
+\node[cell] at (\ox+1*\cs, -3*\cs) {3};
+\node[cell] at (\ox+2*\cs, -3*\cs) {3};
+\node[cell] at (\ox+3*\cs, -3*\cs) {1};
+\node[cell] at (\ox+4*\cs, -3*\cs) {1};
+
+% Row 4
+\node[cell] at (\ox+0*\cs, -4*\cs) {3};
+\node[cell] at (\ox+1*\cs, -4*\cs) {3};
+\node[cell] at (\ox+2*\cs, -4*\cs) {1};
+\node[cell] at (\ox+3*\cs, -4*\cs) {1};
+\node[cell] at (\ox+4*\cs, -4*\cs) {0};
+
+% Green border around highlighted cell
+\draw[green!70!black, very thick] (\ox+3*\cs-0.4, 0.4) rectangle (\ox+3*\cs+0.4, -0.4);
+
+% Label for I*K
+\node at (\ox+2*\cs, -4*\cs-0.8) {\Large $\mathbf{I} * \mathbf{K}$};
+
+% === Dotted lines connecting regions ===
+% From red region corners to kernel
+\draw[dotted, thick, green!60!black] (5*\cs+0.4, 0.4) -- (\kx-0.4, -1*\cs+0.4);
+\draw[dotted, thick, green!60!black] (5*\cs+0.4, -2*\cs-0.4) -- (\kx-0.4, -3*\cs-0.4);
+
+% From kernel corners to output cell
+\draw[dotted, thick, green!60!black] (\kx+2*\cs+0.4, -1*\cs+0.4) -- (\ox+3*\cs-0.4, 0.4);
+\draw[dotted, thick, green!60!black] (\kx+2*\cs+0.4, -3*\cs-0.4) -- (\ox+3*\cs+0.4, -0.4);
+
+\end{tikzpicture}
+\end{document}

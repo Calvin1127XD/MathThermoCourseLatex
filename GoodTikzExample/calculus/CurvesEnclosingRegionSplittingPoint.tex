@@ -1,0 +1,142 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    domain=-3:11,
+    samples=300,
+    xmin=-4, xmax=11.5,
+    ymin=-2, ymax=5.5,
+    width=16cm, height=10cm,
+    xtick=\empty,
+    ytick=\empty,
+    axis line style={very thick, -{Stealth[length=5mm]}},
+    clip=false,
+]
+
+% ============================================================
+% v5 REFINEMENTS:
+% - More curvature on h(x)
+% - Limit f(x) right domain so it doesn't fly off the chart
+% - Adjust curve domains to match original proportions
+%
+% Keep same intersection points: a=2, b=5, c=8
+%   f(2)=g(2)=1.5, f(5)=h(5)=3.0, g(8)=h(8)=2.0
+%
+% f(x) = 0.04*x^2 + 0.22*x + 0.9  (same as v4, just limit domain)
+%
+% g(x) = (1/12)*x^2 - 0.75*x + 2.667  (same as v4)
+%
+% h(x): MORE CURVATURE. Use exponential-like decay:
+%   h(x) = A*exp(-k*x) + C
+%   h(5) = A*exp(-5k)+C = 3.0
+%   h(8) = A*exp(-8k)+C = 2.0
+%   Try k=0.15:
+%   A*exp(-0.75)+C = 3.0 => 0.4724*A+C = 3.0
+%   A*exp(-1.2)+C = 2.0  => 0.3012*A+C = 2.0
+%   0.1712*A = 1.0 => A = 5.84
+%   C = 3.0 - 0.4724*5.84 = 3.0 - 2.759 = 0.241
+%   h(x) = 5.84*exp(-0.15*x) + 0.241
+%   h(0) = 5.84+0.241 = 6.08  a bit high
+%   h(-2) = 5.84*exp(0.3)+0.241 = 5.84*1.35+0.241 = 8.12  too high
+%   h(2) = 5.84*exp(-0.3)+0.241 = 5.84*0.741+0.241 = 4.57
+%   h(10) = 5.84*exp(-1.5)+0.241 = 5.84*0.223+0.241 = 1.54
+%
+%   k=0.15 gives too much range. Try k=0.1:
+%   A*exp(-0.5)+C = 3.0 => 0.6065*A+C = 3.0
+%   A*exp(-0.8)+C = 2.0 => 0.4493*A+C = 2.0
+%   0.1572*A = 1.0 => A = 6.36
+%   C = 3.0-0.6065*6.36 = 3.0-3.857 = -0.857
+%   h(0) = 6.36-0.857 = 5.50
+%   h(-1) = 6.36*exp(0.1)-0.857 = 6.36*1.105-0.857 = 7.03-0.857 = 6.17
+%   Still a bit high on left. But let me limit domain.
+%   h(-1.5) = 6.36*exp(0.15)-0.857 = 6.36*1.162-0.857 = 7.39-0.857 = 6.53
+%   h(2) = 6.36*exp(-0.2)-0.857 = 6.36*0.819-0.857 = 5.21-0.857 = 4.35
+%   h(10) = 6.36*exp(-1.0)-0.857 = 6.36*0.368-0.857 = 2.34-0.857 = 1.48
+%
+%   The curvature is visible: 5.5 -> 4.35 -> 3.0 -> 2.0 -> 1.48
+%   That's a nice concave curve. Good!
+%
+%   But pgfplots doesn't support exp() in addplot directly...
+%   Actually it does! Use {exp(-0.1*x)} syntax.
+%
+%   Let me verify pgfplots formula:
+%   h(x) = 6.36*exp(-0.1*x) - 0.857
+% ============================================================
+
+% --- Shaded region FIRST (behind curves) ---
+
+% From x=2 to x=5: upper = f(x), lower = g(x)
+\addplot[name path=f_shade, draw=none, domain=2:5, samples=100]
+  {0.04*x^2 + 0.22*x + 0.9};
+\addplot[name path=g_shade_left, draw=none, domain=2:5, samples=100]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+\addplot[gray!30] fill between[of=f_shade and g_shade_left];
+
+% From x=5 to x=8: upper = h(x), lower = g(x)
+\addplot[name path=h_shade, draw=none, domain=5:8, samples=100]
+  {6.36*exp(-0.1*x) - 0.857};
+\addplot[name path=g_shade_right, draw=none, domain=5:8, samples=100]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+\addplot[gray!30] fill between[of=h_shade and g_shade_right];
+
+% --- Curves with arrow tips ---
+
+% f(x) blue: increasing quadratic (limit right domain to ~9.2 to keep in frame)
+\addplot[blue, very thick, domain=-3.5:9.2, samples=200]
+  {0.04*x^2 + 0.22*x + 0.9};
+% Arrow at right end of f (pointing upper-right)
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, blue, very thick]
+  (axis cs:9.0,{0.04*81+0.22*9+0.9})
+  -- (axis cs:9.6,{0.04*92.16+0.22*9.6+0.9});
+% Arrow at left end of f (pointing lower-left)
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, blue, very thick]
+  (axis cs:-3,{0.04*9-0.66+0.9})
+  -- (axis cs:-3.5,{0.04*12.25-0.77+0.9});
+
+% g(x) dark green: U-shaped quadratic
+\addplot[green!50!black, very thick, domain=-1.2:9.5, samples=200]
+  {(1/12)*x^2 - 0.75*x + 2.667};
+% Arrow at left end of g (going upper-left)
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, green!50!black, very thick]
+  (axis cs:-0.8,{(1/12)*0.64+0.6+2.667})
+  -- (axis cs:-1.2,{(1/12)*1.44+0.9+2.667});
+% Arrow at right end of g
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, green!50!black, very thick]
+  (axis cs:9.2,{(1/12)*84.64-0.75*9.2+2.667})
+  -- (axis cs:9.8,{(1/12)*96.04-0.75*9.8+2.667});
+
+% h(x) red: smooth decreasing exponential curve (visible concavity)
+\addplot[red, very thick, domain=-1.2:10.5, samples=200]
+  {6.36*exp(-0.1*x) - 0.857};
+% Arrow at left end of h (going upper-left)
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, red, very thick]
+  (axis cs:-0.8,{6.36*exp(0.08)-0.857})
+  -- (axis cs:-1.2,{6.36*exp(0.12)-0.857});
+% Arrow at right end of h
+\draw[-{Stealth[length=3.5mm,width=2.5mm]}, red, very thick]
+  (axis cs:10.0,{6.36*exp(-1.0)-0.857})
+  -- (axis cs:10.5,{6.36*exp(-1.05)-0.857});
+
+% --- Vertical lines at x=a, x=b, x=c ---
+\draw[gray, thin] (axis cs:2,0) -- (axis cs:2,1.5);
+\draw[gray, thin] (axis cs:5,0) -- (axis cs:5,3.0);
+\draw[gray, thin] (axis cs:8,0) -- (axis cs:8,2.0);
+
+% --- x-axis labels ---
+\node[below, font=\large] at (axis cs:2,-0.15) {$x\!=\!a$};
+\node[below, font=\large] at (axis cs:5,-0.15) {$x\!=\!b$};
+\node[below, font=\large] at (axis cs:8,-0.15) {$x\!=\!c$};
+
+% --- Function labels (right side, stacked vertically) ---
+\node[blue, font=\Large\bfseries, anchor=west] at (axis cs:10,5.0) {$f(x)$};
+\node[green!50!black, font=\Large\bfseries, anchor=west] at (axis cs:10,3.6) {$g(x)$};
+\node[red, font=\Large\bfseries, anchor=west] at (axis cs:10,2.0) {$h(x)$};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

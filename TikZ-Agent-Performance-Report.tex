@@ -1,0 +1,334 @@
+\documentclass[11pt]{article}
+\usepackage[margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{float}
+\usepackage{subcaption}
+
+\title{TikZ-Generator Agent Performance Evaluation:\\Opus vs Sonnet Comparison}
+\author{Performance Analysis Report}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This report evaluates the performance of the TikZ-generator agent using two Claude AI models: Opus 4.5 and Sonnet 4.5. Three test cases of varying complexity were processed by both models, and iteration counts, output quality, and cost-effectiveness were analyzed to determine the optimal model configuration for the agent.
+\end{abstract}
+
+\section{Introduction}
+
+The TikZ-generator agent is a specialized sub-agent designed to convert hand-drawn diagrams, plots, and mathematical illustrations into professional TikZ/pgfplots code. The agent follows a rigorous workflow that includes:
+
+\begin{enumerate}
+    \item Visual element identification
+    \item Python prototyping for complex curves (when needed)
+    \item TikZ code generation
+    \item Compilation and verification
+    \item Iterative refinement (maximum 6 attempts)
+\end{enumerate}
+
+Currently, the agent is configured to use Claude Opus 4.5 by default. This evaluation tests whether switching to Claude Sonnet 4.5 would maintain quality while reducing costs.
+
+\section{Methodology}
+
+\subsection{Test Cases}
+
+Three test cases representing different diagram types were selected:
+
+\begin{itemize}
+    \item \textbf{TestCase1}: Phase boundary diagram with wavy interface, showing two phases ($\phi = 1$ and $\phi = -1$) separated by a boundary with interface width $\varepsilon$.
+    \item \textbf{TestCase2}: Temperature-composition phase diagram featuring binodal (solid) and spinodal (dashed) curves, metastable zone annotation, and critical point marker.
+    \item \textbf{TestCase3}: Multi-function plot with three colored curves ($f(x)$, $g(x)$, $h(x)$), shaded region, and vertical reference lines.
+\end{itemize}
+
+\subsection{Evaluation Protocol}
+
+Each test case was processed by both models:
+\begin{enumerate}
+    \item Agent invoked with identical prompts
+    \item Iteration count tracked (v1, v2, ..., until accepted)
+    \item Final output verified for topological equivalence
+    \item Quality assessed against original handwritten diagrams
+\end{enumerate}
+
+\subsection{Success Criteria}
+
+The agent's acceptance criteria require:
+\begin{itemize}
+    \item Topological equivalence (same structure, not pixel-perfect)
+    \item Correct curve shapes and relative positions
+    \item Proper labels and annotations
+    \item Accurate axes ranges and scales
+\end{itemize}
+
+\section{Results}
+
+\subsection{Iteration Count Summary}
+
+Table~\ref{tab:iterations} summarizes the number of iterations required by each model for each test case.
+
+\begin{table}[H]
+\centering
+\begin{tabular}{lccc}
+\toprule
+\textbf{Test Case} & \textbf{Opus 4.5} & \textbf{Sonnet 4.5} & \textbf{Difference} \\
+\midrule
+TestCase1 (Phase Boundary) & 2 & 2 & 0 \\
+TestCase2 (Phase Diagram) & 3 & 2 & -1 \\
+TestCase3 (Multi-Function Plot) & 5 & 2 & -3 \\
+\midrule
+\textbf{Total Iterations} & \textbf{10} & \textbf{6} & \textbf{-4} \\
+\textbf{Average per Test} & \textbf{3.33} & \textbf{2.00} & \textbf{-1.33} \\
+\bottomrule
+\end{tabular}
+\caption{Iteration counts for Opus vs Sonnet across three test cases. Negative difference indicates Sonnet required fewer iterations.}
+\label{tab:iterations}
+\end{table}
+
+\subsection{Key Observations}
+
+\subsubsection{TestCase1: Phase Boundary Diagram}
+\begin{itemize}
+    \item \textbf{Opus}: 2 iterations (v1: initial, v2: refined shading)
+    \item \textbf{Sonnet}: 2 iterations (v1: incorrect gray shading, v2: corrected to narrow band)
+    \item \textbf{Analysis}: Both models performed equally, requiring the same refinement to achieve correct interface shading.
+\end{itemize}
+
+\subsubsection{TestCase2: Phase Diagram with Curves}
+\begin{itemize}
+    \item \textbf{Opus}: 3 iterations (v1: initial, v2: diagonal annotation, v3: fine-tuned positioning)
+    \item \textbf{Sonnet}: 2 iterations (v1: initial, v2: improved legend format)
+    \item \textbf{Analysis}: Sonnet converged one iteration faster. Both produced high-quality results with symmetric parabolic curves.
+\end{itemize}
+
+\subsubsection{TestCase3: Multi-Function Plot}
+\begin{itemize}
+    \item \textbf{Opus}: 5 iterations (v1-v3: vertical compression issues, v4: improved separation, v5: switched to exponential for h(x))
+    \item \textbf{Sonnet}: 2 iterations (v1: overlapping labels, v2: fixed positioning)
+    \item \textbf{Analysis}: Sonnet significantly outperformed Opus on this complex case. Opus struggled with vertical scaling and function selection, while Sonnet achieved topological equivalence quickly.
+\end{itemize}
+
+\subsection{Visual Quality Comparison}
+
+Figures~\ref{fig:testcase1}--\ref{fig:testcase3} show the final outputs from both models alongside the original test images.
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TestCase1.jpg}
+        \caption{Original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TikzPlayground/TestCase1-opus/test-v2.pdf}
+        \caption{Opus (2 iter)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TikzPlayground/TestCase1-sonnet/TestCase1-final.pdf}
+        \caption{Sonnet (2 iter)}
+    \end{subfigure}
+    \caption{TestCase1: Phase boundary diagram with interface width $\varepsilon$.}
+    \label{fig:testcase1}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TestCase2.png}
+        \caption{Original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TikzPlayground/TestCase2-opus/test-v3.pdf}
+        \caption{Opus (3 iter)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TikzPlayground/TestCase2-sonnet/TestCase2-final.pdf}
+        \caption{Sonnet (2 iter)}
+    \end{subfigure}
+    \caption{TestCase2: Temperature-composition phase diagram with binodal/spinodal curves.}
+    \label{fig:testcase2}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TestCase3.png}
+        \caption{Original}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TikzPlayground/TestCase3-opus/TestCase3-final.pdf}
+        \caption{Opus (5 iter)}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.3\textwidth}
+        \centering
+        \includegraphics[width=\textwidth]{TikzPlayground/TestCase3-sonnet/TestCase3-final.pdf}
+        \caption{Sonnet (2 iter)}
+    \end{subfigure}
+    \caption{TestCase3: Multi-function plot with shaded regions and vertical reference lines.}
+    \label{fig:testcase3}
+\end{figure}
+
+\section{Analysis}
+
+\subsection{Performance Metrics}
+
+\paragraph{Efficiency:} Sonnet 4.5 demonstrated superior efficiency, requiring 40\% fewer total iterations (6 vs 10) across all test cases. The average iteration count per test case was 2.00 for Sonnet compared to 3.33 for Opus.
+
+\paragraph{Convergence Speed:} Sonnet showed faster convergence, particularly on complex diagrams:
+\begin{itemize}
+    \item Simple cases (TestCase1): Equivalent performance (both 2 iterations)
+    \item Moderate complexity (TestCase2): Sonnet 33\% faster (2 vs 3 iterations)
+    \item High complexity (TestCase3): Sonnet 60\% faster (2 vs 5 iterations)
+\end{itemize}
+
+\paragraph{Quality:} Both models produced outputs that met acceptance criteria. Visual inspection shows topologically equivalent diagrams with no significant quality differences between Opus and Sonnet outputs.
+
+\subsection{Cost Analysis}
+
+Assuming typical Claude API pricing patterns (Opus costs more per token than Sonnet):
+
+\begin{itemize}
+    \item \textbf{Iteration reduction}: 40\% fewer iterations directly translates to 40\% fewer compilation cycles and verification steps.
+    \item \textbf{Model pricing}: Sonnet is typically 3-5× cheaper per token than Opus.
+    \item \textbf{Combined savings}: Using Sonnet could reduce costs by 50-70\% while maintaining equivalent output quality.
+\end{itemize}
+
+For a project processing 50+ diagrams (typical course notes), this represents significant cost savings.
+
+\subsection{Robustness on Complex Cases}
+
+TestCase3 revealed an important pattern: Opus struggled with parameter tuning (vertical scaling, function selection) over multiple iterations, while Sonnet achieved acceptable results more directly. This suggests:
+
+\begin{enumerate}
+    \item Sonnet may have better initial parameter estimation for complex plots
+    \item Sonnet's verification logic may be more efficient
+    \item Opus may over-optimize on minor details rather than accepting "good enough" solutions
+\end{enumerate}
+
+\section{Recommendation}
+
+\subsection{Primary Recommendation: Switch to Sonnet}
+
+Based on this evaluation, \textbf{switching the TikZ-generator agent from Opus 4.5 to Sonnet 4.5 is strongly recommended} for the following reasons:
+
+\begin{enumerate}
+    \item \textbf{Equivalent Quality}: Both models produce diagrams meeting acceptance criteria with no observable quality degradation.
+
+    \item \textbf{Superior Efficiency}: Sonnet requires 40\% fewer iterations on average, with particularly strong performance on complex diagrams.
+
+    \item \textbf{Cost Effectiveness}: Combined model pricing and iteration reduction could yield 50-70\% cost savings.
+
+    \item \textbf{Faster Turnaround}: Fewer iterations mean faster diagram generation, important for batch processing of course notes.
+
+    \item \textbf{Scalability}: For large-scale projects (e.g., converting entire course sequences), cost and time savings compound significantly.
+\end{enumerate}
+
+\subsection{Implementation}
+
+To implement this change, modify the agent configuration file:
+
+\begin{verbatim}
+File: .claude/agents/tikz-generator.md
+Change: model: opus → model: sonnet
+\end{verbatim}
+
+\subsection{Monitoring and Validation}
+
+After switching to Sonnet:
+\begin{itemize}
+    \item Monitor iteration counts on production diagrams
+    \item Track any cases requiring $>4$ iterations (may indicate edge cases)
+    \item Validate output quality against original notes
+    \item Maintain option to invoke Opus manually for exceptionally complex cases
+\end{itemize}
+
+\section{Limitations and Future Work}
+
+\subsection{Study Limitations}
+
+\begin{itemize}
+    \item Small sample size (3 test cases)
+    \item Test cases may not represent full diversity of course diagrams
+    \item No formal quality scoring metric (relied on topological equivalence criteria)
+    \item Did not measure token counts or actual API costs
+\end{itemize}
+
+\subsection{Future Evaluation}
+
+Additional testing should include:
+\begin{itemize}
+    \item Larger test set (10+ diverse diagrams)
+    \item Edge cases: 3D plots, circuit diagrams, complex geometric constructions
+    \item Quantitative quality metrics (structural similarity index, etc.)
+    \item Actual cost tracking with API token counts
+    \item User satisfaction surveys on output quality
+\end{itemize}
+
+\section{Conclusion}
+
+This performance evaluation demonstrates that \textbf{Sonnet 4.5 is the superior choice for the TikZ-generator agent}. Across three test cases of varying complexity, Sonnet required 40\% fewer iterations while producing equivalent quality outputs. The most dramatic difference appeared in complex multi-function plots (TestCase3), where Sonnet converged in 2 iterations compared to Opus's 5.
+
+Given the cost-effectiveness, efficiency gains, and maintained quality, switching from Opus to Sonnet is recommended for production use. This change is expected to yield significant savings in both time and costs, particularly important for large-scale course note conversion projects.
+
+\vspace{1em}
+
+\noindent\textbf{Final Verdict:} \textcolor{blue}{Approve migration to Sonnet 4.5 for tikz-generator agent.}
+
+\appendix
+
+\section{Test Case Details}
+
+\subsection{TestCase1: Phase Boundary Diagram}
+\begin{itemize}
+    \item \textbf{Type}: Thermodynamics system diagram
+    \item \textbf{Complexity}: Moderate (wavy boundary, shaded band, annotations)
+    \item \textbf{Key Challenge}: Modeling smooth sine-based boundary with Gaussian bump
+    \item \textbf{Result}: Both models equivalent (2 iterations each)
+\end{itemize}
+
+\subsection{TestCase2: Phase Diagram}
+\begin{itemize}
+    \item \textbf{Type}: Thermodynamics phase plot
+    \item \textbf{Complexity}: Moderate (symmetric curves, legend, annotations)
+    \item \textbf{Key Challenge}: Parabolic curve fitting, metastable zone annotation
+    \item \textbf{Result}: Sonnet marginally better (2 vs 3 iterations)
+\end{itemize}
+
+\subsection{TestCase3: Multi-Function Plot}
+\begin{itemize}
+    \item \textbf{Type}: Mathematical function plot
+    \item \textbf{Complexity}: High (three curves, shaded regions, intersection points)
+    \item \textbf{Key Challenge}: Function identification, vertical scaling, fill regions
+    \item \textbf{Result}: Sonnet significantly better (2 vs 5 iterations)
+\end{itemize}
+
+\section{Agent Workflow Compliance}
+
+All trials followed the mandatory TikZ-generator workflow:
+\begin{enumerate}
+    \item \textbf{Phase 1}: Python drafting for curve parameter exploration (when needed)
+    \item \textbf{Phase 2}: TikZ code generation using pgfplots/TikZ libraries
+    \item \textbf{Phase 3}: Compilation, verification, and iterative refinement
+    \item \textbf{Phase 4}: Final integration (saved to TikzPlayground)
+\end{enumerate}
+
+All outputs met the quality checklist requirements and achieved topological equivalence with original diagrams.
+
+\end{document}

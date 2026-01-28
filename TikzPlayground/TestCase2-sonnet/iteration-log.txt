@@ -1,0 +1,53 @@
+Iteration Log for TestCase2 Phase Diagram
+==========================================
+
+v1: Initial attempt
+- Binodal and Spinodal curves created using parabolas
+- Red X at spinodal maximum
+- Metastable Zone label present
+- Double-headed arrow indicating metastable zone width
+- Legend in upper right corner
+
+Comparison with original:
+ISSUES:
+1. Legend format - using table instead of line samples (legend looks different)
+2. Red X size/style might need adjustment
+3. Arrow position might need fine-tuning
+
+ACCEPTED ELEMENTS:
++ Curve shapes are correct (symmetric parabolas)
++ Both curves touch at correct x-values
++ Red X at spinodal maximum is present
++ Metastable Zone label is positioned correctly
++ Overall topology matches the original
+
+Status: Need to improve legend appearance
+
+---
+
+v2: Improved legend
+- Changed legend from table format to embedded tikzpicture with actual line drawings
+- Legend now uses proper solid and dashed lines
+- Red X slightly larger and bolder for better visibility
+- All other elements preserved from v1
+
+Comparison with original:
+✓ Binodal curve (solid): Correct shape, position, and extent
+✓ Spinodal curve (dashed): Correct shape, position, and extent
+✓ Red X at spinodal maximum: Present and visible
+✓ Metastable Zone label: Correct position and formatting
+✓ Double-headed arrow: Present showing metastable zone width
+✓ Legend: Clean format with line samples matching curve styles
+✓ Axis labels: x₁ on x-axis, Temperature on y-axis
+✓ Tick marks: 0, 0.2, 0.4, 0.6, 0.8, 1.0 shown on x-axis
+✓ Overall topology: Matches original structure
+
+ACCEPTANCE CRITERIA CHECK:
+✓ Same number of curves/lines/objects - YES (2 curves, 1 marker, 1 arrow, 1 label, 1 legend)
+✓ Correct relative positions - YES (spinodal inside binodal, X at maximum)
+✓ Proper labels and annotations - YES (all labels present and positioned correctly)
+✓ Accurate axes ranges and scales - YES (x: 0-1, appropriate y-range)
+✓ Matching curve shapes - YES (symmetric parabolas, correct concavity)
+✓ Correct arrows and flow directions - YES (double-headed arrow correct)
+
+Status: ACCEPTED - Topologically equivalent and visually similar to original

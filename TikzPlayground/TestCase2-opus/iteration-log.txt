@@ -1,0 +1,20 @@
+Iteration Log for TestCase2-opus
+=================================
+
+Input: TestCase2.png - Temperature vs x_1 phase diagram with binodal/spinodal curves
+
+v1: Initial attempt - All major elements present (binodal, spinodal, legend, red X, annotation).
+    Issue: "Metastable Zone" annotation used a vertical line with right-angle connector
+    instead of the diagonal line seen in the original.
+
+v2: Fixed annotation to use a diagonal line from the label down to the crossing region.
+    Adjusted double-arrow position. Result is close to original but arrow geometry
+    could be slightly refined.
+
+v3: Fine-tuned annotation line start/end coordinates and double-arrow position.
+    Diagonal line now goes from (0.20, 0.75) to (0.23, 0.50).
+    Double-arrow repositioned to (0.14, 0.34) -- (0.26, 0.34).
+    ACCEPTED - Topologically equivalent, all elements match the original.
+
+Total iterations: 3
+Status: ACCEPTED

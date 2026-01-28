@@ -1,0 +1,52 @@
+TestCase2 Phase Diagram - Iteration Log
+========================================
+
+Original Image: /Users/mingheiwong/Desktop/MathThermoCourseLatex/TestCase2.png
+
+Description: Phase diagram showing Temperature vs x_1 (mole fraction) with:
+- Binodal curve (solid, outer)
+- Spinodal curve (dashed, inner)
+- Critical point marked with red X at (0.5, T_c)
+- Metastable zone labeled between the two curves
+
+Phase 1: Python Drafting
+------------------------
+- Created draft.py to test candidate functions
+- Analyzed curve properties:
+  - Both curves are downward-opening parabolas (quadratic)
+  - Symmetric about x = 0.5
+  - Binodal has zeros at ~0.08 and ~0.92
+  - Spinodal has zeros at ~0.22 and ~0.78
+  - Both curves meet at critical point (0.5, T_c)
+
+- Final parameters from Python:
+  - Binodal: y = -4.9887 * (x - 0.08) * (x - 0.92)
+  - Spinodal: y = -11.2245 * (x - 0.22) * (x - 0.78)
+  - Critical temperature T_c = 0.88
+
+- Python verification gate PASSED: draft.png matches original
+
+Phase 2-3: TikZ Generation and Verification
+--------------------------------------------
+v1 (test.tex): Initial attempt
+- All elements present and correct
+- Minor issue: red X at critical point was too small
+- Status: Close but could be improved
+
+v2 (test-v2.tex): Refined version - ACCEPTED
+- Increased figure size (12cm x 9cm)
+- Made red X more prominent (\huge)
+- Adjusted legend font size
+- All topological features match original
+- Status: ACCEPTED
+
+Final verification:
+- [x] Two curves with correct shapes (symmetric parabolas)
+- [x] Binodal (solid) wider, Spinodal (dashed) narrower
+- [x] Critical point at (0.5, 0.88) with red X
+- [x] Metastable Zone label with arrow between curves
+- [x] Legend in upper right corner
+- [x] Axes labeled (Temperature, x_1)
+- [x] x-axis ticks at 0, 0.2, 0.4, 0.6, 0.8, 1.0
+
+Total iterations: 2 (within limit of 6)

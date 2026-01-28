@@ -1,0 +1,23 @@
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=middle,
+    xlabel={$t$ (seconds)},
+    ylabel={$v(t)$ (m/s)},
+    xmin=-0.5, xmax=8.5,
+    ymin=-4.5, ymax=3.5,
+    xtick={0,1,2,3,4,5,6,7,8},
+    ytick={-4,-3,-2,-1,0,1,2,3},
+    width=11cm,
+    height=6.5cm,
+    grid=major,
+    grid style={dashed,gray!30}
+]
+
+% Complex piecewise: v=3 at t=0, drops to v=-3 at t=2, rises to v=2 at t=5, drops to v=-1 at t=7, rises to v=1 at t=8
+\addplot[blue, very thick] coordinates {(0,3) (2,-3) (5,2) (7,-1) (8,1)};
+
+% Mark key points
+\addplot[only marks, mark=*, mark size=2pt, blue] coordinates {(0,3) (2,-3) (5,2) (7,-1) (8,1)};
+
+\end{axis}
+\end{tikzpicture}

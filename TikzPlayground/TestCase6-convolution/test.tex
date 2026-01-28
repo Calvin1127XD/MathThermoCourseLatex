@@ -1,0 +1,114 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{amsmath,amssymb}
+\usetikzlibrary{matrix,positioning,backgrounds,fit}
+
+\begin{document}
+\begin{tikzpicture}[
+    cell/.style={minimum size=8mm, draw, outer sep=0pt, inner sep=0pt},
+    highlight red/.style={fill=red!30},
+    highlight green/.style={fill=green!30},
+    kernel cell/.style={minimum size=8mm, draw, outer sep=0pt, inner sep=0pt, fill=gray!20},
+]
+
+% === Input Matrix I (7x7) ===
+\def\cellsize{0.8}
+
+% Draw the input matrix
+\foreach \row [count=\r from 0] in {
+    {0,1,1,1,0,0,0},
+    {0,0,1,1,1,0,0},
+    {0,0,0,1,1,1,0},
+    {0,0,0,1,1,0,0},
+    {0,0,1,1,0,0,0},
+    {0,1,1,0,0,0,0},
+    {1,1,0,0,0,0,0}%
+} {
+    \foreach \val [count=\c from 0] in \row {
+        % Check if in red region (rows 0-2, cols 2-4)
+        \pgfmathsetmacro{\inred}{(\r >= 0 && \r <= 2 && \c >= 2 && \c <= 4) ? 1 : 0}
+        \ifnum\inred=1
+            \node[cell, highlight red] at (\c*\cellsize, -\r*\cellsize) {\val};
+        \else
+            \node[cell] at (\c*\cellsize, -\r*\cellsize) {\val};
+        \fi
+    }
+}
+
+% Red border around 3x3 region
+\draw[red, very thick] (2*\cellsize-0.4, 0.4) rectangle (4*\cellsize+0.4, -2*\cellsize-0.4);
+
+% Small subscript annotations in red region (showing kernel weights)
+\node[font=\tiny, blue] at (2*\cellsize+0.2, -0.2) {$\times 1$};
+\node[font=\tiny, blue] at (3*\cellsize+0.2, -0.2) {$\times 0$};
+\node[font=\tiny, blue] at (4*\cellsize+0.2, -0.2) {$\times 1$};
+\node[font=\tiny, blue] at (2*\cellsize+0.2, -\cellsize-0.2) {$\times 0$};
+\node[font=\tiny, blue] at (3*\cellsize+0.2, -\cellsize-0.2) {$\times 1$};
+\node[font=\tiny, blue] at (4*\cellsize+0.2, -\cellsize-0.2) {$\times 0$};
+\node[font=\tiny, blue] at (2*\cellsize+0.2, -2*\cellsize-0.2) {$\times 1$};
+\node[font=\tiny, blue] at (3*\cellsize+0.2, -2*\cellsize-0.2) {$\times 0$};
+\node[font=\tiny, blue] at (4*\cellsize+0.2, -2*\cellsize-0.2) {$\times 1$};
+
+% Label for I
+\node at (3*\cellsize, -7*\cellsize-0.3) {\Large $\mathbf{I}$};
+
+% === Convolution operator ===
+\node at (7.5*\cellsize, -3*\cellsize) {\Large $*$};
+
+% === Kernel K (3x3) ===
+\def\koffset{9}
+\foreach \row [count=\r from 0] in {
+    {1,0,1},
+    {0,1,0},
+    {1,0,1}%
+} {
+    \foreach \val [count=\c from 0] in \row {
+        \node[kernel cell] at (\koffset*\cellsize+\c*\cellsize, -\r*\cellsize-\cellsize) {\val};
+    }
+}
+
+% Blue border around kernel
+\draw[blue, very thick] (\koffset*\cellsize-0.4, -\cellsize+0.4) rectangle ((\koffset+2)*\cellsize+0.4, -3*\cellsize-0.4);
+
+% Label for K
+\node at ((\koffset+1)*\cellsize, -4.5*\cellsize) {\Large $\mathbf{K}$};
+
+% === Equals sign ===
+\node at (13*\cellsize, -3*\cellsize) {\Large $=$};
+
+% === Output Matrix I*K (5x5) ===
+\def\ooffset{14.5}
+\foreach \row [count=\r from 0] in {
+    {1,4,3,4,1},
+    {1,2,4,3,3},
+    {1,2,3,4,1},
+    {1,3,3,1,1},
+    {3,3,1,1,0}%
+} {
+    \foreach \val [count=\c from 0] in \row {
+        % Check if this is the highlighted cell (row 0, col 3)
+        \pgfmathsetmacro{\ingreen}{(\r == 0 && \c == 3) ? 1 : 0}
+        \ifnum\ingreen=1
+            \node[cell, highlight green] at (\ooffset*\cellsize+\c*\cellsize, -\r*\cellsize) {\val};
+        \else
+            \node[cell] at (\ooffset*\cellsize+\c*\cellsize, -\r*\cellsize) {\val};
+        \fi
+    }
+}
+
+% Green border around highlighted cell
+\draw[green!70!black, very thick] ((\ooffset+3)*\cellsize-0.4, 0.4) rectangle ((\ooffset+3)*\cellsize+0.4, -0.4);
+
+% Label for I*K
+\node at ((\ooffset+2)*\cellsize, -5.5*\cellsize) {\Large $\mathbf{I} * \mathbf{K}$};
+
+% === Dotted lines connecting red region to kernel and to output ===
+% From red region to kernel
+\draw[dotted, thick, green!50!black] (4*\cellsize+0.4, -0.4) -- (\koffset*\cellsize-0.4, -\cellsize-0.4);
+\draw[dotted, thick, green!50!black] (4*\cellsize+0.4, -2*\cellsize-0.4) -- (\koffset*\cellsize-0.4, -3*\cellsize-0.4);
+
+% From kernel to output
+\draw[dotted, thick, green!50!black] ((\koffset+2)*\cellsize+0.4, -\cellsize+0.4) -- ((\ooffset+3)*\cellsize-0.4, 0.4);
+\draw[dotted, thick, green!50!black] ((\koffset+2)*\cellsize+0.4, -3*\cellsize-0.4) -- ((\ooffset+3)*\cellsize+0.4, -0.4);
+
+\end{tikzpicture}
+\end{document}

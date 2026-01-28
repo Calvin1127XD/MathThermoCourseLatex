@@ -1,0 +1,51 @@
+TestCase3-opus Iteration Log
+=============================
+
+Original: TestCase3.png
+  Three colored functions f(x) (blue), h(x) (red), g(x) (green)
+  with gray shaded region between them. Vertical lines at x=a, b, c.
+
+v1: Initial attempt
+  - Used quadratic f, parabolic g, linear h
+  - f(x) too straight/steep, h(x) too flat (perfectly linear)
+  - Gray region too thin, insufficient vertical separation
+  - Arrow tips not visible on curves
+  - REJECTED: curves too compressed, h not curved enough
+
+v2: Changed f to cubic, added arrow tips via \draw
+  - f(x)=0.00855*x^3+1.432 (cubic for S-curve)
+  - g(x)=(1/12)*(x-4.7)^2+0.8925 (U-shaped)
+  - h(x)=-0.01*x^2-0.1033*x+3.267 (quadratic, slight curvature)
+  - f shoots up too steeply on right due to cubic
+  - h still too flat, barely any visible curvature
+  - REJECTED: f too steep, h too flat
+
+v3: Revised all functions with exact intersection constraints
+  - f(x)=0.025x^2+0.125x+0.95 (moderate quadratic)
+  - g(x)=0.05x^2-0.45x+2.0 (U-shaped)
+  - h(x)=-0.005x^2-0.135x+3.0 (very slight curvature)
+  - Better proportions but h still nearly linear (a=0.005 too small)
+  - Shaded region still thin, not enough vertical spread
+  - "x=a" label line-broke in PDF
+  - REJECTED: insufficient curvature on h, shaded region too thin
+
+v4: Major revision - increased vertical separation
+  - f(x)=0.04x^2+0.22x+0.9 (steeper quadratic)
+  - g(x)=(1/12)x^2-0.75x+2.667 (deeper U-shape, min~1.0 at x=4.5)
+  - h(x)=0.005x^2-0.398x+4.867 (gentle curvature, starts higher)
+  - Intersections: f(2)=g(2)=1.5, f(5)=h(5)=3.0, g(8)=h(8)=2.0
+  - Much better vertical spread, prominent shaded region
+  - h still looks too straight (quadratic with a=0.005)
+  - f flies off chart on right
+  - Fixed x=a label with \!
+  - CLOSE but h needs more curvature
+
+v5: Refined h(x) to exponential for visible curvature
+  - f(x)=0.04x^2+0.22x+0.9 (kept from v4)
+  - g(x)=(1/12)x^2-0.75x+2.667 (kept from v4)
+  - h(x)=6.36*exp(-0.1*x)-0.857 (exponential decay, concave up)
+  - h now has clearly visible curvature
+  - Limited f domain to prevent flying off chart
+  - All intersections maintained correctly
+  - Shaded region prominent and well-shaped
+  - ACCEPTED: topologically equivalent, visually similar

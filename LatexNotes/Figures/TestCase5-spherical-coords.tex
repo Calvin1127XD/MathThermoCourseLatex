@@ -1,0 +1,171 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usepackage{tikz-3dplot}
+\usetikzlibrary{calc,arrows.meta}
+
+\begin{document}
+
+\tdplotsetmaincoords{60}{120}
+
+\begin{tikzpicture}[tdplot_main_coords, scale=1.2,
+    axis/.style={-{Stealth[length=3mm]}, thick},
+    vector/.style={thick},
+    arc/.style={thick},
+    dashed line/.style={dashed, thin}]
+
+% Parameters
+\pgfmathsetmacro{\Rsph}{3.5}        % sphere radius
+\pgfmathsetmacro{\thetaval}{40}     % polar angle (from z-axis)
+\pgfmathsetmacro{\phival}{55}       % azimuthal angle (from x-axis)
+\pgfmathsetmacro{\dth}{18}          % d-theta
+\pgfmathsetmacro{\dph}{20}          % d-phi
+
+% Computed coordinates of the point P on the sphere
+\pgfmathsetmacro{\Px}{\Rsph*sin(\thetaval)*cos(\phival)}
+\pgfmathsetmacro{\Py}{\Rsph*sin(\thetaval)*sin(\phival)}
+\pgfmathsetmacro{\Pz}{\Rsph*cos(\thetaval)}
+
+% Patch corner angles
+\pgfmathsetmacro{\tha}{\thetaval}
+\pgfmathsetmacro{\thb}{\thetaval + \dth}
+\pgfmathsetmacro{\pha}{\phival}
+\pgfmathsetmacro{\phb}{\phival + \dph}
+
+% ---- Axes ----
+\draw[axis] (0,0,0) -- (5,0,0) node[below left]{$x$};
+\draw[axis] (0,0,0) -- (0,5,0) node[below right]{$y$};
+\draw[axis] (0,0,0) -- (0,0,5) node[above]{$z$};
+
+% ---- Quarter sphere arcs (wireframe) ----
+% Arc in xz-plane (phi=0)
+\draw[blue, thin] plot[domain=0:90, samples=60, variable=\t]
+    ({\Rsph*sin(\t)}, 0, {\Rsph*cos(\t)});
+
+% Arc in yz-plane (phi=90)
+\draw[blue, thin] plot[domain=0:90, samples=60, variable=\t]
+    (0, {\Rsph*sin(\t)}, {\Rsph*cos(\t)});
+
+% Arc in xy-plane (theta=90, equator)
+\draw[blue, thin] plot[domain=0:90, samples=60, variable=\t]
+    ({\Rsph*cos(\t)}, {\Rsph*sin(\t)}, 0);
+
+% Additional latitude arc at theta = thetaval (through the point)
+\draw[blue!40, very thin] plot[domain=0:90, samples=60, variable=\t]
+    ({\Rsph*sin(\thetaval)*cos(\t)}, {\Rsph*sin(\thetaval)*sin(\t)}, {\Rsph*cos(\thetaval)});
+
+% Additional longitude arc at phi = phival (through the point)
+\draw[blue!40, very thin] plot[domain=0:90, samples=60, variable=\t]
+    ({\Rsph*sin(\t)*cos(\phival)}, {\Rsph*sin(\t)*sin(\phival)}, {\Rsph*cos(\t)});
+
+% ---- Lines from origin to patch corners (to show the geometry) ----
+\draw[thin, gray] (0,0,0) --
+    ({\Rsph*sin(\tha)*cos(\pha)}, {\Rsph*sin(\tha)*sin(\pha)}, {\Rsph*cos(\tha)});
+\draw[thin, gray] (0,0,0) --
+    ({\Rsph*sin(\tha)*cos(\phb)}, {\Rsph*sin(\tha)*sin(\phb)}, {\Rsph*cos(\tha)});
+\draw[thin, gray] (0,0,0) --
+    ({\Rsph*sin(\thb)*cos(\pha)}, {\Rsph*sin(\thb)*sin(\pha)}, {\Rsph*cos(\thb)});
+\draw[thin, gray] (0,0,0) --
+    ({\Rsph*sin(\thb)*cos(\phb)}, {\Rsph*sin(\thb)*sin(\phb)}, {\Rsph*cos(\thb)});
+
+% ---- Dashed projection lines ----
+% From P down to xy-plane
+\draw[dashed line] (\Px,\Py,\Pz) -- (\Px,\Py,0);
+% From origin to projection in xy-plane
+\draw[dashed line] (0,0,0) -- (\Px,\Py,0);
+
+% ---- Radius vector r ----
+\draw[vector] (0,0,0) -- (\Px,\Py,\Pz);
+% Label r at lower midpoint of the radius line
+\node at ({\Px*0.38}, {\Py*0.38}, {\Pz*0.38}) [below] {$r$};
+
+% ---- "r sinθ" label ----
+% In the original, this appears near the top of the diagram next to the point,
+% indicating the horizontal distance from z-axis. Position it near the latitude
+% circle near the point, slightly above.
+\pgfmathsetmacro{\rsinval}{\Rsph*sin(\thetaval)}
+\node[font=\footnotesize] at ({\rsinval*cos(\phival)*0.55 - 0.1},
+          {\rsinval*sin(\phival)*0.55 + 0.15},
+          {\Pz + 0.35}) {$r\!\sin\!\theta$};
+
+% ---- Theta angle arc (from z-axis to r) ----
+\pgfmathsetmacro{\arcR}{1.3}
+\draw[arc] plot[domain=0:\thetaval, samples=30, variable=\t]
+    ({\arcR*sin(\t)*cos(\phival)}, {\arcR*sin(\t)*sin(\phival)}, {\arcR*cos(\t)});
+% Label theta -- positioned to the left of the arc
+\pgfmathsetmacro{\thlabel}{\thetaval/2}
+\node at ({\arcR*sin(\thlabel)*cos(\phival) - 0.35},
+          {\arcR*sin(\thlabel)*sin(\phival) - 0.2},
+          {\arcR*cos(\thlabel)}) {$\theta$};
+
+% ---- Phi angle arc (in xy-plane) ----
+\pgfmathsetmacro{\phiR}{1.8}
+\draw[arc] plot[domain=0:\phival, samples=30, variable=\t]
+    ({\phiR*cos(\t)}, {\phiR*sin(\t)}, 0);
+% Label phi
+\pgfmathsetmacro{\phlabel}{\phival/2}
+\node at ({\phiR*cos(\phlabel)}, {\phiR*sin(\phlabel)}, 0) [below] {$\phi$};
+
+% ---- dtheta arc (small arc showing differential angle) ----
+\pgfmathsetmacro{\dtarcR}{1.8}
+\draw[arc] plot[domain=\thetaval:{\thetaval+\dth}, samples=15, variable=\t]
+    ({\dtarcR*sin(\t)*cos(\phival)}, {\dtarcR*sin(\t)*sin(\phival)}, {\dtarcR*cos(\t)});
+% Label d-theta -- positioned to the left of the differential arc
+\pgfmathsetmacro{\dtlabel}{\thetaval + \dth/2}
+\node at ({\dtarcR*sin(\dtlabel)*cos(\phival) - 0.1},
+          {\dtarcR*sin(\dtlabel)*sin(\phival) - 0.05},
+          {\dtarcR*cos(\dtlabel)}) [left] {$\mathrm{d}\theta$};
+
+% ---- dphi arc (small arc in xy-plane) ----
+\pgfmathsetmacro{\dphiR}{2.2}
+\draw[arc] plot[domain=\phival:{\phival+\dph}, samples=15, variable=\t]
+    ({\dphiR*cos(\t)}, {\dphiR*sin(\t)}, 0);
+% Label d-phi
+\pgfmathsetmacro{\dphlabel}{\phival + \dph/2}
+\node at ({\dphiR*cos(\dphlabel)}, {\dphiR*sin(\dphlabel)}, 0) [below] {$\mathrm{d}\phi$};
+
+% ---- Differential surface element dA ----
+% Fill the patch
+\fill[cyan!30, opacity=0.7]
+    plot[domain=\pha:\phb, samples=10, variable=\t]
+       ({\Rsph*sin(\tha)*cos(\t)}, {\Rsph*sin(\tha)*sin(\t)}, {\Rsph*cos(\tha)})
+    -- plot[domain=\tha:\thb, samples=10, variable=\t]
+       ({\Rsph*sin(\t)*cos(\phb)}, {\Rsph*sin(\t)*sin(\phb)}, {\Rsph*cos(\t)})
+    -- plot[domain=\phb:\pha, samples=10, variable=\t]
+       ({\Rsph*sin(\thb)*cos(\t)}, {\Rsph*sin(\thb)*sin(\t)}, {\Rsph*cos(\thb)})
+    -- plot[domain=\thb:\tha, samples=10, variable=\t]
+       ({\Rsph*sin(\t)*cos(\pha)}, {\Rsph*sin(\t)*sin(\pha)}, {\Rsph*cos(\t)})
+    -- cycle;
+
+% Draw the patch boundary
+\draw[thick] plot[domain=\pha:\phb, samples=15, variable=\t]
+    ({\Rsph*sin(\tha)*cos(\t)}, {\Rsph*sin(\tha)*sin(\t)}, {\Rsph*cos(\tha)});
+\draw[thick] plot[domain=\pha:\phb, samples=15, variable=\t]
+    ({\Rsph*sin(\thb)*cos(\t)}, {\Rsph*sin(\thb)*sin(\t)}, {\Rsph*cos(\thb)});
+\draw[thick] plot[domain=\tha:\thb, samples=15, variable=\t]
+    ({\Rsph*sin(\t)*cos(\pha)}, {\Rsph*sin(\t)*sin(\pha)}, {\Rsph*cos(\t)});
+\draw[thick] plot[domain=\tha:\thb, samples=15, variable=\t]
+    ({\Rsph*sin(\t)*cos(\phb)}, {\Rsph*sin(\t)*sin(\phb)}, {\Rsph*cos(\t)});
+
+% Label dA inside the patch
+\pgfmathsetmacro{\tcenter}{(\tha + \thb)/2}
+\pgfmathsetmacro{\pcenter}{(\pha + \phb)/2}
+\node at ({\Rsph*sin(\tcenter)*cos(\pcenter)},
+          {\Rsph*sin(\tcenter)*sin(\pcenter)},
+          {\Rsph*cos(\tcenter)}) {$\mathrm{d}A$};
+
+% ---- Dimension labels for the patch edges (in red, like original) ----
+% "r dθ" label -- to the upper-right of the patch (near the meridian edge at phb)
+\pgfmathsetmacro{\tlab}{(\tha + \thb)/2}
+\node[red] at ({\Rsph*sin(\tlab)*cos(\phb) + 0.6},
+               {\Rsph*sin(\tlab)*sin(\phb) + 0.5},
+               {\Rsph*cos(\tlab) + 0.25}) {$r\,\mathrm{d}\theta$};
+
+% "r sinθ dφ" label -- below-right of the patch (near the latitude edge at thb)
+\pgfmathsetmacro{\plab}{(\pha + \phb)/2}
+\node[red] at ({\Rsph*sin(\thb)*cos(\plab) + 0.15},
+               {\Rsph*sin(\thb)*sin(\plab) + 0.55},
+               {\Rsph*cos(\thb) - 0.55}) {$r\sin\theta\,\mathrm{d}\phi$};
+
+\end{tikzpicture}
+
+\end{document}

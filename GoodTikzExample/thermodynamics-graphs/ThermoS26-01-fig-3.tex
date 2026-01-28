@@ -1,0 +1,81 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepackage{xcolor} % Explicitly loading xcolor
+\usetikzlibrary{decorations.pathmorphing, arrows.meta, positioning, calc}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        % --- Axis Setup ---
+        axis lines = middle,
+        xlabel = {$U^\alpha$},
+        ylabel = {},
+        xlabel style = {at={(ticklabel* cs:1.02)}, anchor=west},
+        axis line style = {-Stealth, thick},
+        xmin = -1.5, xmax = 12.5,
+        ymin = -0.5, ymax = 5.5,
+        ticks = none,
+        clip = false,
+        width = 14cm,
+        height = 8cm
+    ]
+
+        % --- 1. The Curves ---
+        
+        % Black Curve: S_alpha
+        \addplot[
+            thick, 
+            black, 
+            domain=0:10, 
+            samples=200
+        ] {1.6 * x^0.48};
+
+        % Red Curve: S_beta
+        % Explicitly setting color to 'red'
+        \addplot[
+            thick, 
+            color=red, 
+            domain=1:10, 
+            samples=200
+        ] {1.1 * (10 - x)^0.55};
+
+        % --- 2. Dashed Vertical Line ---
+        \draw[dashed, thick, black!60] (axis cs:10, 0) -- (axis cs:10, 4.83);
+        \node[anchor=north, yshift=-3pt] at (axis cs:10, 0) {\large $U_0$};
+
+        % --- 3. Points (Dots) ---
+        \node[circle, fill=black, inner sep=1.8pt] (origin) at (axis cs:0,0) {};
+        \node[circle, fill=red, inner sep=1.8pt] (u0) at (axis cs:10,0) {};
+
+        % --- 4. Annotations ---
+
+        % -- Top Squiggly Arrow & Label (Black) --
+        \node[anchor=south west] (lbl_Sa) at (axis cs: 4.5, 3.8) {\large $\tilde{S}^\alpha(U^\alpha)$};
+        
+        % -- Top Right Description (Black) --
+        \node[anchor=south west, align=left, font=\normalsize] at (axis cs: 7.2, 4.8) {
+            $\tilde{S}^\alpha$ concave and \\
+            increasing in $U^\alpha$
+        };
+
+        % -- Red Curve Label --
+        % We apply [red] to the node AND \color{red} inside the math to be 100% sure
+        \node[red, anchor=west] (lbl_Sb) at (axis cs: 4.5, 1.6) {\large \color{red} $\tilde{S}^\beta(U_0 - U^\alpha)$};
+       
+        % -- Left Zero Point (Black) --
+        \node[anchor=east, align=right, font=\normalsize] (lbl_Ta) at (axis cs: -1.2, 1.5) {
+            $T_S^\alpha = 0$ \\
+            at $U^\alpha = 0$
+        };
+        \draw[->, >=Stealth, thick, black] (lbl_Ta.south east) -- ($(origin.center)+(-1,10)$);
+
+        % -- Right Zero Point (Red Text) --
+        % We apply [red] to the node AND \color{red} inside the text
+        \node[red, anchor=west, align=left, font=\normalsize] (lbl_Tb) at (axis cs: 10.8, 1.5) {
+            \color{red} $T_S^\beta = 0$ at $U^\alpha = U_0$
+        };
+        \draw[->, >=Stealth, thick, red] (lbl_Tb.south west) -- ($(u0.center)+(1,10)$);
+
+    \end{axis}
+\end{tikzpicture}
+\end{document}

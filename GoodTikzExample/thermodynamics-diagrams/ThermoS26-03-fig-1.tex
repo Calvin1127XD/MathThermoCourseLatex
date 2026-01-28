@@ -1,0 +1,122 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{tikz}
+\usetikzlibrary{patterns, arrows.meta, positioning, calc}
+
+\begin{document}
+\begin{tikzpicture}
+    % --- Style Definitions ---
+    \tikzset{
+        % Outer insulation wall
+        wall style/.style={
+            draw=black, 
+            thick, 
+            pattern=north east lines, 
+            pattern color=black!60
+        },
+        % Inner chambers
+        chamber style/.style={
+            draw=black, 
+            thick,
+            minimum width=3cm,
+            minimum height=3cm,
+            outer sep=0pt
+        },
+        % Fills
+        hot fill/.style={fill=red!20},
+        cold fill/.style={fill=blue!20},
+        equil fill/.style={fill=green!20}, % New Green Fill for Equilibrium
+        % Diathermal wall
+        diathermal style/.style={
+            fill=orange!30,
+            draw=black,
+            thick
+        },
+        % Text styling
+        title text/.style={font=\Large\bfseries},
+        var text/.style={font=\large, align=center},
+        label text/.style={font=\sffamily\large},
+        % Arrow styling
+        annotation arrow/.style={
+            ->, 
+            >=Stealth, 
+            thick, 
+            black
+        }
+    }
+
+    % ==========================================
+    % LEFT DIAGRAM: Tau = 0 (Hot/Cold)
+    % ==========================================
+    \begin{scope}[local bounding box=leftSystem]
+        
+        % Title
+        \node[title text] at (0, 2.5) {$\tau = 0$};
+
+        % 1. Outer Wall
+        \node[
+            wall style, 
+            minimum width=7cm, 
+            minimum height=4cm
+        ] (outer_left) at (0,0) {};
+
+        % 2. Inner Chambers
+        % Left Chamber (Hot - Red)
+        \node[chamber style, hot fill, anchor=east] (left_box_0) at (0,0) {};
+        % Right Chamber (Cold - Blue)
+        \node[chamber style, cold fill, anchor=west] (right_box_0) at (0,0) {};
+
+        % 3. Variables
+        \node[var text] at (left_box_0.center) {$U^\alpha(0)$ \\[5pt] $V^\alpha, N^\alpha$};
+        \node[var text] at (right_box_0.center) {$U^\beta(0)$ \\[5pt] $V^\beta, N^\beta$};
+
+        % 4. Annotations
+        \node[label text, anchor=north] (lbl_hot) at (-2, -2) {Hot};
+        \draw[annotation arrow] (lbl_hot.north) to[out=90, in=270] ($(left_box_0.south)+(0,0.5)$);
+
+        \node[label text, anchor=north] (lbl_cold) at (2, -2) {Cold};
+        \draw[annotation arrow] (lbl_cold.north) to[out=90, in=270] ($(right_box_0.south)+(0,0.5)$);
+
+    \end{scope}
+
+    % ==========================================
+    % RIGHT DIAGRAM: Tau = 1 (Equilibrium)
+    % ==========================================
+    \begin{scope}[xshift=9cm, local bounding box=rightSystem]
+        
+        % Title
+        \node[title text] at (0, 2.5) {$\tau = 1$};
+
+        % 1. Outer Wall
+        \node[
+            wall style, 
+            minimum width=7cm, 
+            minimum height=4cm
+        ] (outer_right) at (0,0) {};
+
+        % 2. Inner Chambers (Equilibrium - Green)
+        % Left Chamber
+        \node[chamber style, equil fill, anchor=east] (left_box_1) at (-0.15,0) {}; 
+        % Right Chamber
+        \node[chamber style, equil fill, anchor=west] (right_box_1) at (0.15,0) {}; 
+
+        % 3. Diathermal Wall (Center)
+        \node[
+            diathermal style,
+            minimum width=0.3cm,
+            minimum height=3cm
+        ] (dia_wall) at (0,0) {};
+
+        % 4. Variables
+        \node[var text] at (left_box_1.center) {$U^\alpha(1)$ \\[5pt] $V^\alpha, N^\alpha$};
+        \node[var text] at (right_box_1.center) {$U^\beta(1)$ \\[5pt] $V^\beta, N^\beta$};
+
+        % 5. Annotations
+        \node[label text, anchor=north west] (lbl_dia) at (-0.5, -2) {diathermal wall};
+        \draw[annotation arrow] (lbl_dia.north) to[out=90, in=270] (dia_wall.south);
+
+        \node[label text, anchor=north] at (lbl_dia.south) {(equilibrium)};
+
+    \end{scope}
+
+\end{tikzpicture}
+\end{document}

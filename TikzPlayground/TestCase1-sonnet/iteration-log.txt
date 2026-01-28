@@ -1,0 +1,20 @@
+Iteration Log for TestCase1 Phase Diagram
+==========================================
+
+v1: Initial attempt
+- Created rectangular box (10x6 units)
+- Added sine wave boundary with parameters: amplitude=0.4, wavelength=2.5, yoffset=3
+- Gray shaded region for interface width epsilon=0.5
+- Labels for phi=1/Phase 1 (top) and phi=-1/Phase 2 (bottom)
+- Red arrow showing epsilon
+- Status: INCORRECT - Gray shading filled entire bottom region instead of narrow band around boundary
+
+v2: Fix gray shading logic
+- Issue: The fill command filled from boundary down to bottom of box
+- Fix: Used proper fill_between approach - only shade the narrow band between upper and lower boundaries
+- Also reduced number of waves: wavelength 2.5 -> 3.5 (fewer waves)
+- Status: ACCEPTED - Topologically equivalent to original
+  - Gray band correctly shows only interface region
+  - All labels present and correctly positioned
+  - Wave structure captures the essential physics
+  - Minor differences in exact wave count acceptable

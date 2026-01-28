@@ -1,0 +1,28 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    width=10cm,
+    height=6cm,
+    axis lines=left,
+    xlabel={$\rho$},
+    ylabel={},
+    xtick=\empty,
+    ytick=\empty,
+    domain=0:3.5,
+    samples=100,
+    clip=false
+]
+\addplot[thick,blue] {2*(x-0.8)^2+4};
+\addplot[thick,black] {3*(x-2.6)^2+2};
+
+\node at (axis cs:0.8,16) {$f^\alpha(\rho)$};
+\node at (axis cs:2.8,16) {$f^\beta(\rho)$};
+
+\addplot[dashed] coordinates {(1.565,0) (1.565,5.4)};
+\node[below] at (axis cs:1.565,-0.4) {$\rho_0$};
+\end{axis}
+\end{tikzpicture}
+\end{document}

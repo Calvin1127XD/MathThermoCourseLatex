@@ -1,0 +1,162 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    xlabel={},
+    ylabel={},
+    domain=-3:11,
+    samples=300,
+    xmin=-3.5, xmax=11.5,
+    ymin=-3, ymax=5.5,
+    width=15cm, height=9cm,
+    xtick=\empty,
+    ytick=\empty,
+    axis line style={very thick, -{Stealth[length=5mm]}},
+    clip=false,
+]
+
+% ============================================================
+% Functions designed to match the original hand-drawn diagram:
+%
+% f(x): blue, gently increasing, nearly flat left, steeper right
+%   Use a cubic: f(x) = 0.008*(x+2)^3 + 0.3
+%   f(-2)=0.3, f(2)=0.81, f(5)=2.74, f(8)=8.3 -- too steep at 8
+%   Try: f(x) = 0.005*(x+1)^3 + 0.6
+%   f(-2)=-0.005+0.6=0.595, f(2)=0.135+0.6=0.735, f(5)=1.08+0.6=1.68, f(8)=3.645+0.6=4.245
+%   Still need f(2)=g(2) and f(5)=h(5)
+%
+% Recalculate with constraints:
+%   a=2, b=5, c=8
+%   f(a)=g(a), f(b)=h(b), g(c)=h(c)
+%
+% Let's pick intersection values: f(2)=g(2)=1.5, f(5)=h(5)=2.5, g(8)=h(8)=1.8
+%
+% f(x) = A*(x-x0)^3 + B  (cubic, increasing)
+%   f(2)=1.5, f(5)=2.5
+%   A*(2-x0)^3+B = 1.5
+%   A*(5-x0)^3+B = 2.5
+%   => A*[(5-x0)^3 - (2-x0)^3] = 1.0
+%   Choose x0=0: A*[125-8] = 1.0 => A = 1/117 = 0.00855
+%   B = 1.5 - 0.00855*8 = 1.5 - 0.0684 = 1.432
+%   f(x) = 0.00855*x^3 + 1.432
+%   f(2) = 0.0684+1.432 = 1.50 YES
+%   f(5) = 1.069+1.432 = 2.50 YES
+%   f(8) = 4.38+1.432 = 5.81  (high, fine)
+%   f(-2) = -0.0684+1.432 = 1.36 (pretty flat on left, good)
+%   f(-3) = -0.231+1.432 = 1.20
+%
+% g(x) = (1/12)*(x-x0)^2 + g_min  (U-shaped)
+%   g(2) = 1.5, g(8) = 1.8
+%   (1/12)*(2-x0)^2 + g_min = 1.5
+%   (1/12)*(8-x0)^2 + g_min = 1.8
+%   => (1/12)*[(8-x0)^2 - (2-x0)^2] = 0.3
+%   => (1/12)*[(64-16*x0+x0^2)-(4-4*x0+x0^2)] = 0.3
+%   => (1/12)*(60-12*x0) = 0.3
+%   => 5 - x0 = 0.3 => x0 = 4.7
+%   g_min = 1.5 - (1/12)*(2-4.7)^2 = 1.5 - (1/12)*7.29 = 1.5 - 0.6075 = 0.8925
+%   g(x) = (1/12)*(x-4.7)^2 + 0.8925
+%   g(5) = (1/12)*0.09+0.893 = 0.0075+0.893 = 0.90
+%   g(2) = 0.608+0.893 = 1.50 YES
+%   g(8) = 0.908+0.893 = 1.80 YES
+%   g(0) = (1/12)*22.09+0.893 = 1.841+0.893 = 2.73
+%   g(-2) = (1/12)*44.89+0.893 = 3.74+0.893 = 4.63
+%
+% h(x) = -A*x + B  or with slight curvature
+%   h(5) = 2.5, h(8) = 1.8
+%   Use quadratic with slight concave-down: h(x) = -a*x^2 + b*x + c, a>0
+%   Or concave-up for the decreasing shape in the image...
+%   Actually the image shows h curving gently. Let me use:
+%   h(x) = -0.015*(x-1)^2 + 0.015 + (-0.2333*x + 3.667)
+%   Simpler: just linear h(x) = -7/30*x + 11/3
+%   h(5) = -7/6 + 11/3 = -7/6+22/6 = 15/6 = 2.5 YES
+%   h(8) = -56/30+11/3 = -28/15+55/15 = 27/15 = 1.8 YES
+%   h(2) = -14/30+11/3 = -7/15+55/15 = 48/15 = 3.2
+%   h(0) = 11/3 = 3.667
+%   h(-1) = 7/30+11/3 = 7/30+110/30 = 117/30 = 3.9
+%
+%   For slight curvature, use: h(x) = -0.01*x^2 - 0.183*x + 3.567
+%   h(5) = -0.25-0.917+3.567 = 2.4  close enough, let me recalculate
+%   Let h(x) = -0.01*x^2 + ax + b
+%   h(5)=2.5: -0.25+5a+b=2.5 => 5a+b=2.75
+%   h(8)=1.8: -0.64+8a+b=1.8 => 8a+b=2.44
+%   3a = -0.31 => a=-0.1033, b=2.75+0.517=3.267
+%   h(x) = -0.01*x^2 - 0.1033*x + 3.267
+%   h(2) = -0.04-0.207+3.267 = 3.02
+%   h(0) = 3.267
+%   h(-2) = -0.04+0.207+3.267 = 3.43
+%   That's concave down - decreasing. Let me check visually.
+% ============================================================
+
+% --- Shaded region FIRST (so it's behind curves) ---
+
+% Path for f from x=2 to x=5
+\addplot[name path=f_left, draw=none, domain=2:5, samples=100]
+  {0.00855*x^3 + 1.432};
+% Path for g from x=2 to x=5
+\addplot[name path=g_left, draw=none, domain=2:5, samples=100]
+  {(1/12)*(x-4.7)^2 + 0.8925};
+\addplot[gray!35] fill between[of=f_left and g_left];
+
+% Path for h from x=5 to x=8
+\addplot[name path=h_right, draw=none, domain=5:8, samples=100]
+  {-0.01*x^2 - 0.1033*x + 3.267};
+% Path for g from x=5 to x=8
+\addplot[name path=g_right, draw=none, domain=5:8, samples=100]
+  {(1/12)*(x-4.7)^2 + 0.8925};
+\addplot[gray!35] fill between[of=h_right and g_right];
+
+% --- Curves ---
+% f(x) blue: increasing cubic
+\addplot[blue, very thick, domain=-3:9.5]
+  {0.00855*x^3 + 1.432};
+% Arrow at right end of f
+\draw[-{Stealth[length=3mm]}, blue, very thick]
+  (axis cs:9.5,{0.00855*9.5^3+1.432}) -- (axis cs:10,{0.00855*10^3+1.432});
+
+% g(x) green (dark): U-shaped parabola
+\addplot[green!50!black, very thick, domain=-1.8:10]
+  {(1/12)*(x-4.7)^2 + 0.8925};
+% Arrow at left end of g
+\draw[-{Stealth[length=3mm]}, green!50!black, very thick]
+  (axis cs:-1.3,{(1/12)*(-1.3-4.7)^2+0.8925}) -- (axis cs:-1.8,{(1/12)*(-1.8-4.7)^2+0.8925});
+% Arrow at right end of g
+\draw[-{Stealth[length=3mm]}, green!50!black, very thick]
+  (axis cs:9.5,{(1/12)*(9.5-4.7)^2+0.8925}) -- (axis cs:10,{(1/12)*(10-4.7)^2+0.8925});
+
+% h(x) red: decreasing with slight curvature
+\addplot[red, very thick, domain=-1.5:10.5]
+  {-0.01*x^2 - 0.1033*x + 3.267};
+% Arrow at left end of h
+\draw[-{Stealth[length=3mm]}, red, very thick]
+  (axis cs:-1,{-0.01*1+0.1033+3.267}) -- (axis cs:-1.5,{-0.01*2.25+0.155+3.267});
+% Arrow at right end of h
+\draw[-{Stealth[length=3mm]}, red, very thick]
+  (axis cs:10,{-0.01*100-1.033+3.267}) -- (axis cs:10.5,{-0.01*110.25-1.085+3.267});
+
+% Arrow at left end of f
+\draw[-{Stealth[length=3mm]}, blue, very thick]
+  (axis cs:-2.5,{0.00855*(-2.5)^3+1.432}) -- (axis cs:-3,{0.00855*(-3)^3+1.432});
+
+% --- Vertical lines at x=a, x=b, x=c ---
+\draw[gray, thin] (axis cs:2,0) -- (axis cs:2,1.5);
+\draw[gray, thin] (axis cs:5,0) -- (axis cs:5,2.5);
+\draw[gray, thin] (axis cs:8,0) -- (axis cs:8,1.8);
+
+% --- x-axis labels ---
+\node[below, font=\normalsize] at (axis cs:2,-0.2) {$x{=}a$};
+\node[below, font=\normalsize] at (axis cs:5,-0.2) {$x{=}b$};
+\node[below, font=\normalsize] at (axis cs:8,-0.2) {$x{=}c$};
+
+% --- Function labels (positioned like original) ---
+\node[blue, font=\Large\bfseries] at (axis cs:10.5,5.0) {$f(x)$};
+\node[green!50!black, font=\Large\bfseries] at (axis cs:10.5,3.6) {$g(x)$};
+\node[red, font=\Large\bfseries] at (axis cs:10.5,1.8) {$h(x)$};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

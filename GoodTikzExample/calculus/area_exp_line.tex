@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    xlabel={$x$}, ylabel={$y$},
+    domain=0:1.2, samples=100,
+    xmin=-0.1, xmax=1.3,
+    ymin=-0.1, ymax=3,
+    width=10cm, height=8cm,
+    xtick={0,0.5,1},
+    ytick={0,1,2},
+    legend pos=north west
+]
+% Fill between curves
+\addplot[name path=f, blue, thick, domain=0:1] {exp(x)};
+\addplot[name path=g, red, thick, domain=0:1] {x+1};
+\addplot[fill=blue!20, opacity=0.5] fill between[of=f and g, soft clip={domain=0:1}];
+
+% Bounding lines x=0 and x=1
+\addplot[gray, dotted, thick] coordinates {(0,0) (0,3)};
+\addplot[gray, dotted, thick] coordinates {(1,0) (1,3)};
+
+% Labels
+\addlegendentry{$y=e^x$}
+\addlegendentry{$y=x+1$}
+\end{axis}
+\end{tikzpicture}

@@ -1,0 +1,71 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usetikzlibrary{arrows.meta, positioning}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    width=12cm,
+    height=8cm,
+    axis lines=left,
+    xlabel={$x_1$},
+    ylabel={Temperature},
+    xlabel style={at={(ticklabel* cs:1.02)}, anchor=west},
+    ylabel style={rotate=-90},
+    xmin=0, xmax=1,
+    ymin=0, ymax=1.1,
+    xtick={0, 0.2, 0.4, 0.6, 0.8, 1.0},
+    ytick=\empty,
+    clip=false,
+    domain=0:1,
+    samples=200
+]
+
+% Binodal curve (solid line)
+% Parabola with zeros at x=0.2 and x=0.8
+% Using form: T = a(x - 0.2)(0.8 - x)
+% Maximum at x=0.5: T_max = a(0.3)(0.3) = 0.09a
+% Set T_max = 1.0, so a = 1/0.09 ≈ 11.11
+\addplot[
+    thick,
+    black,
+    domain=0.15:0.85
+] {11.11*(x - 0.2)*(0.8 - x)};
+
+% Spinodal curve (dashed line)
+% Parabola with zeros at x=0.3 and x=0.7
+% Using form: T = b(x - 0.3)(0.7 - x)
+% Maximum at x=0.5: T_max = b(0.2)(0.2) = 0.04b
+% Set T_max = 0.85, so b = 0.85/0.04 = 21.25
+\addplot[
+    thick,
+    black,
+    dashed,
+    domain=0.25:0.75
+] {21.25*(x - 0.3)*(0.7 - x)};
+
+% Red X at spinodal maximum
+\node[red, scale=2.5, font=\bfseries] at (axis cs:0.5, 0.85) {$\times$};
+
+% Metastable Zone label
+\node[anchor=south, align=center, font=\Large] at (axis cs:0.25, 0.75) {Metastable \\ Zone};
+
+% Double-headed arrow showing metastable zone width
+\draw[<->, >=Stealth, thick] (axis cs:0.3, 0.5) -- (axis cs:0.38, 0.5);
+
+% Legend - using line draws to match original style
+\node[anchor=north west] at (axis cs:0.75, 1.05) {
+    \begin{tikzpicture}
+        % Solid line for Binodal
+        \draw[black, thick] (0, 0.3) -- (0.6, 0.3);
+        \node[anchor=west] at (0.7, 0.3) {Binodal};
+        % Dashed line for Spinodal
+        \draw[black, thick, dashed] (0, 0) -- (0.6, 0);
+        \node[anchor=west] at (0.7, 0) {Spinodal};
+    \end{tikzpicture}
+};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

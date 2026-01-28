@@ -1,0 +1,62 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usepgfplotslibrary{fillbetween}
+\pgfplotsset{compat=1.18}
+
+\begin{document}
+\begin{tikzpicture}
+\begin{axis}[
+    axis lines=center,
+    xlabel={},
+    ylabel={},
+    domain=-2:11,
+    samples=200,
+    xmin=-3, xmax=11,
+    ymin=-2, ymax=5.5,
+    width=14cm, height=9cm,
+    xtick=\empty,
+    ytick=\empty,
+    axis line style={thick, -{Stealth[length=4mm]}},
+    every axis x label/.style={at={(ticklabel* cs:1)}, anchor=west},
+    every axis y label/.style={at={(ticklabel* cs:1)}, anchor=south},
+    clip=false,
+]
+
+% f(x) = 0.04x^2 + 0.12x + 0.6 (blue, increasing)
+\addplot[name path=f, blue, very thick, domain=-2:10, ->] {0.04*x^2 + 0.12*x + 0.6};
+
+% g(x) = (1/12)x^2 - 0.75x + 2.167 (green, U-shaped)
+\addplot[name path=g, green!50!black, very thick, domain=-1.5:10.5, ->] {(1/12)*x^2 - 0.75*x + 2.167};
+
+% h(x) = -0.2333x + 3.367 (red, decreasing)
+\addplot[name path=h, red, very thick, domain=-1:10.5, ->] {-0.2333*x + 3.367};
+
+% Shaded region: between min(f,h) on top and g on bottom, from x=2 to x=8
+% From x=2 to x=5: f < h, so upper = f
+% From x=5 to x=8: h < f, so upper = h
+\addplot[name path=f_left, draw=none, domain=2:5] {0.04*x^2 + 0.12*x + 0.6};
+\addplot[name path=g_left, draw=none, domain=2:5] {(1/12)*x^2 - 0.75*x + 2.167};
+\addplot[gray!30] fill between[of=f_left and g_left];
+
+\addplot[name path=h_right, draw=none, domain=5:8] {-0.2333*x + 3.367};
+\addplot[name path=g_right, draw=none, domain=5:8] {(1/12)*x^2 - 0.75*x + 2.167};
+\addplot[gray!30] fill between[of=h_right and g_right];
+
+% Vertical lines at x=a, x=b, x=c
+\addplot[gray, thin] coordinates {(2,0) (2,1.0)};
+\addplot[gray, thin] coordinates {(5,0) (5,2.2)};
+\addplot[gray, thin] coordinates {(8,0) (8,1.5)};
+
+% Labels on x-axis
+\node[below] at (axis cs:2,-0.15) {$x{=}a$};
+\node[below] at (axis cs:5,-0.15) {$x{=}b$};
+\node[below] at (axis cs:8,-0.15) {$x{=}c$};
+
+% Function labels
+\node[blue, right, font=\large\bfseries] at (axis cs:10,4.72) {$f(x)$};
+\node[green!50!black, right, font=\large\bfseries] at (axis cs:10,3.5) {$g(x)$};
+\node[red, right, font=\large\bfseries] at (axis cs:10,1.2) {$h(x)$};
+
+\end{axis}
+\end{tikzpicture}
+\end{document}

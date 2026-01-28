@@ -1,0 +1,43 @@
+TestCase4 - Polar Coordinate Region Diagram
+============================================
+
+Original image: /Users/mingheiwong/Desktop/MathThermoCourseLatex/TestCase4.png
+
+Description: A polar coordinate diagram showing a region bounded by:
+- Two rays at angles theta = alpha and theta = beta
+- Inner curve r = h1(theta) (red)
+- Outer curve r = h2(theta) (blue)
+- Green shaded region between the curves
+
+Phase 1: Python Drafting
+------------------------
+- Created draft.py to experiment with polar coordinate visualization
+- Tested quadratic functions for h1 and h2 curves
+- Used alpha = 25 degrees, beta = 70 degrees
+- h1(theta) = 1.3 + 0.8*s + 0.2*s^2 where s = (theta-alpha)/(beta-alpha)
+- h2(theta) = 2.5 + 0.6*s + 0.3*s^2
+- Python verification gate: PASSED
+
+Phase 2-3: TikZ Generation and Verification
+-------------------------------------------
+v1 (test.tex):
+- Initial TikZ implementation using polar coordinates
+- Structure correct but labels overlapping with curves
+- Scale was adequate
+
+v2 (test-v2.tex):
+- Increased scale from 1.2 to 1.5
+- Repositioned labels using anchor options
+- theta = beta: anchor=south east
+- theta = alpha: anchor=west
+- r = h1(theta): anchor=east, positioned inside region
+- r = h2(theta): anchor=south west, positioned outside
+- ACCEPTED - topologically equivalent to original
+
+Final result: test-v2.tex (2 iterations)
+
+Techniques used:
+- TikZ polar coordinates with plot[smooth]
+- Custom radial functions expressed as normalized parametric curves
+- Fill path combining forward and reverse curve traversal
+- Anchor-based label positioning

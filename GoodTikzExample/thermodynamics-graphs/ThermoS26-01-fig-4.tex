@@ -1,0 +1,91 @@
+\documentclass[tikz,border=10pt]{standalone}
+\usepackage{pgfplots}
+\usetikzlibrary{decorations.pathmorphing, arrows.meta, calc}
+
+\begin{document}
+\begin{tikzpicture}
+    \begin{axis}[
+        % --- Axis Setup ---
+        axis lines = center,
+        xlabel = {$U$},
+        ylabel = {$\tilde{S}$},
+        ylabel style = {above left},
+        xlabel style = {below right},
+        axis line style = {-Stealth, thick},
+        % Domain view
+        xmin = -1, xmax = 12,
+        ymin = -0.5, ymax = 6.5,
+        ticks = none,
+        clip = false,
+        width = 12cm,
+        height = 8cm
+    ]
+
+        % Constants for the parabolic model: f(x) = PeakH - k*(x - PeakX)^2
+        \def\Umax{10}
+        \def\PeakX{7.5}
+        \def\PeakH{5.5}
+        \def\Curvature{0.08}
+        
+        % The Function: Parabola opening downwards
+        \addplot[
+            thick, 
+            black, 
+            domain=0:\Umax, 
+            samples=100
+        ] {\PeakH - \Curvature*(x-\PeakX)^2};
+
+        % Calculate exact coordinates based on the formula
+        % Start (x=0): 5.5 - 0.08*(-7.5)^2 = 5.5 - 4.5 = 1.0
+        \coordinate (start) at (axis cs:0, 1.0);
+        
+        % End (x=10): 5.5 - 0.08*(2.5)^2 = 5.5 - 0.5 = 5.0
+        \coordinate (end) at (axis cs:\Umax, 5.0);
+        
+        % Peak (x=7.5): 5.5
+        \coordinate (peak) at (axis cs:\PeakX, \PeakH);
+        
+        % Axis points
+        \coordinate (u0_axis) at (axis cs:\Umax, 0);
+        \coordinate (ustar_axis) at (axis cs:\PeakX, 0);
+
+        % --- 2. Dashed Lines & Tangent ---
+        
+        % Vertical dashed line for U*
+        \draw[dashed, thick] (peak) -- (ustar_axis);
+        \node[below, font=\large] at (ustar_axis) {$U_*$};
+        \draw[thick] ($(ustar_axis)+(0,0.1)$) -- ($(ustar_axis)+(0,-0.1)$);
+
+        % Vertical dashed line for U0
+        \draw[dashed, thick] (end) -- (u0_axis);
+        \node[below, font=\large] at (u0_axis) {$U_0$};
+        \draw[thick] ($(u0_axis)+(0,0.1)$) -- ($(u0_axis)+(0,-0.1)$);
+
+        % Dotted Tangent Line at Peak
+        \draw[very thick, dotted, line cap=round] ($(peak)+(-15.0,0)$) -- ($(peak)+(15.0,0)$);
+
+        % Diagonal dashed line connecting start and end
+        \draw[dashed, thick] (start) -- (end);
+
+        % --- 3. Points and Labels ---
+
+        % Start Point
+        \node[circle, fill=black, inner sep=1.5pt] at (start) {};
+        \node[anchor=east, xshift=-2pt] at (start) {$\tilde{S}^\beta(U_0)$};
+
+        % End Point
+        \node[circle, fill=black, inner sep=1.5pt] at (end) {};
+        \node[anchor=west, xshift=2pt] at (end) {$\tilde{S}^\alpha(U_0)$};
+
+        % Peak Point
+        \node[circle, fill=black, inner sep=1.5pt] at (peak) {};
+
+        % --- 4. Top Annotation ---
+        \node[anchor=south] (eq) at (axis cs: 5, 5.8) {\Large $\tilde{S}(U) = \tilde{S}^\alpha(U) + \tilde{S}^\beta(U_0 - U)$};
+        
+        \draw[->, >=Stealth, thick, decorate, decoration={snake, amplitude=1.5pt, segment length=8pt, post length=5pt}] 
+            ($(eq.south west)+(8,6)$) -- ($(peak)+(-40, -90)$);
+
+    \end{axis}
+\end{tikzpicture}
+\end{document}
